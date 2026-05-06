@@ -99,6 +99,7 @@
     const hash = location.hash || "#/";
     const parts = hash.replace(/^#\/?/, "").split("/").filter(Boolean);
     if (parts.length === 0) return renderHome();
+    if (parts[0] === "final") return renderFinal(parts[1] || "all");
     if (parts[0] === "chapter" && parts[1]) {
       const ch = chaptersById.get(parseInt(parts[1], 10));
       if (!ch) return renderHome();
@@ -111,6 +112,7 @@
 
   function renderHome() {
     const overall = overallScore();
+    const finalStats = finalScore();
     const rows = DATA.chapters
       .map((ch) => {
         const s = chapterScore(ch);
@@ -135,8 +137,104 @@
         <div class="stat"><div class="stat-label">Attempted</div><div class="stat-val">${overall.attempted}/${overall.total}</div></div>
         <div class="stat"><div class="stat-label">Chapters</div><div class="stat-val">${DATA.chapters.length}</div></div>
       </div>
+      <a class="chapter-card final-card" href="#/final">
+        <div class="ch-title">
+          <div class="ch-num">Final Exam Prep</div>
+          <div class="ch-name">Mixed questions from Chapters 12&ndash;24</div>
+        </div>
+        <div class="ch-stats">
+          <span class="score-bar"><div style="width:${pct(finalStats.score)}"></div></span>
+          <span class="score-num">${pct(finalStats.score)}</span>
+          <div class="muted">${finalStats.attempted}/${finalStats.total} attempted</div>
+        </div>
+      </a>
       <div class="chapter-list">${rows}</div>
     `;
+  }
+
+  function finalQuestions() {
+    const out = [];
+    for (const ch of DATA.chapters) {
+      if (ch.chapter >= 12 && ch.chapter <= 24) {
+        for (const q of ch.questions) out.push({ ch, q });
+      }
+    }
+    return out;
+  }
+  function finalScore() {
+    const all = finalQuestions();
+    let total = 0;
+    let attempted = 0;
+    for (const { q } of all) {
+      const sc = questionScore(q.id);
+      if (sc !== null) {
+        attempted++;
+        total += sc;
+      }
+    }
+    return { score: total / all.length, attempted, total: all.length };
+  }
+
+  function renderFinal(mode) {
+    const all = finalQuestions();
+    const stats = finalScore();
+    if (mode === "all" || mode === "wrong" || mode === "sample50") {
+      let pool = all.map((x) => x.q);
+      if (mode === "wrong") {
+        pool = pool.filter((q) => {
+          const sc = questionScore(q.id);
+          return sc !== null && sc < 1;
+        });
+      } else if (mode === "sample50") {
+        pool = shuffle(pool).slice(0, 50);
+      }
+      if (pool.length === 0) {
+        app.innerHTML = `<a href="#/final" class="back">&larr; Back</a><p>No questions to practice.</p>`;
+        return;
+      }
+      const synthetic = {
+        chapter: "Final",
+        title: "Final Exam (Ch 12-24)",
+        questions: pool,
+        _isFinal: true,
+      };
+      quizSession = {
+        ch: synthetic,
+        mode,
+        order: shuffle(pool),
+        idx: 0,
+        results: [],
+      };
+      renderQuizCard();
+      return;
+    }
+    const wrongCount = all.filter(({ q }) => {
+      const sc = questionScore(q.id);
+      return sc !== null && sc < 1;
+    }).length;
+    app.innerHTML = `
+      <a href="#/" class="back">&larr; All chapters</a>
+      <h1>Final Exam Prep</h1>
+      <p class="muted">Mixed questions from Chapters 12 through 24 (${all.length} total). Stats are shared with the per-chapter views.</p>
+      <div class="summary-row">
+        <div class="stat"><div class="stat-label">Score</div><div class="stat-val">${pct(stats.score)}</div></div>
+        <div class="stat"><div class="stat-label">Attempted</div><div class="stat-val">${stats.attempted}/${stats.total}</div></div>
+        <div class="stat"><div class="stat-label">Need work</div><div class="stat-val">${wrongCount}</div></div>
+      </div>
+      <div>
+        <button class="btn" data-action="all">Full exam (${all.length})</button>
+        <button class="btn secondary" data-action="sample50">Random 50</button>
+        <button class="btn secondary" data-action="wrong" ${wrongCount === 0 ? "disabled" : ""}>Practice wrong only (${wrongCount})</button>
+      </div>
+    `;
+    app.querySelector('[data-action="all"]').onclick = () => {
+      location.hash = "#/final/all";
+    };
+    app.querySelector('[data-action="sample50"]').onclick = () => {
+      location.hash = "#/final/sample50";
+    };
+    const wb = app.querySelector('[data-action="wrong"]');
+    if (wb) wb.onclick = () => { location.hash = "#/final/wrong"; };
   }
 
   function renderChapter(ch) {
@@ -233,10 +331,12 @@
           `<div class="choice" data-i="${i}"><span class="key">${i + 1}.</span>${escapeHtml(c)}</div>`
       )
       .join("");
+    const backHash = sess.ch._isFinal ? "#/final" : `#/chapter/${sess.ch.chapter}`;
+    const metaLabel = sess.ch._isFinal ? "Final Exam" : `Chapter ${sess.ch.chapter}`;
     app.innerHTML = `
-      <a href="#/chapter/${sess.ch.chapter}" class="back">&larr; Exit quiz</a>
+      <a href="${backHash}" class="back">&larr; Exit quiz</a>
       <div class="q-card">
-        <div class="q-meta">${q.id} &middot; Chapter ${sess.ch.chapter}</div>
+        <div class="q-meta">${q.id} &middot; ${metaLabel}</div>
         <div class="q-stem">${escapeHtml(q.stem)}</div>
         <div class="choices">${choices}</div>
         <div class="feedback" id="feedback" style="display:none"></div>
@@ -313,25 +413,33 @@
         return `<li><span class="qid">${r.qid}</span><span class="qstem">${escapeHtml(q.stem)}</span></li>`;
       })
       .join("");
+    const backHash = sess.ch._isFinal ? "#/final" : `#/chapter/${sess.ch.chapter}`;
+    const heading = sess.ch._isFinal
+      ? escapeHtml(sess.ch.title)
+      : `Chapter ${sess.ch.chapter}: ${escapeHtml(sess.ch.title)}`;
     app.innerHTML = `
-      <a href="#/chapter/${sess.ch.chapter}" class="back">&larr; Back to chapter</a>
+      <a href="${backHash}" class="back">&larr; Back</a>
       <div class="summary-card">
         <h1>Quiz complete</h1>
-        <div class="muted">Chapter ${sess.ch.chapter}: ${escapeHtml(sess.ch.title)}</div>
+        <div class="muted">${heading}</div>
         <div class="big-score ${cls}">${correct}/${total}</div>
         <div class="muted">${pct(score)}</div>
         <div style="margin-top:18px">
           <button class="btn" id="again-btn">Quiz again</button>
-          <button class="btn secondary" id="back-btn">Back to chapter</button>
+          <button class="btn secondary" id="back-btn">Back</button>
         </div>
       </div>
       ${wrongList ? `<h2 style="margin-top:24px;margin-bottom:8px;">Missed (${total - correct})</h2><ul class="q-list">${wrongList}</ul>` : ""}
     `;
     document.getElementById("again-btn").onclick = () => {
-      renderQuiz(sess.ch, sess.mode);
+      if (sess.ch._isFinal) {
+        location.hash = `#/final/${sess.mode}`;
+      } else {
+        renderQuiz(sess.ch, sess.mode);
+      }
     };
     document.getElementById("back-btn").onclick = () => {
-      location.hash = `#/chapter/${sess.ch.chapter}`;
+      location.hash = backHash;
     };
     quizSession = null;
   }

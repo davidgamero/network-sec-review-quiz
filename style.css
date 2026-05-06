@@ -101,6 +101,11 @@ a:hover { color: var(--accent-hover); }
   color: var(--text);
 }
 .chapter-card:hover { border-color: var(--accent); color: var(--text); }
+.chapter-card.final-card {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--panel) 0%, #1d2a3a 100%);
+  margin-bottom: 14px;
+}
 .chapter-card .ch-title { flex: 1; }
 .chapter-card .ch-num { color: var(--muted); font-size: 0.85rem; margin-bottom: 2px; }
 .chapter-card .ch-name { font-weight: 500; }
