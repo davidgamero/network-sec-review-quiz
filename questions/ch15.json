@@ -1,0 +1,266 @@
+{
+  "chapter": 15,
+  "title": "IT Security Controls, Plans, and Procedures",
+  "questions": [
+    {
+      "id": "ch15-q01",
+      "question": "Which security control class focuses on administrative acts such as policies, planning, and guidelines for selecting other controls?",
+      "options": [
+        "Technical controls",
+        "Operational controls",
+        "Management controls",
+        "Supportive controls"
+      ],
+      "answer": "Management controls",
+      "explanation": "Management controls provide the framework and administrative oversight for the overall security posture, including policy and planning.",
+      "type": "definition"
+    },
+    {
+      "id": "ch15-q02",
+      "question": "An organization implements mandatory security awareness training for all new hires. This is an example of which control class?",
+      "options": [
+        "Management",
+        "Operational",
+        "Technical",
+        "Infrastructural"
+      ],
+      "answer": "Operational",
+      "explanation": "Operational controls address the human element of security and involve procedures performed by people rather than systems.",
+      "type": "applied"
+    },
+    {
+      "id": "ch15-q03",
+      "question": "According to the functional categorization of controls, which type is specifically designed to stop a security violation from occurring?",
+      "options": [
+        "Detective controls",
+        "Preventative controls",
+        "Recovery controls",
+        "Supportive controls"
+      ],
+      "answer": "Preventative controls",
+      "explanation": "Preventative controls are intended to inhibit attempts to violate security policies before they succeed.",
+      "type": "definition"
+    },
+    {
+      "id": "ch15-q04",
+      "question": "What is the primary purpose of 'tailoring' a security control baseline?",
+      "options": [
+        "To reduce the total number of controls to the absolute minimum",
+        "To ensure controls match the specific technology and environmental needs of the organization",
+        "To eliminate the need for a formal risk assessment",
+        "To automate the implementation of technical safeguards"
+      ],
+      "answer": "To ensure controls match the specific technology and environmental needs of the organization",
+      "explanation": "Tailoring adjusts a standard baseline (like NIST SP 800-53) to account for specific technologies, scalability, and unique organizational requirements.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch15-q05",
+      "question": "Which term describes the level of risk that persists even after all selected security controls have been implemented?",
+      "options": [
+        "Inherent risk",
+        "Accepted risk",
+        "Residual risk",
+        "Transferable risk"
+      ],
+      "answer": "Residual risk",
+      "explanation": "Residual risk is the portion of risk remaining after countermeasures are applied; management must decide whether to accept this level.",
+      "type": "definition"
+    },
+    {
+      "id": "ch15-q06",
+      "question": "In the context of the Silver Star Mines case study, why were firewalls and proxies prioritized over patching for the SCADA nodes?",
+      "options": [
+        "Patching was considered too expensive for the budget",
+        "The nodes were running legacy software that could not be easily patched",
+        "Management decided that internal threats were not a priority",
+        "Encryption was already protecting the SCADA traffic"
+      ],
+      "answer": "The nodes were running legacy software that could not be easily patched",
+      "explanation": "Because SCADA systems often involve legacy hardware or sensitive industrial software that is difficult to patch, perimeter controls are used as a compensatory measure.",
+      "type": "applied"
+    },
+    {
+      "id": "ch15-q07",
+      "question": "Which monitoring activity involves reviewing proposed system changes for potential security implications before they are enacted?",
+      "options": [
+        "Configuration management",
+        "Incident handling",
+        "Compliance auditing",
+        "Change management"
+      ],
+      "answer": "Change management",
+      "explanation": "Change management ensures that modifications to systems do not introduce new vulnerabilities or negatively impact security.",
+      "type": "definition"
+    },
+    {
+      "id": "ch15-q08",
+      "question": "A formal IT security plan must include which of the following elements to be considered actionable?",
+      "options": [
+        "A list of every possible threat regardless of likelihood",
+        "Detailed biographies of all security personnel",
+        "Assigned resources, responsibilities, and target completion dates",
+        "A guarantee that no further breaches will occur"
+      ],
+      "answer": "Assigned resources, responsibilities, and target completion dates",
+      "explanation": "An effective security plan specifies what needs to be done, who is responsible, what resources are required, and when it should be finished.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch15-q09",
+      "question": "Which type of control provides underlying technical capabilities that other controls rely upon, such as identification and authentication?",
+      "options": [
+        "Supportive controls",
+        "Corrective controls",
+        "Management controls",
+        "Physical controls"
+      ],
+      "answer": "Supportive controls",
+      "explanation": "Supportive controls are pervasive technical capabilities that underpin the effectiveness of other preventative and detective controls.",
+      "type": "definition"
+    },
+    {
+      "id": "ch15-q10",
+      "question": "Why is a cost-benefit analysis critical during the control selection process?",
+      "options": [
+        "It determines if the security officer deserves a bonus",
+        "It ensures the cost of a control does not exceed the value of the risk reduction it provides",
+        "It is required by law for all private organizations",
+        "It removes the need for technical monitoring"
+      ],
+      "answer": "It ensures the cost of a control does not exceed the value of the risk reduction it provides",
+      "explanation": "Organizations must balance the expense of implementing a safeguard against the actual reduction in potential loss.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch15-q11",
+      "question": "Which document provides the structure for an integrated, organization-wide approach to managing information security risk, as cited in the chapter?",
+      "options": [
+        "FIPS 199",
+        "NIST SP 800-39",
+        "ISO 9001",
+        "PCI DSS"
+      ],
+      "answer": "NIST SP 800-39",
+      "explanation": "NIST SP 800-39 focuses on managing risk at the organizational, business process, and information system levels.",
+      "type": "definition"
+    },
+    {
+      "id": "ch15-q12",
+      "question": "During the monitoring phase, what is the primary goal of configuration management?",
+      "options": [
+        "To prevent employees from installing unauthorized software",
+        "To maintain an accurate inventory and track all modifications to system components",
+        "To generate daily reports for executive management",
+        "To automate the deletion of old log files"
+      ],
+      "answer": "To maintain an accurate inventory and track all modifications to system components",
+      "explanation": "Configuration management tracks hardware and software versions, which is essential for recovery, patching, and consistency.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch15-q13",
+      "question": "An intrusion detection system (IDS) triggers an alert when it identifies a potential brute-force attack. Which functional category does this fall under?",
+      "options": [
+        "Preventative control",
+        "Detective control",
+        "Management control",
+        "Supportive control"
+      ],
+      "answer": "Detective control",
+      "explanation": "Detective controls identify and warn of security violations or attempts that have occurred or are in progress.",
+      "type": "applied"
+    },
+    {
+      "id": "ch15-q14",
+      "question": "Which of these is a management control activity rather than an operational or technical one?",
+      "options": [
+        "Installing a firewall",
+        "Conducting a formal risk assessment",
+        "Locking the server room door",
+        "Backing up data to a remote site"
+      ],
+      "answer": "Conducting a formal risk assessment",
+      "explanation": "Risk assessment is a planning and decision-making activity categorized under management controls.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch15-q15",
+      "question": "When applying security controls to a system that is accessible to the general public, what is a likely tailoring consideration?",
+      "options": [
+        "Increasing the complexity of user passwords for every visitor",
+        "Using different authentication or personnel security controls than those used for internal systems",
+        "Disabling all encryption to improve performance",
+        "Eliminating the need for an incident response plan"
+      ],
+      "answer": "Using different authentication or personnel security controls than those used for internal systems",
+      "explanation": "Public access systems have different threat profiles and user bases, requiring tailored approaches to identity and access management.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch15-q16",
+      "question": "The Silver Star Mines case study proposed a backup email system isolated from the corporate intranet. What security objective was this primarily addressing?",
+      "options": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Non-repudiation"
+      ],
+      "answer": "Availability",
+      "explanation": "An isolated backup system ensures that high-priority communications remain available even if the main network is compromised or down.",
+      "type": "applied"
+    },
+    {
+      "id": "ch15-q17",
+      "question": "Which term refers to the process of verifying that an organization is actually following its documented security plan and policies?",
+      "options": [
+        "Security compliance",
+        "Risk mitigation",
+        "Threat modeling",
+        "Control tailoring"
+      ],
+      "answer": "Security compliance",
+      "explanation": "Compliance auditing or monitoring checks whether the organization is adhering to its established security rules and procedures.",
+      "type": "definition"
+    },
+    {
+      "id": "ch15-q18",
+      "question": "Which of the following describes the relationship between technical controls and operational procedures?",
+      "options": [
+        "Technical controls always replace the need for operational procedures",
+        "Operational procedures are only necessary if technical controls fail",
+        "Technical controls often require operational procedures for correct configuration and use",
+        "Management controls prevent the use of both technical and operational measures"
+      ],
+      "answer": "Technical controls often require operational procedures for correct configuration and use",
+      "explanation": "Hardware and software (technical) need human processes (operational) to be managed, monitored, and maintained correctly.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch15-q19",
+      "question": "A security officer reviews audit logs weekly to look for suspicious patterns. This activity is part of which phase?",
+      "options": [
+        "Risk assessment",
+        "Control selection",
+        "Monitoring and maintenance",
+        "Policy drafting"
+      ],
+      "answer": "Monitoring and maintenance",
+      "explanation": "Ongoing review of logs and performance is a key part of the monitoring phase to ensure controls remain effective.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch15-q20",
+      "question": "Which control type focuses on restoring resources and functionality after a security incident has occurred?",
+      "options": [
+        "Preventative controls",
+        "Detective controls",
+        "Recovery controls",
+        "Supportive controls"
+      ],
+      "answer": "Recovery controls",
+      "explanation": "Recovery controls (often grouped with detective) provide the mechanisms to return systems to a normal, secure state after a violation.",
+      "type": "definition"
+    }
+  ]
+}

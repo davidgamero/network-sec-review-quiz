@@ -1,0 +1,246 @@
+{
+  "chapter": 22,
+  "title": "Internet Security Protocols and Standards",
+  "questions": [
+    {
+      "id": "ch22-q01",
+      "question": "Which S/MIME function allows a recipient without S/MIME capability to read the message content, even if they cannot verify the signature?",
+      "options": [
+        "Enveloped Data",
+        "Signed Data",
+        "Clear-Signed Data",
+        "Signed and Enveloped Data"
+      ],
+      "answer": "Clear-Signed Data",
+      "type": "definition"
+    },
+    {
+      "id": "ch22-q02",
+      "question": "In the S/MIME process, which algorithm is typically used to convert binary ciphertext into printable ASCII characters for transmission via email?",
+      "options": [
+        "SHA-256",
+        "Radix-64",
+        "AES-128",
+        "Diffie-Hellman"
+      ],
+      "answer": "Radix-64",
+      "type": "definition"
+    },
+    {
+      "id": "ch22-q03",
+      "question": "How does DomainKeys Identified Mail (DKIM) differ from S/MIME in terms of its primary implementation and visibility?",
+      "options": [
+        "DKIM provides end-to-end security between users, while S/MIME is domain-level.",
+        "DKIM requires specialized client software (MUA), while S/MIME is transparent.",
+        "DKIM is typically implemented at the administrative management domain (ADMD) level and is transparent to end users.",
+        "S/MIME signatures are stored in the DNS, whereas DKIM signatures are embedded in the message body."
+      ],
+      "answer": "DKIM is typically implemented at the administrative management domain (ADMD) level and is transparent to end users.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch22-q04",
+      "question": "Which protocol within the TLS architecture is responsible for managing the negotiation of encryption algorithms and the exchange of cryptographic keys?",
+      "options": [
+        "TLS Record Protocol",
+        "Alert Protocol",
+        "Handshake Protocol",
+        "Change Cipher Spec Protocol"
+      ],
+      "answer": "Handshake Protocol",
+      "type": "definition"
+    },
+    {
+      "id": "ch22-q05",
+      "question": "What is the specific function of the Change Cipher Spec Protocol in a TLS session?",
+      "options": [
+        "It generates the master secret from the pre-master secret.",
+        "It signals that subsequent records will be protected under the newly negotiated cipher suite and keys.",
+        "It handles the compression and fragmentation of the payload data.",
+        "It provides a heartbeat mechanism to keep the connection alive."
+      ],
+      "answer": "It signals that subsequent records will be protected under the newly negotiated cipher suite and keys.",
+      "type": "definition"
+    },
+    {
+      "id": "ch22-q06",
+      "question": "The Heartbleed vulnerability was caused by a specific flaw in which TLS-related protocol implementation?",
+      "options": [
+        "Handshake Protocol",
+        "Alert Protocol",
+        "Heartbeat Protocol",
+        "Record Protocol"
+      ],
+      "answer": "Heartbeat Protocol",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch22-q07",
+      "question": "During a Heartbleed attack, what was the mechanism that allowed an attacker to retrieve sensitive information from a server's memory?",
+      "options": [
+        "A chosen-plaintext attack on the symmetric encryption algorithm.",
+        "Exploiting a buffer over-read by sending a heartbeat request with a small payload but a large declared length.",
+        "Man-in-the-middle interception of the Change Cipher Spec message.",
+        "Forcing the server to downgrade to a weaker, export-grade version of RSA."
+      ],
+      "answer": "Exploiting a buffer over-read by sending a heartbeat request with a small payload but a large declared length.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch22-q08",
+      "question": "Which of the following is NOT part of the triplet that uniquely identifies an IPsec Security Association (SA)?",
+      "options": [
+        "Security Parameter Index (SPI)",
+        "IP Destination Address",
+        "Protocol Identifier (ESP or AH)",
+        "Source MAC Address"
+      ],
+      "answer": "Source MAC Address",
+      "type": "definition"
+    },
+    {
+      "id": "ch22-q09",
+      "question": "In which IPsec mode is the entire original IP packet (including its header) encrypted and then encapsulated within a new outer IP packet?",
+      "options": [
+        "Transport Mode",
+        "Tunnel Mode",
+        "Recursive Mode",
+        "Ad-hoc Mode"
+      ],
+      "answer": "Tunnel Mode",
+      "type": "definition"
+    },
+    {
+      "id": "ch22-q10",
+      "question": "When using HTTPS, at what point in the connection process are the HTTP request headers and URL actually encrypted?",
+      "options": [
+        "During the TCP three-way handshake.",
+        "Immediately after the ClientHello message is sent.",
+        "Only after the TLS handshake is successfully completed.",
+        "Before the TLS handshake begins, using a shared pre-negotiated key."
+      ],
+      "answer": "Only after the TLS handshake is successfully completed.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch22-q11",
+      "question": "What is the primary purpose of the Sequence Number field in the IPsec ESP header?",
+      "options": [
+        "To ensure packets are delivered in the correct order for streaming.",
+        "To prevent replay attacks by using a sliding window mechanism.",
+        "To identify which cryptographic algorithm was used for encryption.",
+        "To act as a salt for the session key generation."
+      ],
+      "answer": "To prevent replay attacks by using a sliding window mechanism.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch22-q12",
+      "question": "Which layer of the TLS protocol stack is responsible for providing confidentiality through symmetric encryption and message integrity through a MAC?",
+      "options": [
+        "Application Layer",
+        "TLS Record Protocol",
+        "Handshake Protocol",
+        "Network Layer"
+      ],
+      "answer": "TLS Record Protocol",
+      "type": "definition"
+    },
+    {
+      "id": "ch22-q13",
+      "question": "A network administrator wants to set up a site-to-site VPN between two corporate offices. Which IPsec configuration is most appropriate for this scenario?",
+      "options": [
+        "ESP in Transport Mode",
+        "AH in Transport Mode",
+        "ESP in Tunnel Mode",
+        "AH in Tunnel Mode"
+      ],
+      "answer": "ESP in Tunnel Mode",
+      "type": "applied"
+    },
+    {
+      "id": "ch22-q14",
+      "question": "In S/MIME, if a sender wants to ensure that only the intended recipient can read the message AND the recipient can verify the sender's identity, which functional sequence is used?",
+      "options": [
+        "The message is first encrypted (Enveloped Data) and then the result is signed (Signed Data).",
+        "The message is compressed and then Radix-64 encoded.",
+        "Only Clear-Signed Data is used to ensure visibility.",
+        "The message is hashed using SHA-256 and sent over a TLS tunnel."
+      ],
+      "answer": "The message is first encrypted (Enveloped Data) and then the result is signed (Signed Data).",
+      "type": "applied"
+    },
+    {
+      "id": "ch22-q15",
+      "question": "How does the TLS Alert Protocol handle a 'Fatal' level alert message?",
+      "options": [
+        "It logs the error and continues the session normally.",
+        "It immediately terminates the connection and invalidates the session ID.",
+        "It requests a re-transmission of the last handshake message.",
+        "It triggers an automatic fallback to an older version of SSL."
+      ],
+      "answer": "It immediately terminates the connection and invalidates the session ID.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch22-q16",
+      "question": "What happens during Phase 4 of the TLS Handshake Protocol?",
+      "options": [
+        "The client and server exchange certificates.",
+        "The server sends its public key and requests a client certificate.",
+        "Both parties send Change Cipher Spec and Finished messages to transition to the secure state.",
+        "The ClientHello and ServerHello messages are exchanged to negotiate cipher suites."
+      ],
+      "answer": "Both parties send Change Cipher Spec and Finished messages to transition to the secure state.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch22-q17",
+      "question": "Which of the following describes the 'Enveloped Data' function in S/MIME?",
+      "options": [
+        "The message content is hashed and signed with the sender's private key.",
+        "The message content is encrypted with a session key, and the session key is encrypted with the recipient's public key.",
+        "The message content is sent in clear text with an attached signature.",
+        "The message is encapsulated in an IPsec tunnel for secure transport."
+      ],
+      "answer": "The message content is encrypted with a session key, and the session key is encrypted with the recipient's public key.",
+      "type": "definition"
+    },
+    {
+      "id": "ch22-q18",
+      "question": "An organization is experiencing frequent email spoofing where attackers send emails appearing to come from their domain. Which protocol should they implement to allow receivers to cryptographically verify the domain's responsibility for the email?",
+      "options": [
+        "HTTPS",
+        "IPsec ESP",
+        "DKIM",
+        "TLS Record Protocol"
+      ],
+      "answer": "DKIM",
+      "type": "applied"
+    },
+    {
+      "id": "ch22-q19",
+      "question": "A developer is implementing a secure file transfer tool that needs to operate between two specific hosts without the overhead of encapsulating entire IP packets. Which IPsec mode is most efficient for this host-to-host communication?",
+      "options": [
+        "Tunnel Mode",
+        "Transport Mode",
+        "Handshake Mode",
+        "Enveloped Mode"
+      ],
+      "answer": "Transport Mode",
+      "type": "applied"
+    },
+    {
+      "id": "ch22-q20",
+      "question": "Why is Encapsulating Security Payload (ESP) generally preferred over Authentication Header (AH) in modern IPsec implementations?",
+      "options": [
+        "ESP is faster because it does not use hashing.",
+        "ESP can provide both confidentiality and authentication, whereas AH does not provide confidentiality.",
+        "AH is only compatible with IPv4, while ESP works with IPv6.",
+        "ESP does not require the use of Security Associations (SAs)."
+      ],
+      "answer": "ESP can provide both confidentiality and authentication, whereas AH does not provide confidentiality.",
+      "type": "conceptual"
+    }
+  ]
+}

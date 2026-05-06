@@ -1,0 +1,246 @@
+{
+  "chapter": 11,
+  "title": "Software Security",
+  "questions": [
+    {
+      "id": "ch11-q01",
+      "question": "How does software security primarily differ from software quality and reliability?",
+      "options": [
+        "Quality deals with intentional attacks while security focuses on accidental failures.",
+        "Security addresses the probability distribution of random, unanticipated inputs.",
+        "Security focuses on intentional attacks where the attacker chooses the input distribution.",
+        "Reliability uses structured design while security relies solely on perimeter defenses."
+      ],
+      "answer": "Security focuses on intentional attacks where the attacker chooses the input distribution.",
+      "type": "definition"
+    },
+    {
+      "id": "ch11-q02",
+      "question": "What is the core rule of defensive programming?",
+      "options": [
+        "Always use the most complex algorithm available to confuse attackers.",
+        "Never assume anything and check all assumptions and potential error states.",
+        "Rely on the operating system to handle all resource management issues.",
+        "Filter all input through a centralized firewall before it reaches the application."
+      ],
+      "answer": "Never assume anything and check all assumptions and potential error states.",
+      "type": "definition"
+    },
+    {
+      "id": "ch11-q03",
+      "question": "Which attack occurs when input data is used to construct a system command executed with the privileges of the web server?",
+      "options": [
+        "Command injection",
+        "Cross-site request forgery",
+        "Memory leak exploitation",
+        "Buffer over-read"
+      ],
+      "answer": "Command injection",
+      "type": "definition"
+    },
+    {
+      "id": "ch11-q04",
+      "question": "What process replaces multiple, alternative encodings of data with a single, standard representation before validation?",
+      "options": [
+        "Fuzzing",
+        "Canonicalization",
+        "Static linking",
+        "Privilege escalation"
+      ],
+      "answer": "Canonicalization",
+      "type": "definition"
+    },
+    {
+      "id": "ch11-q05",
+      "question": "Which software testing technique provides random or semi-random data to find security or reliability flaws?",
+      "options": [
+        "Formal methods",
+        "Regression testing",
+        "Fuzzing",
+        "Atomic synchronization"
+      ],
+      "answer": "Fuzzing",
+      "type": "definition"
+    },
+    {
+      "id": "ch11-q06",
+      "question": "What is a memory leak?",
+      "options": [
+        "An unauthorized access to sensitive data stored in the process heap.",
+        "A failure to release dynamic memory, potentially leading to denial-of-service.",
+        "A bug where an attacker can read the contents of adjacent memory blocks.",
+        "A race condition where two threads overwrite the same memory location."
+      ],
+      "answer": "A failure to release dynamic memory, potentially leading to denial-of-service.",
+      "type": "definition"
+    },
+    {
+      "id": "ch11-q07",
+      "question": "In the context of concurrent execution, what is a race condition?",
+      "options": [
+        "A situation where multiple processes compete for a single CPU core.",
+        "An attack that uses predictable TCP sequence numbers to hijack a session.",
+        "The steady reduction of available system memory due to poor management.",
+        "A situation where output depends on the sequence or timing of uncontrollable events."
+      ],
+      "answer": "A situation where output depends on the sequence or timing of uncontrollable events.",
+      "type": "definition"
+    },
+    {
+      "id": "ch11-q08",
+      "question": "What is an atomic operation?",
+      "options": [
+        "An operation treated as a single, uninterruptible unit of execution.",
+        "A low-level machine instruction that interacts directly with hardware.",
+        "A cryptographic function used to generate unpredictable random seeds.",
+        "A script that runs with the highest possible system privileges."
+      ],
+      "answer": "An operation treated as a single, uninterruptible unit of execution.",
+      "type": "definition"
+    },
+    {
+      "id": "ch11-q09",
+      "question": "Why is allowlisting generally considered more secure than denylisting for input validation?",
+      "options": [
+        "Denylisting requires significantly more processing power and memory.",
+        "Allowlisting handles new, undiscovered attack encodings by only accepting known safe data.",
+        "Denylisting is impossible to implement using standard regular expressions.",
+        "Allowlisting automatically performs canonicalization on all incoming data."
+      ],
+      "answer": "Allowlisting handles new, undiscovered attack encodings by only accepting known safe data.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch11-q10",
+      "question": "A web application displays user comments to other visitors. What is the primary risk if this output is not sanitized?",
+      "options": [
+        "SQL injection in the backend database.",
+        "Command injection on the web server OS.",
+        "Cross-site scripting (XSS) attacks on other users' browsers.",
+        "Privilege escalation of the guestbook service account."
+      ],
+      "answer": "Cross-site scripting (XSS) attacks on other users' browsers.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch11-q11",
+      "question": "How does the principle of least privilege improve software security?",
+      "options": [
+        "It prevents attackers from discovering bugs in the algorithm implementation.",
+        "It ensures that a compromised program has minimal access to the rest of the system.",
+        "It eliminates the need for input validation by restricting user capabilities.",
+        "It forces all programs to use static linking for their standard libraries."
+      ],
+      "answer": "It ensures that a compromised program has minimal access to the rest of the system.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch11-q12",
+      "question": "Which environment variable flaw allows an attacker to trick a shell script into executing a malicious program by placing it in a controlled directory?",
+      "options": [
+        "Manipulating the IFS variable to change word boundaries.",
+        "Modifying the PATH variable to point to the attacker's directory.",
+        "Changing LD_LIBRARY_PATH to load a custom version of a standard library.",
+        "Overwriting the REPLYTO variable to redirect system emails."
+      ],
+      "answer": "Modifying the PATH variable to point to the attacker's directory.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch11-q13",
+      "question": "Why did the 2014 Heartbleed vulnerability occur in OpenSSL?",
+      "options": [
+        "A failure to validate the length of a requested data return in a binary protocol.",
+        "An insecure random number seed that made session keys predictable.",
+        "A race condition between two threads accessing the same SSL certificate.",
+        "The use of shell metacharacters in a web form that allowed remote execution."
+      ],
+      "answer": "A failure to validate the length of a requested data return in a binary protocol.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch11-q14",
+      "question": "What is the security risk associated with using symbolic links when creating temporary files?",
+      "options": [
+        "The link could bypass the chroot jail by pointing to an external directory.",
+        "An attacker could redirect a privileged write to a critical system file like /etc/passwd.",
+        "The symbolic link consumes excessive disk space, leading to a denial-of-service.",
+        "Symbolic links prevent the operating system from using atomic creation primitives."
+      ],
+      "answer": "An attacker could redirect a privileged write to a critical system file like /etc/passwd.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch11-q15",
+      "question": "When developing a secure file shredder, why is application-level flushing of buffers insufficient?",
+      "options": [
+        "The operating system also maintains a file handling buffer that reorders writes.",
+        "Application buffers only store metadata and not the actual bit patterns.",
+        "The standard C library automatically ignores flush requests for small files.",
+        "Flushing buffers only works for magnetic disks and not flash memory drives."
+      ],
+      "answer": "The operating system also maintains a file handling buffer that reorders writes.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch11-q16",
+      "question": "How can a developer safely use a privileged shell script on a Unix system?",
+      "options": [
+        "By always setting the script to run as the root user.",
+        "By using a compiled wrapper program to construct a safe environment before execution.",
+        "By ensuring that the script uses relative paths for all system utilities.",
+        "By disabling all environment variables globally for the entire system."
+      ],
+      "answer": "By using a compiled wrapper program to construct a safe environment before execution.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch11-q17",
+      "question": "An attacker provides the input 'Bob'; drop table suppliers' to a web form. Which mitigation specifically addresses this attack?",
+      "options": [
+        "Using mkstemp() for all database interaction files.",
+        "Implementing the sticky bit on the database directory.",
+        "Using SQL placeholders or parameters to securely build statements.",
+        "Restricting the PATH variable of the database service."
+      ],
+      "answer": "Using SQL placeholders or parameters to securely build statements.",
+      "type": "applied"
+    },
+    {
+      "id": "ch11-q18",
+      "question": "A programmer uses a loop to check if a lockfile exists and then creates it if it is missing. Why is this vulnerable?",
+      "options": [
+        "The check and creation are not atomic, allowing a race condition.",
+        "Lockfiles are advisory and can be ignored by any malicious process.",
+        "The loop may fail if the filesystem uses a journaling mechanism.",
+        "The process ID used in the lockfile can be guessed by the attacker."
+      ],
+      "answer": "The check and creation are not atomic, allowing a race condition.",
+      "type": "applied"
+    },
+    {
+      "id": "ch11-q19",
+      "question": "A developer wants to prevent XSS reflection on a site that allows users to post HTML formatting. What is the most secure approach?",
+      "options": [
+        "Denylist the <script> tag while allowing all other HTML tags.",
+        "Use an anti-XSS library that only allows a strictly validated set of safe markup.",
+        "Translate all Unicode input to ASCII before displaying it to other users.",
+        "Ensure the web server runs with the least possible privileges on the OS."
+      ],
+      "answer": "Use an anti-XSS library that only allows a strictly validated set of safe markup.",
+      "type": "applied"
+    },
+    {
+      "id": "ch11-q20",
+      "question": "A C program accepts an unsigned integer for buffer size and compares it to a maximum limit. If the code later casts this value to a signed integer during a bounds check, what exploit becomes possible?",
+      "options": [
+        "A command injection using shell metacharacters.",
+        "A buffer overflow caused by a large positive value being treated as negative.",
+        "A memory leak that exhausts the process heap over time.",
+        "A race condition where the comparison is bypassed by a separate thread."
+      ],
+      "answer": "A buffer overflow caused by a large positive value being treated as negative.",
+      "type": "applied"
+    }
+  ]
+}

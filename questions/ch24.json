@@ -1,0 +1,246 @@
+{
+  "chapter": 24,
+  "title": "Wireless Network Security",
+  "questions": [
+    {
+      "id": "ch24-q01",
+      "question": "Which of the following is considered a primary point of attack in a wireless networking environment?",
+      "options": [
+        "The distribution system backbone",
+        "The wireless access point",
+        "The wired LAN gateway",
+        "The logical link control layer"
+      ],
+      "answer": "The wireless access point",
+      "explanation": "Wireless networking involves three primary components as points of attack: the wireless client, the wireless access point, and the transmission medium."
+    },
+    {
+      "id": "ch24-q02",
+      "question": "An attacker configures a rogue access point to mimic a legitimate one in order to steal user credentials. What type of wireless threat is this?",
+      "options": [
+        "Accidental association",
+        "Malicious association",
+        "Network injection",
+        "Ad hoc connectivity"
+      ],
+      "answer": "Malicious association",
+      "explanation": "Malicious association occurs when rogue access points are configured to mimic legitimate ones to steal credentials or sensitive data."
+    },
+    {
+      "id": "ch24-q03",
+      "question": "What is the primary risk associated with ad hoc networks in a wireless environment?",
+      "options": [
+        "They use short initialization vectors",
+        "They require complex certificate management",
+        "They lack central control and are vulnerable to eavesdropping",
+        "They do not support the AES encryption standard"
+      ],
+      "answer": "They lack central control and are vulnerable to eavesdropping",
+      "explanation": "Ad hoc networks are peer-to-peer links that lack central control, making them particularly vulnerable to eavesdropping and unauthorized access."
+    },
+    {
+      "id": "ch24-q04",
+      "question": "Which security measure specifically addresses the risk of rogue devices connecting to a wireless access point?",
+      "options": [
+        "Reducing signal strength",
+        "Disabling SSID broadcast",
+        "Implementing IEEE 802.1X port-based access control",
+        "Using CRC-32 for integrity checks"
+      ],
+      "answer": "Implementing IEEE 802.1X port-based access control",
+      "explanation": "Securing wireless access points involves implementing IEEE 802.1X for port-based network access control to prevent rogue device connections."
+    },
+    {
+      "id": "ch24-q05",
+      "question": "In the context of mobile device security, what does 'de-perimeterization' refer to?",
+      "options": [
+        "The removal of encryption from internal data storage",
+        "The replacement of static network boundaries with dynamic perimeters around devices and data",
+        "The elimination of firewalls at the organizational gateway",
+        "The transition from IPv4 to IPv6 in mobile carriers"
+      ],
+      "answer": "The replacement of static network boundaries with dynamic perimeters around devices and data",
+      "explanation": "De-perimeterization means that static network boundaries are replaced by dynamic perimeters around individual devices and the data they contain."
+    },
+    {
+      "id": "ch24-q06",
+      "question": "Which mobile device security strategy involves isolating organizational data from personal data on a single device?",
+      "options": [
+        "Traffic tunneling",
+        "Barrier security",
+        "Sandboxing",
+        "Rooting"
+      ],
+      "answer": "Sandboxing",
+      "explanation": "Sandboxing is a device security measure used to isolate organizational data and applications from personal ones."
+    },
+    {
+      "id": "ch24-q07",
+      "question": "A company requires all mobile traffic to pass through an IPsec VPN tunnel. This is an example of which security strategy category?",
+      "options": [
+        "Device security",
+        "Client/server traffic security",
+        "Barrier security",
+        "Physical security"
+      ],
+      "answer": "Client/server traffic security",
+      "explanation": "Client/server traffic security includes using SSL or IPsec VPN tunnels for all traffic and implementing multi-layer authentication."
+    },
+    {
+      "id": "ch24-q08",
+      "question": "According to the IEEE 802.11 architecture, what is an Extended Service Set (ESS)?",
+      "options": [
+        "A single station communicating with a single access point",
+        "A set of stations controlled by a single coordination function",
+        "A logical LAN consisting of interconnected Basic Service Sets",
+        "The hardware interface between the MAC and physical layers"
+      ],
+      "answer": "A logical LAN consisting of interconnected Basic Service Sets",
+      "explanation": "An ESS is a logical LAN appearing as a single BSS to the LLC layer, consisting of multiple interconnected Basic Service Sets (BSSs)."
+    },
+    {
+      "id": "ch24-q09",
+      "question": "Which IEEE 802.11 service is responsible for managing station membership in a Basic Service Set?",
+      "options": [
+        "Distribution",
+        "Integration",
+        "Association-related services",
+        "MSDU delivery"
+      ],
+      "answer": "Association-related services",
+      "explanation": "Association, Reassociation, and Disassociation are association-related services that manage station membership in BSSs."
+    },
+    {
+      "id": "ch24-q10",
+      "question": "During which phase of the IEEE 802.11i operation do the station and access point agree on a cipher suite and an authentication and key management suite?",
+      "options": [
+        "Authentication phase",
+        "Discovery phase",
+        "Key management phase",
+        "Protected data transfer phase"
+      ],
+      "answer": "Discovery phase",
+      "explanation": "In the Discovery phase, the AP and STA agree on a cipher suite and an AKM suite based on policies advertised in Beacons or Probe Responses."
+    },
+    {
+      "id": "ch24-q11",
+      "question": "What is the role of the Access Point (AP) during the Authentication phase of IEEE 802.11i?",
+      "options": [
+        "It acts as the Authentication Server and validates credentials",
+        "It acts as a relay, passing EAP messages between the station and the Authentication Server",
+        "It generates the Pairwise Master Key (PMK) and sends it to the station",
+        "It encrypts the traffic using CCMP before authentication is complete"
+      ],
+      "answer": "It acts as a relay, passing EAP messages between the station and the Authentication Server",
+      "explanation": "During the Authentication phase, the AP acts as a relay for EAP traffic between the station (supplicant) and the Authentication Server."
+    },
+    {
+      "id": "ch24-q12",
+      "question": "In the IEEE 802.11i 4-way handshake, what is the primary purpose of exchanging nonces (Anonce and Snonce)?",
+      "options": [
+        "To verify the identity of the RADIUS server",
+        "To negotiate the use of TKIP versus CCMP",
+        "To ensure the derived Pairwise Transient Key (PTK) is fresh",
+        "To establish the SSID for the distribution system"
+      ],
+      "answer": "To ensure the derived Pairwise Transient Key (PTK) is fresh",
+      "explanation": "The exchange of nonces in the 4-way handshake ensures that the derived transient keys (PTK) are fresh and unique for that session."
+    },
+    {
+      "id": "ch24-q13",
+      "question": "The Pairwise Transient Key (PTK) in IEEE 802.11i includes which specific key for data confidentiality?",
+      "options": [
+        "EAPOL-Key Confirmation Key (KCK)",
+        "EAPOL-Key Encryption Key (KEK)",
+        "Temporal Key (TK)",
+        "Group Temporal Key (GTK)"
+      ],
+      "answer": "Temporal Key (TK)",
+      "explanation": "The PTK hierarchy includes the KCK for integrity, the KEK for key encryption, and the TK for data protection (confidentiality)."
+    },
+    {
+      "id": "ch24-q14",
+      "question": "Which 802.11i protocol was specifically designed to be a software-based upgrade for existing WEP-capable hardware?",
+      "options": [
+        "CCMP",
+        "TKIP",
+        "AES-CTR",
+        "RC4-HMAC"
+      ],
+      "answer": "TKIP",
+      "explanation": "TKIP (Temporal Key Integrity Protocol) was designed as a software upgrade to WEP for older hardware that could not support AES."
+    },
+    {
+      "id": "ch24-q15",
+      "question": "CCMP uses which cryptographic algorithms for confidentiality and integrity respectively?",
+      "options": [
+        "RC4 and Michael",
+        "AES in Counter mode and CBC-MAC",
+        "DES and MD5",
+        "AES in CBC mode and SHA-256"
+      ],
+      "answer": "AES in Counter mode and CBC-MAC",
+      "explanation": "CCMP uses AES in Counter (CTR) mode for confidentiality and CBC-MAC for integrity."
+    },
+    {
+      "id": "ch24-q16",
+      "question": "Why was the 24-bit Initialization Vector (IV) in WEP considered a major weakness?",
+      "options": [
+        "It made the encryption process too slow for mobile devices",
+        "It resulted in frequent key reuse, allowing attackers to crack the master key",
+        "It was incompatible with the RC4 algorithm",
+        "It forced the use of linear CRC-32 for integrity"
+      ],
+      "answer": "It resulted in frequent key reuse, allowing attackers to crack the master key",
+      "explanation": "The short 24-bit IV meant that on a busy network, IVs would repeat quickly, leading to key reuse that attackers could exploit."
+    },
+    {
+      "id": "ch24-q17",
+      "question": "Which characteristic of WEP's integrity check (ICV) allowed attackers to modify packets without detection?",
+      "options": [
+        "It was based on a non-linear hash function",
+        "It was too computationally expensive",
+        "It used a linear CRC-32 which is vulnerable to bit-flipping",
+        "It was only applied to the header, not the payload"
+      ],
+      "answer": "It used a linear CRC-32 which is vulnerable to bit-flipping",
+      "explanation": "WEP used CRC-32, a linear function, which allowed attackers to manipulate bits in the ciphertext and update the ICV to match, maintaining validity."
+    },
+    {
+      "id": "ch24-q18",
+      "question": "A network administrator disables SSID broadcasting and reduces the transmission power of an access point. These actions are primarily intended to:",
+      "options": [
+        "Improve network throughput",
+        "Implement port-based access control",
+        "Secure wireless transmissions by hiding the signal",
+        "Prevent man-in-the-middle attacks"
+      ],
+      "answer": "Secure wireless transmissions by hiding the signal",
+      "explanation": "Disabling SSID broadcast and reducing signal strength are techniques used to secure wireless transmissions by making the network harder to find."
+    },
+    {
+      "id": "ch24-q19",
+      "question": "In the IEEE 802.11i architecture, which entity generates and distributes the Group Temporal Key (GTK)?",
+      "options": [
+        "The Authentication Server (AS)",
+        "The Wireless Station (STA)",
+        "The Access Point (AP)",
+        "The Distribution System (DS)"
+      ],
+      "answer": "The Access Point (AP)",
+      "explanation": "The Group Temporal Key (GTK) is generated by the AP and distributed to all stations in the BSS for multicast/broadcast traffic."
+    },
+    {
+      "id": "ch24-q20",
+      "question": "Which component of the 802.11i PTK is used to protect the 4-way handshake messages themselves from tampering?",
+      "options": [
+        "Temporal Key (TK)",
+        "EAPOL-Key Confirmation Key (KCK)",
+        "Pairwise Master Key (PMK)",
+        "Initialization Vector (IV)"
+      ],
+      "answer": "EAPOL-Key Confirmation Key (KCK)",
+      "explanation": "The KCK is used to compute the MIC for the 4-way handshake and Group Key handshake messages to provide data origin authenticity and integrity."
+    }
+  ]
+}

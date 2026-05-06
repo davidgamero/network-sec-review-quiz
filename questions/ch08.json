@@ -1,0 +1,246 @@
+{
+  "chapter": 8,
+  "title": "Intrusion Detection",
+  "questions": [
+    {
+      "id": "ch8-q01",
+      "question": "Which category of intruders is typically motivated by social or political causes and often aims for publicity through website defacement?",
+      "options": [
+        "Cyber Criminals",
+        "Activists (Hacktivists)",
+        "State-Sponsored Organizations",
+        "Script Kiddies"
+      ],
+      "answer": "Activists (Hacktivists)",
+      "explanation": "Activists, or hacktivists, are motivated by social or political causes and use their skills to gain publicity for their agenda."
+    },
+    {
+      "id": "ch8-q02",
+      "question": "What is the primary role of the 'Analyzer' component in a logical Intrusion Detection System (IDS) model?",
+      "options": [
+        "Collecting raw data from network packets or log files",
+        "Enabling human operators to control the system",
+        "Processing sensor data to determine if an intrusion has occurred",
+        "Encrypting traffic to prevent eavesdropping"
+      ],
+      "answer": "Processing sensor data to determine if an intrusion has occurred",
+      "explanation": "The analyzer receives input from sensors and applies logic to determine if the observed activity constitutes an intrusion."
+    },
+    {
+      "id": "ch8-q03",
+      "question": "Which mathematical phenomenon explains why an IDS may produce a high number of false alarms even with a low false-positive rate when actual intrusions are rare?",
+      "options": [
+        "The Birthday Paradox",
+        "Base-Rate Fallacy",
+        "Zero-Day Vulnerability",
+        "Heuristic Scaling"
+      ],
+      "answer": "Base-Rate Fallacy",
+      "explanation": "The base-rate fallacy occurs when the low frequency of actual intrusions leads to a high number of false positives relative to true detections."
+    },
+    {
+      "id": "ch8-q04",
+      "question": "Which intrusion detection approach is uniquely capable of identifying zero-day attacks by detecting deviations from established normal behavior?",
+      "options": [
+        "Signature-based Detection",
+        "Heuristic-based Detection",
+        "Anomaly Detection",
+        "Protocol Correlation"
+      ],
+      "answer": "Anomaly Detection",
+      "explanation": "Anomaly detection identifies attacks by looking for deviations from a baseline of normal behavior, allowing it to find previously unknown (zero-day) threats."
+    },
+    {
+      "id": "ch8-q05",
+      "question": "What is a primary disadvantage of signature-based intrusion detection systems?",
+      "options": [
+        "They generate a very high number of false positives for known threats",
+        "They are blind to new, previously unrecorded attack patterns",
+        "They impose a significant processing load on host systems",
+        "They cannot be used on network-based sensors"
+      ],
+      "answer": "They are blind to new, previously unrecorded attack patterns",
+      "explanation": "Signature detection relies on a database of known patterns; if a pattern for a new attack is not in the database, the IDS will not detect it."
+    },
+    {
+      "id": "ch8-q06",
+      "question": "Which data source is generally considered the most reliable for a Host-based IDS (HIDS) on Unix or Linux systems?",
+      "options": [
+        "Application log files",
+        "System call traces",
+        "Network packet headers",
+        "Keyboard input logs"
+      ],
+      "answer": "System call traces",
+      "explanation": "System call traces provide a detailed and reliable record of how processes interact with the kernel on Unix/Linux systems."
+    },
+    {
+      "id": "ch8-q07",
+      "question": "An inline NIDS sensor differs from a passive NIDS sensor because the inline sensor:",
+      "options": [
+        "Only monitors a copy of the network traffic",
+        "Does not introduce any packet delay or latency",
+        "Is positioned so that all traffic must pass through it",
+        "Cannot block or prevent detected attacks"
+      ],
+      "answer": "Is positioned so that all traffic must pass through it",
+      "explanation": "Inline sensors sit directly in the traffic path, allowing them to block malicious packets as an Intrusion Prevention System (IPS)."
+    },
+    {
+      "id": "ch8-q08",
+      "question": "What is the primary purpose of a honeypot in a network security strategy?",
+      "options": [
+        "To provide high-speed encryption for production servers",
+        "To act as the primary firewall for the organization",
+        "To lure and observe attackers while diverting them from critical assets",
+        "To automate the patching of known software vulnerabilities"
+      ],
+      "answer": "To lure and observe attackers while diverting them from critical assets",
+      "explanation": "Honeypots are decoy systems with no production value used to gather intelligence on attacker methods and delay their progress."
+    },
+    {
+      "id": "ch8-q09",
+      "question": "In the context of Snort architecture, which component is responsible for normalizing packets and preparing them for the detection engine?",
+      "options": [
+        "Packet Decoder",
+        "Alerter",
+        "Logger",
+        "Output Module"
+      ],
+      "answer": "Packet Decoder",
+      "explanation": "The packet decoder takes raw packets from the network interface and prepares them for the detection engine by identifying protocols and fields."
+    },
+    {
+      "id": "ch8-q10",
+      "question": "Which Snort rule header action is used to generate an alert and then block the packet when operating in inline mode?",
+      "options": [
+        "alert",
+        "log",
+        "drop",
+        "pass"
+      ],
+      "answer": "drop",
+      "explanation": "The 'drop' action in Snort (when in inline mode) alerts the administrator and immediately discards the packet."
+    },
+    {
+      "id": "ch8-q11",
+      "question": "A security administrator notices that a HIDS is monitoring DLL function calls instead of raw system calls. This HIDS is likely running on which operating system?",
+      "options": [
+        "Solaris",
+        "Linux",
+        "FreeBSD",
+        "Windows"
+      ],
+      "answer": "Windows",
+      "explanation": "On Windows, the prevalence of DLLs makes monitoring function calls to these libraries a common and effective HIDS strategy."
+    },
+    {
+      "id": "ch8-q12",
+      "question": "Which component of a Distributed IDS is responsible for correlating data from multiple host agents to identify coordinated attacks?",
+      "options": [
+        "LAN Monitor",
+        "Central Manager",
+        "Sensor Node",
+        "Gossip Agent"
+      ],
+      "answer": "Central Manager",
+      "explanation": "The central manager receives reports from various sensors and agents, correlating them to detect patterns that individual nodes might miss."
+    },
+    {
+      "id": "ch8-q13",
+      "question": "RFC 4765 defines which of the following for intrusion detection interoperability?",
+      "options": [
+        "Intrusion Detection Message Exchange Format (IDMEF)",
+        "Intrusion Detection Exchange Protocol (IDXP)",
+        "Requirements for IDS communication",
+        "Standard for Honeypot Deployment"
+      ],
+      "answer": "Intrusion Detection Message Exchange Format (IDMEF)",
+      "explanation": "RFC 4765 specifies IDMEF, which defines a data model and XML format for representing IDS information."
+    },
+    {
+      "id": "ch8-q14",
+      "question": "Which type of honeypot provides a more realistic target by using real operating systems and applications but carries a higher risk if compromised?",
+      "options": [
+        "Low-interaction honeypot",
+        "Passive honeypot",
+        "High-interaction honeypot",
+        "Stateless honeypot"
+      ],
+      "answer": "High-interaction honeypot",
+      "explanation": "High-interaction honeypots use actual production-grade software and OSs, offering deep insight but requiring more careful management."
+    },
+    {
+      "id": "ch8-q15",
+      "question": "Which of the following is NOT a typical step in the methodology of a sophisticated intruder?",
+      "options": [
+        "Target Acquisition",
+        "Privilege Escalation",
+        "Maintaining Access",
+        "Automatic Patching of Vulnerabilities"
+      ],
+      "answer": "Automatic Patching of Vulnerabilities",
+      "explanation": "Intruders focus on exploiting vulnerabilities and maintaining access; they do not typically patch vulnerabilities unless it is to lock out other attackers."
+    },
+    {
+      "id": "ch8-q16",
+      "question": "A NIDS sensor placed 'outside the external firewall' is primarily used to:",
+      "options": [
+        "Detect if the internal network is leaking data",
+        "Monitor the raw, unfiltered traffic coming from the internet",
+        "Verify that the internal servers are correctly configured",
+        "Reduce the processing load on internal host agents"
+      ],
+      "answer": "Monitor the raw, unfiltered traffic coming from the internet",
+      "explanation": "Sensors outside the firewall see all traffic directed at the network, allowing for analysis of the full scope of incoming threats."
+    },
+    {
+      "id": "ch8-q17",
+      "question": "Which anomaly detection technique uses historical data to build a model of normal variation over time, such as daily or weekly cycles?",
+      "options": [
+        "Bayesian Networks",
+        "Neural Networks",
+        "Time-Series Analysis",
+        "Knowledge-Based Expert Systems"
+      ],
+      "answer": "Time-Series Analysis",
+      "explanation": "Time-series analysis focuses on patterns of behavior relative to time, making it ideal for detecting anomalies in periodic activities."
+    },
+    {
+      "id": "ch8-q18",
+      "question": "What is the purpose of the 'Options' field in a Snort rule?",
+      "options": [
+        "To define the source and destination IP addresses",
+        "To specify the protocol (e.g., TCP, UDP)",
+        "To contain the rule's alert message and payload match patterns",
+        "To set the action to be taken (e.g., alert, log)"
+      ],
+      "answer": "To contain the rule's alert message and payload match patterns",
+      "explanation": "The options part of a Snort rule (enclosed in parentheses) defines the specific criteria for the match and the resulting message."
+    },
+    {
+      "id": "ch8-q19",
+      "question": "Stateful Protocol Analysis (SPA) is considered a subset of anomaly detection because it:",
+      "options": [
+        "Matches traffic against a database of known malware files",
+        "Compares observed protocol behavior against universal vendor profiles",
+        "Relies on statistical averages of packet sizes over time",
+        "Only monitors the physical layer of the OSI model"
+      ],
+      "answer": "Compares observed protocol behavior against universal vendor profiles",
+      "explanation": "SPA uses pre-defined profiles of how protocols *should* behave and identifies deviations from these standard states."
+    },
+    {
+      "id": "ch8-q20",
+      "question": "In a distributed IDS, which protocol might be used by nodes to share information about suspicious activity with their neighbors?",
+      "options": [
+        "Gossip Protocols",
+        "SNMPv1",
+        "FTP",
+        "Telnet"
+      ],
+      "answer": "Gossip Protocols",
+      "explanation": "Gossip protocols allow local nodes to share suspicions and build a collective awareness of potential attacks."
+    }
+  ]
+}

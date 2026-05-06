@@ -1,0 +1,246 @@
+{
+  "chapter": 9,
+  "title": "Firewalls and Intrusion Prevention Systems",
+  "questions": [
+    {
+      "id": "ch9-q01",
+      "question": "Which design goal specifies that all traffic from inside to outside, and vice versa, must traverse the firewall?",
+      "options": [
+        "Mandatory Transit",
+        "Policy Enforcement",
+        "Self-Immunity",
+        "Deep Packet Inspection"
+      ],
+      "answer": "Mandatory Transit",
+      "type": "def"
+    },
+    {
+      "id": "ch9-q02",
+      "question": "A packet filtering firewall makes forwarding decisions primarily based on which criteria?",
+      "options": [
+        "The application-level payload content",
+        "The state of the active TCP connection",
+        "Fields in the IP and transport-level headers",
+        "Behavioral patterns of the network traffic"
+      ],
+      "answer": "Fields in the IP and transport-level headers",
+      "type": "def"
+    },
+    {
+      "id": "ch9-q03",
+      "question": "What is a primary disadvantage of using an application-level gateway compared to a packet filter?",
+      "options": [
+        "It cannot inspect the contents of the payload",
+        "It introduces significant processing overhead",
+        "It is highly vulnerable to IP spoofing attacks",
+        "It allows direct connections between internal and external hosts"
+      ],
+      "answer": "It introduces significant processing overhead",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch9-q04",
+      "question": "How does a stateful inspection firewall improve upon a simple packet filter for client-server applications?",
+      "options": [
+        "It encrypts all outbound traffic automatically",
+        "It tracks the state of active TCP connections to allow return traffic",
+        "It uses a proxy to relay application commands",
+        "It operates exclusively at the physical layer"
+      ],
+      "answer": "It tracks the state of active TCP connections to allow return traffic",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch9-q05",
+      "question": "A circuit-level gateway is most commonly used for which of the following scenarios?",
+      "options": [
+        "Filtering spam from incoming email traffic",
+        "Inspecting HTTP GET requests for SQL injection",
+        "Relaying outbound connections from trusted internal users",
+        "Blocking all ICMP traffic at the network edge"
+      ],
+      "answer": "Relaying outbound connections from trusted internal users",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch9-q06",
+      "question": "Which firewall basing option involves a software module on a server intended to provide tailored protection regardless of network topology?",
+      "options": [
+        "Personal Firewall",
+        "Host-Based Firewall",
+        "Network Device Firewall",
+        "Bastion Host"
+      ],
+      "answer": "Host-Based Firewall",
+      "type": "def"
+    },
+    {
+      "id": "ch9-q07",
+      "question": "What is the primary purpose of a DMZ (Demilitarized Zone) in a firewall topology?",
+      "options": [
+        "To provide a secure tunnel for remote workers",
+        "To host internal-only databases away from the perimeter",
+        "To isolate external-facing servers from the internal network",
+        "To bypass the firewall for high-speed streaming data"
+      ],
+      "answer": "To isolate external-facing servers from the internal network",
+      "type": "def"
+    },
+    {
+      "id": "ch9-q08",
+      "question": "In a DMZ configuration with two firewalls, what is typically the role of the internal firewall?",
+      "options": [
+        "To provide the first line of defense against Internet scans",
+        "To protect the internal network from both external threats and DMZ systems",
+        "To act as the primary VPN termination point for all users",
+        "To filter outbound traffic from the internal network to the DMZ only"
+      ],
+      "answer": "To protect the internal network from both external threats and DMZ systems",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch9-q09",
+      "question": "Why are firewalls considered a logical place to terminate a Virtual Private Network (VPN)?",
+      "options": [
+        "The firewall is the only device capable of AES encryption",
+        "VPN traffic does not require inspection if it is encrypted",
+        "Termination behind the firewall prevents inspection of the decrypted traffic",
+        "VPNs are required by law to terminate at the network edge"
+      ],
+      "answer": "Termination behind the firewall prevents inspection of the decrypted traffic",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch9-q10",
+      "question": "Which security technology integrates multiple functions like firewalling, IPS, and antivirus into a single appliance?",
+      "options": [
+        "HIPS",
+        "Snort Inline",
+        "Unified Threat Management (UTM)",
+        "Distributed Firewall"
+      ],
+      "answer": "Unified Threat Management (UTM)",
+      "type": "def"
+    },
+    {
+      "id": "ch9-q11",
+      "question": "What is a major performance consideration when deploying a Unified Threat Management (UTM) appliance?",
+      "options": [
+        "It can only handle one security protocol at a time",
+        "It requires a separate license for every internal user",
+        "It can suffer from throughput losses of 50% or more",
+        "It cannot be used in networks that utilize VLANs"
+      ],
+      "answer": "It can suffer from throughput losses of 50% or more",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch9-q12",
+      "question": "A Network-Based IPS (NIPS) differs from a standard NIDS primarily because it:",
+      "options": [
+        "Is located on the endpoint rather than the network",
+        "Only monitors encrypted traffic flows",
+        "Operates inline and can discard malicious packets",
+        "Uses fewer system resources than a passive IDS"
+      ],
+      "answer": "Operates inline and can discard malicious packets",
+      "type": "def"
+    },
+    {
+      "id": "ch9-q13",
+      "question": "Which Snort Inline rule type is used to drop a packet and log the event?",
+      "options": [
+        "Reject",
+        "Drop",
+        "Sdrop",
+        "Replace"
+      ],
+      "answer": "Drop",
+      "type": "def"
+    },
+    {
+      "id": "ch9-q14",
+      "question": "The 'Replace' option in Snort Inline is particularly useful for which application?",
+      "options": [
+        "Replacing expired SSL certificates on the fly",
+        "Changing the source IP of every outgoing packet",
+        "Disabling attacks in honeypot deployments",
+        "Upgrading the protocol version of old applications"
+      ],
+      "answer": "Disabling attacks in honeypot deployments",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch9-q15",
+      "question": "Which mechanism is often used by Host-Based IPS (HIPS) to protect against malicious mobile code?",
+      "options": [
+        "Sandboxing",
+        "Port knocking",
+        "Deep packet inspection",
+        "Circuit-level relaying"
+      ],
+      "answer": "Sandboxing",
+      "type": "def"
+    },
+    {
+      "id": "ch9-q16",
+      "question": "An administrator wants to prevent internal users from accessing unauthorized external websites while ensuring minimal latency for approved connections. Which firewall type is most efficient for this outbound relay?",
+      "options": [
+        "Application-level gateway",
+        "Circuit-level gateway",
+        "Stateless packet filter",
+        "Personal firewall"
+      ],
+      "answer": "Circuit-level gateway",
+      "type": "applied"
+    },
+    {
+      "id": "ch9-q17",
+      "question": "You are designing a network for a small company that needs web protection, email filtering, and a VPN, but has limited IT staff. Which solution is most appropriate?",
+      "options": [
+        "A distributed firewall with separate sensors",
+        "A cluster of high-performance bastion hosts",
+        "A Unified Threat Management (UTM) appliance",
+        "Individual host-based firewalls on every machine"
+      ],
+      "answer": "A Unified Threat Management (UTM) appliance",
+      "type": "applied"
+    },
+    {
+      "id": "ch9-q18",
+      "question": "An organization detects a sophisticated attack that bypasses the perimeter firewall by using encrypted HTTPS traffic. Which additional layer would be most effective at blocking the attack at the target server?",
+      "options": [
+        "An external packet filter",
+        "A Host-Based IPS (HIPS)",
+        "A stateless router",
+        "A bastion host in the DMZ"
+      ],
+      "answer": "A Host-Based IPS (HIPS)",
+      "type": "applied"
+    },
+    {
+      "id": "ch9-q19",
+      "question": "To prevent an attacker from using 'tiny fragment' attacks to bypass security rules, which action should a packet filtering firewall take?",
+      "options": [
+        "Allow all fragments to ensure data integrity",
+        "Discard fragments that do not contain the minimum header information",
+        "Reassemble the entire file before checking the header",
+        "Convert the fragments into a single application-level proxy request"
+      ],
+      "answer": "Discard fragments that do not contain the minimum header information",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch9-q20",
+      "question": "Which policy approach is generally considered more secure for a firewall configuration?",
+      "options": [
+        "Default Forward (allow all unless explicitly denied)",
+        "Default Discard (deny all unless explicitly allowed)",
+        "Open Perimeter (trust all internal traffic)",
+        "Hybrid Trust (allow all known MAC addresses)"
+      ],
+      "answer": "Default Discard (deny all unless explicitly allowed)",
+      "type": "applied"
+    }
+  ]
+}

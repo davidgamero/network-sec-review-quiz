@@ -1,0 +1,266 @@
+{
+  "chapter": 18,
+  "title": "Security Auditing",
+  "questions": [
+    {
+      "id": "ch18-q01",
+      "type": "definition",
+      "question": "Which component in the X.816 security auditing architecture is responsible for monitoring activity and detecting security-related events based on a set of criteria?",
+      "options": [
+        "Audit Recorder",
+        "Event Discriminator",
+        "Alarm Processor",
+        "Audit Analyzer"
+      ],
+      "answer": "Event Discriminator",
+      "explanation": "The Event Discriminator contains logic embedded in system software that monitors activity and detects pre-configured security-related events."
+    },
+    {
+      "id": "ch18-q02",
+      "type": "definition",
+      "question": "What is the primary function of the 'Audit Recorder' in the security auditing model?",
+      "options": [
+        "Analyzing patterns in the audit trail",
+        "Taking immediate action on alarm events",
+        "Preparing formatted records for the audit trail",
+        "Providing an interface for administrators to review logs"
+      ],
+      "answer": "Preparing formatted records for the audit trail",
+      "explanation": "The Audit Recorder receives information from the event discriminator and prepares formatted records to be stored in the security audit trail."
+    },
+    {
+      "id": "ch18-q03",
+      "type": "definition",
+      "question": "In the context of the UNIX syslog facility, which severity level represents the most critical condition?",
+      "options": [
+        "crit",
+        "alert",
+        "emerg",
+        "err"
+      ],
+      "answer": "emerg",
+      "explanation": "The 'emerg' (emergency) severity level is the highest level in syslog, indicating the system is unusable."
+    },
+    {
+      "id": "ch18-q04",
+      "type": "definition",
+      "question": "Which Windows event log is primarily used by the Local Security Authority (LSA) to track events like logon successes and failures?",
+      "options": [
+        "System Log",
+        "Application Log",
+        "Security Log",
+        "Setup Log"
+      ],
+      "answer": "Security Log",
+      "explanation": "The Security Log is the primary audit log in Windows, tracking logon events, object access, and privilege use."
+    },
+    {
+      "id": "ch18-q05",
+      "type": "definition",
+      "question": "What is 'SIEM' an acronym for in the context of network security?",
+      "options": [
+        "System Information and Event Monitoring",
+        "Security Information and Event Management",
+        "Secure Infrastructure and Entity Management",
+        "Security Incident and Emergency Monitoring"
+      ],
+      "answer": "Security Information and Event Management",
+      "explanation": "SIEM stands for Security Information and Event Management, which provides centralized logging and analysis for security data."
+    },
+    {
+      "id": "ch18-q06",
+      "type": "definition",
+      "question": "The process of defining 'normal' behavior to identify unusual shifts in system activity is known as:",
+      "options": [
+        "Thresholding",
+        "Windowing",
+        "Baselining",
+        "Correlation"
+      ],
+      "answer": "Baselining",
+      "explanation": "Baselining involves establishing a profile of normal system activity to help detect anomalies."
+    },
+    {
+      "id": "ch18-q07",
+      "type": "definition",
+      "question": "Which logging technique intercepts calls to shared library functions using dynamic linking features?",
+      "options": [
+        "Dynamic Binary Rewriting",
+        "Interposable Libraries",
+        "Kernel Hooking",
+        "Static Analysis"
+      ],
+      "answer": "Interposable Libraries",
+      "explanation": "Interposable libraries use dynamic linking to intercept shared function calls for auditing purposes without needing to recompile applications."
+    },
+    {
+      "id": "ch18-q08",
+      "type": "definition",
+      "question": "In syslog, what does the 'Facility' code describe?",
+      "options": [
+        "The importance of the message",
+        "The specific system component generating the message",
+        "The timestamp of the event",
+        "The destination of the log entry"
+      ],
+      "answer": "The specific system component generating the message",
+      "explanation": "The Facility code (e.g., kern, mail, auth) identifies the part of the system that generated the log message."
+    },
+    {
+      "id": "ch18-q09",
+      "type": "conceptual",
+      "question": "What is the main trade-off when deciding the amount of data to collect in an audit trail?",
+      "options": [
+        "Security insight versus performance impact",
+        "Confidentiality versus integrity",
+        "Storage cost versus encryption speed",
+        "User privacy versus administrative convenience"
+      ],
+      "answer": "Security insight versus performance impact",
+      "explanation": "Collecting more detailed audit data provides better security insight but increases the performance overhead on the system."
+    },
+    {
+      "id": "ch18-q10",
+      "type": "conceptual",
+      "question": "Why is the integrity of an audit trail often considered more critical than its confidentiality?",
+      "options": [
+        "Because audit logs contain no sensitive information",
+        "To ensure that the record of events is reliable for forensic investigation",
+        "Because encryption automatically ensures that data cannot be deleted",
+        "To allow any user to verify their own actions in the log"
+      ],
+      "answer": "To ensure that the record of events is reliable for forensic investigation",
+      "explanation": "Integrity ensures that the logs have not been tampered with or deleted, which is vital for accurately reconstructing events after an incident."
+    },
+    {
+      "id": "ch18-q11",
+      "type": "conceptual",
+      "question": "How does an 'Agent-based' SIEM configuration differ from an 'Agentless' one?",
+      "options": [
+        "Agent-based systems only work on Windows, while agentless only work on Linux",
+        "Agent-based systems use specialized software on each host to filter and normalize data locally",
+        "Agentless systems are more secure because they do not require network connections",
+        "Agent-based systems store all data on the local host instead of a central server"
+      ],
+      "answer": "Agent-based systems use specialized software on each host to filter and normalize data locally",
+      "explanation": "In an agent-based SIEM, specialized software (agents) on the host performs preprocessing (filtering/normalization) before sending data to the server."
+    },
+    {
+      "id": "ch18-q12",
+      "type": "conceptual",
+      "question": "In the X.816 model, what is the specific role of the 'Alarm Processor'?",
+      "options": [
+        "To archive logs for long-term storage",
+        "To detect pattern changes in user behavior",
+        "To take immediate action when a critical security event is detected",
+        "To provide a GUI for searching the audit trail"
+      ],
+      "answer": "To take immediate action when a critical security event is detected",
+      "explanation": "The Alarm Processor handles events designated as alarms, taking immediate actions (like notification or system lockout) and recording them."
+    },
+    {
+      "id": "ch18-q13",
+      "type": "conceptual",
+      "question": "Which of the following describes 'Correlation' in the context of audit trail analysis?",
+      "options": [
+        "Setting a limit on the number of failed logins",
+        "Identifying relationships between disparate events in multiple logs",
+        "Recording the exact time a user logs out",
+        "Removing duplicate entries from a single log file"
+      ],
+      "answer": "Identifying relationships between disparate events in multiple logs",
+      "explanation": "Correlation is the process of finding links between different events (e.g., a port scan followed by a failed login) across various logs."
+    },
+    {
+      "id": "ch18-q14",
+      "type": "conceptual",
+      "question": "What is a major advantage of using 'Dynamic Binary Rewriting' for auditing?",
+      "options": [
+        "It eliminates the need for any system memory",
+        "It can instrument applications without access to their source code",
+        "It is much faster than native logging",
+        "It prevents all types of buffer overflow attacks"
+      ],
+      "answer": "It can instrument applications without access to their source code",
+      "explanation": "Dynamic Binary Rewriting modifies the program's memory image at load time, allowing auditing of proprietary or legacy code where source is unavailable."
+    },
+    {
+      "id": "ch18-q15",
+      "type": "conceptual",
+      "question": "A 'Periodic Review' of audit trails is most likely used to:",
+      "options": [
+        "Respond to a crash that just occurred",
+        "Identify long-term trends or develop user profiles",
+        "Alert the administrator to an ongoing brute-force attack",
+        "Verify the hardware health of the storage server"
+      ],
+      "answer": "Identify long-term trends or develop user profiles",
+      "explanation": "Periodic reviews are broad examinations of data over time to identify trends, ensure policy compliance, and refine security profiles."
+    },
+    {
+      "id": "ch18-q16",
+      "type": "conceptual",
+      "question": "Which of these is a common method for ensuring the integrity of audit logs against a 'root' user who might try to delete evidence?",
+      "options": [
+        "Using AES encryption with a local key",
+        "Storing logs on write-once media like DVD-ROM",
+        "Setting the file to 'read-only' in the OS",
+        "Hiding the log file in a system directory"
+      ],
+      "answer": "Storing logs on write-once media like DVD-ROM",
+      "explanation": "Write-once media prevents even a privileged user from deleting or modifying existing records, preserving the audit trail's integrity."
+    },
+    {
+      "id": "ch18-q17",
+      "type": "applied",
+      "question": "A security analyst notices that a specific user typically logs in between 9 AM and 5 PM. If that user logs in at 3 AM, which analysis technique would flag this as suspicious?",
+      "options": [
+        "Thresholding",
+        "Baselining",
+        "Archiving",
+        "Normalization"
+      ],
+      "answer": "Baselining",
+      "explanation": "Baselining defines normal behavior (login times); an activity outside these normal parameters (3 AM login) is identified as an anomaly."
+    },
+    {
+      "id": "ch18-q18",
+      "type": "applied",
+      "question": "An administrator wants to configure a Linux server to send all kernel-related error messages to a central server. In the syslog configuration, which facility and severity combination would be most relevant?",
+      "options": [
+        "auth.info",
+        "mail.debug",
+        "kern.err",
+        "user.notice"
+      ],
+      "answer": "kern.err",
+      "explanation": "The 'kern' facility identifies kernel messages, and 'err' (error) matches the requirement for error-level severity."
+    },
+    {
+      "id": "ch18-q19",
+      "type": "applied",
+      "question": "If an organization implements a 'Thresholding' rule that triggers an alarm after 5 failed login attempts within 1 minute, what is the primary goal?",
+      "options": [
+        "To reduce the storage space used by the audit trail",
+        "To detect and stop brute-force password attacks",
+        "To ensure users choose more complex passwords",
+        "To encrypt the password database"
+      ],
+      "answer": "To detect and stop brute-force password attacks",
+      "explanation": "Thresholding identifies high-frequency events (like rapid failed logins) that often indicate an automated attack like brute-forcing."
+    },
+    {
+      "id": "ch18-q20",
+      "type": "applied",
+      "question": "During a post-incident investigation, an analyst uses 'Windowing' to focus on logs from 10:00 PM to 10:15 PM on the night of a breach. Why is this technique used?",
+      "options": [
+        "To permanently delete logs outside that time frame",
+        "To narrow the search to events occurring during the suspected time of the attack",
+        "To check if the system clock was synchronized",
+        "To correlate events with the physical building's power usage"
+      ],
+      "answer": "To narrow the search to events occurring during the suspected time of the attack",
+      "explanation": "Windowing focuses analysis on events within a specific time interval, which is useful when the timing of an incident is known or suspected."
+    }
+  ]
+}

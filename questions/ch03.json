@@ -1,0 +1,246 @@
+{
+  "chapter": 3,
+  "title": "User Authentication",
+  "questions": [
+    {
+      "id": "ch3-q01",
+      "stem": "In the NIST SP 800-63-3 architectural model, which entity is responsible for establishing and vouching for the identity of an applicant to a Credential Service Provider (CSP)?",
+      "choices": [
+        "Verifier",
+        "Relying Party",
+        "Registration Authority",
+        "Subscriber"
+      ],
+      "correct": 2,
+      "explanation": "The Registration Authority (RA) is a trusted entity that establishes and vouches for the identity of an applicant to a CSP, which then issues credentials."
+    },
+    {
+      "id": "ch3-q02",
+      "stem": "Which of the following authentication factors is categorized as a dynamic biometric?",
+      "choices": [
+        "Fingerprint recognition",
+        "Retina scanning",
+        "Facial recognition",
+        "Typing rhythm"
+      ],
+      "correct": 3,
+      "explanation": "Dynamic biometrics (something the individual does) include traits like handwriting characteristics, voice patterns, and typing rhythm, whereas fingerprints and retina scans are static biometrics."
+    },
+    {
+      "id": "ch3-q03",
+      "stem": "What is the primary purpose of adding a salt value to a password before it is hashed and stored?",
+      "choices": [
+        "To encrypt the password so it can be recovered later",
+        "To prevent duplicate passwords from resulting in identical hashes",
+        "To reduce the computational time required to verify a password",
+        "To eliminate the need for a shadow password file"
+      ],
+      "correct": 1,
+      "explanation": "A salt ensures that if two users choose the same password, their stored hashes will still be different, preventing an attacker from identifying identical passwords across the system."
+    },
+    {
+      "id": "ch3-q04",
+      "stem": "Traditional UNIX systems used a password hashing function called crypt(3), which was based on which cryptographic algorithm?",
+      "choices": [
+        "AES",
+        "RSA",
+        "DES",
+        "MD5"
+      ],
+      "correct": 2,
+      "explanation": "Traditional UNIX crypt(3) used a modified version of the Data Encryption Standard (DES) to perform one-way hashing of passwords."
+    },
+    {
+      "id": "ch3-q05",
+      "stem": "Which attack involves an adversary obtaining the system password file and comparing the stored hashes against precomputed or generated hashes of common words?",
+      "choices": [
+        "Online trawling attack",
+        "Specific account attack",
+        "Offline dictionary attack",
+        "Workstation hijacking"
+      ],
+      "correct": 2,
+      "explanation": "In an offline dictionary attack, the attacker obtains the password file and uses their own computing resources to find matches against a list of likely passwords."
+    },
+    {
+      "id": "ch3-q06",
+      "stem": "What is a 'rainbow table' in the context of password security?",
+      "choices": [
+        "A list of salts used by different operating systems",
+        "A precomputed table of hash values used to reverse password hashes",
+        "A database of all users currently logged into a system",
+        "A list of complex password policies required by NIST"
+      ],
+      "correct": 1,
+      "explanation": "A rainbow table is a precomputed table of hashes that allows an attacker to quickly find the plaintext password corresponding to a given hash, trading storage space for cracking time."
+    },
+    {
+      "id": "ch3-q07",
+      "stem": "In biometric authentication, what does the False Match Rate (FMR) represent?",
+      "choices": [
+        "The frequency with which legitimate users are denied access",
+        "The frequency with which unauthorized users are erroneously granted access",
+        "The total number of users enrolled in the system",
+        "The accuracy of the initial enrollment template"
+      ],
+      "correct": 1,
+      "explanation": "The False Match Rate (also known as the False Acceptance Rate) is the probability that the system incorrectly matches a biometric input to a non-matching template in the database."
+    },
+    {
+      "id": "ch3-q08",
+      "stem": "Which of the following describes a 'reactive password checking' strategy?",
+      "choices": [
+        "The system rejects common passwords at the time the user tries to set them",
+        "The system periodically runs its own cracker against the password file to identify weak passwords",
+        "The system forces users to change their passwords every 30 days",
+        "The system uses hardware tokens to verify user identities"
+      ],
+      "correct": 1,
+      "explanation": "Reactive password checking involves the system periodically attempting to crack its own users' passwords to find and remove guessable ones."
+    },
+    {
+      "id": "ch3-q09",
+      "stem": "NIST SP 800-63-3 defines Authenticator Assurance Level 3 (AAL3) as requiring which of the following?",
+      "choices": [
+        "A simple single-factor password",
+        "A password combined with an SMS-based code",
+        "Two distinct factors and a hardware-based crypto token",
+        "Only a static biometric factor like a fingerprint"
+      ],
+      "correct": 2,
+      "explanation": "AAL3 provides the highest level of confidence and requires hardware-based authenticators and proof of possession via cryptographic protocols."
+    },
+    {
+      "id": "ch3-q10",
+      "stem": "What is a 'shadow password file' designed to protect against?",
+      "choices": [
+        "Shoulder surfing by nearby observers",
+        "Unauthorized users reading hashed passwords from a publicly readable file",
+        "Denial of service attacks on the authentication server",
+        "Interception of passwords sent over a network"
+      ],
+      "correct": 1,
+      "explanation": "A shadow password file stores hashed passwords in a restricted location, separating them from the general user information file that must be readable by many system processes."
+    },
+    {
+      "id": "ch3-q11",
+      "stem": "Which token authentication protocol involves the host sending a random nonce that the token must process and return to prove its identity?",
+      "choices": [
+        "Static protocol",
+        "Dynamic password generator",
+        "Challenge-response protocol",
+        "Symmetric encryption protocol"
+      ],
+      "correct": 2,
+      "explanation": "In a challenge-response protocol, the verifier sends a random challenge (nonce) and the claimant returns a response derived from that challenge and a secret key."
+    },
+    {
+      "id": "ch3-q12",
+      "stem": "Why does NIST consider SMS-based authentication to be 'restricted' or less secure?",
+      "choices": [
+        "SMS messages are too expensive for most organizations",
+        "Users often forget to check their text messages",
+        "It is vulnerable to SIM swapping and SS7 network attacks",
+        "Mobile phones do not have enough processing power for encryption"
+      ],
+      "correct": 2,
+      "explanation": "NIST cautions against SMS because the cellular network and SIM management processes have vulnerabilities that allow attackers to intercept or redirect the codes."
+    },
+    {
+      "id": "ch3-q13",
+      "stem": "A memory card, such as a magnetic stripe card, differs from a smart card primarily because:",
+      "choices": [
+        "It cannot be used for authentication",
+        "It can store data but lacks an internal microprocessor for data processing",
+        "It is much more expensive to produce",
+        "It uses biometric data instead of digital data"
+      ],
+      "correct": 1,
+      "explanation": "Memory cards can store information (like a security code) but cannot perform computations, whereas smart cards contain a microprocessor."
+    },
+    {
+      "id": "ch3-q14",
+      "stem": "In the context of remote user authentication, what is the main threat addressed by using a nonce?",
+      "choices": [
+        "Dictionary attacks",
+        "Replay attacks",
+        "Social engineering",
+        "Biometric spoofing"
+      ],
+      "correct": 1,
+      "explanation": "A nonce (number used once) ensures that each authentication session is unique, preventing an attacker from capturing and later replaying a valid authentication response."
+    },
+    {
+      "id": "ch3-q15",
+      "stem": "Which of the following is an example of 'something the user has' combined with 'something the user knows' for multifactor authentication?",
+      "choices": [
+        "A password and a security question",
+        "A fingerprint scan and a retina scan",
+        "A smart card and a PIN",
+        "A voice pattern and a handwriting sample"
+      ],
+      "correct": 2,
+      "explanation": "A smart card is a physical token (possession) and a PIN is a secret (knowledge), satisfying the requirement for two different factors."
+    },
+    {
+      "id": "ch3-q16",
+      "stem": "What is the primary trade-off when adjusting the threshold in a biometric system?",
+      "choices": [
+        "Speed vs. storage capacity",
+        "False Match Rate vs. False Nonmatch Rate",
+        "Cost vs. physical size of the sensor",
+        "User education vs. system complexity"
+      ],
+      "correct": 1,
+      "explanation": "Lowering the threshold to make the system more convenient (reducing False Nonmatches) typically increases the risk of False Matches (security risk)."
+    },
+    {
+      "id": "ch3-q17",
+      "stem": "Which of these is a benefit of using a Bloom filter for proactive password checking?",
+      "choices": [
+        "It can recover the original password from a hash",
+        "It provides a very space-efficient way to check if a password is in a large dictionary of forbidden words",
+        "It automatically generates complex passwords for users",
+        "It eliminates the need for any salt values"
+      ],
+      "correct": 1,
+      "explanation": "A Bloom filter allows a system to test if a password is in a 'bad' dictionary using very little memory and constant-time lookups."
+    },
+    {
+      "id": "ch3-q18",
+      "stem": "A user's identity has been verified by a CSP at a physical location with trained representatives. This corresponds to which NIST Identity Assurance Level?",
+      "choices": [
+        "IAL1",
+        "IAL2",
+        "IAL3",
+        "IAL4"
+      ],
+      "correct": 2,
+      "explanation": "IAL3 requires physical presence for identity proofing and verification by an authorized representative, providing the highest level of identity assurance."
+    },
+    {
+      "id": "ch3-q19",
+      "stem": "What does 'verifier impersonation resistance' mean in the context of AAL3?",
+      "choices": [
+        "The verifier cannot pretend to be the user",
+        "The user cannot pretend to be the verifier",
+        "An attacker cannot successfully trick a user into authenticating to a fake website or service",
+        "The system can detect if the verifier's database has been stolen"
+      ],
+      "correct": 2,
+      "explanation": "Verifier impersonation resistance (like that provided by FIDO/WebAuthn) ensures that even if a user is tricked into trying to log in to a malicious site, the authenticator will not release the credential."
+    },
+    {
+      "id": "ch3-q20",
+      "stem": "A system that uses Bcrypt for password hashing can be configured to be more resistant to future increases in computing power by:",
+      "choices": [
+        "Changing the salt to a fixed value",
+        "Increasing the 'cost' or 'work factor' parameter",
+        "Switching to a shorter hash length",
+        "Disabling the use of the Blowfish algorithm"
+      ],
+      "correct": 1,
+      "explanation": "Bcrypt includes a cost variable that determines the number of iterations; increasing this value makes the hashing process slower, countering faster hardware."
+    }
+  ]
+}

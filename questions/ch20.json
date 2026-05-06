@@ -1,0 +1,246 @@
+{
+  "chapter": 20,
+  "title": "Symmetric Encryption and Message Confidentiality",
+  "questions": [
+    {
+      "id": "ch20-q01",
+      "question": "Which ingredient of a symmetric encryption scheme determines the specific transformations performed by the encryption algorithm?",
+      "options": [
+        "Plaintext",
+        "Ciphertext",
+        "Secret Key",
+        "Decryption Algorithm"
+      ],
+      "answer": "Secret Key",
+      "explanation": "The secret key is the input to the encryption algorithm that determines the exact nature of the substitutions and transformations applied to the plaintext."
+    },
+    {
+      "id": "ch20-q02",
+      "question": "An attack where the analyst has access to one or more pairs of plaintext and its corresponding ciphertext is known as a:",
+      "options": [
+        "Ciphertext-only attack",
+        "Known plaintext attack",
+        "Chosen plaintext attack",
+        "Brute-force attack"
+      ],
+      "answer": "Known plaintext attack",
+      "explanation": "In a known plaintext attack, the cryptanalyst has some knowledge of the plaintext and its resulting ciphertext to deduce the key."
+    },
+    {
+      "id": "ch20-q03",
+      "question": "What is the primary reason the Data Encryption Standard (DES) is no longer considered secure for modern applications?",
+      "options": [
+        "The Feistel structure is inherently flawed",
+        "The 64-bit block size is too large",
+        "The 56-bit key length is vulnerable to brute-force attacks",
+        "It uses a substitution-permutation network"
+      ],
+      "answer": "The 56-bit key length is vulnerable to brute-force attacks",
+      "explanation": "With a 56-bit key, there are only 2^56 possible keys, which can be searched in a reasonable amount of time by modern computing clusters."
+    },
+    {
+      "id": "ch20-q04",
+      "question": "Triple DES (3DES) typically uses which sequence of operations to provide backward compatibility with single DES?",
+      "options": [
+        "Encrypt-Encrypt-Encrypt (EEE)",
+        "Decrypt-Encrypt-Decrypt (DED)",
+        "Encrypt-Decrypt-Encrypt (EDE)",
+        "Decrypt-Decrypt-Decrypt (DDD)"
+      ],
+      "answer": "Encrypt-Decrypt-Encrypt (EDE)",
+      "explanation": "The EDE sequence is used so that if K1=K2=K3, the operation is equivalent to a single DES encryption, providing backward compatibility."
+    },
+    {
+      "id": "ch20-q05",
+      "question": "Unlike DES, the Advanced Encryption Standard (AES) does not use a Feistel structure. Instead, it uses a:",
+      "options": [
+        "Stream cipher network",
+        "Substitution-permutation network",
+        "Linear feedback shift register",
+        "One-time pad structure"
+      ],
+      "answer": "Substitution-permutation network",
+      "explanation": "AES processes the entire data block in parallel using a substitution-permutation network, where each round consists of four distinct stages."
+    },
+    {
+      "id": "ch20-q06",
+      "question": "In the AES algorithm, which stage involves a non-linear byte substitution using a lookup table?",
+      "options": [
+        "Shift Rows",
+        "Mix Columns",
+        "Add Round Key",
+        "Substitute Bytes"
+      ],
+      "answer": "Substitute Bytes",
+      "explanation": "The Substitute Bytes stage uses an S-box to perform a byte-by-byte substitution of the state matrix."
+    },
+    {
+      "id": "ch20-q07",
+      "question": "Which block cipher mode of operation is generally avoided for long messages because identical plaintext blocks produce identical ciphertext blocks?",
+      "options": [
+        "Cipher Block Chaining (CBC)",
+        "Electronic Codebook (ECB)",
+        "Cipher Feedback (CFB)",
+        "Counter (CTR)"
+      ],
+      "answer": "Electronic Codebook (ECB)",
+      "explanation": "ECB mode encrypts each block independently. If the same plaintext block appears multiple times, it results in the same ciphertext block, revealing patterns."
+    },
+    {
+      "id": "ch20-q08",
+      "question": "Which mode of operation allows for parallel processing of blocks and provides random access to the encrypted data?",
+      "options": [
+        "Cipher Block Chaining (CBC)",
+        "Electronic Codebook (ECB)",
+        "Counter (CTR)",
+        "Output Feedback (OFB)"
+      ],
+      "answer": "Counter (CTR)",
+      "explanation": "CTR mode encrypts an independent counter for each block, allowing blocks to be processed in any order or in parallel."
+    },
+    {
+      "id": "ch20-q09",
+      "question": "A stream cipher encrypts data by performing which bitwise operation between the plaintext and a pseudorandom keystream?",
+      "options": [
+        "AND",
+        "OR",
+        "XOR",
+        "NOT"
+      ],
+      "answer": "XOR",
+      "explanation": "Stream ciphers typically generate a keystream and XOR it with the plaintext to produce ciphertext; the process is reversed for decryption."
+    },
+    {
+      "id": "ch20-q10",
+      "question": "What is the purpose of an Initialization Vector (IV) in modes like Cipher Block Chaining (CBC)?",
+      "options": [
+        "To provide a secret key for the first block",
+        "To ensure that identical plaintexts result in different ciphertexts",
+        "To define the number of rounds in the encryption algorithm",
+        "To compress the plaintext before encryption"
+      ],
+      "answer": "To ensure that identical plaintexts result in different ciphertexts",
+      "explanation": "By using a unique IV for each session or message, the first block of ciphertext will be different even if the plaintext starts the same way."
+    },
+    {
+      "id": "ch20-q11",
+      "question": "In a network using a Key Distribution Center (KDC), how is a session key typically delivered to a user?",
+      "options": [
+        "In plain text over the network",
+        "Encrypted using the user's master key",
+        "Manually delivered on a physical token",
+        "Generated locally by the user without external input"
+      ],
+      "answer": "Encrypted using the user's master key",
+      "explanation": "The KDC shares a long-term master key with each user and uses it to securely distribute temporary session keys."
+    },
+    {
+      "id": "ch20-q12",
+      "question": "Which of the following is a characteristic of the Feistel cipher structure?",
+      "options": [
+        "Encryption and decryption use different hardware logic",
+        "It requires the round function F to be reversible",
+        "The plaintext block is divided into two halves",
+        "It is only used in stream ciphers"
+      ],
+      "answer": "The plaintext block is divided into two halves",
+      "explanation": "The Feistel structure divides the input block into L and R halves, processing one half and XORing it with the other in each round."
+    },
+    {
+      "id": "ch20-q13",
+      "question": "What is the effective key length of two-key Triple DES?",
+      "options": [
+        "56 bits",
+        "112 bits",
+        "128 bits",
+        "168 bits"
+      ],
+      "answer": "112 bits",
+      "explanation": "Two-key 3DES uses two 56-bit keys (K1 and K2), effectively providing 112 bits of security."
+    },
+    {
+      "id": "ch20-q14",
+      "question": "Which encryption algorithm is a modern stream cipher that is efficient on software-only implementations and resistant to timing attacks?",
+      "options": [
+        "RC4",
+        "DES",
+        "ChaCha20",
+        "AES-ECB"
+      ],
+      "answer": "ChaCha20",
+      "explanation": "ChaCha20 is designed to be high-performance in software and is more secure than the older RC4 algorithm."
+    },
+    {
+      "id": "ch20-q15",
+      "question": "If a cryptosystem is described as 'computationally secure', it means that:",
+      "options": [
+        "The cost of breaking the cipher exceeds the value of the information",
+        "It is impossible to break the cipher even with infinite resources",
+        "The key is longer than the message being encrypted",
+        "The algorithm is kept secret from the public"
+      ],
+      "answer": "The cost of breaking the cipher exceeds the value of the information",
+      "explanation": "Computational security refers to the practical impossibility of breaking the cipher within reasonable time and cost constraints."
+    },
+    {
+      "id": "ch20-q16",
+      "question": "In the Cipher Block Chaining (CBC) mode, if one bit of a ciphertext block is corrupted during transmission, which blocks are affected during decryption?",
+      "options": [
+        "Only the block containing the corrupted bit",
+        "The corrupted block and the following block",
+        "The corrupted block and all subsequent blocks",
+        "The entire message is unrecoverable"
+      ],
+      "answer": "The corrupted block and the following block",
+      "explanation": "A bit error in ciphertext block Ci affects the decryption of Ci (completely scrambling it) and block Ci+1 (altering the corresponding bit in the plaintext)."
+    },
+    {
+      "id": "ch20-q17",
+      "question": "AES supports three different key lengths. Which of the following is NOT a standard AES key length?",
+      "options": [
+        "128 bits",
+        "160 bits",
+        "192 bits",
+        "256 bits"
+      ],
+      "answer": "160 bits",
+      "explanation": "AES is standardized to support 128, 192, and 256-bit keys."
+    },
+    {
+      "id": "ch20-q18",
+      "question": "Which component in a block cipher is responsible for providing 'confusion' by mapping input bits to output bits in a non-linear way?",
+      "options": [
+        "P-box",
+        "S-box",
+        "XOR gate",
+        "Shift register"
+      ],
+      "answer": "S-box",
+      "explanation": "Substitution boxes (S-boxes) provide confusion by making the relationship between the statistics of the ciphertext and the value of the encryption key as complex as possible."
+    },
+    {
+      "id": "ch20-q19",
+      "question": "What happens in the 'Mix Columns' stage of an AES round?",
+      "options": [
+        "Each byte of the state is replaced by its inverse in GF(2^8)",
+        "The rows of the state are shifted cyclically",
+        "The four bytes of each column are transformed using a matrix multiplication",
+        "A subkey is XORed with the state"
+      ],
+      "answer": "The four bytes of each column are transformed using a matrix multiplication",
+      "explanation": "Mix Columns provides diffusion by mixing the bytes within each column of the state matrix using arithmetic over a finite field."
+    },
+    {
+      "id": "ch20-q20",
+      "question": "If you are designing a system for high-speed disk encryption where you need to be able to decrypt any specific sector without reading the entire disk, which mode is most suitable?",
+      "options": [
+        "Cipher Block Chaining (CBC)",
+        "Cipher Feedback (CFB)",
+        "Counter (CTR)",
+        "Output Feedback (OFB)"
+      ],
+      "answer": "Counter (CTR)",
+      "explanation": "CTR mode allows for random access because any block can be decrypted independently if the counter value for that block is known."
+    }
+  ]
+}

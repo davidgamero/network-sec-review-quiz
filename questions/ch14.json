@@ -1,0 +1,246 @@
+{
+  "chapter": 14,
+  "title": "IT Security Management and Risk Assessment",
+  "questions": [
+    {
+      "id": "ch14-q01",
+      "question": "What is the primary purpose of IT security management?",
+      "options": [
+        "To eliminate all possible security risks to the organization's network infrastructure.",
+        "To formalize a cyclic process for developing and maintaining appropriate security levels for an organization's assets.",
+        "To ensure that all employees are held legally accountable for any accidental security breaches.",
+        "To replace administrative controls with technical countermeasures to reduce labor costs."
+      ],
+      "answer": "To formalize a cyclic process for developing and maintaining appropriate security levels for an organization's assets.",
+      "type": "definition"
+    },
+    {
+      "id": "ch14-q02",
+      "question": "Which set of international standards is most commonly used as a guide for Information Security Management Systems (ISMS)?",
+      "options": [
+        "NIST SP 800-30",
+        "ISO 9000 series",
+        "ISO 27000 series",
+        "RFC 2196"
+      ],
+      "answer": "ISO 27000 series",
+      "type": "definition"
+    },
+    {
+      "id": "ch14-q03",
+      "question": "What are the three fundamental questions that the IT security management process seeks to answer?",
+      "options": [
+        "Which assets need protection? How are they threatened? What can be done to counter those threats?",
+        "Who is responsible? How much will it cost? When will it be completed?",
+        "What is the risk appetite? What is the risk register? What is the risk treatment?",
+        "Is the system characterization complete? Are threats identified? Is the likelihood high?"
+      ],
+      "answer": "Which assets need protection? How are they threatened? What can be done to counter those threats?",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch14-q04",
+      "question": "Which factor is often cited as the most critical for the success of an organization's IT security management program?",
+      "options": [
+        "The use of high-end technical firewalls and intrusion detection systems.",
+        "Full approval and visible support from senior management.",
+        "The employment of external consultants for all risk assessments.",
+        "A zero-tolerance policy for all minor security incidents."
+      ],
+      "answer": "Full approval and visible support from senior management.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch14-q05",
+      "question": "In the context of risk assessment, what is the 'Baseline Approach'?",
+      "options": [
+        "A method that uses internal expertise to perform a quick, pragmatic analysis of risks.",
+        "A formal, structured process involving a detailed identification of all assets and threats.",
+        "The implementation of a basic level of security using industry best practices and standard codes of practice.",
+        "An approach that only protects against internal threats while ignoring external ones."
+      ],
+      "answer": "The implementation of a basic level of security using industry best practices and standard codes of practice.",
+      "type": "definition"
+    },
+    {
+      "id": "ch14-q06",
+      "question": "What is a major disadvantage of the 'Informal Approach' to risk assessment?",
+      "options": [
+        "It is prohibitively expensive and time-consuming for small organizations.",
+        "It requires a highly structured, formal process that is difficult to replicate.",
+        "Results may be inconsistent or skewed by the prejudices of the individuals performing the analysis.",
+        "It focuses only on technical controls and ignores administrative policies."
+      ],
+      "answer": "Results may be inconsistent or skewed by the prejudices of the individuals performing the analysis.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch14-q07",
+      "question": "Why is the 'Combined Approach' often considered the most cost-effective method for risk management?",
+      "options": [
+        "It replaces all detailed analysis with a single high-level baseline check.",
+        "It applies baseline controls broadly while focusing detailed analysis on high-risk or critical systems.",
+        "It relies entirely on external insurance to transfer all identified risks.",
+        "It avoids the need for a risk register by focusing only on immediate threats."
+      ],
+      "answer": "It applies baseline controls broadly while focusing detailed analysis on high-risk or critical systems.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch14-q08",
+      "question": "How is 'Risk' typically defined in security management standards?",
+      "options": [
+        "A flaw or weakness in an asset's design that could be exploited.",
+        "A potential source of harm that might hinder an asset's operation.",
+        "The combination of the likelihood of a threat occurring and the magnitude of the resulting consequence.",
+        "The total monetary value of all assets within the organization's IT infrastructure."
+      ],
+      "answer": "The combination of the likelihood of a threat occurring and the magnitude of the resulting consequence.",
+      "type": "definition"
+    },
+    {
+      "id": "ch14-q09",
+      "question": "What is 'Risk Appetite'?",
+      "options": [
+        "The total number of threats an organization identifies in its risk register.",
+        "The level of risk an organization is willing to accept or pursue to achieve its objectives.",
+        "The percentage of the IT budget dedicated to security countermeasures.",
+        "The speed at which an organization can recover from a catastrophic security breach."
+      ],
+      "answer": "The level of risk an organization is willing to accept or pursue to achieve its objectives.",
+      "type": "definition"
+    },
+    {
+      "id": "ch14-q10",
+      "question": "During the 'System Characterization' phase of a detailed risk analysis, what is the primary goal?",
+      "options": [
+        "To perform technical vulnerability scans on all servers.",
+        "To establish the context, identify stakeholders, and define the boundaries of the assessment.",
+        "To calculate the exact monetary loss for every possible threat scenario.",
+        "To choose between risk transfer and risk avoidance for every identified asset."
+      ],
+      "answer": "To establish the context, identify stakeholders, and define the boundaries of the assessment.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch14-q11",
+      "question": "Which of the following is an example of 'Risk Transfer'?",
+      "options": [
+        "Upgrading a firewall to block more incoming traffic.",
+        "Shutting down a vulnerable web service to prevent attacks.",
+        "Purchasing cyber insurance to share the financial impact of a breach with a third party.",
+        "Updating the security policy to include mandatory training for all staff."
+      ],
+      "answer": "Purchasing cyber insurance to share the financial impact of a breach with a third party.",
+      "type": "applied"
+    },
+    {
+      "id": "ch14-q12",
+      "question": "If an organization decides to discontinue a high-risk online banking feature because the security costs are too high, which risk treatment option are they using?",
+      "options": [
+        "Risk Acceptance",
+        "Risk Avoidance",
+        "Risk Reduction",
+        "Risk Transfer"
+      ],
+      "answer": "Risk Avoidance",
+      "type": "applied"
+    },
+    {
+      "id": "ch14-q13",
+      "question": "Which component of the risk analysis process specifically measures the 'magnitude of loss or harmful impact'?",
+      "options": [
+        "Likelihood",
+        "Vulnerability",
+        "Consequence",
+        "Asset Identification"
+      ],
+      "answer": "Consequence",
+      "type": "definition"
+    },
+    {
+      "id": "ch14-q14",
+      "question": "In the Plan-Do-Check-Act (PDCA) model, what does the 'Check' phase involve?",
+      "options": [
+        "Implementing the security controls and processes.",
+        "Establishing the security policy and objectives.",
+        "Monitoring and measuring performance against policy and objectives.",
+        "Taking corrective actions to achieve continuous improvement."
+      ],
+      "answer": "Monitoring and measuring performance against policy and objectives.",
+      "type": "definition"
+    },
+    {
+      "id": "ch14-q15",
+      "question": "A small retail shop with very limited IT resources and standard point-of-sale systems would most likely benefit from which risk assessment approach?",
+      "options": [
+        "Detailed Risk Analysis",
+        "Baseline Approach",
+        "Formal Multi-Level Analysis",
+        "Systematic Threat Modeling"
+      ],
+      "answer": "Baseline Approach",
+      "type": "applied"
+    },
+    {
+      "id": "ch14-q16",
+      "question": "What is the function of a 'Risk Register'?",
+      "options": [
+        "To list all employees who have access to sensitive information.",
+        "To document identified risks, their ratings, and their treatment status.",
+        "To record the IP addresses of all blocked attackers.",
+        "To track the changes made to the organization's firewall configurations."
+      ],
+      "answer": "To document identified risks, their ratings, and their treatment status.",
+      "type": "definition"
+    },
+    {
+      "id": "ch14-q17",
+      "question": "When evaluating a human threat source, which factor considers the 'level of skill' the attacker has in exploiting a vulnerability?",
+      "options": [
+        "Motivation",
+        "Capability",
+        "Deterrence",
+        "Resources"
+      ],
+      "answer": "Capability",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch14-q18",
+      "question": "Implementing a daily off-site backup system is primarily an example of which risk treatment strategy?",
+      "options": [
+        "Reduce Likelihood",
+        "Reduce Consequence",
+        "Risk Avoidance",
+        "Risk Acceptance"
+      ],
+      "answer": "Reduce Consequence",
+      "type": "applied"
+    },
+    {
+      "id": "ch14-q19",
+      "question": "Why is qualitative risk analysis often preferred over quantitative analysis in IT security management?",
+      "options": [
+        "It provides exact monetary values for intangible assets like 'brand reputation'.",
+        "It is required by all ISO 27000 series standards.",
+        "Accurate probabilities and monetary costs are often difficult to determine.",
+        "It eliminates the need for management to make business decisions."
+      ],
+      "answer": "Accurate probabilities and monetary costs are often difficult to determine.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch14-q20",
+      "question": "An 'Asset' in IT security management is defined as:",
+      "options": [
+        "Only the physical hardware owned by the organization.",
+        "Any system resource or capability of value to its owner that requires protection.",
+        "The set of technical controls used to block network attacks.",
+        "The documentation describing the organization's legal obligations."
+      ],
+      "answer": "Any system resource or capability of value to its owner that requires protection.",
+      "type": "definition"
+    }
+  ]
+}

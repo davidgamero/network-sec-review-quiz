@@ -1,0 +1,246 @@
+{
+  "chapter": 1,
+  "title": "Overview",
+  "questions": [
+    {
+      "id": "ch1-q01",
+      "stem": "Which component of the CIA triad focuses on ensuring that individuals control or influence what information related to them may be collected and stored?",
+      "choices": [
+        "Data integrity",
+        "Availability",
+        "Privacy",
+        "System integrity"
+      ],
+      "correct": 2,
+      "explanation": "Privacy is defined as a concept related to confidentiality that assures individuals control over their personal information collection and disclosure."
+    },
+    {
+      "id": "ch1-q02",
+      "stem": "According to FIPS 199, a loss of integrity is defined as the unauthorized?",
+      "choices": [
+        "Disclosure of information",
+        "Modification or destruction of information",
+        "Disruption of access to information",
+        "Use of information or an information system"
+      ],
+      "correct": 1,
+      "explanation": "The CIA triad defines integrity as guarding against improper information modification or destruction."
+    },
+    {
+      "id": "ch1-q03",
+      "stem": "Which security goal generates the requirement for actions of an entity to be traced uniquely to that entity?",
+      "choices": [
+        "Authenticity",
+        "Confidentiality",
+        "Accountability",
+        "Availability"
+      ],
+      "correct": 2,
+      "explanation": "Accountability ensures that system breaches can be traced back to a responsible party for forensic analysis and legal action."
+    },
+    {
+      "id": "ch1-q04",
+      "stem": "Which level of impact is defined by FIPS 199 as a loss that could be expected to have a serious adverse effect on organizational operations, assets, or individuals?",
+      "choices": [
+        "Low",
+        "Moderate",
+        "High",
+        "Severe"
+      ],
+      "correct": 1,
+      "explanation": "FIPS 199 defines a moderate impact level as one that causes significant degradation in mission capability or significant damage."
+    },
+    {
+      "id": "ch1-q05",
+      "stem": "An attempt to learn or make use of information from a system that does not affect system resources is classified as a?",
+      "choices": [
+        "Active attack",
+        "Inside attack",
+        "Passive attack",
+        "Usurpation attack"
+      ],
+      "correct": 2,
+      "explanation": "A passive attack is an attempt to learn or make use of system information without affecting its resources."
+    },
+    {
+      "id": "ch1-q06",
+      "stem": "Which type of attack involves the passive capture of a data unit and its subsequent retransmission to produce an unauthorized effect?",
+      "choices": [
+        "Masquerade",
+        "Modification of messages",
+        "Replay",
+        "Denial of service"
+      ],
+      "correct": 2,
+      "explanation": "Replay attacks are active attacks that involve the capture and subsequent retransmission of data units."
+    },
+    {
+      "id": "ch1-q07",
+      "stem": "The fundamental security design principle that suggests keeping the design of security measures as simple and small as possible is known as?",
+      "choices": [
+        "Economy of mechanism",
+        "Open design",
+        "Fail-safe defaults",
+        "Least privilege"
+      ],
+      "correct": 0,
+      "explanation": "The principle of economy of mechanism holds that simpler, smaller designs are easier to test and verify."
+    },
+    {
+      "id": "ch1-q08",
+      "stem": "Which design principle states that every access to a system resource must be checked against the access control mechanism?",
+      "choices": [
+        "Separation of privilege",
+        "Complete mediation",
+        "Least common mechanism",
+        "Isolation"
+      ],
+      "correct": 1,
+      "explanation": "Complete mediation requires that every access must be validated, rather than relying on cached access decisions."
+    },
+    {
+      "id": "ch1-q09",
+      "stem": "Which category of attack surface refers to vulnerabilities created by personnel or outsiders, such as social engineering or human error?",
+      "choices": [
+        "Network attack surface",
+        "Software attack surface",
+        "Human attack surface",
+        "Physical attack surface"
+      ],
+      "correct": 2,
+      "explanation": "The human attack surface includes vulnerabilities resulting from personnel actions, errors, or social engineering."
+    },
+    {
+      "id": "ch1-q10",
+      "stem": "In an attack tree, what type of node requires that all of its subgoals must be achieved to reach the parent goal?",
+      "choices": [
+        "OR-node",
+        "Leaf node",
+        "AND-node",
+        "Root node"
+      ],
+      "correct": 2,
+      "explanation": "Attack trees use AND-nodes to represent subgoals that must all be satisfied to achieve the higher-level goal."
+    },
+    {
+      "id": "ch1-q11",
+      "stem": "Which threat consequence category involves an unauthorized entity gaining access to sensitive data by circumventing a system's security protections?",
+      "choices": [
+        "Exposure",
+        "Interception",
+        "Inference",
+        "Intrusion"
+      ],
+      "correct": 3,
+      "explanation": "Intrusion is a threat action under unauthorized disclosure where security protections are circumvented."
+    },
+    {
+      "id": "ch1-q12",
+      "stem": "A student altering their grades on a school database is an example of which threat action?",
+      "choices": [
+        "Masquerade",
+        "Falsification",
+        "Repudiation",
+        "Misappropriation"
+      ],
+      "correct": 1,
+      "explanation": "Falsification refers to the altering or replacing of valid data with false data in a file or database."
+    },
+    {
+      "id": "ch1-q13",
+      "stem": "The principle of fail-safe defaults implies that access decisions should be based on?",
+      "choices": [
+        "Exclusion rather than permission",
+        "Permission rather than exclusion",
+        "User roles rather than identities",
+        "Secrecy of the mechanism"
+      ],
+      "correct": 1,
+      "explanation": "Fail-safe defaults base access on explicit permission, ensuring that failure results in a denial of access."
+    },
+    {
+      "id": "ch1-q14",
+      "stem": "Which aspect of a computer security strategy involves the degree of confidence that the security measures work as intended?",
+      "choices": [
+        "Specification",
+        "Implementation",
+        "Assurance",
+        "Policy"
+      ],
+      "correct": 2,
+      "explanation": "Assurance provides the grounds for confidence that the system's design and implementation enforce the security policy."
+    },
+    {
+      "id": "ch1-q15",
+      "stem": "A hospital patient's allergy information stored in a database is cited in the text as an example of an asset with a high requirement for which security objective?",
+      "choices": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Accountability"
+      ],
+      "correct": 1,
+      "explanation": "Integrity is critical for medical data like allergy information, as inaccurate data could cause serious harm or death."
+    },
+    {
+      "id": "ch1-q16",
+      "stem": "Which passive attack involves observing the pattern of messages, such as location, identity, and frequency of exchange?",
+      "choices": [
+        "Release of message contents",
+        "Traffic analysis",
+        "Masquerade",
+        "Modification of messages"
+      ],
+      "correct": 1,
+      "explanation": "Traffic analysis allows an attacker to gain information by observing patterns of communication even if the content is encrypted."
+    },
+    {
+      "id": "ch1-q17",
+      "stem": "The principle that security mechanisms should not unduly interfere with the work of users is known as?",
+      "choices": [
+        "Least astonishment",
+        "Open design",
+        "Psychological acceptability",
+        "Modularity"
+      ],
+      "correct": 2,
+      "explanation": "Psychological acceptability ensures that security measures are not so burdensome that users attempt to bypass them."
+    },
+    {
+      "id": "ch1-q18",
+      "stem": "Which threat consequence category from RFC 4949 includes the threat action of masquerade?",
+      "choices": [
+        "Unauthorized Disclosure",
+        "Deception",
+        "Disruption",
+        "Usurpation"
+      ],
+      "correct": 1,
+      "explanation": "Deception includes masquerade, falsification, and repudiation as threat actions that mislead an authorized entity."
+    },
+    {
+      "id": "ch1-q19",
+      "stem": "A distributed denial of service attack where malicious software is installed on hosts to launch traffic at a target is an example of which threat action?",
+      "choices": [
+        "Misappropriation",
+        "Corruption",
+        "Incapacitation",
+        "Inference"
+      ],
+      "correct": 0,
+      "explanation": "Misappropriation involves an entity assuming unauthorized control of a system resource, such as in a botnet."
+    },
+    {
+      "id": "ch1-q20",
+      "stem": "Which design principle advocates for the use of multiple, overlapping protection approaches to ensure that the failure of one does not leave the system unprotected?",
+      "choices": [
+        "Isolation",
+        "Encapsulation",
+        "Layering",
+        "Least privilege"
+      ],
+      "correct": 2,
+      "explanation": "Layering, or defense in depth, provides multiple barriers between an adversary and protected assets."
+    }
+  ]
+}

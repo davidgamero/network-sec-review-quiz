@@ -1,0 +1,266 @@
+{
+  "chapter": 16,
+  "title": "Physical and Infrastructure Security",
+  "questions": [
+    {
+      "id": "ch16-q01",
+      "question": "Which term is used to describe the protection of information system hardware, the buildings they are in, and supporting utilities like power and climate control?",
+      "options": [
+        "Logical security",
+        "Network security",
+        "Infrastructure security",
+        "Cybersecurity"
+      ],
+      "answer": "Infrastructure security",
+      "explanation": "Infrastructure security is another term for physical security, focusing on the tangible assets and facilities that sustain information processing.",
+      "type": "definition"
+    },
+    {
+      "id": "ch16-q02",
+      "question": "Which environmental factor, if too low, significantly increases the risk of static electricity discharge in a data center?",
+      "options": [
+        "Temperature",
+        "Relative humidity",
+        "Atmospheric pressure",
+        "Airflow velocity"
+      ],
+      "answer": "Relative humidity",
+      "explanation": "Low humidity levels (typically below 40%) increase the risk of static electricity, while high humidity leads to corrosion.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch16-q03",
+      "question": "According to NIST SP 800-116, what is the minimum number of authentication factors required for access to an 'Exclusion Area'?",
+      "options": [
+        "One factor",
+        "Two factors",
+        "Three factors",
+        "Four factors"
+      ],
+      "answer": "Three factors",
+      "explanation": "Exclusion areas require three-factor authentication, such as a PIV card, a PIN, and a biometric match.",
+      "type": "definition"
+    },
+    {
+      "id": "ch16-q04",
+      "question": "A security administrator notices a logical login from a user account while the Physical Access Control System (PACS) shows the user has not entered the building. This is an example of using integrated security to detect which threat?",
+      "options": [
+        "Insider threat",
+        "Account hijacking",
+        "Social engineering",
+        "Denial of service"
+      ],
+      "answer": "Account hijacking",
+      "explanation": "Comparing physical presence with logical access can reveal when an account is being used remotely or without the owner's knowledge.",
+      "type": "applied"
+    },
+    {
+      "id": "ch16-q05",
+      "question": "Which electrical power anomaly is considered the most serious because it can immediately destroy silicon-based electronic components?",
+      "options": [
+        "Brownout",
+        "Undervoltage",
+        "Electrical noise",
+        "Overvoltage"
+      ],
+      "answer": "Overvoltage",
+      "explanation": "Overvoltage, such as surges from lightning or utility anomalies, can cause permanent physical damage to integrated circuits.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch16-q06",
+      "question": "What is the primary purpose of a 'Hot Site' in the context of physical security recovery?",
+      "options": [
+        "To provide a backup of digital data only",
+        "To serve as a fully equipped facility ready for immediate operations",
+        "To store physical records in a temperature-controlled environment",
+        "To test fire suppression systems without disrupting main operations"
+      ],
+      "answer": "To serve as a fully equipped facility ready for immediate operations",
+      "explanation": "A hot site is a redundant facility with all necessary hardware and data synchronization for rapid recovery.",
+      "type": "definition"
+    },
+    {
+      "id": "ch16-q07",
+      "question": "How does smoke primarily damage sensitive electronic storage media during or after a fire?",
+      "options": [
+        "By causing thermal shock",
+        "By acting as an abrasive",
+        "By inducing electrical noise",
+        "By reducing oxygen levels"
+      ],
+      "answer": "By acting as an abrasive",
+      "explanation": "Smoke contains tiny particles that are highly abrasive and can physically degrade the surfaces of storage media.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch16-q08",
+      "question": "Which scale is used to measure the intensity of tornadoes based on wind speed and the resulting structural damage?",
+      "options": [
+        "Saffir/Simpson Scale",
+        "Richter Scale",
+        "Fujita Scale",
+        "Mercalli Scale"
+      ],
+      "answer": "Fujita Scale",
+      "explanation": "The Fujita Scale (F0 to F5) categorizes tornadoes based on the damage they inflict on buildings and infrastructure.",
+      "type": "definition"
+    },
+    {
+      "id": "ch16-q09",
+      "question": "A company installs filters and shielding around its server room to prevent logic errors caused by nearby heavy machinery. This measure specifically targets which type of threat?",
+      "options": [
+        "Static discharge",
+        "Electromagnetic interference (EMI)",
+        "Thermal shock",
+        "Unauthorized access"
+      ],
+      "answer": "Electromagnetic interference (EMI)",
+      "explanation": "Shielding and filters are used to mitigate EMI, which can cause 'noise' and logical errors in electronic devices.",
+      "type": "applied"
+    },
+    {
+      "id": "ch16-q10",
+      "question": "What is the recommended range for relative humidity in a data center to balance the risks of corrosion and static discharge?",
+      "options": [
+        "20% to 40%",
+        "40% to 60%",
+        "60% to 80%",
+        "Above 80%"
+      ],
+      "answer": "40% to 60%",
+      "explanation": "The ideal range is 40% to 60%; lower leads to static, higher leads to corrosion.",
+      "type": "definition"
+    },
+    {
+      "id": "ch16-q11",
+      "question": "In the FIPS 201-3 PIV system model, which subsystem is responsible for identity proofing and registration of a user?",
+      "options": [
+        "PIV Front End",
+        "Relying Subsystem",
+        "Issuance and Management Subsystem",
+        "Physical Access Control System"
+      ],
+      "answer": "Issuance and Management Subsystem",
+      "explanation": "The Issuance and Management Subsystem handles the administrative tasks of verifying identity and issuing the PIV card.",
+      "type": "definition"
+    },
+    {
+      "id": "ch16-q12",
+      "question": "Which of these is a typical human-caused physical threat that is intentionally designed to bypass existing security measures?",
+      "options": [
+        "Plumbing leaks",
+        "Dust accumulation",
+        "Vandalism",
+        "Thermal shock"
+      ],
+      "answer": "Vandalism",
+      "explanation": "Human-caused threats like vandalism and theft are often targeted and unpredictable compared to natural disasters.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch16-q13",
+      "question": "An organization experiences a temporary power dip that causes several servers to reboot. Which mitigation tool would have prevented this disruption?",
+      "options": [
+        "Emergency generator",
+        "Uninterruptible Power Supply (UPS)",
+        "EMI filter",
+        "Circuit breaker"
+      ],
+      "answer": "Uninterruptible Power Supply (UPS)",
+      "explanation": "A UPS provides near-instantaneous power during brief dips or outages, whereas generators take time to start.",
+      "type": "applied"
+    },
+    {
+      "id": "ch16-q14",
+      "question": "Why is 'convergence' of physical and logical security considered a strategic advantage for modern organizations?",
+      "options": [
+        "It eliminates the need for environmental controls",
+        "It provides a unified view of security events across different domains",
+        "It reduces the number of authentication factors needed for sensitive areas",
+        "It prevents natural disasters from affecting data centers"
+      ],
+      "answer": "It provides a unified view of security events across different domains",
+      "explanation": "Convergence allows organizations to correlate physical and logical events, improving detection of complex attacks.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch16-q15",
+      "question": "Which category of protected area, according to NIST SP 800-116, requires at least one-factor authentication, such as the use of a PIV card's PKI certificate?",
+      "options": [
+        "Controlled Area",
+        "Limited Area",
+        "Exclusion Area",
+        "Public Area"
+      ],
+      "answer": "Controlled Area",
+      "explanation": "A Controlled Area is the least restrictive protected area and typically requires at least one-factor authentication.",
+      "type": "definition"
+    },
+    {
+      "id": "ch16-q16",
+      "question": "A data center located in a coastal region is designed with reinforced walls and elevated platforms for critical hardware. These design choices primarily mitigate threats from which source?",
+      "options": [
+        "Tornadoes and dust",
+        "Hurricanes and flooding",
+        "Earthquakes and EMI",
+        "Infestation and theft"
+      ],
+      "answer": "Hurricanes and flooding",
+      "explanation": "Elevated platforms protect against water damage from floods, and reinforced walls protect against high winds from hurricanes.",
+      "type": "applied"
+    },
+    {
+      "id": "ch16-q17",
+      "question": "What is the primary difference between logical security and physical security?",
+      "options": [
+        "Logical security protects against fires, while physical security protects against hackers",
+        "Logical security deals with software-based threats, while physical security deals with tangible assets",
+        "Physical security is only for buildings, while logical security is for hardware",
+        "Logical security is mandatory, while physical security is optional"
+      ],
+      "answer": "Logical security deals with software-based threats, while physical security deals with tangible assets",
+      "explanation": "Logical security focuses on data and communications, while physical security covers the physical environment and equipment.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch16-q18",
+      "question": "Which factor makes earthquakes particularly difficult to mitigate compared to other natural disasters like hurricanes?",
+      "options": [
+        "They last for several days",
+        "They occur with little to no warning",
+        "They only affect software systems",
+        "They are measured on the Fujita scale"
+      ],
+      "answer": "They occur with little to no warning",
+      "explanation": "Unlike hurricanes or tornadoes, earthquakes offer no warning time, making immediate evacuation or shutdown impossible.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch16-q19",
+      "question": "In the context of fire suppression, what is a major disadvantage of using water-based sprinkler systems in a server room?",
+      "options": [
+        "Water is ineffective against electrical fires",
+        "Water can cause extensive damage to electronic equipment",
+        "Sprinklers increase the risk of static discharge",
+        "Water systems are too expensive to maintain"
+      ],
+      "answer": "Water can cause extensive damage to electronic equipment",
+      "explanation": "While effective at extinguishing fire, water is highly destructive to energized electronic components and circuitry.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch16-q20",
+      "question": "A PIV smart card that stores a user's biometric template and requires a PIN for access provides how many authentication factors?",
+      "options": [
+        "One factor",
+        "Two factors",
+        "Three factors",
+        "Five factors"
+      ],
+      "answer": "Three factors",
+      "explanation": "It combines 'something you have' (card), 'something you know' (PIN), and 'something you are' (biometric).",
+      "type": "definition"
+    }
+  ]
+}

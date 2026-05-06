@@ -1,0 +1,266 @@
+{
+  "chapter": 21,
+  "title": "Public-Key Cryptography and Message Authentication",
+  "questions": [
+    {
+      "id": "ch21-q01",
+      "type": "definition",
+      "question": "Which SHA-2 variant produces a 512-bit message digest and processes input in 1024-bit blocks?",
+      "options": [
+        "SHA-256",
+        "SHA-384",
+        "SHA-512",
+        "SHA-1"
+      ],
+      "answer": "SHA-512",
+      "explanation": "SHA-512 produces a 512-bit digest and uses a block size of 1024 bits with 80 rounds of processing."
+    },
+    {
+      "id": "ch21-q02",
+      "type": "conceptual",
+      "question": "What is the primary structural difference between SHA-3 and the SHA-2 family?",
+      "options": [
+        "SHA-3 uses a sponge construction instead of an iterative Merkle-Damgård structure.",
+        "SHA-3 uses 128-bit words instead of 64-bit words.",
+        "SHA-3 relies on the Feistel network rather than logical Boolean functions.",
+        "SHA-3 is designed exclusively for 32-bit hardware architectures."
+      ],
+      "answer": "SHA-3 uses a sponge construction instead of an iterative Merkle-Damgård structure.",
+      "explanation": "SHA-3 was developed using a sponge construction to provide a fundamentally different alternative to the structure shared by SHA-1 and SHA-2."
+    },
+    {
+      "id": "ch21-q03",
+      "type": "definition",
+      "question": "In the HMAC algorithm, what is the purpose of the 'ipad' and 'opad' constants?",
+      "options": [
+        "They serve as initialization vectors for the underlying hash function.",
+        "They are XORed with the secret key to produce two distinct internal keys.",
+        "They define the number of rounds the hash function performs.",
+        "They represent the padding bits added to the message length."
+      ],
+      "answer": "They are XORed with the secret key to produce two distinct internal keys.",
+      "explanation": "HMAC uses ipad (inner pad) and opad (outer pad) to flip different sets of bits in the key, effectively creating two distinct keys for the nested hash process."
+    },
+    {
+      "id": "ch21-q04",
+      "type": "conceptual",
+      "question": "Why is HMAC considered secure even if the underlying hash function has weaknesses like collision resistance issues in an offline setting?",
+      "options": [
+        "HMAC encrypts the hash value with AES, hiding the collisions.",
+        "The attacker cannot generate message-MAC pairs offline because the secret key is unknown.",
+        "HMAC uses three different hash functions in a sequence to cancel out weaknesses.",
+        "The use of large primes in HMAC prevents collision attacks."
+      ],
+      "answer": "The attacker cannot generate message-MAC pairs offline because the secret key is unknown.",
+      "explanation": "Unlike a simple hash, an attacker cannot work offline to find HMAC collisions because they lack the secret key required to generate the tags."
+    },
+    {
+      "id": "ch21-q05",
+      "type": "definition",
+      "question": "Which mode of operation provides Authenticated Encryption (AE) by using a single pass to produce both ciphertext and an authentication tag with parallel processing support?",
+      "options": [
+        "CBC (Cipher Block Chaining)",
+        "OCB (Offset Codebook)",
+        "ECB (Electronic Codebook)",
+        "HMAC-SHA256"
+      ],
+      "answer": "OCB (Offset Codebook)",
+      "explanation": "OCB mode is designed for efficiency, achieving both confidentiality and authenticity in a single pass while allowing parallel processing of blocks."
+    },
+    {
+      "id": "ch21-q06",
+      "type": "conceptual",
+      "question": "In OCB mode, how is the 'electronic codebook' problem (identical plaintext blocks producing identical ciphertext) addressed?",
+      "options": [
+        "By chaining each block to the previous block's ciphertext.",
+        "By using a unique offset for each block derived from a nonce and the key.",
+        "By increasing the block size to 1024 bits.",
+        "By applying a hash function to each block before encryption."
+      ],
+      "answer": "By using a unique offset for each block derived from a nonce and the key.",
+      "explanation": "OCB uses a unique offset XORed with each plaintext block before encryption and after, ensuring identical blocks yield different ciphertexts."
+    },
+    {
+      "id": "ch21-q07",
+      "type": "definition",
+      "question": "On what mathematical problem is the security of the RSA algorithm primarily based?",
+      "options": [
+        "The difficulty of computing discrete logarithms in a finite field.",
+        "The difficulty of factoring the product of two large prime numbers.",
+        "The complexity of the knapsack problem.",
+        "The inability to find collisions in a one-way hash function."
+      ],
+      "answer": "The difficulty of factoring the product of two large prime numbers.",
+      "explanation": "RSA's security relies on the asymmetry between the ease of multiplying two large primes and the extreme difficulty of factoring the resulting product."
+    },
+    {
+      "id": "ch21-q08",
+      "type": "applied",
+      "question": "In an RSA system with p = 7 and q = 11, what is the value of the modulus n and the Euler totient φ(n)?",
+      "options": [
+        "n = 77, φ(n) = 77",
+        "n = 18, φ(n) = 60",
+        "n = 77, φ(n) = 60",
+        "n = 77, φ(n) = 70"
+      ],
+      "answer": "n = 77, φ(n) = 60",
+      "explanation": "n = p * q = 7 * 11 = 77. φ(n) = (p-1)(q-1) = 6 * 10 = 60."
+    },
+    {
+      "id": "ch21-q09",
+      "type": "conceptual",
+      "question": "Which of the following describes a timing attack against RSA?",
+      "options": [
+        "Measuring the time it takes for a message to travel across a network to intercept it.",
+        "Exploiting variations in the time required to perform modular exponentiation to recover the private key.",
+        "Sending messages at specific intervals to cause a denial-of-service on the decryption engine.",
+        "Using a faster processor to perform a brute-force search of the key space."
+      ],
+      "answer": "Exploiting variations in the time required to perform modular exponentiation to recover the private key.",
+      "explanation": "Timing attacks analyze the slight differences in processing time for modular exponentiation, which can reveal individual bits of the private exponent."
+    },
+    {
+      "id": "ch21-q10",
+      "type": "definition",
+      "question": "Which countermeasure against RSA timing attacks involves multiplying the ciphertext by a random number before decryption?",
+      "options": [
+        "Random delays",
+        "Constant exponentiation time",
+        "Blinding",
+        "Padding"
+      ],
+      "answer": "Blinding",
+      "explanation": "Blinding prevents the attacker from knowing what ciphertext bits are being processed, thwarting bit-by-bit analysis of timing variations."
+    },
+    {
+      "id": "ch21-q11",
+      "type": "conceptual",
+      "question": "What is the primary goal of the Diffie-Hellman algorithm?",
+      "options": [
+        "To provide digital signatures for message non-repudiation.",
+        "To encrypt large files using a public-key pair.",
+        "To allow two users to securely share a secret key over an insecure channel.",
+        "To generate a one-way hash of a message for integrity checking."
+      ],
+      "answer": "To allow two users to securely share a secret key over an insecure channel.",
+      "explanation": "Diffie-Hellman is a key exchange protocol specifically designed to establish a shared secret between two parties who have no prior knowledge of each other."
+    },
+    {
+      "id": "ch21-q12",
+      "type": "applied",
+      "question": "In Diffie-Hellman, if the public parameters are q = 11 and α = 2, and Alice chooses a secret XA = 3, what is her public value YA?",
+      "options": [
+        "YA = 6",
+        "YA = 8",
+        "YA = 9",
+        "YA = 2"
+      ],
+      "answer": "YA = 8",
+      "explanation": "YA = α^XA mod q = 2^3 mod 11 = 8."
+    },
+    {
+      "id": "ch21-q13",
+      "type": "conceptual",
+      "question": "Why is the basic Diffie-Hellman key exchange vulnerable to a man-in-the-middle attack?",
+      "options": [
+        "The keys used are too short for modern computers.",
+        "It does not provide a mechanism for authenticating the participants.",
+        "Discrete logarithms are easy to solve for small prime numbers.",
+        "The algorithm is only designed for symmetric encryption."
+      ],
+      "answer": "It does not provide a mechanism for authenticating the participants.",
+      "explanation": "Because Diffie-Hellman does not authenticate the parties, an attacker can sit in the middle and establish separate shared keys with each participant."
+    },
+    {
+      "id": "ch21-q14",
+      "type": "definition",
+      "question": "Which NIST standard is designed specifically for digital signatures and cannot be used for encryption or key exchange?",
+      "options": [
+        "RSA",
+        "Diffie-Hellman",
+        "DSS (Digital Signature Standard)",
+        "AES"
+      ],
+      "answer": "DSS (Digital Signature Standard)",
+      "explanation": "The DSS uses the Digital Signature Algorithm (DSA), which is strictly limited to the digital signature function."
+    },
+    {
+      "id": "ch21-q15",
+      "type": "conceptual",
+      "question": "What is the main advantage of Elliptic-Curve Cryptography (ECC) over RSA?",
+      "options": [
+        "ECC is much easier to implement in hardware.",
+        "ECC provides equivalent security with significantly smaller key sizes.",
+        "ECC is immune to all types of timing attacks.",
+        "ECC does not require the use of prime numbers."
+      ],
+      "answer": "ECC provides equivalent security with significantly smaller key sizes.",
+      "explanation": "ECC offers the same level of security as RSA but with much smaller keys (e.g., 256-bit ECC is comparable to 3072-bit RSA), making it ideal for resource-constrained devices."
+    },
+    {
+      "id": "ch21-q16",
+      "type": "definition",
+      "question": "Which class of cryptographic algorithms is being developed to remain secure even after the advent of powerful quantum computers?",
+      "options": [
+        "ECC (Elliptic-Curve Cryptography)",
+        "Post-Quantum Cryptography",
+        "Double-DES",
+        "Sponge Cryptography"
+      ],
+      "answer": "Post-Quantum Cryptography",
+      "explanation": "Post-Quantum Cryptography focuses on developing algorithms resistant to Shor's algorithm and other quantum computing threats."
+    },
+    {
+      "id": "ch21-q17",
+      "type": "conceptual",
+      "question": "In the context of SHA-512, what is the role of the 80 additive constants derived from prime numbers?",
+      "options": [
+        "They act as the secret key for the hash function.",
+        "They provide 'randomized' bit patterns to eliminate regularities in input data during the rounds.",
+        "They determine the number of bits in the final message digest.",
+        "They are used to pad the message to the correct block size."
+      ],
+      "answer": "They provide 'randomized' bit patterns to eliminate regularities in input data during the rounds.",
+      "explanation": "The constants (derived from the cube roots of the first 80 primes) help ensure that every bit of the output is a complex function of the input, reducing predictable patterns."
+    },
+    {
+      "id": "ch21-q18",
+      "type": "applied",
+      "question": "Given a message that is already 1024 bits long, how many padding bits will SHA-512 add during Step 1 of processing?",
+      "options": [
+        "0 bits",
+        "1024 bits",
+        "896 bits",
+        "128 bits"
+      ],
+      "answer": "1024 bits",
+      "explanation": "Padding is always added. If a message is an exact multiple of the block size, a full block of 1024 bits of padding is added to ensure the length can be correctly appended."
+    },
+    {
+      "id": "ch21-q19",
+      "type": "definition",
+      "question": "What does the 'sponge construction' in SHA-3 refer to?",
+      "options": [
+        "An algorithm that 'soaks up' the secret key and 'squeezes' out a signature.",
+        "A process involving an 'absorbing' phase for input and a 'squeezing' phase for output.",
+        "A method of compressing data to 10% of its original size before hashing.",
+        "A hardware-based approach to cooling cryptographic processors."
+      ],
+      "answer": "A process involving an 'absorbing' phase for input and a 'squeezing' phase for output.",
+      "explanation": "The sponge construction used in SHA-3 consists of an absorbing phase where message blocks are XORed into the state, and a squeezing phase where the digest is read out."
+    },
+    {
+      "id": "ch21-q20",
+      "type": "applied",
+      "question": "If an attacker observes a collision in a 128-bit hash function used within HMAC on a 1 Gbps link, how long would they theoretically need to observe the stream to succeed according to the text's birthday attack analysis?",
+      "options": [
+        "150 days",
+        "15,000 days",
+        "150,000 years",
+        "15 years"
+      ],
+      "answer": "150,000 years",
+      "explanation": "The text notes that for a 128-bit hash, finding a collision in HMAC (where keys can't be generated offline) would take about 150,000 years of observation on a 1 Gbps link."
+    }
+  ]
+}

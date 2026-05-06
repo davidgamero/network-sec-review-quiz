@@ -1,0 +1,246 @@
+{
+  "chapter": 5,
+  "title": "Database and Data Center Security",
+  "questions": [
+    {
+      "id": "ch5-q01",
+      "question": "Which component of a Database Management System (DBMS) is responsible for defining the logical structure of the database?",
+      "options": [
+        "Data Manipulation Language (DML)",
+        "Data Definition Language (DDL)",
+        "Transaction Manager",
+        "Query Processor"
+      ],
+      "answer": "Data Definition Language (DDL)",
+      "explanation": "The DDL is used to define the database schema and structure, while the DML is used for interacting with and modifying the data."
+    },
+    {
+      "id": "ch5-q02",
+      "question": "In a relational database, what term refers to a single row within a table?",
+      "options": [
+        "Attribute",
+        "Relation",
+        "Tuple",
+        "Primary Key"
+      ],
+      "answer": "Tuple",
+      "explanation": "In relational database terminology, a row is called a tuple, and a column is called an attribute."
+    },
+    {
+      "id": "ch5-q03",
+      "question": "What is the primary purpose of a 'View' in database security?",
+      "options": [
+        "To speed up complex queries by caching results",
+        "To provide a virtual table that restricts user access to specific subsets of data",
+        "To act as a physical backup of sensitive tables",
+        "To automatically encrypt columns containing personal information"
+      ],
+      "answer": "To provide a virtual table that restricts user access to specific subsets of data",
+      "explanation": "Views allow administrators to show users only the data they are authorized to see, hiding the underlying table structure and sensitive columns."
+    },
+    {
+      "id": "ch5-q04",
+      "question": "An attacker uses a web form to submit the string \"' OR 1=1 --\" to bypass a login screen. Which category of SQL injection does this represent?",
+      "options": [
+        "Inferential Attack",
+        "Out-of-band Attack",
+        "Inband Tautology",
+        "Second-order Injection"
+      ],
+      "answer": "Inband Tautology",
+      "explanation": "A tautology is an inband attack where the attacker injects code that always evaluates to true (like 1=1) to bypass checks."
+    },
+    {
+      "id": "ch5-q05",
+      "question": "Which SQL injection avenue involves the attacker placing malicious code into a database that is later executed by a different vulnerable routine?",
+      "options": [
+        "User Input",
+        "Second-order Injection",
+        "Cookie Injection",
+        "Server Variable Injection"
+      ],
+      "answer": "Second-order Injection",
+      "explanation": "Second-order injection occurs when the malicious input is stored by the application and later used in a different, vulnerable SQL query."
+    },
+    {
+      "id": "ch5-q06",
+      "question": "In 'Blind SQL Injection', how does the attacker typically retrieve information?",
+      "options": [
+        "By observing the application's response to true/false questions",
+        "By having the database send results to an external email address",
+        "By viewing detailed database error messages displayed on the webpage",
+        "By using UNION statements to combine results with legitimate queries"
+      ],
+      "answer": "By observing the application's response to true/false questions",
+      "explanation": "Blind SQL injection is an inferential attack where the attacker deduces data by asking the database boolean questions and observing the resulting behavior."
+    },
+    {
+      "id": "ch5-q07",
+      "question": "Which SQL command is used to provide specific privileges to a user or role?",
+      "options": [
+        "PERMIT",
+        "AUTHORIZE",
+        "GRANT",
+        "ASSIGN"
+      ],
+      "answer": "GRANT",
+      "explanation": "The GRANT command is used in SQL access management to give privileges to users or roles."
+    },
+    {
+      "id": "ch5-q08",
+      "question": "What happens in a 'Cascading Revoke' when a grantor's privileges are removed?",
+      "options": [
+        "Only the grantor's access is removed; others keep theirs",
+        "The entire database is locked until a new admin is assigned",
+        "Privileges are also removed from users who received them from that grantor",
+        "The system automatically promotes the next user in the chain"
+      ],
+      "answer": "Privileges are also removed from users who received them from that grantor",
+      "explanation": "In cascading authorization, revoking a privilege from a grantor typically removes it from all users who received it through that specific path."
+    },
+    {
+      "id": "ch5-q09",
+      "question": "Which database security risk involves deducing sensitive information by combining multiple pieces of non-sensitive data?",
+      "options": [
+        "Aggregation",
+        "Inference",
+        "Piggybacking",
+        "Data Mining"
+      ],
+      "answer": "Inference",
+      "explanation": "Inference is the process of deriving unauthorized information from legitimate query results by looking at the relationships between data items."
+    },
+    {
+      "id": "ch5-q10",
+      "question": "In the 'Encrypted Database Model' used for cloud storage, what is the purpose of an 'Index'?",
+      "options": [
+        "To allow the server to return a subset of records without decrypting them",
+        "To store the encryption keys securely on the server",
+        "To provide a map of which users are authorized to see which rows",
+        "To compress the database before it is uploaded to the cloud"
+      ],
+      "answer": "To allow the server to return a subset of records without decrypting them",
+      "explanation": "An indexing scheme allows the server to filter and return a relevant subset of encrypted data to the client for local decryption."
+    },
+    {
+      "id": "ch5-q11",
+      "question": "According to TIA-942, which Data Center Tier is characterized as being 'Concurrently Maintainable'?",
+      "options": [
+        "Tier 1",
+        "Tier 2",
+        "Tier 3",
+        "Tier 4"
+      ],
+      "answer": "Tier 3",
+      "explanation": "Tier 3 data centers are concurrently maintainable, meaning components can be removed or replaced without shutting down the system."
+    },
+    {
+      "id": "ch5-q12",
+      "question": "Which TIA-942 Tier provides the highest availability (99.995%) and is considered 'Fault Tolerant'?",
+      "options": [
+        "Tier 1",
+        "Tier 2",
+        "Tier 3",
+        "Tier 4"
+      ],
+      "answer": "Tier 4",
+      "explanation": "Tier 4 is the highest level, offering multiple active power and cooling paths and full fault tolerance."
+    },
+    {
+      "id": "ch5-q13",
+      "question": "In a data center, what is the role of the Main Distribution Area (MDA)?",
+      "options": [
+        "It serves as the interface between the data center and external carriers",
+        "It houses the core routers and switches for the data center network",
+        "It provides the final cabling connection to the server racks",
+        "It manages the cooling and power distribution for the facility"
+      ],
+      "answer": "It houses the core routers and switches for the data center network",
+      "explanation": "The MDA is the central hub of the data center network, containing the core networking equipment."
+    },
+    {
+      "id": "ch5-q14",
+      "question": "Why is database security considered more complex than standard operating system (OS) file security?",
+      "options": [
+        "OS security only applies to hardware, not software",
+        "Databases require much finer granularity, such as row or field-level access",
+        "Databases do not support discretionary access control",
+        "OS security cannot handle multiple users at the same time"
+      ],
+      "answer": "Databases require much finer granularity, such as row or field-level access",
+      "explanation": "While an OS manages access at the file level, a DBMS must manage access at the level of individual records (rows) and attributes (fields)."
+    },
+    {
+      "id": "ch5-q15",
+      "question": "Which of the following is a recommended defensive coding practice to prevent SQL injection?",
+      "options": [
+        "Using string concatenation to build SQL queries",
+        "Displaying full database error messages to the user",
+        "Using parameterized queries or prepared statements",
+        "Granting 'db_owner' permissions to the web application user"
+      ],
+      "answer": "Using parameterized queries or prepared statements",
+      "explanation": "Parameterized queries ensure that user input is treated as data, not as part of the executable SQL command code."
+    },
+    {
+      "id": "ch5-q16",
+      "question": "An administrator wants to ensure that a database can still function even if one of its two independent power paths fails. Which TIA-942 Tier is the minimum required to meet this 'Fault Tolerant' criteria?",
+      "options": [
+        "Tier 1",
+        "Tier 2",
+        "Tier 3",
+        "Tier 4"
+      ],
+      "answer": "Tier 4",
+      "explanation": "Only Tier 4 is defined as 'Fault Tolerant', requiring multiple active power and cooling paths to ensure zero downtime during a component failure."
+    },
+    {
+      "id": "ch5-q17",
+      "question": "What is an 'Inference Channel' in the context of database security?",
+      "options": [
+        "A physical cable used for administrative access",
+        "A path through which sensitive information can be deduced from non-sensitive data",
+        "A specialized API for data mining applications",
+        "A secure VPN tunnel for database replication"
+      ],
+      "answer": "A path through which sensitive information can be deduced from non-sensitive data",
+      "explanation": "An inference channel refers to the logical path an attacker uses to combine available data to discover unauthorized information."
+    },
+    {
+      "id": "ch5-q18",
+      "question": "A developer needs to ensure that a web application can only read data from a specific table and cannot delete or modify it. Which SQL command should be used to enforce this?",
+      "options": [
+        "GRANT SELECT",
+        "DENY ALL",
+        "REVOKE UPDATE",
+        "ALLOW READ_ONLY"
+      ],
+      "answer": "GRANT SELECT",
+      "explanation": "GRANT SELECT gives the user permission to read (query) the data without providing permissions to modify (UPDATE) or delete (DELETE) it."
+    },
+    {
+      "id": "ch5-q19",
+      "question": "Which area of a data center is where the actual servers and storage racks are located?",
+      "options": [
+        "Horizontal Distribution Area (HDA)",
+        "Equipment Distribution Area (EDA)",
+        "Entrance Room (ER)",
+        "Main Distribution Area (MDA)"
+      ],
+      "answer": "Equipment Distribution Area (EDA)",
+      "explanation": "The EDA is the functional area designated for the end-equipment, such as server racks and storage."
+    },
+    {
+      "id": "ch5-q20",
+      "question": "What is a significant drawback of implementing field-level encryption in a high-performance database?",
+      "options": [
+        "It makes the data impossible to back up",
+        "It increases the physical size of the data center",
+        "It can significantly degrade search performance and indexing efficiency",
+        "It requires all users to share the same password"
+      ],
+      "answer": "It can significantly degrade search performance and indexing efficiency",
+      "explanation": "Encryption makes it difficult for the DBMS to index and search data efficiently, as the encrypted values do not follow the same logical order as the plaintext data."
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "chapter": 12,
+  "title": "Operating System Security",
+  "questions": [
+    {
+      "id": "ch12-q01",
+      "question": "Which layer of the operating system security hierarchy is responsible for providing the primary interface between the user applications and the physical hardware?",
+      "options": [
+        "UEFI/BIOS",
+        "OS Kernel and APIs",
+        "Network Protocols",
+        "Discretionary Access Control"
+      ],
+      "answer": "OS Kernel and APIs",
+      "explanation": "The OS kernel and its associated APIs sit between user applications and the physical hardware, mediating access to system resources."
+    },
+    {
+      "id": "ch12-q02",
+      "question": "What is the primary objective of system security hardening?",
+      "options": [
+        "Increasing system performance by removing background processes",
+        "Ensuring the system can recover from hardware failures",
+        "Reducing the attack surface by removing unnecessary software and services",
+        "Automating the deployment of user applications"
+      ],
+      "answer": "Reducing the attack surface by removing unnecessary software and services",
+      "explanation": "Hardening aims to minimize vulnerabilities by removing any software, services, or protocols that are not essential for the system's intended purpose."
+    },
+    {
+      "id": "ch12-q03",
+      "question": "According to the NIST SP 800-123 guidelines, which of these is a critical first step in securing a new operating system?",
+      "options": [
+        "Configuring the host-based firewall",
+        "Installing the latest antivirus signatures",
+        "Planning the system's purpose and user categories",
+        "Enabling logging for all system events"
+      ],
+      "answer": "Planning the system's purpose and user categories",
+      "explanation": "Security begins with planning, which includes defining the system's purpose and the privileges required by different user categories."
+    },
+    {
+      "id": "ch12-q04",
+      "question": "What is the risk of building a new system while it is connected to a non-protected network?",
+      "options": [
+        "The installation media might become corrupted",
+        "The system may be compromised by automated threats before patches are applied",
+        "User account passwords will be sent in cleartext",
+        "The BIOS/UEFI settings will be reset to factory defaults"
+      ],
+      "answer": "The system may be compromised by automated threats before patches are applied",
+      "explanation": "Systems are most vulnerable during installation. If connected to an unprotected network, worms or other automated threats can exploit unpatched weaknesses immediately."
+    },
+    {
+      "id": "ch12-q05",
+      "question": "Which principle suggests that a web server should only have read-only access to its content directory?",
+      "options": [
+        "Defense in Depth",
+        "Least Privilege",
+        "Separation of Duties",
+        "Complete Mediation"
+      ],
+      "answer": "Least Privilege",
+      "explanation": "The principle of least privilege ensures that a process (like a web server) has only the minimum rights necessary to perform its function, preventing actions like unauthorized file modification."
+    },
+    {
+      "id": "ch12-q06",
+      "question": "In the context of security maintenance, why is automated log analysis often necessary?",
+      "options": [
+        "Logs are encrypted and cannot be read manually",
+        "Manual analysis is prone to errors in binary data conversion",
+        "The high volume of generated event data makes manual review impractical",
+        "Logs are stored in a distributed database that requires SQL queries"
+      ],
+      "answer": "The high volume of generated event data makes manual review impractical",
+      "explanation": "Modern systems generate a massive amount of log data, making it impossible for humans to review everything manually; automated tools help filter for significant events."
+    },
+    {
+      "id": "ch12-q07",
+      "question": "Which mechanism in Unix/Linux systems is used to restrict a process's view of the file system to a specific directory?",
+      "options": [
+        "IPtables",
+        "Chroot jail",
+        "Setuid root",
+        "TCP Wrappers"
+      ],
+      "answer": "Chroot jail",
+      "explanation": "A chroot jail changes the root directory for a process and its children, effectively isolating them from the rest of the file system."
+    },
+    {
+      "id": "ch12-q08",
+      "question": "Windows Mandatory Integrity Control (MIC) assigns labels to processes and objects primarily to prevent which scenario?",
+      "options": [
+        "Users from accessing files owned by other users",
+        "Remote attackers from logging in via SSH",
+        "Untrusted or low-integrity code from modifying sensitive system files",
+        "The system from running unauthorized executable files"
+      ],
+      "answer": "Untrusted or low-integrity code from modifying sensitive system files",
+      "explanation": "MIC uses integrity levels (Low, Medium, High, System) to ensure that processes at a lower integrity level cannot write to objects at a higher level."
+    },
+    {
+      "id": "ch12-q09",
+      "question": "What is the key difference between a Type 1 and a Type 2 hypervisor?",
+      "options": [
+        "Type 1 hypervisors run on top of a host operating system",
+        "Type 2 hypervisors run directly on the physical hardware",
+        "Type 1 hypervisors are native and sit directly on the hardware",
+        "Type 2 hypervisors do not support virtual switches"
+      ],
+      "answer": "Type 1 hypervisors are native and sit directly on the hardware",
+      "explanation": "A Type 1 (native) hypervisor runs directly on the hardware, while a Type 2 (hosted) hypervisor runs as an application on a host OS."
+    },
+    {
+      "id": "ch12-q10",
+      "question": "Which virtualization security risk involves an attacker gaining access to the underlying hypervisor from within a virtual machine?",
+      "options": [
+        "Inter-VM monitoring",
+        "VM escape",
+        "Denial of Service",
+        "Hyperjack"
+      ],
+      "answer": "VM escape",
+      "explanation": "VM escape occurs when an attacker breaks the isolation between a virtual machine and the hypervisor, potentially gaining control over other VMs or the host."
+    },
+    {
+      "id": "ch12-q11",
+      "question": "Which of the following is NOT one of the three essential properties of a reference monitor?",
+      "options": [
+        "Isolation",
+        "Complete Mediation",
+        "Verifiability",
+        "Scalability"
+      ],
+      "answer": "Scalability",
+      "explanation": "The three properties of a reference monitor are isolation (tamper-proof), complete mediation (always invoked), and verifiability (small enough to be analyzed)."
+    },
+    {
+      "id": "ch12-q12",
+      "question": "What does an Evaluation Assurance Level (EAL) of 7 signify in the Common Criteria (CC) framework?",
+      "options": [
+        "The product has been structurally tested",
+        "The product design has been formally verified and tested",
+        "The product is suitable for basic commercial use only",
+        "The product includes a hardware-based firewall"
+      ],
+      "answer": "The product design has been formally verified and tested",
+      "explanation": "EAL 7 is the highest level of assurance in Common Criteria, requiring formal verification of the design and testing."
+    },
+    {
+      "id": "ch12-q13",
+      "question": "Which Trusted Platform Module (TPM) service ensures that each stage of the boot process is authorized and recorded?",
+      "options": [
+        "Authenticated Boot",
+        "Remote Certification",
+        "Data Sealing",
+        "Hardware Rooting"
+      ],
+      "answer": "Authenticated Boot",
+      "explanation": "Authenticated boot uses the TPM to measure and log each component of the boot sequence to ensure the system starts in a trusted state."
+    },
+    {
+      "id": "ch12-q14",
+      "question": "In a TPM, what is 'sealing' data?",
+      "options": [
+        "Encrypting data so it can only be decrypted on the same hardware with a specific software configuration",
+        "Creating a digital signature for a file to prevent tampering",
+        "Compressing logs to save space in the TPM's volatile memory",
+        "Locking the user out of the system after too many failed login attempts"
+      ],
+      "answer": "Encrypting data so it can only be decrypted on the same hardware with a specific software configuration",
+      "explanation": "Sealing ties encrypted data to both the specific hardware (the TPM) and the current state (PCR values) of the system's software."
+    },
+    {
+      "id": "ch12-q15",
+      "question": "Why is managing 'setuid root' programs critical for Linux/Unix security?",
+      "options": [
+        "They allow programs to run with the privileges of the file owner (often root) regardless of the user's identity",
+        "They automatically encrypt all user data in the home directory",
+        "They prevent users from accessing the network",
+        "They are the only programs that can be used in a chroot jail"
+      ],
+      "answer": "They allow programs to run with the privileges of the file owner (often root) regardless of the user's identity",
+      "explanation": "Setuid root programs run with root privileges even when executed by a standard user; if these programs have vulnerabilities, an attacker can gain full system control."
+    },
+    {
+      "id": "ch12-q16",
+      "question": "A security administrator discovers that a web server is running several sample scripts that were installed by default. Which hardening step was missed?",
+      "options": [
+        "Application Patching",
+        "Secure Configuration",
+        "Intrusion Detection",
+        "User Auditing"
+      ],
+      "answer": "Secure Configuration",
+      "explanation": "Secure configuration involves reviewing and removing default accounts, sample scripts, and insecure settings that come with an application."
+    },
+    {
+      "id": "ch12-q17",
+      "question": "A company wants to prevent employees from running unauthorized software on their Windows workstations. Which tool can centrally manage these security settings?",
+      "options": [
+        "Registry Editor",
+        "Group Policy",
+        "Windows Defender",
+        "Task Manager"
+      ],
+      "answer": "Group Policy",
+      "explanation": "In a Windows domain environment, Group Policy is used to centrally manage and enforce security configurations across many systems."
+    },
+    {
+      "id": "ch12-q18",
+      "question": "An organization is deploying multiple virtual machines that share the same host operating system kernel. What technology is being used?",
+      "options": [
+        "Type 1 Hypervisor",
+        "Type 2 Hypervisor",
+        "Containers",
+        "Trusted Platform Module"
+      ],
+      "answer": "Containers",
+      "explanation": "Containers share the host OS kernel and provide a more lightweight virtualization method compared to traditional virtual machines."
+    },
+    {
+      "id": "ch12-q19",
+      "question": "Which of these is considered a 'reactive' security maintenance task?",
+      "options": [
+        "Regularly applying security patches",
+        "Performing daily system backups",
+        "Analyzing logs after a suspected breach",
+        "Creating an organizational risk assessment"
+      ],
+      "answer": "Analyzing logs after a suspected breach",
+      "explanation": "Log analysis after a breach is reactive (responding to an event), whereas patching and backups are proactive (preparing for or preventing events)."
+    },
+    {
+      "id": "ch12-q20",
+      "question": "Which document or strategy highlights that application allow-listing and patching can prevent the vast majority of targeted intrusions?",
+      "options": [
+        "Common Criteria EAL 1",
+        "ASD Essential Eight",
+        "POSIX Standard",
+        "Windows Registry Guide"
+      ],
+      "answer": "ASD Essential Eight",
+      "explanation": "The Australian Signals Directorate's 'Essential Eight' emphasizes that a small set of strategies, including allow-listing and patching, can mitigate most cyber threats."
+    }
+  ]
+}

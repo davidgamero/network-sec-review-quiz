@@ -1,0 +1,226 @@
+{
+  "chapter": 10,
+  "title": "Buffer Overflow",
+  "questions": [
+    {
+      "id": "ch10-q01",
+      "question": "What is the primary cause of a buffer overflow vulnerability in a program?",
+      "options": [
+        "Failure to check input data size before writing to a fixed-length memory region",
+        "Insufficient entropy in the random number generator used for encryption keys",
+        "Improperly configured firewall rules allowing access to internal ports",
+        "Use of weak administrative passwords on the host operating system"
+      ],
+      "answer": "Failure to check input data size before writing to a fixed-length memory region"
+    },
+    {
+      "id": "ch10-q02",
+      "question": "Which specific memory component is the primary target in a classic 'stack smashing' attack?",
+      "options": [
+        "The saved instruction pointer (return address)",
+        "The global offset table entries",
+        "The heap management metadata",
+        "The read-only text segment"
+      ],
+      "answer": "The saved instruction pointer (return address)"
+    },
+    {
+      "id": "ch10-q03",
+      "question": "Why must shellcode generally be position-independent code (PIC)?",
+      "options": [
+        "The exact memory address of the target buffer often varies between executions",
+        "PIC is required to bypass hardware-based data execution prevention",
+        "String-handling functions cannot process code containing absolute addresses",
+        "The operating system only allows the execution of PIC in the stack region"
+      ],
+      "answer": "The exact memory address of the target buffer often varies between executions"
+    },
+    {
+      "id": "ch10-q04",
+      "question": "What is the purpose of a NOP sled in a buffer overflow exploit?",
+      "options": [
+        "To increase the likelihood that a jump to a guessed address lands in the shellcode",
+        "To clear the CPU cache before the malicious instructions are executed",
+        "To bypass address space layout randomization by neutralizing the entropy",
+        "To ensure that the shellcode does not contain any forbidden NULL bytes"
+      ],
+      "answer": "To increase the likelihood that a jump to a guessed address lands in the shellcode"
+    },
+    {
+      "id": "ch10-q05",
+      "question": "Which programming language is naturally resistant to classic buffer overflow attacks due to its design?",
+      "options": [
+        "Java",
+        "C",
+        "C++",
+        "Assembly"
+      ],
+      "answer": "Java"
+    },
+    {
+      "id": "ch10-q06",
+      "question": "How does a stack canary protect a program from a buffer overflow?",
+      "options": [
+        "It is a random value checked before a function returns to detect stack corruption",
+        "It encrypts the return address stored on the stack to prevent modification",
+        "It monitors the system calls made by the process for suspicious activity",
+        "It periodically clears the stack memory to remove any injected shellcode"
+      ],
+      "answer": "It is a random value checked before a function returns to detect stack corruption"
+    },
+    {
+      "id": "ch10-q07",
+      "question": "What does the NX (No-Execute) bit defense accomplish at the hardware level?",
+      "options": [
+        "It prevents the CPU from executing instructions located in data segments like the stack",
+        "It stops the processor from writing data to read-only memory segments",
+        "It restricts the set of available system calls a process can invoke",
+        "It forces the CPU to check bounds for every array access automatically"
+      ],
+      "answer": "It prevents the CPU from executing instructions located in data segments like the stack"
+    },
+    {
+      "id": "ch10-q08",
+      "question": "How does Address Space Layout Randomization (ASLR) hinder an attacker?",
+      "options": [
+        "It makes it difficult to predict the memory addresses of system libraries and stacks",
+        "It changes the binary opcodes of the shellcode during each program execution",
+        "It restricts the process to a very small and isolated virtual address space",
+        "It prevents the attacker from overwriting the return address on the stack"
+      ],
+      "answer": "It makes it difficult to predict the memory addresses of system libraries and stacks"
+    },
+    {
+      "id": "ch10-q09",
+      "question": "Which technique is specifically used to bypass non-executable stack protections (NX/DEP)?",
+      "options": [
+        "Return-to-libc",
+        "NOP sledding",
+        "Stack canaries",
+        "NULL byte injection"
+      ],
+      "answer": "Return-to-libc"
+    },
+    {
+      "id": "ch10-q10",
+      "question": "In a heap overflow attack, what is a typical target for the attacker to overwrite?",
+      "options": [
+        "Linked list pointers used by the memory allocator",
+        "The saved frame pointer of the current function",
+        "The return address stored at the top of the stack",
+        "The static global variables in the data segment"
+      ],
+      "answer": "Linked list pointers used by the memory allocator"
+    },
+    {
+      "id": "ch10-q11",
+      "question": "Which C library function is considered dangerous because it does not allow a buffer size limit?",
+      "options": [
+        "gets()",
+        "fgets()",
+        "strncpy()",
+        "snprintf()"
+      ],
+      "answer": "gets()"
+    },
+    {
+      "id": "ch10-q12",
+      "question": "What is the primary constraint when crafting shellcode for a string-based buffer overflow?",
+      "options": [
+        "It must not contain any NULL (0x00) bytes",
+        "It must be exactly 256 bytes in length",
+        "It must only use 16-bit x86 instructions",
+        "It must be signed by a trusted certificate authority"
+      ],
+      "answer": "It must not contain any NULL (0x00) bytes"
+    },
+    {
+      "id": "ch10-q13",
+      "question": "Which defense mechanism involves maintaining a second copy of return addresses in a separate memory area?",
+      "options": [
+        "Shadow stacks",
+        "Guard pages",
+        "Address space randomization",
+        "Stack canaries"
+      ],
+      "answer": "Shadow stacks"
+    },
+    {
+      "id": "ch10-q14",
+      "question": "What occurs during a 'replacement stack frame' attack?",
+      "options": [
+        "The attacker overwrites the saved frame pointer to redirect the caller to a fake frame",
+        "The attacker replaces the entire executable binary with a malicious version",
+        "The compiler inserts extra padding between every local variable on the stack",
+        "The operating system swaps the stack and heap segments in virtual memory"
+      ],
+      "answer": "The attacker overwrites the saved frame pointer to redirect the caller to a fake frame"
+    },
+    {
+      "id": "ch10-q15",
+      "question": "What is the purpose of placing 'guard pages' in a process's address space?",
+      "options": [
+        "To cause a segmentation fault if an overflow reaches an unmapped memory region",
+        "To log all memory access attempts to a secure administrative file",
+        "To provide a sandbox where untrusted code can be executed safely",
+        "To store the master copy of all stack canaries used by the program"
+      ],
+      "answer": "To cause a segmentation fault if an overflow reaches an unmapped memory region"
+    },
+    {
+      "id": "ch10-q16",
+      "question": "A developer replaces strcpy() with strncpy() in their code. What category of defense is this?",
+      "options": [
+        "Compile-time (safe coding practices)",
+        "Run-time (address space protection)",
+        "Hardware-level (non-executable bits)",
+        "Kernel-level (system call filtering)"
+      ],
+      "answer": "Compile-time (safe coding practices)"
+    },
+    {
+      "id": "ch10-q17",
+      "question": "Which memory segment typically grows downward toward lower memory addresses?",
+      "options": [
+        "The stack",
+        "The heap",
+        "The text segment",
+        "The global data area"
+      ],
+      "answer": "The stack"
+    },
+    {
+      "id": "ch10-q18",
+      "question": "What is a significant limitation of Address Space Layout Randomization (ASLR)?",
+      "options": [
+        "It can sometimes be bypassed using information leaks or brute force on 32-bit systems",
+        "It requires significant changes to the source code of every protected application",
+        "It drastically reduces the execution speed of the program due to memory overhead",
+        "It is incompatible with modern hardware-based data execution prevention"
+      ],
+      "answer": "It can sometimes be bypassed using information leaks or brute force on 32-bit systems"
+    },
+    {
+      "id": "ch10-q19",
+      "question": "If an attacker overflows a buffer in the global data area, which of the following is a likely target for corruption?",
+      "options": [
+        "A function pointer stored as a global variable",
+        "The return address of the main() function",
+        "The local variables of a function currently in the stack",
+        "The metadata used by the malloc() library on the heap"
+      ],
+      "answer": "A function pointer stored as a global variable"
+    },
+    {
+      "id": "ch10-q20",
+      "question": "Which of these is a typical behavior of shellcode once it has successfully gained control?",
+      "options": [
+        "Spawning a shell with the privileges of the vulnerable process",
+        "Requesting a password reset for the system administrator account",
+        "Encrypting the entire hard drive and demanding a ransom payment",
+        "Scanning the local network for other vulnerable web servers"
+      ],
+      "answer": "Spawning a shell with the privileges of the vulnerable process"
+    }
+  ]
+}

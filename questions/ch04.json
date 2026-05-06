@@ -1,0 +1,246 @@
+{
+  "chapter": 4,
+  "title": "Access Control",
+  "questions": [
+    {
+      "id": "ch4-q01",
+      "stem": "Which security function is defined as the verification that the credentials of a user or other system entity are valid?",
+      "choices": [
+        "Authorization",
+        "Authentication",
+        "Audit",
+        "Access Control"
+      ],
+      "correct": 1,
+      "explanation": "Authentication is the process of verifying credentials to confirm the identity of a system entity."
+    },
+    {
+      "id": "ch4-q02",
+      "stem": "In the context of access control, which of the following is an 'active entity' capable of accessing resources?",
+      "choices": [
+        "Object",
+        "Access Right",
+        "Subject",
+        "Audit Trail"
+      ],
+      "correct": 2,
+      "explanation": "A subject is an active entity, such as a process, capable of accessing objects."
+    },
+    {
+      "id": "ch4-q03",
+      "stem": "Which access control policy allows an entity, by its own volition, to enable another entity to access a resource?",
+      "choices": [
+        "Mandatory Access Control (MAC)",
+        "Role-Based Access Control (RBAC)",
+        "Attribute-Based Access Control (ABAC)",
+        "Discretionary Access Control (DAC)"
+      ],
+      "correct": 3,
+      "explanation": "DAC is termed discretionary because an entity may have access rights that permit it to enable another entity to access a resource."
+    },
+    {
+      "id": "ch4-q04",
+      "stem": "A decomposition of the access matrix by columns results in which of the following structures?",
+      "choices": [
+        "Capability tickets",
+        "Access Control Lists (ACLs)",
+        "Authorization tables",
+        "Protection domains"
+      ],
+      "correct": 1,
+      "explanation": "Decomposing the access matrix by columns yields ACLs, where each object has a list of users and their permitted rights."
+    },
+    {
+      "id": "ch4-q05",
+      "stem": "What is the primary distinction between a 'minimal' and 'extended' ACL in UNIX systems?",
+      "choices": [
+        "Extended ACLs support cryptographic verification.",
+        "Minimal ACLs only support the owner, group, and other classes.",
+        "Extended ACLs remove the need for owner permissions.",
+        "Minimal ACLs are used only for directories."
+      ],
+      "correct": 1,
+      "explanation": "Minimal ACL refers to the traditional UNIX 9-bit permission scheme, while extended ACLs allow for additional named users and groups."
+    },
+    {
+      "id": "ch4-q06",
+      "stem": "Under the Bell-LaPadula (BLP) model, what does the '*-property' (star property) specifically enforce?",
+      "choices": [
+        "No read up",
+        "No read down",
+        "No write up",
+        "No write down"
+      ],
+      "correct": 3,
+      "explanation": "The *-property enforces 'no write down', preventing a subject from writing into an object of lower security level."
+    },
+    {
+      "id": "ch4-q07",
+      "stem": "In RBAC, what is the purpose of a 'session'?",
+      "choices": [
+        "To assign permissions directly to users.",
+        "To create a mapping between a user and an activated subset of their roles.",
+        "To define the inheritance hierarchy between roles.",
+        "To audit user activities in a database."
+      ],
+      "correct": 1,
+      "explanation": "A session defines a temporary relationship between a user and the specific roles they need for a task, supporting least privilege."
+    },
+    {
+      "id": "ch4-q08",
+      "stem": "Which RBAC reference model adds the concept of role hierarchies where superior roles inherit permissions?",
+      "choices": [
+        "RBAC0",
+        "RBAC1",
+        "RBAC2",
+        "RBAC3"
+      ],
+      "correct": 1,
+      "explanation": "RBAC1 extends the base model (RBAC0) by adding role hierarchies."
+    },
+    {
+      "id": "ch4-q09",
+      "stem": "Attribute-Based Access Control (ABAC) determines authorization based on a Boolean function of which three attribute types?",
+      "choices": [
+        "User, Group, World",
+        "Subject, Object, Environment",
+        "Read, Write, Execute",
+        "Identity, Credential, Access"
+      ],
+      "correct": 1,
+      "explanation": "ABAC evaluates rules against the attributes of subjects, objects, and the environment."
+    },
+    {
+      "id": "ch4-q10",
+      "stem": "What is the primary goal of Identity Federation?",
+      "choices": [
+        "To centralize all credentials in a single global database.",
+        "To allow an organization to trust identities issued by another organization.",
+        "To replace password-based authentication with biometrics.",
+        "To implement MAC across different operating systems."
+      ],
+      "correct": 1,
+      "explanation": "Identity Federation allows for sharing identity information and trust across different security domains."
+    },
+    {
+      "id": "ch4-q11",
+      "stem": "If a UNIX directory has the 'sticky bit' set, who is permitted to delete a file within that directory?",
+      "choices": [
+        "Any user with write access to the directory.",
+        "Only the superuser.",
+        "Only the owner of the directory.",
+        "The owner of the file or the superuser."
+      ],
+      "correct": 3,
+      "explanation": "On a directory, the sticky bit specifies that only the file's owner (or the superuser) can rename or delete the file."
+    },
+    {
+      "id": "ch4-q12",
+      "stem": "In the context of ICAM, which component is responsible for the lifecycle management of tokens that bind an identity to an entity?",
+      "choices": [
+        "Identity Management",
+        "Credential Management",
+        "Access Management",
+        "Resource Management"
+      ],
+      "correct": 1,
+      "explanation": "Credential Management manages the life cycle of credentials (tokens) that bind an identity to a token."
+    },
+    {
+      "id": "ch4-q13",
+      "stem": "Which constraint in RBAC ensures that a user cannot be assigned to two roles that are deemed incompatible for a single user?",
+      "choices": [
+        "Prerequisite roles",
+        "Mutually exclusive roles",
+        "Cardinality constraints",
+        "Inheritance limits"
+      ],
+      "correct": 1,
+      "explanation": "Mutually exclusive roles prevent a user from being assigned to roles that could lead to a conflict of interest or lack of separation of duties."
+    },
+    {
+      "id": "ch4-q14",
+      "stem": "What does a 'Capability Ticket' specify?",
+      "choices": [
+        "The list of users authorized to access a specific file.",
+        "The authorized objects and operations for a particular user.",
+        "The security clearance level of a subject.",
+        "The audit log entries for a system resource."
+      ],
+      "correct": 1,
+      "explanation": "A capability ticket is a row-based decomposition of the access matrix, specifying what a user is allowed to do."
+    },
+    {
+      "id": "ch4-q15",
+      "stem": "Which model is primarily focused on maintaining integrity by adding integrity levels to processes, often used in modern Windows systems?",
+      "choices": [
+        "Bell-LaPadula (BLP)",
+        "Role-Based Access Control (RBAC)",
+        "Mandatory Integrity Control (MIC)",
+        "Discretionary Access Control (DAC)"
+      ],
+      "correct": 2,
+      "explanation": "MIC (Mandatory Integrity Control) focuses on integrity by adding integrity levels to processes."
+    },
+    {
+      "id": "ch4-q16",
+      "stem": "When a UNIX process executes a file with the 'SetUID' bit set, what happens to the process's effective user ID?",
+      "choices": [
+        "It is set to the ID of the user executing the program.",
+        "It is set to the ID of the file's owner.",
+        "It is set to the superuser ID (0).",
+        "It remains unchanged but gains kernel privileges."
+      ],
+      "correct": 1,
+      "explanation": "SetUID sets the effective user ID of the process to the ID of the file's owner during execution."
+    },
+    {
+      "id": "ch4-q17",
+      "stem": "Which of the following is an example of an 'Environment Attribute' in an ABAC system?",
+      "choices": [
+        "User's department",
+        "File's sensitivity label",
+        "Current time of day",
+        "Subject's job title"
+      ],
+      "correct": 2,
+      "explanation": "Environment attributes describe the context of the access request, such as time, location, or network status."
+    },
+    {
+      "id": "ch4-q18",
+      "stem": "What is the 'Simple Security Property' in the Bell-LaPadula model?",
+      "choices": [
+        "No write up",
+        "No read up",
+        "No write down",
+        "No read down"
+      ],
+      "correct": 1,
+      "explanation": "The simple security property (ss-property) states that a subject can only read an object of less or equal security level (no read up)."
+    },
+    {
+      "id": "ch4-q19",
+      "stem": "A system administrator needs to ensure that no single user can both 'Initiate Payment' and 'Approve Payment'. Which access control mechanism is best suited for this?",
+      "choices": [
+        "UNIX standard permissions",
+        "RBAC with mutually exclusive roles",
+        "Capability tickets",
+        "MAC with security labels"
+      ],
+      "correct": 1,
+      "explanation": "RBAC with mutually exclusive roles (separation of duties) is the standard way to prevent a single user from holding conflicting roles."
+    },
+    {
+      "id": "ch4-q20",
+      "stem": "In identity management, what is a 'Trust Framework'?",
+      "choices": [
+        "A hardware module that stores encryption keys.",
+        "A certification program enabling a relying party to trust an identity provider.",
+        "A set of firewall rules for identity servers.",
+        "A list of all trusted subjects in a DAC matrix."
+      ],
+      "correct": 1,
+      "explanation": "A trust framework is a certification program that enables trust between identity service providers and relying parties."
+    }
+  ]
+}

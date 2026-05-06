@@ -1,0 +1,266 @@
+{
+  "chapter": 23,
+  "title": "Internet Authentication Applications",
+  "questions": [
+    {
+      "id": "ch23-q01",
+      "question": "Which entity in the Kerberos system is responsible for verifying a user's identity and issuing a ticket-granting ticket (TGT)?",
+      "options": [
+        "Registration Authority",
+        "Ticket-Granting Server",
+        "Authentication Server",
+        "Application Server"
+      ],
+      "answer": "Authentication Server",
+      "explanation": "The Authentication Server (AS) verifies the user's initial logon request and provides the TGT needed to contact the Ticket-Granting Server.",
+      "type": "definition"
+    },
+    {
+      "id": "ch23-q02",
+      "question": "What is the primary purpose of an 'authenticator' in the Kerberos protocol?",
+      "options": [
+        "To provide a permanent record of the user's session",
+        "To allow a server to verify that the ticket holder is the legitimate owner",
+        "To encrypt the initial password during transmission to the AS",
+        "To store the user's public key for X.509 verification"
+      ],
+      "answer": "To allow a server to verify that the ticket holder is the legitimate owner",
+      "explanation": "Authenticators are short-lived data blocks that prove the client possesses the session key associated with a ticket, preventing replay attacks.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch23-q03",
+      "question": "In X.509, which field uniquely identifies the certificate to the Certificate Authority that issued it?",
+      "options": [
+        "Subject Name",
+        "Serial Number",
+        "Version Number",
+        "Signature Algorithm Identifier"
+      ],
+      "answer": "Serial Number",
+      "explanation": "The serial number is a unique integer assigned by the CA to each certificate it issues.",
+      "type": "definition"
+    },
+    {
+      "id": "ch23-q04",
+      "question": "Which PKIX component is responsible for administrative tasks such as verifying the identity of a certificate applicant before the CA issues the certificate?",
+      "options": [
+        "CRL Issuer",
+        "Repository",
+        "Registration Authority",
+        "End Entity"
+      ],
+      "answer": "Registration Authority",
+      "explanation": "The Registration Authority (RA) handles the front-end administrative work of identity verification, offloading this from the CA.",
+      "type": "definition"
+    },
+    {
+      "id": "ch23-q05",
+      "question": "A user in Realm A needs to access a service in Realm B. What is the standard Kerberos mechanism for achieving this?",
+      "options": [
+        "The user must register a new account in Realm B's database",
+        "The AS in Realm A issues a service ticket directly for Realm B's server",
+        "The TGS in Realm A provides a TGT for the TGS in Realm B",
+        "The user sends their cleartext password to the Kerberos server in Realm B"
+      ],
+      "answer": "The TGS in Realm A provides a TGT for the TGS in Realm B",
+      "explanation": "Interrealm authentication requires the TGS of the local realm to issue a ticket-granting ticket for the remote realm's TGS.",
+      "type": "applied"
+    },
+    {
+      "id": "ch23-q06",
+      "question": "Which of these was a major improvement introduced in Kerberos Version 5 over Version 4?",
+      "options": [
+        "Support for multiple encryption algorithms through identifiers",
+        "Elimination of the Ticket-Granting Server to simplify the flow",
+        "Requirement for users to send passwords in cleartext to the AS",
+        "Switching from symmetric encryption to exclusively asymmetric encryption"
+      ],
+      "answer": "Support for multiple encryption algorithms through identifiers",
+      "explanation": "Version 5 removed the hard dependency on DES and added support for various algorithms like AES.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch23-q07",
+      "question": "What does a Kerberos realm consist of?",
+      "options": [
+        "A group of users who all share the same private key",
+        "A set of managed nodes that share the same Kerberos database",
+        "A collection of CAs that cross-certify each other",
+        "A physical network segment where all traffic is unencrypted"
+      ],
+      "answer": "A set of managed nodes that share the same Kerberos database",
+      "explanation": "A Kerberos realm is the administrative domain where a specific Kerberos server has authority over a set of users and servers.",
+      "type": "definition"
+    },
+    {
+      "id": "ch23-q08",
+      "question": "Why is the performance impact of Kerberos generally considered negligible in production environments?",
+      "options": [
+        "Tickets are reusable and do not need to be requested for every transaction",
+        "Kerberos does not use any encryption, reducing CPU overhead",
+        "The AS and TGS are typically hosted on the user's local machine",
+        "Clients only communicate with the AS once per year"
+      ],
+      "answer": "Tickets are reusable and do not need to be requested for every transaction",
+      "explanation": "Because tickets have a lifetime, they can be reused for multiple service requests, minimizing the frequency of contacting the AS or TGS.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch23-q09",
+      "question": "Which protocol is used as a real-time, lightweight alternative to downloading large Certificate Revocation Lists (CRLs)?",
+      "options": [
+        "PKIX",
+        "OCSP",
+        "TGS",
+        "AES"
+      ],
+      "answer": "OCSP",
+      "explanation": "The Online Certificate Status Protocol (OCSP) allows for querying the status of a specific certificate without the overhead of a full CRL.",
+      "type": "definition"
+    },
+    {
+      "id": "ch23-q10",
+      "question": "An organization wants to allow their print server to access a file server using the original user's credentials. Which Kerberos V5 feature should they use?",
+      "options": [
+        "Cross-Certification",
+        "Authentication Forwarding",
+        "Certificate Revocation",
+        "Interrealm Handshaking"
+      ],
+      "answer": "Authentication Forwarding",
+      "explanation": "Authentication forwarding allows a server to act on behalf of a client by using the client's forwarded credentials.",
+      "type": "applied"
+    },
+    {
+      "id": "ch23-q11",
+      "question": "In the PKIX model, what is 'cross-certification'?",
+      "options": [
+        "When a user signs their own public-key certificate",
+        "When two CAs exchange information to establish a trust relationship",
+        "When an RA verifies a user's identity through two different methods",
+        "When a certificate is used for both encryption and digital signatures"
+      ],
+      "answer": "When two CAs exchange information to establish a trust relationship",
+      "explanation": "Cross-certification allows users trusted by one CA to be trusted by another CA, forming a chain of trust.",
+      "type": "definition"
+    },
+    {
+      "id": "ch23-q12",
+      "question": "What is the primary risk of using MD5 or SHA-1 for digital signatures in X.509 certificates today?",
+      "options": [
+        "They are too slow for modern hardware",
+        "They do not support the AES encryption standard",
+        "Collision attacks make it possible to forge certificates",
+        "They cannot be used with serial numbers"
+      ],
+      "answer": "Collision attacks make it possible to forge certificates",
+      "explanation": "MD5 and SHA-1 are vulnerable to collisions, where two different inputs produce the same hash, allowing an attacker to create a fraudulent certificate.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch23-q13",
+      "question": "Which field in an X.509 certificate specifies the entity to whom the certificate belongs?",
+      "options": [
+        "Issuer Name",
+        "Subject Name",
+        "Signature Algorithm",
+        "Validity Period"
+      ],
+      "answer": "Subject Name",
+      "explanation": "The Subject Name identifies the user or device that owns the public key contained in the certificate.",
+      "type": "definition"
+    },
+    {
+      "id": "ch23-q14",
+      "question": "During the initial AS Request in Kerberos, why does the AS return the response encrypted with a key derived from the user's password?",
+      "options": [
+        "To ensure the password is never stored on the server",
+        "To prove the AS is legitimate and knows the user's secret",
+        "To prevent the TGS from seeing the user's ticket",
+        "To allow the user to decrypt the TGT and session key without transmitting the password"
+      ],
+      "answer": "To allow the user to decrypt the TGT and session key without transmitting the password",
+      "explanation": "Encrypting the response with the user's password-derived key ensures that only the legitimate user can access the session key and TGT.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch23-q15",
+      "question": "In the PKIX architecture, where are certificates and CRLs typically stored for public access?",
+      "options": [
+        "Registration Authority",
+        "Repository",
+        "Authentication Server",
+        "End Entity workstation"
+      ],
+      "answer": "Repository",
+      "explanation": "The Repository is the central storage location (often a directory service) where certificates and CRLs are published.",
+      "type": "definition"
+    },
+    {
+      "id": "ch23-q16",
+      "question": "A security administrator needs to revoke a certificate immediately because a laptop containing the private key was stolen. Which mechanism is most efficient for ensuring this change is recognized by clients in real-time?",
+      "options": [
+        "Updating the Validity Period field in the certificate",
+        "Waiting for the certificate to expire naturally",
+        "Publishing the serial number to an OCSP responder",
+        "Changing the user's password in the Kerberos database"
+      ],
+      "answer": "Publishing the serial number to an OCSP responder",
+      "explanation": "OCSP provides real-time status checks, making it more efficient for immediate revocation than waiting for CRL distribution.",
+      "type": "applied"
+    },
+    {
+      "id": "ch23-q17",
+      "question": "What is the relationship between the AS and the TGS in a standard Kerberos environment?",
+      "options": [
+        "They are two separate realms that do not share any data",
+        "The AS issues a TGT that is used to authenticate the user to the TGS",
+        "The TGS must verify the user's password before the AS issues a ticket",
+        "The TGS is only used if the AS is offline"
+      ],
+      "answer": "The AS issues a TGT that is used to authenticate the user to the TGS",
+      "explanation": "The AS handles the initial authentication, and the resulting TGT allows the user to request service tickets from the TGS without re-entering a password.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch23-q18",
+      "question": "Which field was added in X.509 Version 3 to provide more flexibility and support for additional data like alternative names?",
+      "options": [
+        "Extensions",
+        "Serial Number",
+        "Validity Period",
+        "Subject Public Key Info"
+      ],
+      "answer": "Extensions",
+      "explanation": "Version 3 introduced the Extensions field, allowing for a wide variety of additional information and constraints to be included in the certificate.",
+      "type": "conceptual"
+    },
+    {
+      "id": "ch23-q19",
+      "question": "A company wants to implement a system where a single sign-on allows access to multiple internal applications while preventing cleartext password transmission. Which system is best suited for this?",
+      "options": [
+        "Public Key Infrastructure (PKIX)",
+        "X.509 Certificate Revocation",
+        "Kerberos",
+        "Online Certificate Status Protocol"
+      ],
+      "answer": "Kerberos",
+      "explanation": "Kerberos is specifically designed for single sign-on and secure authentication in a networked environment without transmitting passwords in cleartext.",
+      "type": "applied"
+    },
+    {
+      "id": "ch23-q20",
+      "question": "What is the function of 'initialization' in the PKIX management framework?",
+      "options": [
+        "Searching for certificates in a public repository",
+        "Installing trust anchors and setting up the initial trust relationship",
+        "Computing the hash of a certificate for signing",
+        "Logging into the Kerberos Authentication Server"
+      ],
+      "answer": "Installing trust anchors and setting up the initial trust relationship",
+      "explanation": "Initialization is the process of setting up the necessary trust and configuration before an end entity can participate in the PKI.",
+      "type": "conceptual"
+    }
+  ]
+}

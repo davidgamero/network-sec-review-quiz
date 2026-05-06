@@ -1,0 +1,246 @@
+{
+  "chapter": 6,
+  "title": "Malicious Software",
+  "questions": [
+    {
+      "id": "ch6-q01",
+      "question": "Which of the following best describes the primary difference between a computer virus and a computer worm?",
+      "options": [
+        "A virus is standalone, while a worm requires a host program.",
+        "A virus requires a host program to replicate, while a worm is an independent program.",
+        "A worm only spreads via social engineering, while a virus uses vulnerabilities.",
+        "A virus can only infect local files, while a worm only targets network protocols."
+      ],
+      "answer": 1,
+      "type": "definition"
+    },
+    {
+      "id": "ch6-q02",
+      "question": "What is the term for a well-resourced, persistent application of intrusion technologies and malware against specific targets, often by a nation-state or well-funded group?",
+      "options": [
+        "Distributed Denial of Service (DDoS)",
+        "Zero-day Exploit",
+        "Advanced Persistent Threat (APT)",
+        "Logic Bomb"
+      ],
+      "answer": 2,
+      "type": "definition"
+    },
+    {
+      "id": "ch6-q03",
+      "question": "In the lifecycle of a virus, during which phase is the virus idle and waiting for a specific event or date to move to the next stage?",
+      "options": [
+        "Propagation phase",
+        "Execution phase",
+        "Triggering phase",
+        "Dormant phase"
+      ],
+      "answer": 3,
+      "type": "conceptual"
+    },
+    {
+      "id": "ch6-q04",
+      "question": "Which type of malware uses social engineering to appear as a useful or harmless program while containing hidden malicious code?",
+      "options": [
+        "Trojan horse",
+        "Spyware",
+        "Rootkit",
+        "Macro virus"
+      ],
+      "answer": 0,
+      "type": "definition"
+    },
+    {
+      "id": "ch6-q05",
+      "question": "A worm scanning strategy that uses a pre-compiled list of potentially vulnerable IP addresses to start its propagation is known as:",
+      "options": [
+        "Topological scanning",
+        "Hit-list scanning",
+        "Random scanning",
+        "Local subnet scanning"
+      ],
+      "answer": 1,
+      "type": "definition"
+    },
+    {
+      "id": "ch6-q06",
+      "question": "The epidemic model of worm propagation shows three distinct phases. Which phase is characterized by the most rapid linear growth of infected hosts?",
+      "options": [
+        "The slow finish phase",
+        "The slow start phase",
+        "The dormant phase",
+        "The middle phase"
+      ],
+      "answer": 3,
+      "type": "conceptual"
+    },
+    {
+      "id": "ch6-q07",
+      "question": "Which type of malware is specifically designed to provide root-level access to a computer while hiding its presence by subverting the operating system's monitoring tools?",
+      "options": [
+        "Botnet",
+        "Rootkit",
+        "Keylogger",
+        "Backdoor"
+      ],
+      "answer": 1,
+      "type": "definition"
+    },
+    {
+      "id": "ch6-q08",
+      "question": "What is the primary function of a 'logic bomb' within a piece of malware?",
+      "options": [
+        "To spread the malware to other systems via email.",
+        "To encrypt files and demand a ransom from the user.",
+        "To execute a payload only when certain conditions, like a specific date, are met.",
+        "To provide a secret entry point for attackers."
+      ],
+      "answer": 2,
+      "type": "definition"
+    },
+    {
+      "id": "ch6-q09",
+      "question": "Which of the following best describes a 'drive-by-download'?",
+      "options": [
+        "A user is tricked into downloading an attachment from a spam email.",
+        "Malware is installed automatically when a user visits a compromised website, exploiting browser vulnerabilities.",
+        "An attacker physically installs malware via a USB drive left in a parking lot.",
+        "Malware that spreads through peer-to-peer file sharing networks."
+      ],
+      "answer": 1,
+      "type": "conceptual"
+    },
+    {
+      "id": "ch6-q10",
+      "question": "How do botnets typically receive instructions from the attacker (the 'bot herder')?",
+      "options": [
+        "Through local scanning of the hard drive.",
+        "By waiting for a logic bomb to trigger.",
+        "Through a Command-and-Control (C&C) facility using protocols like IRC or HTTP.",
+        "By infecting new files on the local system."
+      ],
+      "answer": 2,
+      "type": "conceptual"
+    },
+    {
+      "id": "ch6-q11",
+      "question": "Which generation of anti-virus software is characterized by the use of 'activity traps' that identify malware by its actions rather than its code signatures?",
+      "options": [
+        "First generation",
+        "Second generation",
+        "Third generation",
+        "Fourth generation"
+      ],
+      "answer": 2,
+      "type": "conceptual"
+    },
+    {
+      "id": "ch6-q12",
+      "question": "A company notices that their server's performance is degrading and it is sending out massive amounts of spam without authorization. What type of malware payload is most likely responsible?",
+      "options": [
+        "Ransomware",
+        "Bot/Zombie",
+        "Rootkit",
+        "Backdoor"
+      ],
+      "answer": 1,
+      "type": "applied"
+    },
+    {
+      "id": "ch6-q13",
+      "question": "Which type of virus is platform-independent because it infects scripting code in documents rather than executable files?",
+      "options": [
+        "Boot sector virus",
+        "Macro virus",
+        "Polymorphic virus",
+        "Stealth virus"
+      ],
+      "answer": 1,
+      "type": "conceptual"
+    },
+    {
+      "id": "ch6-q14",
+      "question": "What is the purpose of a 'honey-pot' in the context of malware defense?",
+      "options": [
+        "A secure vault for storing encrypted backups.",
+        "A decoy system designed to lure and observe attackers and malware.",
+        "A tool used to automatically remove viruses from a network.",
+        "A firewall rule that blocks all incoming traffic from unknown IPs."
+      ],
+      "answer": 1,
+      "type": "definition"
+    },
+    {
+      "id": "ch6-q15",
+      "question": "If an attacker uses a 'spear-phishing' attack, how does it differ from a standard phishing attack?",
+      "options": [
+        "It uses automated bots to send millions of messages.",
+        "It targets a specific individual or organization with personalized content.",
+        "It only occurs over phone calls rather than email.",
+        "It does not require the user to click any links."
+      ],
+      "answer": 1,
+      "type": "conceptual"
+    },
+    {
+      "id": "ch6-q16",
+      "question": "An administrator wants to prevent malware from entering the network by checking for malicious patterns in traffic as it enters the local area network. This is an example of:",
+      "options": [
+        "Host-based scanning",
+        "Egress filtering",
+        "Ingress filtering",
+        "Sandboxing"
+      ],
+      "answer": 2,
+      "type": "applied"
+    },
+    {
+      "id": "ch6-q17",
+      "question": "Which of the following is a 'stealthing' technique where a virus changes its appearance with each infection to evade signature-based detection?",
+      "options": [
+        "Metamorphic virus",
+        "Macro virus",
+        "Multipartite virus",
+        "Logic bomb"
+      ],
+      "answer": 0,
+      "type": "definition"
+    },
+    {
+      "id": "ch6-q18",
+      "question": "During a malware analysis, a researcher runs a suspicious file in a restricted, emulated environment to observe its behavior without risking the host system. This technique is called:",
+      "options": [
+        "Signature matching",
+        "Heuristic analysis",
+        "Sandboxing",
+        "Local scanning"
+      ],
+      "answer": 2,
+      "type": "applied"
+    },
+    {
+      "id": "ch6-q19",
+      "question": "A user's files have been encrypted, and a message on the screen demands a payment in Bitcoin to receive the decryption key. What type of malware is this?",
+      "options": [
+        "Spyware",
+        "Ransomware",
+        "Adware",
+        "Worm"
+      ],
+      "answer": 1,
+      "type": "applied"
+    },
+    {
+      "id": "ch6-q20",
+      "question": "Why are macro viruses particularly dangerous compared to traditional file-infecting viruses?",
+      "options": [
+        "They can only infect the boot sector of a hard drive.",
+        "They infect documents that are frequently shared via email and are platform-independent.",
+        "They require administrative privileges to run.",
+        "They cannot be detected by signature-based scanners."
+      ],
+      "answer": 1,
+      "type": "conceptual"
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "chapter": 2,
+  "title": "Cryptographic Tools",
+  "questions": [
+    {
+      "id": "ch2-q01",
+      "stem": "Which ingredient of a symmetric encryption scheme is the scrambled message produced as output?",
+      "choices": [
+        "Plaintext",
+        "Encryption algorithm",
+        "Secret key",
+        "Ciphertext"
+      ],
+      "correct": 3,
+      "explanation": "Ciphertext is the scrambled message produced as output, depending on the plaintext and the secret key."
+    },
+    {
+      "id": "ch2-q02",
+      "stem": "What is the primary difference between a block cipher and a stream cipher?",
+      "choices": [
+        "Block ciphers use two keys, while stream ciphers use one.",
+        "Block ciphers process input in fixed-size groups, while stream ciphers process input continuously.",
+        "Stream ciphers are only used for public-key encryption.",
+        "Block ciphers are always faster than stream ciphers."
+      ],
+      "correct": 1,
+      "explanation": "A block cipher processes input in fixed-size blocks, whereas a stream cipher processes input elements continuously, producing output one element at a time."
+    },
+    {
+      "id": "ch2-q03",
+      "stem": "Which attack on symmetric encryption relies on the nature of the algorithm and some knowledge of the general characteristics of the plaintext?",
+      "choices": [
+        "Brute-force attack",
+        "Cryptanalysis",
+        "Denial of service",
+        "Traffic analysis"
+      ],
+      "correct": 1,
+      "explanation": "Cryptanalysis exploits the characteristics of the algorithm to deduce a specific plaintext or the key."
+    },
+    {
+      "id": "ch2-q04",
+      "stem": "The Advanced Encryption Standard (AES) was designed to support which key lengths?",
+      "choices": [
+        "56, 112, and 168 bits",
+        "64, 128, and 256 bits",
+        "128, 192, and 256 bits",
+        "160, 224, and 512 bits"
+      ],
+      "correct": 2,
+      "explanation": "NIST specified that AES must support key lengths of 128, 192, and 256 bits."
+    },
+    {
+      "id": "ch2-q05",
+      "stem": "In which block cipher mode of operation is each block of plaintext encrypted independently using the same key?",
+      "choices": [
+        "Cipher Block Chaining (CBC)",
+        "Electronic Codebook (ECB)",
+        "Cipher Feedback (CFB)",
+        "Counter (CTR)"
+      ],
+      "correct": 1,
+      "explanation": "Electronic Codebook (ECB) mode handles each block of plaintext independently using the same key."
+    },
+    {
+      "id": "ch2-q06",
+      "stem": "What is the primary purpose of a Message Authentication Code (MAC)?",
+      "choices": [
+        "To provide confidentiality for long messages",
+        "To generate public and private key pairs",
+        "To verify that a message is genuine and hasn't been altered",
+        "To encrypt data at rest on portable devices"
+      ],
+      "correct": 2,
+      "explanation": "A MAC ensures that the message hasn't been altered and confirms the sender's identity (authenticity)."
+    },
+    {
+      "id": "ch2-q07",
+      "stem": "A secure hash function must be 'preimage resistant'. What does this mean?",
+      "choices": [
+        "It is easy to find two different messages that produce the same hash.",
+        "It is computationally infeasible to find any pair (x, y) such that H(y) = H(x).",
+        "It is computationally infeasible to find a message x that maps to a specific hash value h.",
+        "The hash function can only be applied to fixed-size blocks of data."
+      ],
+      "correct": 2,
+      "explanation": "Preimage resistant (or one-way) means that for any given code h, it is computationally infeasible to find x such that H(x) = h."
+    },
+    {
+      "id": "ch2-q08",
+      "stem": "Which property of a hash function is also known as 'weak collision resistance'?",
+      "choices": [
+        "Preimage resistant",
+        "Second preimage resistant",
+        "Collision resistant",
+        "Fixed-length output"
+      ],
+      "correct": 1,
+      "explanation": "Second preimage resistant means for a given block x, it is infeasible to find y != x such that H(y) = H(x); it is often called weak collision resistant."
+    },
+    {
+      "id": "ch2-q09",
+      "stem": "Which public-key algorithm is primarily used for key agreement rather than general-purpose encryption?",
+      "choices": [
+        "RSA",
+        "DSS",
+        "Diffie-Hellman",
+        "AES"
+      ],
+      "correct": 2,
+      "explanation": "The Diffie-Hellman algorithm is designed to enable two users to securely reach agreement about a shared secret key."
+    },
+    {
+      "id": "ch2-q10",
+      "stem": "In public-key encryption, if Bob wants to send a confidential message to Alice, which key should he use to encrypt it?",
+      "choices": [
+        "Bob's public key",
+        "Bob's private key",
+        "Alice's public key",
+        "Alice's private key"
+      ],
+      "correct": 2,
+      "explanation": "To ensure confidentiality, the sender encrypts the message with the receiver's public key so only the receiver can decrypt it with their private key."
+    },
+    {
+      "id": "ch2-q11",
+      "stem": "How is a digital signature typically created by a sender?",
+      "choices": [
+        "By encrypting the entire message with the receiver's public key",
+        "By hashing the message and encrypting the hash with the sender's private key",
+        "By encrypting the message with a shared symmetric key",
+        "By appending a random nonce to the plaintext"
+      ],
+      "correct": 1,
+      "explanation": "A digital signature is created by hashing a message and encrypting the resulting hash with the sender's private key."
+    },
+    {
+      "id": "ch2-q12",
+      "stem": "What does a public-key certificate (such as X.509) primarily protect against?",
+      "choices": [
+        "Brute-force attacks on AES keys",
+        "Forgery of public key announcements",
+        "Passive eavesdropping on a network",
+        "Reordering of blocks in ECB mode"
+      ],
+      "correct": 1,
+      "explanation": "Certificates bind a public key to a user ID via a trusted third party's signature, preventing someone from spoofing a public key."
+    },
+    {
+      "id": "ch2-q13",
+      "stem": "A 'digital envelope' is a hybrid approach that combines:",
+      "choices": [
+        "Two different hash functions for double integrity",
+        "Two different public keys for multi-factor authentication",
+        "Public-key encryption for key distribution and symmetric encryption for data confidentiality",
+        "Stream ciphers for headers and block ciphers for the body"
+      ],
+      "correct": 2,
+      "explanation": "A digital envelope uses public-key encryption to protect a symmetric key, which is then used to encrypt the actual message."
+    },
+    {
+      "id": "ch2-q14",
+      "stem": "Which type of random number generator uses nondeterministic natural processes as a source?",
+      "choices": [
+        "Pseudorandom Number Generator (PRNG)",
+        "True Random Number Generator (TRNG)",
+        "Linear Congruential Generator",
+        "Symmetric Block Cipher in CTR mode"
+      ],
+      "correct": 1,
+      "explanation": "True Random Number Generators (TRNG) use nondeterministic natural processes like electronic noise or radioactive decay."
+    },
+    {
+      "id": "ch2-q15",
+      "stem": "What is the security risk of using the Data Encryption Standard (DES) today?",
+      "choices": [
+        "The algorithm has been proven mathematically broken.",
+        "The 56-bit key length is too small to resist modern brute-force attacks.",
+        "It can only be implemented in hardware, not software.",
+        "It does not support the use of initialization vectors."
+      ],
+      "correct": 1,
+      "explanation": "The primary concern with DES is its 56-bit key length, which is inadequate against the processing power of modern computers."
+    },
+    {
+      "id": "ch2-q16",
+      "stem": "Which property is unique to digital signatures and NOT provided by standard Message Authentication Codes (MACs)?",
+      "choices": [
+        "Data integrity",
+        "Origin authentication",
+        "Non-repudiation",
+        "Efficiency"
+      ],
+      "correct": 2,
+      "explanation": "Digital signatures provide non-repudiation because the private key is known only to the signer; MACs use a shared key, so either party could have created the tag."
+    },
+    {
+      "id": "ch2-q17",
+      "stem": "Which of the following hash algorithms produces a 160-bit message digest?",
+      "choices": [
+        "MD5",
+        "SHA-1",
+        "SHA-256",
+        "SHA-512"
+      ],
+      "correct": 1,
+      "explanation": "SHA-1 produces a hash value (message digest) of 160 bits."
+    },
+    {
+      "id": "ch2-q18",
+      "stem": "If an attacker intercepts a message M and its hash H(M), and manages to find another message M' such that H(M) = H(M'), which property has been violated?",
+      "choices": [
+        "Preimage resistance",
+        "Second preimage resistance",
+        "Non-repudiation",
+        "Uniform distribution"
+      ],
+      "correct": 1,
+      "explanation": "Second preimage resistance is the property that it's infeasible to find a second message M' that has the same hash as a specific given message M."
+    },
+    {
+      "id": "ch2-q19",
+      "stem": "Elliptic Curve Cryptography (ECC) is becoming popular because:",
+      "choices": [
+        "It is a symmetric algorithm that replaces AES.",
+        "It offers security comparable to RSA but with much smaller bit sizes.",
+        "It is the only algorithm that can be used for digital signatures.",
+        "It does not require a trusted third party for certificates."
+      ],
+      "correct": 1,
+      "explanation": "ECC's main attraction is that it provides security equivalent to RSA but with smaller keys, reducing processing overhead."
+    },
+    {
+      "id": "ch2-q20",
+      "stem": "In the context of random numbers, what does 'independence' mean?",
+      "choices": [
+        "The frequency of ones and zeros is approximately equal.",
+        "The generator does not rely on any software algorithms.",
+        "No individual value in a sequence can be inferred from others.",
+        "The sequence is the same every time the generator is started."
+      ],
+      "correct": 2,
+      "explanation": "Independence means that no part of the sequence can be used to predict any other part of the sequence."
+    }
+  ]
+}

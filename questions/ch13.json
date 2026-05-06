@@ -1,0 +1,246 @@
+{
+  "chapter": 13,
+  "title": "Cloud and IoT Security",
+  "questions": [
+    {
+      "id": "ch13-q01",
+      "stem": "Which NIST essential characteristic of cloud computing allows a consumer to unilaterally provision computing capabilities, such as server time and network storage, as needed without requiring human interaction with each service provider?",
+      "choices": [
+        "Broad network access",
+        "On-demand self-service",
+        "Resource pooling",
+        "Rapid elasticity"
+      ],
+      "correct": 1,
+      "explanation": "On-demand self-service allows users to provision resources automatically without manual intervention from the cloud service provider."
+    },
+    {
+      "id": "ch13-q02",
+      "stem": "In which cloud service model is the consumer responsible for managing the operating system, middleware, and applications, while the provider manages the underlying physical and virtualization infrastructure?",
+      "choices": [
+        "Software as a Service (SaaS)",
+        "Platform as a Service (PaaS)",
+        "Infrastructure as a Service (IaaS)",
+        "Security as a Service (SecaaS)"
+      ],
+      "correct": 2,
+      "explanation": "In IaaS, the provider only manages the hardware and virtualization; the consumer must maintain the OS and everything above it."
+    },
+    {
+      "id": "ch13-q03",
+      "stem": "A cloud infrastructure that is shared by several organizations with common mission, security requirements, or compliance policies is known as a:",
+      "choices": [
+        "Public cloud",
+        "Private cloud",
+        "Hybrid cloud",
+        "Community cloud"
+      ],
+      "correct": 3,
+      "explanation": "Community clouds are designed for a specific group of organizations that share specific concerns and requirements."
+    },
+    {
+      "id": "ch13-q04",
+      "stem": "Which cloud deployment model consists of two or more distinct cloud infrastructures that remain unique entities but are bound together by standardized technology that enables data and application portability?",
+      "choices": [
+        "Hybrid cloud",
+        "Community cloud",
+        "Public cloud",
+        "Virtual private cloud"
+      ],
+      "correct": 0,
+      "explanation": "A hybrid cloud bridges multiple cloud environments (like private and public) while maintaining their distinct identities."
+    },
+    {
+      "id": "ch13-q05",
+      "stem": "According to the Cloud Security Alliance, which threat involves attackers using cloud resources to perform malicious activities such as launching DDoS attacks or hosting malware?",
+      "choices": [
+        "Shared technology issues",
+        "Insecure interfaces and APIs",
+        "Abuse and nefarious use of cloud services",
+        "Malicious insiders"
+      ],
+      "correct": 2,
+      "explanation": "Abuse and nefarious use refers to the exploitation of the cloud provider's resources by criminals for illegal activities."
+    },
+    {
+      "id": "ch13-q06",
+      "stem": "What is the primary security concern regarding 'Shared Technology Issues' in a multi-tenant cloud environment?",
+      "choices": [
+        "The lack of physical access to servers",
+        "Vulnerabilities in the hypervisor that could allow inter-tenant attacks",
+        "The inability to use strong encryption at rest",
+        "Weak API authentication mechanisms"
+      ],
+      "correct": 1,
+      "explanation": "Shared technology issues often center on the hypervisor or virtualization layer, where a failure in isolation can expose one tenant to another."
+    },
+    {
+      "id": "ch13-q07",
+      "stem": "In the NIST cloud computing reference architecture, which actor is responsible for making a service available to interested parties and managing the technical components of the service?",
+      "choices": [
+        "Cloud Service Consumer",
+        "Cloud Service Provider",
+        "Cloud Broker",
+        "Cloud Carrier"
+      ],
+      "correct": 1,
+      "explanation": "The Cloud Service Provider (CSP) is the entity that maintains the infrastructure and delivers the services to consumers."
+    },
+    {
+      "id": "ch13-q08",
+      "stem": "Which Cloud Security as a Service (SecaaS) category focuses on providing an organization with a single point of management for identity, including authentication and authorization to cloud resources?",
+      "choices": [
+        "Data Loss Prevention (DLP)",
+        "Identity and Access Management (IAM)",
+        "Intrusion Management",
+        "Encryption and Key Management"
+      ],
+      "correct": 1,
+      "explanation": "IAM provides centralized control over user identities and their access rights to cloud-based and on-premise applications."
+    },
+    {
+      "id": "ch13-q09",
+      "stem": "What is the primary function of a Cloud Broker in the cloud ecosystem?",
+      "choices": [
+        "To provide physical connectivity between consumers and providers",
+        "To perform independent assessments of cloud security controls",
+        "To manage the use, performance, and delivery of cloud services and negotiate relationships",
+        "To host the virtual machines used by the consumer"
+      ],
+      "correct": 2,
+      "explanation": "A cloud broker acts as an intermediary that helps consumers select and manage services from multiple providers."
+    },
+    {
+      "id": "ch13-q10",
+      "stem": "In the context of the Internet of Things (IoT), what is a 'constrained device'?",
+      "choices": [
+        "A device that is physically tethered to a power source",
+        "A device with limited memory, processing power, and energy resources",
+        "A device that only communicates using wired Ethernet",
+        "A device that is blocked from accessing the public internet"
+      ],
+      "correct": 1,
+      "explanation": "Constrained devices lack the resources necessary to implement standard high-overhead security protocols like full TLS/SSL."
+    },
+    {
+      "id": "ch13-q11",
+      "stem": "Which component of an IoT 'thing' is responsible for converting an electrical signal into a physical action that affects the environment?",
+      "choices": [
+        "Sensor",
+        "Actuator",
+        "Microcontroller",
+        "Transceiver"
+      ],
+      "correct": 1,
+      "explanation": "Actuators allow IoT devices to interact with the physical world, such as opening a valve or turning on a motor."
+    },
+    {
+      "id": "ch13-q12",
+      "stem": "The 'patching vulnerability' in IoT refers to which specific security crisis?",
+      "choices": [
+        "The high frequency of software updates released by vendors",
+        "The inability of many embedded devices to receive firmware updates or security fixes",
+        "The use of open-source software in proprietary IoT products",
+        "The failure of users to change default passwords on their devices"
+      ],
+      "correct": 1,
+      "explanation": "Many IoT devices are built with no mechanism for firmware updates, meaning a discovered vulnerability remains in the device forever."
+    },
+    {
+      "id": "ch13-q13",
+      "stem": "What is the primary purpose of 'Fog Computing' (or Edge Computing) in an IoT architecture?",
+      "choices": [
+        "To replace the centralized cloud for long-term storage",
+        "To process and analyze data close to the source to reduce latency and core network traffic",
+        "To provide a backup for the core backbone network",
+        "To encrypt data specifically for transmission over satellite links"
+      ],
+      "correct": 1,
+      "explanation": "Fog computing moves processing closer to the edge, which is essential for low-latency IoT applications and reducing bandwidth consumption."
+    },
+    {
+      "id": "ch13-q14",
+      "stem": "Which layer of the simplified four-layer IoT model is responsible for connecting dispersed fog or edge networks to the centralized cloud resources?",
+      "choices": [
+        "Device Layer",
+        "Fog Layer",
+        "Core Network Layer",
+        "Application Layer"
+      ],
+      "correct": 2,
+      "explanation": "The core network layer provides the backbone connectivity that bridges edge/fog environments with the centralized cloud."
+    },
+    {
+      "id": "ch13-q15",
+      "stem": "The Mirai botnet attack was significant in the history of IoT security because it:",
+      "choices": [
+        "Stole credit card data from millions of smart refrigerators",
+        "Used compromised IoT devices like cameras and DVRs to launch massive DDoS attacks",
+        "Encrypted the data on industrial sensors and demanded a ransom",
+        "Infiltrated government networks through smart light bulbs"
+      ],
+      "correct": 1,
+      "explanation": "Mirai exploited weak credentials in IoT devices to create a botnet that knocked major websites offline via DDoS."
+    },
+    {
+      "id": "ch13-q16",
+      "stem": "In the shared responsibility model for cloud security, who is typically responsible for the security of the data stored within a SaaS application?",
+      "choices": [
+        "The Cloud Service Provider (CSP) only",
+        "The Cloud Service Consumer (CSC) only",
+        "The Cloud Carrier",
+        "The Cloud Broker"
+      ],
+      "correct": 1,
+      "explanation": "Regardless of the service model (even SaaS), the consumer (CSC) remains responsible for the security of their own data."
+    },
+    {
+      "id": "ch13-q17",
+      "stem": "Which of the following is an example of an IoT 'unconstrained device'?",
+      "choices": [
+        "A 4-bit microcontroller in a temperature sensor",
+        "A low-power passive RFID tag",
+        "A smart phone or a high-end gateway running a full Linux OS",
+        "A battery-operated ZigBee motion detector"
+      ],
+      "correct": 2,
+      "explanation": "Unconstrained devices have sufficient resources to run standard OSs and full security suites like IPsec or TLS."
+    },
+    {
+      "id": "ch13-q18",
+      "stem": "MiniSec is designed as an open-source security module specifically to address which challenge in IoT?",
+      "choices": [
+        "High-speed data processing for cloud centers",
+        "Energy-efficient confidentiality and authentication for constrained devices",
+        "Automated firmware patching for consumer routers",
+        "Graphical user interface management for smart home hubs"
+      ],
+      "correct": 1,
+      "explanation": "MiniSec is a security suite optimized for sensor networks where energy consumption and memory are limited."
+    },
+    {
+      "id": "ch13-q19",
+      "stem": "A Cisco-proposed IoT security framework includes 'Secure Analytics.' What does this function primarily provide?",
+      "choices": [
+        "Encryption of data at rest in the cloud",
+        "Visibility and control to help detect and remediate threats within the network",
+        "The ability to calculate the return on investment for IoT devices",
+        "Automatic generation of passwords for new devices"
+      ],
+      "correct": 1,
+      "explanation": "Secure analytics involves monitoring network traffic and device behavior to identify anomalies that indicate a security breach."
+    },
+    {
+      "id": "ch13-q20",
+      "stem": "Which NIST cloud characteristic refers to the ability to scale resources outward and inward commensurate with demand, appearing infinite to the consumer?",
+      "choices": [
+        "Measured service",
+        "Resource pooling",
+        "Rapid elasticity",
+        "Broad network access"
+      ],
+      "correct": 2,
+      "explanation": "Rapid elasticity allows the cloud to dynamically grow or shrink to match the workload, often automatically."
+    }
+  ]
+}

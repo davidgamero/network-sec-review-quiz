@@ -1,0 +1,266 @@
+{
+  "chapter": 19,
+  "title": "Legal and Ethical Aspects",
+  "questions": [
+    {
+      "id": "ch19-q01",
+      "type": "definition",
+      "question": "Which term describes a property right granted to an inventor to exclude others from making, using, or selling an invention for a specified period?",
+      "options": [
+        "Copyright",
+        "Trademark",
+        "Patent",
+        "Trade secret"
+      ],
+      "answer": "Patent",
+      "explanation": "A patent is a grant of a property right to the inventor to exclude others from making, using, or selling the invention."
+    },
+    {
+      "id": "ch19-q02",
+      "type": "definition",
+      "question": "In the Common Criteria privacy class, which term refers to the ability of a user to use a resource or service without disclosing their identity?",
+      "options": [
+        "Pseudonymity",
+        "Unlinkability",
+        "Unobservability",
+        "Anonymity"
+      ],
+      "answer": "Anonymity",
+      "explanation": "Anonymity ensures that a user may use a resource or service without disclosing their identity."
+    },
+    {
+      "id": "ch19-q03",
+      "type": "definition",
+      "question": "The U.S. Department of Justice defines 'computers as storage devices' when they are used to store which of the following?",
+      "options": [
+        "Botnet command and control software",
+        "Illegal materials such as stolen credit card numbers",
+        "Algorithms used for DDoS attacks",
+        "Email scripts for phishing campaigns"
+      ],
+      "answer": "Illegal materials such as stolen credit card numbers",
+      "explanation": "Computers as storage devices refers to the use of computers to store illegal data like stolen passwords or credit card numbers."
+    },
+    {
+      "id": "ch19-q04",
+      "type": "definition",
+      "question": "Which international treaty provides a consensus on specific cybercrime offenses, such as illegal access and data interference?",
+      "options": [
+        "The WIPO Copyright Treaty",
+        "The Digital Millennium Copyright Act",
+        "The Convention on Cybercrime",
+        "The GDPR Framework"
+      ],
+      "answer": "The Convention on Cybercrime",
+      "explanation": "The Convention on Cybercrime is the first international treaty on crimes committed via the Internet and other computer networks."
+    },
+    {
+      "id": "ch19-q05",
+      "type": "definition",
+      "question": "Which GDPR principle states that personal data should be collected for specified, explicit, and legitimate purposes and not further processed in a manner that is incompatible with those purposes?",
+      "options": [
+        "Data minimization",
+        "Purpose limitation",
+        "Storage limitation",
+        "Accuracy"
+      ],
+      "answer": "Purpose limitation",
+      "explanation": "Purpose limitation ensures data is collected for specified, explicit, and legitimate purposes."
+    },
+    {
+      "id": "ch19-q06",
+      "type": "definition",
+      "question": "What is the primary role of a 'Clearinghouse' in the Digital Rights Management (DRM) component model?",
+      "options": [
+        "To provide the digital content to the consumer",
+        "To encrypt the content for secure distribution",
+        "To manage financial transactions and issue usage licenses",
+        "To host the digital repository for the content provider"
+      ],
+      "answer": "To manage financial transactions and issue usage licenses",
+      "explanation": "The clearinghouse handles financial transactions for the content and issues the licenses needed to access it."
+    },
+    {
+      "id": "ch19-q07",
+      "type": "definition",
+      "question": "Which term describes the unauthorized use of rights secured by a copyright, patent, or trademark?",
+      "options": [
+        "Interference",
+        "Infringement",
+        "Circumvention",
+        "Appropriation"
+      ],
+      "answer": "Infringement",
+      "explanation": "Infringement is the invasion of the rights secured by copyrights, trademarks, or patents."
+    },
+    {
+      "id": "ch19-q08",
+      "type": "definition",
+      "question": "Under the Common Criteria, which privacy concept ensures that a user may use a resource or service without others being able to observe that the resource or service is being used?",
+      "options": [
+        "Anonymity",
+        "Pseudonymity",
+        "Unobservability",
+        "Unlinkability"
+      ],
+      "answer": "Unobservability",
+      "explanation": "Unobservability ensures that a user may use a resource or service without others being able to observe that the resource or service is being used."
+    },
+    {
+      "id": "ch19-q09",
+      "type": "conceptual",
+      "question": "How does the Digital Millennium Copyright Act (DMCA) differ from traditional copyright law regarding digital content?",
+      "options": [
+        "It eliminates the concept of 'fair use' for all digital media",
+        "It focuses on the duration of the copyright rather than its enforcement",
+        "It prohibits the circumvention of technological measures used to control access to works",
+        "It requires all software to be registered with the government before distribution"
+      ],
+      "answer": "It prohibits the circumvention of technological measures used to control access to works",
+      "explanation": "The DMCA prohibits the circumvention of technological protection measures (like encryption) used by copyright owners to control access."
+    },
+    {
+      "id": "ch19-q10",
+      "type": "conceptual",
+      "question": "Why is the reporting of cybercrime often low among corporate victims?",
+      "options": [
+        "Reporting is prohibited by most cyber insurance policies",
+        "Law enforcement agencies refuse to investigate crimes below a certain dollar threshold",
+        "Fear of damage to corporate reputation and potential civil liability",
+        "International law requires reporting only if the attacker is in the same country"
+      ],
+      "answer": "Fear of damage to corporate reputation and potential civil liability",
+      "explanation": "Corporations often hesitate to report crimes to avoid negative publicity and potential lawsuits from shareholders or customers."
+    },
+    {
+      "id": "ch19-q11",
+      "type": "conceptual",
+      "question": "In the context of moral responsibility for computing artifacts, what does the principle of 'shared responsibility' imply?",
+      "options": [
+        "Individual responsibility decreases as the number of people on a project increases",
+        "Only the project manager is legally liable for software failures",
+        "Responsibility for the effects of an artifact is distributed and not reduced by the involvement of others",
+        "Responsibility is only assigned if a specific bug can be traced to a single line of code"
+      ],
+      "answer": "Responsibility for the effects of an artifact is distributed and not reduced by the involvement of others",
+      "explanation": "The 'Rules' of responsibility state that adding more people to a project does not reduce the individual responsibility of those involved."
+    },
+    {
+      "id": "ch19-q12",
+      "type": "conceptual",
+      "question": "What is the key difference between anonymity and pseudonymity in privacy frameworks?",
+      "options": [
+        "Anonymity is legal while pseudonymity is illegal",
+        "Pseudonymity allows for accountability through an alias, while anonymity does not",
+        "Anonymity requires encryption, whereas pseudonymity requires digital signatures",
+        "Pseudonymity is used for servers, while anonymity is used for end users"
+      ],
+      "answer": "Pseudonymity allows for accountability through an alias, while anonymity does not",
+      "explanation": "Pseudonymity involves the use of an alias that allows for accountability if the identity is eventually unmasked by authorized parties."
+    },
+    {
+      "id": "ch19-q13",
+      "type": "conceptual",
+      "question": "Which of the following best describes the 'vicious cycle' of cybercrime enforcement?",
+      "options": [
+        "More security leads to more complex attacks, which leads to even more security",
+        "Low reporting leads to low arrest rates, which encourages more crime and further discourages reporting",
+        "High software costs lead to piracy, which reduces software revenue and increases costs",
+        "Increased legislation leads to more encryption, which makes evidence gathering impossible"
+      ],
+      "answer": "Low reporting leads to low arrest rates, which encourages more crime and further discourages reporting",
+      "explanation": "The vicious cycle shows how a lack of reporting and successful prosecutions encourages further criminal activity."
+    },
+    {
+      "id": "ch19-q14",
+      "type": "conceptual",
+      "question": "Professional codes of ethics, such as the ACM Code of Ethics, prioritize which of the following above all others?",
+      "options": [
+        "Technical excellence and optimization",
+        "The profitability of the employer",
+        "The public interest and the well-being of individuals",
+        "The advancement of the computing profession"
+      ],
+      "answer": "The public interest and the well-being of individuals",
+      "explanation": "Professional codes emphasize that the safety and well-being of the public are the highest priorities."
+    },
+    {
+      "id": "ch19-q15",
+      "type": "conceptual",
+      "question": "How does a patent differ from a copyright in terms of what is being protected?",
+      "options": [
+        "Copyrights protect ideas, while patents protect the expression of those ideas",
+        "Patents protect new and useful processes or machines, while copyrights protect original works of authorship",
+        "Patents last forever, while copyrights have a fixed expiration date",
+        "Copyrights apply only to hardware, while patents apply only to software"
+      ],
+      "answer": "Patents protect new and useful processes or machines, while copyrights protect original works of authorship",
+      "explanation": "Patents cover inventions and processes, while copyrights cover the tangible expression of creative works like code or literature."
+    },
+    {
+      "id": "ch19-q16",
+      "type": "conceptual",
+      "question": "Which GDPR requirement empowers individuals to request that a data controller delete all their personal information?",
+      "options": [
+        "The right to data portability",
+        "The right to be forgotten",
+        "The right of access",
+        "The right to object to processing"
+      ],
+      "answer": "The right to be forgotten",
+      "explanation": "The 'right to be forgotten' (or right to erasure) allows individuals to have their data deleted under certain conditions."
+    },
+    {
+      "id": "ch19-q17",
+      "type": "applied",
+      "question": "A security researcher discovers a vulnerability in a commercial software product and writes a tool to bypass the vendor's DRM to demonstrate the flaw. Which law are they most likely risking violation of in the U.S.?",
+      "options": [
+        "The Privacy Act of 1974",
+        "The Digital Millennium Copyright Act (DMCA)",
+        "The Economic Espionage Act",
+        "The Sarbanes-Oxley Act"
+      ],
+      "answer": "The Digital Millennium Copyright Act (DMCA)",
+      "explanation": "The DMCA prohibits the circumvention of technological measures used to control access to copyrighted works."
+    },
+    {
+      "id": "ch19-q18",
+      "type": "applied",
+      "question": "An online store collects customer names and addresses for shipping but then uses that data to track the customers' health habits without consent. This is a violation of which GDPR principle?",
+      "options": [
+        "Storage limitation",
+        "Integrity and confidentiality",
+        "Purpose limitation",
+        "Data minimization"
+      ],
+      "answer": "Purpose limitation",
+      "explanation": "Purpose limitation requires that data be used only for the specific purposes for which it was originally collected."
+    },
+    {
+      "id": "ch19-q19",
+      "type": "applied",
+      "question": "A company implements a system where employees can post anonymous feedback. However, the system administrator links the timestamps of the posts to network login logs to identify the posters. Which privacy concept has been directly violated?",
+      "options": [
+        "Anonymity",
+        "Unlinkability",
+        "Unobservability",
+        "Pseudonymity"
+      ],
+      "answer": "Unlinkability",
+      "explanation": "Unlinkability ensures that information or resources cannot be linked to a specific user through correlation of different events or logs."
+    },
+    {
+      "id": "ch19-q20",
+      "type": "applied",
+      "question": "A software engineer notices a major security flaw in a government-contracted project. Despite pressure from management to ship the product, the engineer reports the flaw to the public because it threatens national safety. Which ethical framework is the engineer following?",
+      "options": [
+        "The hierarchy of employer loyalty",
+        "The ACM Code of Ethics' focus on public interest",
+        "The rule of technical efficiency",
+        "The principle of organizational secrecy"
+      ],
+      "answer": "The ACM Code of Ethics' focus on public interest",
+      "explanation": "The ACM Code of Ethics prioritizes the public interest and safety above other considerations like employer loyalty or project deadlines."
+    }
+  ]
+}

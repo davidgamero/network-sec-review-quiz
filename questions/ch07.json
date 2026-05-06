@@ -1,0 +1,246 @@
+{
+  "chapter": 7,
+  "title": "Denial-of-Service Attacks",
+  "questions": [
+    {
+      "id": "ch7-q01",
+      "question": "Which security service is the primary target of a Denial-of-Service (DoS) attack?",
+      "options": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Accountability"
+      ],
+      "answer": "Availability",
+      "explanation": "A DoS attack is an action that prevents or impairs the authorized use of networks, systems, or applications by exhausting resources."
+    },
+    {
+      "id": "ch7-q02",
+      "question": "How does a 'poison packet' attack differ from a standard flooding attack?",
+      "options": [
+        "It uses a larger volume of traffic to exhaust bandwidth.",
+        "It exploits a specific software bug to crash a system with very few packets.",
+        "It relies on the TCP three-way handshake to fill connection tables.",
+        "It requires a botnet of thousands of zombies to be effective."
+      ],
+      "answer": "It exploits a specific software bug to crash a system with very few packets.",
+      "explanation": "Poison packets target system resource vulnerabilities rather than simply exhausting capacity through volume."
+    },
+    {
+      "id": "ch7-q03",
+      "question": "What is the primary reason an attacker uses source address spoofing in a flooding attack?",
+      "options": [
+        "To increase the processing load on the victim's server.",
+        "To bypass application-layer authentication mechanisms.",
+        "To hide the attacker's identity and prevent the victim from reflecting the attack.",
+        "To ensure the packets are delivered more quickly through the core network."
+      ],
+      "answer": "To hide the attacker's identity and prevent the victim from reflecting the attack.",
+      "explanation": "Spoofing makes it difficult to trace the attack back to its true source and prevents simple filtering based on the attacker's IP."
+    },
+    {
+      "id": "ch7-q04",
+      "question": "Which phenomenon provides security researchers with data on spoofed DoS attacks by observing responses sent to random IP addresses?",
+      "options": [
+        "Flash crowds",
+        "Backscatter traffic",
+        "Recursive spidering",
+        "Reflector amplification"
+      ],
+      "answer": "Backscatter traffic",
+      "explanation": "Backscatter traffic consists of response packets from a victim sent to the spoofed source addresses used by the attacker."
+    },
+    {
+      "id": "ch7-q05",
+      "question": "In a SYN spoofing attack, what specific resource is being exhausted on the target server?",
+      "options": [
+        "The outgoing network bandwidth of the server's ISP.",
+        "The CPU cycles required to decrypt incoming SSL/TLS packets.",
+        "The table of 'half-open' TCP connections waiting for an ACK.",
+        "The physical disk space used for logging incoming network traffic."
+      ],
+      "answer": "The table of 'half-open' TCP connections waiting for an ACK.",
+      "explanation": "SYN spoofing exploits the TCP handshake by leaving many connections in the SYN-RCVD state, filling the server's connection table."
+    },
+    {
+      "id": "ch7-q06",
+      "question": "What is the key difference between a standard SYN flood and a SYN spoofing attack?",
+      "options": [
+        "A SYN flood targets bandwidth volume, while SYN spoofing targets system resources.",
+        "SYN spoofing requires a botnet, whereas a SYN flood only needs one machine.",
+        "A SYN flood uses valid IP addresses, while SYN spoofing always uses dead IPs.",
+        "SYN spoofing targets UDP, while SYN floods target TCP."
+      ],
+      "answer": "A SYN flood targets bandwidth volume, while SYN spoofing targets system resources.",
+      "explanation": "While both use SYN packets, the goal of a flood is to saturate the link, whereas the goal of spoofing is to fill the connection table."
+    },
+    {
+      "id": "ch7-q07",
+      "question": "Why might an attacker use ICMP 'Destination Unreachable' packets instead of ICMP Echo Requests (pings) in a modern flooding attack?",
+      "options": [
+        "They are larger and thus consume more bandwidth per packet.",
+        "They are less likely to be blocked by firewalls because they are necessary for network operation.",
+        "They cause the victim to automatically reboot its network interface.",
+        "They allow for easier source address spoofing than Echo Requests."
+      ],
+      "answer": "They are less likely to be blocked by firewalls because they are necessary for network operation.",
+      "explanation": "Many networks block pings, but error messages like 'Destination Unreachable' are often allowed through to support TCP/IP functionality."
+    },
+    {
+      "id": "ch7-q08",
+      "question": "In the standard architecture of a Distributed Denial-of-Service (DDoS) attack, what are the 'zombies'?",
+      "options": [
+        "The central servers used by the attacker to coordinate the assault.",
+        "Compromised systems that directly send attack traffic to the victim.",
+        "The software tools used to generate spoofed IP packets.",
+        "The legitimate users who are unable to access the service."
+      ],
+      "answer": "Compromised systems that directly send attack traffic to the victim.",
+      "explanation": "Zombies (or agents) are the compromised machines in a botnet that carry out the actual flooding."
+    },
+    {
+      "id": "ch7-q09",
+      "question": "Which protocol is exploited in a SIP flood to cause high processing overhead on VoIP servers?",
+      "options": [
+        "Simple Information Protocol",
+        "Session Initiation Protocol",
+        "Secure Internet Protocol",
+        "System Interconnect Protocol"
+      ],
+      "answer": "Session Initiation Protocol",
+      "explanation": "SIP is used for VoIP; flooding a server with SIP INVITE requests forces it to perform complex processing and database lookups."
+    },
+    {
+      "id": "ch7-q10",
+      "question": "How does the 'Slowloris' attack exhaust server resources?",
+      "options": [
+        "By sending millions of tiny UDP packets to random ports.",
+        "By initiating many HTTP requests but never completing them, keeping threads occupied.",
+        "By using a recursive search to follow every link on a target website.",
+        "By exploiting a buffer overflow in the web server's logging module."
+      ],
+      "answer": "By initiating many HTTP requests but never completing them, keeping threads occupied.",
+      "explanation": "Slowloris sends partial HTTP requests and periodically adds headers to keep the connection open, eventually hitting the server's max connection limit."
+    },
+    {
+      "id": "ch7-q11",
+      "question": "What is the defining characteristic of a 'Reflection Attack'?",
+      "options": [
+        "The attacker sends traffic directly to the victim from a single high-bandwidth source.",
+        "The attacker sends requests with the victim's spoofed IP to normal servers which then respond to the victim.",
+        "The victim's server reflects all incoming traffic back to the ISP to save bandwidth.",
+        "The attacker uses a botnet to 'reflect' traffic off multiple peer-to-peer nodes."
+      ],
+      "answer": "The attacker sends requests with the victim's spoofed IP to normal servers which then respond to the victim.",
+      "explanation": "In reflection, the victim receives response packets from legitimate servers (reflectors) that were triggered by the attacker's spoofed requests."
+    },
+    {
+      "id": "ch7-q12",
+      "question": "How does a DNS amplification attack achieve its massive traffic volume?",
+      "options": [
+        "By compromising the victim's authoritative DNS server.",
+        "By sending small queries that trigger much larger response packets to be sent to the victim.",
+        "By flooding the DNS server with millions of invalid domain name requests.",
+        "By forcing the victim to perform recursive DNS lookups for every incoming packet."
+      ],
+      "answer": "By sending small queries that trigger much larger response packets to be sent to the victim.",
+      "explanation": "DNS amplification exploits the large ratio between a DNS query size and the size of the returned record (e.g., DNSSEC or TXT records)."
+    },
+    {
+      "id": "ch7-q13",
+      "question": "Which of the following is a proactive defense measure that prevents spoofed packets from leaving a local network?",
+      "options": [
+        "Egress filtering",
+        "Ingress filtering",
+        "SYN cookies",
+        "Rate limiting"
+      ],
+      "answer": "Ingress filtering",
+      "explanation": "Ingress filtering (RFC 2827) involves a router checking that the source IP of a packet is valid for the network it is originating from."
+    },
+    {
+      "id": "ch7-q14",
+      "question": "What is the primary benefit of using SYN cookies to defend against SYN spoofing?",
+      "options": [
+        "They automatically block all incoming SYN packets from untrusted IPs.",
+        "They encrypt the entire TCP payload to prevent data modification.",
+        "They allow the server to avoid allocating connection table space until the three-way handshake is verified.",
+        "They double the available bandwidth of the server's network interface."
+      ],
+      "answer": "They allow the server to avoid allocating connection table space until the three-way handshake is verified.",
+      "explanation": "SYN cookies encode connection information in the TCP sequence number, removing the need for a 'half-open' connection table."
+    },
+    {
+      "id": "ch7-q15",
+      "question": "A sudden surge in legitimate traffic to a website, often following a news event, is known as a:",
+      "options": [
+        "Botnet surge",
+        "DDoS event",
+        "Flash crowd",
+        "Recursive flood"
+      ],
+      "answer": "Flash crowd",
+      "explanation": "A flash crowd is a spike in legitimate users, which can cause service disruption similar to a DoS but without malicious intent."
+    },
+    {
+      "id": "ch7-q16",
+      "question": "Why is it difficult for a victim to defend against a DDoS attack solely by blocking the attacking IP addresses?",
+      "options": [
+        "The IPs used are usually those of legitimate servers in a reflection attack.",
+        "The number of attacking IPs (zombies) can be in the hundreds of thousands.",
+        "IP-based blocking requires a manual reboot of the server's firewall.",
+        "The attacker can easily change the IPs of the zombies remotely via DHCP."
+      ],
+      "answer": "The number of attacking IPs (zombies) can be in the hundreds of thousands.",
+      "explanation": "The sheer scale of a botnet makes blacklisting individual IPs ineffective and computationally expensive."
+    },
+    {
+      "id": "ch7-q17",
+      "question": "In an amplification attack using directed broadcasts, where is the amplification factor derived from?",
+      "options": [
+        "The size of the ICMP packet header.",
+        "The number of hosts on the network that receive and respond to the broadcast.",
+        "The speed of the attacker's uplink connection.",
+        "The amount of time the victim stays offline after the attack."
+      ],
+      "answer": "The number of hosts on the network that receive and respond to the broadcast.",
+      "explanation": "A single broadcast request triggers a response from every host on that network, multiplying the traffic sent to the victim."
+    },
+    {
+      "id": "ch7-q18",
+      "question": "What is the goal of an application-based 'cyberslam' attack?",
+      "options": [
+        "To crash the operating system by sending malformed kernel packets.",
+        "To exhaust the web server's connection pool using incomplete HTTP headers.",
+        "To consume CPU or disk resources by triggering complex, expensive application queries.",
+        "To saturate the network link with high-volume UDP traffic."
+      ],
+      "answer": "To consume CPU or disk resources by triggering complex, expensive application queries.",
+      "explanation": "Cyberslams target the application layer by forcing the server to do heavy lifting, like complex database searches."
+    },
+    {
+      "id": "ch7-q19",
+      "question": "When a DoS attack is underway, why is it critical to contact the upstream ISP?",
+      "options": [
+        "The ISP can provide the physical address of the attacker.",
+        "The bottleneck is often at the ISP's link, so traffic must be filtered there to be effective.",
+        "The ISP is legally required to pay for any downtime caused by the attack.",
+        "Only the ISP has the decryption keys for spoofed SYN packets."
+      ],
+      "answer": "The bottleneck is often at the ISP's link, so traffic must be filtered there to be effective.",
+      "explanation": "If the attack saturates the link to the victim, filtering at the victim's premises is useless because the link is already full."
+    },
+    {
+      "id": "ch7-q20",
+      "question": "Which of these is a characteristic of a 'recursive' HTTP flood?",
+      "options": [
+        "It uses DNS servers to amplify the size of the HTTP response.",
+        "It focuses solely on the root index page to minimize detection.",
+        "It uses a spidering technique to follow all links on the target site and maximize load.",
+        "It requires the attacker to have administrative access to the web server."
+      ],
+      "answer": "It uses a spidering technique to follow all links on the target site and maximize load.",
+      "explanation": "Recursive HTTP floods crawl the site to find and request as many resources as possible, increasing the server's workload."
+    }
+  ]
+}

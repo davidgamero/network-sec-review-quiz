@@ -1,0 +1,246 @@
+{
+  "chapter": 17,
+  "title": "Human Resources Security",
+  "questions": [
+    {
+      "id": "ch17-q01",
+      "question": "Which level of the NIST learning continuum focuses on the 'why' behind security principles and targets security professionals?",
+      "options": [
+        "Security Awareness",
+        "Security Education",
+        "Cybersecurity Literacy",
+        "Role-Based Training"
+      ],
+      "answer": "Security Education",
+      "explanation": "Education targets security professionals and focuses on the 'why' behind security principles, providing deep insight through multi-disciplinary study."
+    },
+    {
+      "id": "ch17-q02",
+      "question": "In the NIST learning continuum, what is the primary objective of the 'Training' level?",
+      "options": [
+        "Recognition of basic security literacy",
+        "Developing specific skills for functional roles",
+        "Providing theoretical insight and understanding",
+        "Establishing a general security culture"
+      ],
+      "answer": "Developing specific skills for functional roles",
+      "explanation": "Training aims to develop specific skills ('how') for individuals with functional roles in IT, providing practical instruction."
+    },
+    {
+      "id": "ch17-q03",
+      "question": "What is the specific process within a CSIRT responsible for receiving, sorting, and prioritizing incident reports?",
+      "options": [
+        "Artifact Analysis",
+        "Vulnerability Handling",
+        "Triage",
+        "Constituency Mapping"
+      ],
+      "answer": "Triage",
+      "explanation": "Triage is the process of receiving, initial sorting, and prioritizing of information to facilitate its appropriate handling."
+    },
+    {
+      "id": "ch17-q04",
+      "question": "Which security principle ensures that more than one person is required to complete a critical task to prevent fraud and error?",
+      "options": [
+        "Least Privilege",
+        "Mandatory Vacations",
+        "Separation of Duties",
+        "Need to Know"
+      ],
+      "answer": "Separation of Duties",
+      "explanation": "Separation of duties requires more than one person to complete a task, preventing any single individual from performing a malicious action and covering their tracks."
+    },
+    {
+      "id": "ch17-q05",
+      "question": "An employee is given only the minimum permissions necessary to perform their specific job functions. This is an example of:",
+      "options": [
+        "Dual Operator Control",
+        "Least Privilege",
+        "Job Rotation",
+        "Separation of Duties"
+      ],
+      "answer": "Least Privilege",
+      "explanation": "The principle of least privilege involves providing a user with the minimum level of access or permissions needed to perform their job functions."
+    },
+    {
+      "id": "ch17-q06",
+      "question": "According to the incident handling life cycle, which stage involves identifying the vulnerabilities that allowed the incident and updating the risk profile?",
+      "options": [
+        "Detection",
+        "Triage",
+        "Documentation and Feedback",
+        "Artifact Collection"
+      ],
+      "answer": "Documentation and Feedback",
+      "explanation": "Post-incident analysis and documentation identify vulnerabilities and feed that information back into the risk management process to strengthen controls."
+    },
+    {
+      "id": "ch17-q07",
+      "question": "Which document defines the permitted and prohibited behaviors for users of an organization's assets?",
+      "options": [
+        "Service Level Agreement (SLA)",
+        "Acceptable Use Policy (AUP)",
+        "Business Continuity Plan (BCP)",
+        "Non-Disclosure Agreement (NDA)"
+      ],
+      "answer": "Acceptable Use Policy (AUP)",
+      "explanation": "An AUP describes how users are allowed to use an organization's assets and defines acceptable versus unacceptable behaviors."
+    },
+    {
+      "id": "ch17-q08",
+      "question": "Which of the following is a primary goal of a Security Awareness program?",
+      "options": [
+        "Teaching advanced exploit development",
+        "Promoting a culture of security and improving behavior",
+        "Granting administrative access to all users",
+        "Providing theoretical instruction in cryptography"
+      ],
+      "answer": "Promoting a culture of security and improving behavior",
+      "explanation": "The primary goal of awareness is to focus attention on issues and promote an effective security culture to improve employee behavior."
+    },
+    {
+      "id": "ch17-q09",
+      "question": "When a CSIRT analyzes malware, exploit scripts, or toolkits found on a compromised system, what are these objects called?",
+      "options": [
+        "Anomalies",
+        "Precursors",
+        "Artifacts",
+        "Signatures"
+      ],
+      "answer": "Artifacts",
+      "explanation": "An artifact is any file or object found on a system that might be involved in an attack, such as malware or exploit scripts."
+    },
+    {
+      "id": "ch17-q10",
+      "question": "In the context of SATE, which teaching method is most appropriate for 'Education'?",
+      "options": [
+        "Posters and newsletters",
+        "Hands-on workshops",
+        "Discussion seminars and background reading",
+        "True/false quizzes"
+      ],
+      "answer": "Discussion seminars and background reading",
+      "explanation": "Education uses theoretical instruction methods like discussion seminars and background reading to provide deep insight."
+    },
+    {
+      "id": "ch17-q11",
+      "question": "An organization requires its financial officers to take at least five consecutive workdays of leave annually. What is the primary security purpose of this policy?",
+      "options": [
+        "To prevent employee burnout",
+        "To comply with labor regulations",
+        "To expose fraudulent activity or embezzlement",
+        "To allow for system maintenance"
+      ],
+      "answer": "To expose fraudulent activity or embezzlement",
+      "explanation": "Mandatory vacations help expose employees involved in malicious activity like fraud because the perpetrator is not present to cover their tracks."
+    },
+    {
+      "id": "ch17-q12",
+      "question": "During the hiring process, which step is essential to verify that a candidate is suitable for a role and poses no security risk?",
+      "options": [
+        "Signing the Acceptable Use Policy",
+        "Background checks and screening",
+        "Granting immediate administrative access",
+        "Providing specialized role-based training"
+      ],
+      "answer": "Background checks and screening",
+      "explanation": "Background checks and screening are used to ensure candidates are suitable for their roles and to reduce the risk of theft or fraud."
+    },
+    {
+      "id": "ch17-q13",
+      "question": "Which function serves as the single point of contact for a CSIRT to handle incoming reports from multiple sources?",
+      "options": [
+        "System Integrity Verification",
+        "Intrusion Detection",
+        "Triage",
+        "Vulnerability Handling"
+      ],
+      "answer": "Triage",
+      "explanation": "The triage function is often advertised as the single point of contact for the incident-handling service."
+    },
+    {
+      "id": "ch17-q14",
+      "question": "Which of the following is NOT a typical benefit of having an incident response capability as listed by NIST SP 800-61?",
+      "options": [
+        "Responding to incidents systematically",
+        "Eliminating the need for a security policy",
+        "Recovering quickly and efficiently",
+        "Dealing properly with legal issues"
+      ],
+      "answer": "Eliminating the need for a security policy",
+      "explanation": "Incident response does not eliminate the need for a security policy; in fact, it relies on one to define what constitutes an incident."
+    },
+    {
+      "id": "ch17-q15",
+      "question": "A company is developing a new SATE program. According to NIST SP 800-50, which level should be provided to ALL employees?",
+      "options": [
+        "Security Education",
+        "Role-Based Training",
+        "Security Awareness",
+        "Specialized Certification"
+      ],
+      "answer": "Security Awareness",
+      "explanation": "Participation in security awareness programs is required for all employees to establish a baseline of security news and accountability."
+    },
+    {
+      "id": "ch17-q16",
+      "question": "What is the first step an organization should take when an employee is terminated for cause?",
+      "options": [
+        "Conduct an exit interview",
+        "Change the office lock combinations",
+        "Immediate removal of all access rights",
+        "Inform all clients of the termination"
+      ],
+      "answer": "Immediate removal of all access rights",
+      "explanation": "To prevent rogue activity, the immediate removal of all logical and physical access rights is a critical first step during termination."
+    },
+    {
+      "id": "ch17-q17",
+      "question": "Which automated tool scans critical system files to ensure they have not been changed without authorization?",
+      "options": [
+        "Network-based IDS",
+        "Log analysis tools",
+        "System integrity verification tools",
+        "Honeypots"
+      ],
+      "answer": "System integrity verification tools",
+      "explanation": "System integrity verification tools scan critical system files and directories to ensure they have not been unauthorizedly changed."
+    },
+    {
+      "id": "ch17-q18",
+      "question": "Under the principle of the 'learning continuum,' how is the 'Impact Timeframe' for Security Education characterized?",
+      "options": [
+        "Short term",
+        "Intermediate",
+        "Long term",
+        "Immediate"
+      ],
+      "answer": "Long term",
+      "explanation": "According to the comparative framework (Table 17.1), the impact timeframe for education is long term, as it builds deep understanding and insight."
+    },
+    {
+      "id": "ch17-q19",
+      "question": "A developer is being trained on secure coding practices to prevent buffer overflows. This falls under which category of the learning continuum?",
+      "options": [
+        "Security Awareness",
+        "Cybersecurity Literacy",
+        "Role-Based Training",
+        "Security Education"
+      ],
+      "answer": "Role-Based Training",
+      "explanation": "Role-based training provides skills specific to an individual's roles, such as secure coding for a developer."
+    },
+    {
+      "id": "ch17-q20",
+      "question": "Which area of an Acceptable Use Policy (AUP) would likely prohibit the unauthorized copying of copyrighted software?",
+      "options": [
+        "General Use and Ownership",
+        "System and Network Activities",
+        "Blogging and Social Media",
+        "Email and Communication Activities"
+      ],
+      "answer": "System and Network Activities",
+      "explanation": "Unauthorized copying of copyrighted material is typically listed under 'Unacceptable Use—System and Network Activities'."
+    }
+  ]
+}
