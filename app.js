@@ -113,7 +113,12 @@
   function renderHome() {
     const overall = overallScore();
     const finalStats = finalScore();
-    const rows = DATA.chapters
+    const filterPref = localStorage.getItem("csec-filter-final");
+    const finalOnly = filterPref === null ? true : filterPref === "1";
+    const visible = DATA.chapters.filter(
+      (ch) => !finalOnly || (ch.chapter >= 12 && ch.chapter <= 24)
+    );
+    const rows = visible
       .map((ch) => {
         const s = chapterScore(ch);
         const barWidth = pct(s.score);
@@ -148,8 +153,17 @@
           <div class="muted">${finalStats.attempted}/${finalStats.total} attempted</div>
         </div>
       </a>
+      <label class="filter-row">
+        <input type="checkbox" id="filter-final" ${finalOnly ? "checked" : ""}>
+        Only show final-exam chapters (12&ndash;24)
+        <span class="muted">&middot; ${visible.length} of ${DATA.chapters.length} shown</span>
+      </label>
       <div class="chapter-list">${rows}</div>
     `;
+    document.getElementById("filter-final").onchange = (e) => {
+      localStorage.setItem("csec-filter-final", e.target.checked ? "1" : "0");
+      renderHome();
+    };
   }
 
   function finalQuestions() {

@@ -89,6 +89,17 @@ a:hover { color: var(--accent-hover); }
 .btn.secondary:hover:not(:disabled) { border-color: var(--accent); }
 .btn.danger { background: var(--bad); }
 .chapter-list { display: grid; gap: 10px; grid-template-columns: 1fr; }
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+}
+.filter-row input { accent-color: var(--accent); }
 .chapter-card {
   background: var(--panel);
   border: 1px solid var(--border);
