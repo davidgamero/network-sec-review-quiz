@@ -1,0 +1,247 @@
+{
+  "chapter": 20,
+  "title": "Symmetric Encryption and Message Confidentiality",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch20-h01",
+      "stem": "In the context of the Feistel cipher structure, why is the interchange of the left and right halves performed at the end of every round except the final one?",
+      "choices": [
+        "To ensure the round function F remains non-reversible to increase complexity.",
+        "To allow the decryption process to use the same logic by only reversing the subkey schedule.",
+        "To compensate for the lack of diffusion in the substitution phase of the round function.",
+        "To prevent the expansion of the ciphertext block size relative to the plaintext."
+      ],
+      "correct": 1,
+      "explanation": "The swap allows encryption and decryption to be identical operations, provided subkeys are used in reverse order. Choice 'a' is incorrect because the round function F does not need to be reversible in a Feistel network."
+    },
+    {
+      "id": "ch20-h02",
+      "stem": "Consider a Triple DES (3DES) implementation using the EDE (Encrypt-Decrypt-Encrypt) sequence with two keys, K1 and K2. What is the primary functional reason for using 'Decryption' in the second stage instead of a second 'Encryption' stage?",
+      "choices": [
+        "It doubles the effective key length from 112 bits to 224 bits by utilizing the inverse function.",
+        "It ensures the algorithm is resistant to meet-in-the-middle attacks that plague EEE configurations.",
+        "It provides backward compatibility with single DES by setting K1 equal to K2.",
+        "It allows the S-boxes to be reused in reverse, reducing the hardware gate count for mobile devices."
+      ],
+      "correct": 2,
+      "explanation": "If K1 = K2 in an EDE sequence, the decryption in the second stage cancels the encryption of the first, resulting in a single DES encryption. Choice 'a' is false as the effective key length remains 112 bits for two-key 3DES."
+    },
+    {
+      "id": "ch20-h03",
+      "stem": "During the AES encryption process, which transformation is specifically responsible for providing 'diffusion' by ensuring that each byte of a column affects all four bytes of the output column?",
+      "choices": [
+        "Substitute Bytes (SubBytes)",
+        "Shift Rows (ShiftRows)",
+        "Mix Columns (MixColumns)",
+        "Add Round Key (AddRoundKey)"
+      ],
+      "correct": 2,
+      "explanation": "MixColumns uses matrix multiplication over finite fields to mix the bytes within each column, providing diffusion. SubBytes (choice 'a') provides confusion through non-linear substitution."
+    },
+    {
+      "id": "ch20-h04",
+      "stem": "An attacker intercepts a 128-bit AES ciphertext block. They know that the decryption algorithm begins with an 'Add Round Key' stage. If they successfully perform a brute-force attack on the 128-bit key, why is it considered 'computationally secure' according to Stallings?",
+      "choices": [
+        "The mathematical complexity of the S-box makes it impossible to verify if the decrypted plaintext is correct.",
+        "The time required to test 2^128 keys at 10^12 keys per second far exceeds the age of the universe.",
+        "The use of finite field arithmetic in the MixColumns stage creates multiple valid plaintexts for every ciphertext.",
+        "A 128-bit key requires a 256-bit block size to be theoretically breakable."
+      ],
+      "correct": 1,
+      "explanation": "Computational security is reached when the time/cost to break the cipher is infeasible. Testing 2^128 keys is beyond current and foreseeable computing limits. Choice 'c' describes a property of a one-time pad, not AES."
+    },
+    {
+      "id": "ch20-h05",
+      "stem": "In the AES key expansion algorithm for a 128-bit key, a total of 44 words are generated. Which statement accurately describes the relationship between these words and the encryption rounds?",
+      "choices": [
+        "Each of the 10 rounds uses 4 words, while the initial Add Round Key stage uses the remaining 4 words.",
+        "The first 4 words are used for the S-box initialization, and the remaining 40 words are split across 10 rounds.",
+        "The first 22 words are used for encryption, while the last 22 are used exclusively for the inverse decryption rounds.",
+        "Each word corresponds to a single stage (SubBytes, ShiftRows, etc.) within the 11 total rounds."
+      ],
+      "correct": 0,
+      "explanation": "AES-128 starts with an Add Round Key (4 words) followed by 10 rounds (10 * 4 = 40 words), totaling 44 words. Choice 'c' is incorrect as the same subkeys (in reverse) are used for decryption."
+    },
+    {
+      "id": "ch20-h06",
+      "stem": "A system uses Cipher Block Chaining (CBC) mode. If a single bit error occurs in the ciphertext block C_i during transmission, how does this affect the decrypted plaintext blocks P_i and P_{i+1}?",
+      "choices": [
+        "P_i is completely corrupted (scrambled), and P_{i+1} has a single bit error at the same position.",
+        "Both P_i and P_{i+1} are completely scrambled and unusable.",
+        "Only P_i is affected; the error does not propagate to P_{i+1} because of the XOR operation.",
+        "P_i has a single bit error, and P_{i+1} is completely scrambled due to the feedback loop."
+      ],
+      "correct": 0,
+      "explanation": "In CBC decryption, P_i = D(K, C_i) XOR C_{i-1} and P_{i+1} = D(K, C_{i+1}) XOR C_i. An error in C_i completely ruins the output of D(K, C_i), but only affects the bit position in P_{i+1} that is XORed with the corrupted bit of C_i."
+    },
+    {
+      "id": "ch20-h07",
+      "stem": "Which of the following describes a significant security disadvantage of the Cipher Feedback (CFB) mode when used with a small shift size (e.g., s=8 bits) compared to the Counter (CTR) mode?",
+      "choices": [
+        "CFB is vulnerable to the 'dictionary attack' on repetitive blocks that CTR avoids by using nonces.",
+        "CFB requires the use of the block cipher's decryption function, which is slower in AES hardware.",
+        "An error in one ciphertext bit in CFB propagates to multiple subsequent plaintext blocks, whereas CTR errors do not propagate.",
+        "CFB cannot be parallelized for encryption, while CTR allows for parallel encryption and decryption."
+      ],
+      "correct": 3,
+      "explanation": "CFB is a chaining mode; each step depends on the previous ciphertext, making it inherently serial for encryption. CTR mode is fully parallelizable. Choice 'b' is false because CFB actually uses only the encryption function."
+    },
+    {
+      "id": "ch20-h08",
+      "stem": "What is the primary motivation for using the ChaCha20 stream cipher instead of RC4 in modern protocols like TLS 1.3?",
+      "choices": [
+        "ChaCha20 uses a Feistel structure that is mathematically proven to be unbreakable by quantum computers.",
+        "RC4 is vulnerable to biases in the first few bytes of the keystream, while ChaCha20 uses a robust 20-round function with no such biases.",
+        "ChaCha20 supports 64-bit blocks, making it more compatible with legacy DES hardware than the byte-oriented RC4.",
+        "RC4 requires an Initialization Vector (IV) for every byte, causing massive overhead that ChaCha20 eliminates."
+      ],
+      "correct": 1,
+      "explanation": "RC4 was deprecated due to statistical biases in its keystream. ChaCha20 is more secure and efficient in software. Choice 'c' is wrong as ChaCha20 is a stream cipher, not a block cipher with 64-bit blocks."
+    },
+    {
+      "id": "ch20-h09",
+      "stem": "In a Key Distribution Center (KDC) scenario, User A wants to establish a secure session with User B. Why does the KDC send the session key to A in a package that includes a component encrypted with B's master key?",
+      "choices": [
+        "To allow A to verify that the KDC has B's correct master key without contacting B.",
+        "To ensure that A can decrypt the session key even if A's own master key has expired.",
+        "To provide A with a 'ticket' that A can forward to B so B can obtain the session key securely.",
+        "To prevent a 'man-in-the-middle' from masquerading as B to the KDC."
+      ],
+      "correct": 2,
+      "explanation": "The KDC provides a portion (the ticket) encrypted with K_b so A can send it to B. B decrypts it to get the session key. A cannot decrypt this portion. Choice 'd' is handled by the initial authentication between A and the KDC."
+    },
+    {
+      "id": "ch20-h10",
+      "stem": "Which property of the Counter (CTR) mode makes it particularly suitable for encrypting data on a high-speed satellite link with high latency and potential burst noise?",
+      "choices": [
+        "The error propagation property ensures that a single burst of noise does not scramble the entire message.",
+        "The ability to pre-process the keystream allows for immediate encryption as soon as plaintext bits arrive.",
+        "The use of a feedback shift register allows it to self-synchronize after a signal loss.",
+        "It uses the decryption algorithm for encryption, which is more robust against noise-induced bit flips."
+      ],
+      "correct": 1,
+      "explanation": "CTR mode can pre-calculate the encrypted counter values. Once plaintext is available, only an XOR is needed. Choice 'c' describes a property often associated with CFB, not CTR."
+    },
+    {
+      "id": "ch20-h11",
+      "stem": "The Advanced Encryption Standard (AES) processes data in a 4x4 matrix of bytes. If the input bytes are b0, b1, ..., b15, how are they mapped into the state matrix?",
+      "choices": [
+        "Row by row: row 0 contains b0-b3, row 1 contains b4-b7, etc.",
+        "Column by column: column 0 contains b0-b3, column 1 contains b4-b7, etc.",
+        "Diagonally: b0 is (0,0), b1 is (1,1), b2 is (2,2), etc.",
+        "In a spiral pattern starting from the center of the 4x4 grid."
+      ],
+      "correct": 1,
+      "explanation": "AES fills the state matrix column-wise. Choice 'a' is a common misconception, but the standard explicitly uses column-major ordering."
+    },
+    {
+      "id": "ch20-h12",
+      "stem": "In the AES 'ShiftRows' transformation, what is the specific displacement applied to the four rows of the state matrix (indexing rows 0 to 3)?",
+      "choices": [
+        "Row 0: no shift; Row 1: 1-byte left; Row 2: 2-bytes left; Row 3: 3-bytes left.",
+        "Row 0: 1-byte right; Row 1: 2-bytes right; Row 2: 3-bytes right; Row 3: no shift.",
+        "Each row is shifted left by a distance equal to the round number i.",
+        "Row 0 and 2 are not shifted; Row 1 and 3 are shifted left by 2 bytes."
+      ],
+      "correct": 0,
+      "explanation": "ShiftRows applies a circular left shift of 0, 1, 2, and 3 bytes to rows 0, 1, 2, and 3 respectively. Choice 'c' is incorrect because the shift is constant across rounds."
+    },
+    {
+      "id": "ch20-h13",
+      "stem": "What happens if a stream cipher's keystream is reused to encrypt two different plaintexts (P1 and P2), resulting in ciphertexts C1 and C2?",
+      "choices": [
+        "The attacker can immediately recover the secret key by XORing C1 and C2.",
+        "XORing C1 and C2 yields the XOR sum of P1 and P2 (P1 XOR P2), potentially revealing both plaintexts.",
+        "The second ciphertext C2 will be identical to C1, making it obvious the same key was used.",
+        "The encryption algorithm will fail to produce a valid ciphertext for C2 due to state exhaustion."
+      ],
+      "correct": 1,
+      "explanation": "Since C1 = P1 XOR K and C2 = P2 XOR K, then C1 XOR C2 = (P1 XOR K) XOR (P2 XOR K) = P1 XOR P2. This 'two-time pad' vulnerability is a classic weakness in stream ciphers. Choice 'a' is incorrect; the key is not revealed directly."
+    },
+    {
+      "id": "ch20-h14",
+      "stem": "Comparing Output Feedback (OFB) mode and Cipher Feedback (CFB) mode, which statement correctly identifies a difference in their error propagation properties?",
+      "choices": [
+        "In OFB, a bit error in the ciphertext affects only the corresponding bit in the plaintext, while in CFB it affects multiple blocks.",
+        "In CFB, a bit error in the ciphertext affects only one bit, while in OFB it corrupts the entire remaining message.",
+        "Both modes propagate errors identically because they both transform a block cipher into a stream cipher.",
+        "OFB is more susceptible to errors because it uses the decryption function of the block cipher."
+      ],
+      "correct": 0,
+      "explanation": "In OFB, the keystream is generated independently of the ciphertext, so a bit error in C_i only affects the XOR with P_i. In CFB, C_i is fed back into the shift register, affecting subsequent blocks. Choice 'd' is false as both use the encryption function."
+    },
+    {
+      "id": "ch20-h15",
+      "stem": "The ChaCha20 quarter-round function (QR) operates on four 32-bit words (a, b, c, d). Which set of operations best describes the core of this function?",
+      "choices": [
+        "Modular multiplication, bit-reversal, and S-box substitution.",
+        "Addition, XOR, and constant-distance cyclic rotation (Add-XOR-Rotate).",
+        "Finite field multiplication in GF(2^128) and row-shifting.",
+        "A 16-round Feistel network applied to 8-bit sub-blocks."
+      ],
+      "correct": 1,
+      "explanation": "ChaCha20 is based on the AXR (Add-XOR-Rotate) design, which is efficient and avoids timing attacks. Choice 'c' describes components of AES, not ChaCha20."
+    },
+    {
+      "id": "ch20-h16",
+      "stem": "In the context of symmetric encryption, what is the 'Meet-in-the-middle' attack specifically designed to exploit?",
+      "choices": [
+        "The use of weak keys in the DES S-boxes.",
+        "The vulnerability of double encryption (2DES) where an attacker can match intermediate values from both ends.",
+        "The lack of an Initialization Vector in Electronic Codebook (ECB) mode.",
+        "The deterministic nature of the AES key schedule expansion."
+      ],
+      "correct": 1,
+      "explanation": "The meet-in-the-middle attack shows that double DES only provides marginally more security than single DES (57 bits vs 56 bits) because an attacker can store intermediate values. This led to the adoption of Triple DES."
+    },
+    {
+      "id": "ch20-h17",
+      "stem": "A designer wants to implement 'End-to-End' encryption in a large network. Which of the following is a drawback of this approach compared to 'Link Encryption'?",
+      "choices": [
+        "User data is vulnerable at every intermediate switch/router in the network.",
+        "Packet headers (routing information) remain unencrypted, allowing an attacker to perform traffic analysis.",
+        "It requires a separate physical encryption device for every hop in the network path.",
+        "It cannot be used with modern protocols like TCP/IP."
+      ],
+      "correct": 1,
+      "explanation": "End-to-end encryption happens at the application or transport layer, leaving network headers visible for routing. Link encryption (choice 'b') encrypts the entire packet including headers. Choice 'a' is a drawback of link encryption, not end-to-end."
+    },
+    {
+      "id": "ch20-h18",
+      "stem": "Why does the final round of AES-128 exclude the 'MixColumns' stage?",
+      "choices": [
+        "To reduce the power consumption of the cipher for mobile and IoT devices.",
+        "To make the encryption and decryption processes symmetric, allowing for identical hardware implementation.",
+        "Because MixColumns is linear and provides no additional security when followed by an AddRoundKey stage.",
+        "To ensure the cipher is reversible and follows the required algebraic structure for decryption."
+      ],
+      "correct": 1,
+      "explanation": "Omitting MixColumns in the final round makes the encryption and decryption structures more similar, which is necessary for the specific way AES is designed to be reversible. Choice 'c' is incorrect; MixColumns is crucial for diffusion."
+    },
+    {
+      "id": "ch20-h19",
+      "stem": "In the Cipher Block Chaining (CBC) mode, what is the consequence of using a non-random or predictable Initialization Vector (IV)?",
+      "choices": [
+        "The encryption key can be recovered using a ciphertext-only attack.",
+        "The system becomes vulnerable to a chosen-plaintext attack where the attacker can verify guesses about the first block.",
+        "The block size effectively shrinks from 64 or 128 bits down to the size of the IV.",
+        "The decryption process will fail for all blocks after the first one."
+      ],
+      "correct": 1,
+      "explanation": "If the IV is predictable, an attacker can use a chosen-plaintext attack to see if a guess for a plaintext block P1 matches the actual P1 by manipulating the next message's plaintext. Choice 'a' is incorrect as the key is not compromised directly."
+    },
+    {
+      "id": "ch20-h20",
+      "stem": "A 'Chosen Ciphertext' attack is generally considered more powerful than a 'Known Plaintext' attack because:",
+      "choices": [
+        "The attacker can select any ciphertext and observe the resulting decrypted plaintext, revealing more about the key structure.",
+        "It is the only attack that can break a one-time pad system.",
+        "It does not require the attacker to know the encryption algorithm used.",
+        "It allows the attacker to recover the plaintext without ever needing to find the secret key."
+      ],
+      "correct": 0,
+      "explanation": "In a chosen ciphertext attack, the ability to see decryptions of specific, crafted ciphertexts provides deep insight into the internal mechanics of the cipher. Choice 'b' is false; nothing breaks a one-time pad."
+    }
+  ]
+}

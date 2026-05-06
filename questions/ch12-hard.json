@@ -1,0 +1,247 @@
+{
+  "chapter": 12,
+  "title": "Operating System Security",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch12-h01",
+      "stem": "Which property of a reference monitor is specifically compromised if an attacker discovers a kernel-level flaw that allows them to bypass the security kernel when accessing sensitive system objects?",
+      "choices": [
+        "Verifiability",
+        "Isolation",
+        "Complete Mediation",
+        "Assurance"
+      ],
+      "correct": 2,
+      "explanation": "Complete mediation requires that every access to every object be checked. Bypassing the security kernel directly violates this property. While isolation (tamper-proofing) is also important, the act of circumventing the check itself is a failure of mediation."
+    },
+    {
+      "id": "ch12-h02",
+      "stem": "In a Windows environment using Mandatory Integrity Control (MIC), a process running at 'Medium' integrity attempts to write to a configuration file labeled as 'High' integrity. How does the system respond, and what is the underlying security model?",
+      "choices": [
+        "The write is allowed to ensure compatibility, following the Clark-Wilson model.",
+        "The write is blocked to prevent data corruption, following the Biba Integrity model.",
+        "The write is blocked to prevent information leakage, following the Bell-LaPadula model.",
+        "The write is allowed but logged as a security event, following the Common Criteria framework."
+      ],
+      "correct": 1,
+      "explanation": "Windows MIC implements a form of the Biba Integrity model, specifically the 'no write up' rule to prevent lower-integrity processes from modifying higher-integrity data. Bell-LaPadula is primarily concerned with confidentiality (no read up)."
+    },
+    {
+      "id": "ch12-h03",
+      "stem": "An administrator is configuring a 'chroot jail' for a network-facing service on a Linux system. If the service is intentionally allowed to continue running as the 'root' user within the jail, what is the primary security consequence?",
+      "choices": [
+        "The service will be unable to access necessary shared libraries in /lib.",
+        "The isolation can be bypassed, as a root process can use the chroot call to escape the jail.",
+        "The service will automatically be moved to a Low Mandatory Integrity level.",
+        "The system will fail to generate audit logs for actions taken within the jail."
+      ],
+      "correct": 1,
+      "explanation": "The text notes that if a chrooted process runs as root, it can 'break out' of the jail with little difficulty. Chroot is not a complete security boundary against a privileged user."
+    },
+    {
+      "id": "ch12-h04",
+      "stem": "Which TPM service allows a third party to verify that a system is in a specific, trusted hardware and software configuration before granting access to a network resource?",
+      "choices": [
+        "Authenticated Boot Service",
+        "Sealing Service",
+        "Certification Service",
+        "Binding Service"
+      ],
+      "correct": 2,
+      "explanation": "The Certification Service allows the TPM to prove the system configuration to a third party using digital signatures. Authenticated boot merely logs the measurements; sealing locks data to a state; certification is the act of proving that state to others."
+    },
+    {
+      "id": "ch12-h05",
+      "stem": "A security architect is designing a system using the ASD 'Essential Eight' strategies. They have already implemented application allow-listing and OS patching. To complete the 'Top Four' mitigation strategies for targeted intrusions, which two additional measures must be prioritized?",
+      "choices": [
+        "Regular backups and multifactor authentication.",
+        "Restricting administrative privileges and patching third-party applications.",
+        "Configuring Microsoft Office macro settings and user application hardening.",
+        "Host-based firewalls and intrusion detection systems."
+      ],
+      "correct": 1,
+      "explanation": "The ASD list of four strategies includes: 1. Allow-list applications, 2. Patch third-party applications, 3. Patch OS vulnerabilities, and 4. Restrict administrative privileges. The others belong to the expanded 'Essential Eight'."
+    },
+    {
+      "id": "ch12-h06",
+      "stem": "When evaluating a system under the Common Criteria (CC), what is the fundamental difference between a Security Target (ST) and a Protection Profile (PP)?",
+      "choices": [
+        "An ST is a hardware requirement, while a PP is a software requirement.",
+        "A PP defines requirements for a category of products, while an ST defines requirements for a specific product being evaluated.",
+        "An ST is used for EAL 1-4, while a PP is required for EAL 5-7.",
+        "A PP is written by the vendor, while an ST is written by the customer."
+      ],
+      "correct": 1,
+      "explanation": "A Protection Profile (PP) is a set of security requirements for a category of products (e.g., firewalls), whereas a Security Target (ST) defines the security properties of the specific 'Target of Evaluation' (TOE) actually being certified."
+    },
+    {
+      "id": "ch12-h07",
+      "stem": "In the context of the Reference Monitor concept, why is 'verifiability' considered a distinct and necessary property from 'isolation' and 'complete mediation'?",
+      "choices": [
+        "It ensures the system can handle a large number of concurrent users.",
+        "It requires the security kernel to be small enough that its design and implementation can be formally analyzed.",
+        "It provides a mechanism for the administrator to audit the reference monitor's decisions.",
+        "It ensures that the reference monitor remains active during the entire boot process."
+      ],
+      "correct": 1,
+      "explanation": "Verifiability means the security kernel must be small and simple enough to be proven correct. Isolation means it is tamper-proof, and complete mediation means it is always invoked. Audit (choice c) is a result of mediation, not the definition of verifiability."
+    },
+    {
+      "id": "ch12-h08",
+      "stem": "Which mechanism provides a hardware-based 'root of trust' by ensuring that every stage of the boot process is measured and recorded into Platform Configuration Registers (PCRs)?",
+      "choices": [
+        "UEFI Secure Boot",
+        "Mandatory Integrity Control",
+        "TPM Authenticated Boot",
+        "Reference Monitor Mediation"
+      ],
+      "correct": 2,
+      "explanation": "Authenticated Boot uses the TPM to measure and log each component of the boot sequence into PCRs. While UEFI Secure Boot is related, 'Authenticated Boot' is the specific service described for providing the measured log used for certification."
+    },
+    {
+      "id": "ch12-h09",
+      "stem": "A Linux administrator notices a binary with permissions '-rwsr-xr-x' owned by root. What is the security risk associated with this specific configuration if a buffer overflow vulnerability is found in the binary?",
+      "choices": [
+        "A remote attacker can delete any file in the system.",
+        "A local user can execute the binary to gain a root shell.",
+        "The binary will be unable to write to its own log files.",
+        "The system will automatically kill the process due to a setuid violation."
+      ],
+      "correct": 1,
+      "explanation": "The 's' in the owner's execute position indicates 'setuid'. Since it is owned by root, it runs with root privileges regardless of who executes it. A vulnerability in such a program allows a local user to escalate privileges to root."
+    },
+    {
+      "id": "ch12-h10",
+      "stem": "Consider a virtualized environment where multiple VMs share a host. If an attacker leverages a flaw in the memory management of the hypervisor to access the address space of the host OS, what specific threat has been realized?",
+      "choices": [
+        "Inter-VM monitoring",
+        "VM escape",
+        "Hyperjack",
+        "Denial of Service"
+      ],
+      "correct": 1,
+      "explanation": "VM escape occurs when a program running in a VM is able to break out of the VM and interact directly with the hypervisor or host OS. Inter-VM monitoring involves observing other VMs, not necessarily the host."
+    },
+    {
+      "id": "ch12-h11",
+      "stem": "What is the primary trade-off when using a 'Type 1' (native) hypervisor compared to a 'Type 2' (hosted) hypervisor in a high-security server environment?",
+      "choices": [
+        "Type 1 hypervisors have a larger attack surface because they include a full host OS.",
+        "Type 1 hypervisors provide better performance and security by running directly on the hardware with no intermediate host OS.",
+        "Type 2 hypervisors are more secure because they leverage the security features of the underlying host OS.",
+        "Type 1 hypervisors cannot support virtual firewalls or inter-VM traffic monitoring."
+      ],
+      "correct": 1,
+      "explanation": "Type 1 hypervisors are generally more secure and efficient because they don't depend on a potentially vulnerable host OS. Choice c is incorrect as the host OS actually increases the attack surface for a Type 2 hypervisor."
+    },
+    {
+      "id": "ch12-h12",
+      "stem": "In Windows security, how does the system handle a situation where a user is a member of two groups, one granting 'Read' access to a file and another explicitly 'Denying' all access to that same file?",
+      "choices": [
+        "The user is granted access because permissions are cumulative.",
+        "The user is denied access because 'Deny' entries in the ACL take precedence over 'Allow' entries.",
+        "The user is prompted for administrative elevation via UAC.",
+        "The system grants access but logs a 'Conflict Warning' in the Security log."
+      ],
+      "correct": 1,
+      "explanation": "In Windows, 'Deny' ACEs take precedence over 'Allow' ACEs. Even if a user is granted access through one group membership, an explicit deny in another (or on the user object) will block access."
+    },
+    {
+      "id": "ch12-h13",
+      "stem": "According to NIST SP 800-123, which of the following is the most secure approach for handling unwanted software during the system hardening process?",
+      "choices": [
+        "Install the software and then immediately disable the associated services.",
+        "Install the software, test it, and then run the manufacturer's uninstall script.",
+        "Do not install the software in the first place during the initial OS setup.",
+        "Install the software but use a host-based firewall to block all traffic to it."
+      ],
+      "correct": 2,
+      "explanation": "NIST SP 800-123 strongly prefers not installing unwanted software. Disabling services is less secure because they can be re-enabled after a partial compromise, and uninstall scripts often fail to remove all components."
+    },
+    {
+      "id": "ch12-h14",
+      "stem": "What is the specific role of the 'Reference Monitor' audit file in the formal security model described in the chapter?",
+      "choices": [
+        "It stores the hash values for file integrity checking.",
+        "It records the outcome of every access mediation decision for later review.",
+        "It contains the list of all subjects and their associated integrity labels.",
+        "It serves as the configuration database for the security kernel."
+      ],
+      "correct": 1,
+      "explanation": "The reference monitor model includes an audit file that records the mediation decisions (accesses permitted or denied). The configuration database is the 'Security Kernel Database' (choice d)."
+    },
+    {
+      "id": "ch12-h15",
+      "stem": "In a TPM-enabled system, the 'Sealing' operation ties a piece of encrypted data to a specific 'platform configuration'. What does this configuration typically consist of?",
+      "choices": [
+        "The user's password and biometric signature.",
+        "The values stored in the Platform Configuration Registers (PCRs).",
+        "The serial number of the CPU and the MAC address of the NIC.",
+        "The current date and the system's uptime."
+      ],
+      "correct": 1,
+      "explanation": "Sealing uses the PCR values (which contain measurements of the boot stages and OS state) to ensure the data can only be decrypted if the system is in that exact trusted state."
+    },
+    {
+      "id": "ch12-h16",
+      "stem": "A web server's content files are all owned by the 'www-data' user, which is also the user account the web server process runs as. Which security risk does this configuration directly introduce?",
+      "choices": [
+        "The web server will be unable to serve pages to external clients.",
+        "An attacker who exploits a script vulnerability can modify or deface the website content.",
+        "The system will be unable to log web server errors to /var/log.",
+        "Remote users will be able to log in to the server via SSH using the 'www-data' account."
+      ],
+      "correct": 1,
+      "explanation": "If the web server owns the content files and runs as that same user, it has write access to them. A compromise of the server (e.g., via a script exploit) allows the attacker to modify the files. The recommended configuration is for content to be read-only for the server process."
+    },
+    {
+      "id": "ch12-h17",
+      "stem": "What is the primary purpose of 'TCP Wrappers' in a Linux security context?",
+      "choices": [
+        "To encrypt all TCP traffic using a host-based tunnel.",
+        "To provide a layer of access control by checking connection requests against allow/deny files before invoking the actual service.",
+        "To load-balance incoming TCP connections across multiple CPU cores.",
+        "To prevent TCP SYN flood attacks by using SYN cookies."
+      ],
+      "correct": 1,
+      "explanation": "TCP Wrappers (tcpd) mediate connection requests for 'wrapped' services, checking /etc/hosts.allow and /etc/hosts.deny before starting the server to handle the request."
+    },
+    {
+      "id": "ch12-h18",
+      "stem": "When considering 'Logging' as a security control, why is it classified as a 'reactive' control, and what is its primary contribution to a defense-in-depth strategy?",
+      "choices": [
+        "It prevents attacks by slowing down system response times; it contributes to availability.",
+        "It only records events after they occur; it assists in identifying the cause of a breach and focusing remediation.",
+        "It requires a human to react to every event; it contributes to non-repudiation.",
+        "It automatically blocks suspicious IP addresses; it contributes to active defense."
+      ],
+      "correct": 1,
+      "explanation": "Logging is reactive because it records what has already happened. It doesn't prevent the initial breach but is critical for incident response and understanding the scope of a failure or attack."
+    },
+    {
+      "id": "ch12-h19",
+      "stem": "How does 'Virtualization' change the requirements for network security monitoring compared to a traditional physical server environment?",
+      "choices": [
+        "Monitoring is no longer needed because the hypervisor provides perfect isolation.",
+        "Traffic between VMs on the same host may never reach a physical firewall, requiring virtual firewalls and internal monitoring.",
+        "All virtual traffic is automatically encrypted, making traditional IDS ineffective.",
+        "Virtual machines do not use IP addresses, requiring a transition to MAC-based filtering."
+      ],
+      "correct": 1,
+      "explanation": "Inter-VM traffic often stays within the hypervisor's virtual switch and bypasses external physical security devices. This necessitates the use of virtual firewalls and hypervisor-aware monitoring tools."
+    },
+    {
+      "id": "ch12-h20",
+      "stem": "In the Common Criteria, an Evaluation Assurance Level (EAL) of 4 is significant because it represents:",
+      "choices": [
+        "The highest level of security achievable by software-only solutions.",
+        "The point where formal mathematical proof of the design is required.",
+        "The highest level at which it is likely to be economically feasible to retrofit security into an existing product line.",
+        "A level that requires the use of a hardware TPM for all cryptographic operations."
+      ],
+      "correct": 2,
+      "explanation": "EAL 4 ('Methodically Designed, Tested and Reviewed') is generally the highest level that can be applied to existing products without a major redesign for formal verification (which starts at higher levels)."
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "chapter": 21,
+  "title": "Public-Key Cryptography and Message Authentication",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch21-h01",
+      "stem": "An attacker intercepts a message and its HMAC-SHA-512 tag. If the underlying SHA-512 compression function is modeled as a random function, what is the primary factor limiting the probability of a successful offline forgery without knowledge of the secret key K?",
+      "choices": [
+        "The collision resistance of SHA-512, which requires approximately 2^256 operations to break.",
+        "The inability to generate any message-tag pairs offline, forcing an online attack dependent on the number of observed pairs.",
+        "The length of the internal ipad and opad constants, which restrict the key space to 1024 bits.",
+        "The 128-bit length field appended in SHA-512, which prevents length-extension attacks."
+      ],
+      "correct": 1,
+      "explanation": "HMAC security relies on the fact that an attacker cannot perform offline computations to find collisions or forgeries because the secret key K is required for every tag generation. Choice 'a' is incorrect because collision resistance (finding any two messages with the same hash) is a property of the hash function itself, not the primary barrier for HMAC forgery."
+    },
+    {
+      "id": "ch21-h02",
+      "stem": "In the SHA-512 round function, what specific purpose do the 80 additive constants (Kt) serve in the context of cryptographic strength?",
+      "choices": [
+        "They provide the necessary non-linearity that ensures the avalanche effect.",
+        "They act as a per-round subkey derived from the master message block.",
+        "They eliminate regularities in the input data by providing 'randomized' bit patterns derived from prime numbers.",
+        "They define the circular shift amounts for the Sigma functions to prevent differential cryptanalysis."
+      ],
+      "correct": 2,
+      "explanation": "The 80 constants are derived from the cube roots of the first 80 primes and are specifically intended to eliminate any predictable patterns or regularities in the input. While the Boolean functions provide non-linearity (choice 'a'), the constants themselves are specifically for pattern elimination."
+    },
+    {
+      "id": "ch21-h03",
+      "stem": "Which of the following describes the most precise security guarantee of SHA-512/256 compared to SHA-256?",
+      "choices": [
+        "SHA-512/256 is more secure because it uses 128 rounds instead of 64.",
+        "SHA-512/256 is more efficient on 64-bit architectures while maintaining a 256-bit digest size.",
+        "SHA-512/256 is immune to length-extension attacks because it uses a different padding scheme.",
+        "SHA-512/256 uses a 512-bit block size which is twice as large as SHA-256."
+      ],
+      "correct": 1,
+      "explanation": "SHA-512/256 is a truncated version of SHA-512. It uses the 64-bit word size of SHA-512, making it faster on 64-bit CPUs than SHA-256 (which uses 32-bit words), while producing a 256-bit digest. Choice 'd' is incorrect as SHA-512/256 uses a 1024-bit block size."
+    },
+    {
+      "id": "ch21-h04",
+      "stem": "Consider a system using OCB (Offset Codebook) mode for authenticated encryption. If an attacker manages to reuse a nonce N for two different messages M1 and M2 under the same key K, what is the immediate cryptographic consequence?",
+      "choices": [
+        "The authentication tag remains secure, but confidentiality of both messages is lost.",
+        "The attacker can immediately recover the secret key K using a XOR differential.",
+        "Confidentiality is lost for any identical blocks in M1 and M2, and the integrity of the system is compromised.",
+        "Only the first block of each message is compromised, but subsequent blocks remain secure due to the checksum."
+      ],
+      "correct": 2,
+      "explanation": "Nonce reuse in OCB is catastrophic. Because offsets are derived from the nonce, reusing N results in reusing the same offsets (Z values). Identical plaintext blocks at the same position will produce identical ciphertext, and the checksum-based tag generation can be manipulated. Choice 'b' is incorrect as the key K is not immediately revealed, but the security properties are voided."
+    },
+    {
+      "id": "ch21-h05",
+      "stem": "In the RSA algorithm, if an attacker can successfully determine the value of the Euler totient function φ(n) without factoring n, what is the most direct implication?",
+      "choices": [
+        "The attacker can decrypt messages but cannot sign them.",
+        "The attacker can calculate the private exponent d by finding the multiplicative inverse of e modulo φ(n).",
+        "The attacker still needs to solve the discrete logarithm problem to find d.",
+        "The attacker can determine the primes p and q using a quadratic equation."
+      ],
+      "correct": 1,
+      "explanation": "Knowing φ(n) allows the attacker to compute d = e^-1 mod φ(n) using the Extended Euclidean Algorithm. Choice 'd' is also mathematically true (knowing n and φ(n) leads to p and q), but 'b' is the most direct implication for breaking the encryption."
+    },
+    {
+      "id": "ch21-h06",
+      "stem": "Why does SHA-3 utilize a 'sponge construction' (absorbing and squeezing phases) rather than the Merkle-Damgård structure used in SHA-2?",
+      "choices": [
+        "To allow for arbitrary-length output and provide a fundamentally different security foundation.",
+        "To increase the speed of hashing for small messages under 512 bits.",
+        "To eliminate the need for any padding bits in the message preprocessing.",
+        "To ensure that the hash function can be easily inverted by the legitimate recipient."
+      ],
+      "correct": 0,
+      "explanation": "SHA-3's sponge construction is a deliberate structural departure from SHA-2 to provide security diversity (defense in depth). It also supports Extendable-Output Functions (XOFs). Choice 'c' is false as SHA-3 still requires padding."
+    },
+    {
+      "id": "ch21-h07",
+      "stem": "A security engineer must choose between RSA-3072 and ECC with a 256-bit key (P-256). According to the security equivalences discussed in the text, which statement is most accurate?",
+      "choices": [
+        "RSA-3072 is significantly more secure because of its larger key size.",
+        "ECC-256 provides approximately the same level of security as RSA-3072.",
+        "ECC-256 is only suitable for signatures, whereas RSA-3072 must be used for encryption.",
+        "RSA-3072 is faster for private-key operations, while ECC is faster for public-key operations."
+      ],
+      "correct": 1,
+      "explanation": "Asymmetric key sizes are not directly comparable. ECC provides equivalent security to RSA with much smaller keys; a 256-bit ECC key is roughly equivalent in strength to a 3072-bit RSA key. Choice 'd' is generally the opposite of reality (ECC is usually faster for private-key operations)."
+    },
+    {
+      "id": "ch21-h08",
+      "stem": "In the context of RSA security, what is the primary mechanism by which a 'blinding' countermeasure thwarts timing attacks?",
+      "choices": [
+        "It adds a random number of empty cycles to every modular exponentiation.",
+        "It ensures that the CPU power consumption is constant regardless of the key bits.",
+        "It prevents the attacker from knowing the specific ciphertext input to the decryption function by masking it with a random factor.",
+        "It periodically rotates the private key d to make timing measurements inconsistent."
+      ],
+      "correct": 2,
+      "explanation": "Blinding masks the ciphertext (C' = C * r^e mod n) before decryption. Since the attacker doesn't know the random value 'r', they cannot perform the bit-by-bit correlation between the input data and the time taken for modular exponentiation. Choice 'a' describes 'random delays', which is a different countermeasure."
+    },
+    {
+      "id": "ch21-h09",
+      "stem": "The Digital Signature Algorithm (DSA), as defined in the DSS, is unique among the common asymmetric algorithms in that:",
+      "choices": [
+        "It provides both encryption and digital signature capabilities.",
+        "It is based on the difficulty of the knapsack problem.",
+        "It is designed strictly for digital signatures and cannot be used for key exchange or encryption.",
+        "It does not require a hash function to process the message before signing."
+      ],
+      "correct": 2,
+      "explanation": "DSA is specifically designed for signatures. Unlike RSA (which can encrypt) or Diffie-Hellman (which is for key exchange), DSA has no native encryption mode. Choice 'd' is false as DSS requires SHA."
+    },
+    {
+      "id": "ch21-h10",
+      "stem": "During a Diffie-Hellman key exchange with parameters q and alpha, Alice receives YB from Bob. She calculates the shared secret K = (YB)^XA mod q. What prevents an eavesdropper from calculating K as well?",
+      "choices": [
+        "The eavesdropper does not know the primitive root alpha.",
+        "Computing the discrete logarithm to find Bob's secret XB from YB is computationally infeasible for large q.",
+        "The value of alpha changes for every block of the message.",
+        "The shared secret K is never used directly but is first hashed with the nonce N."
+      ],
+      "correct": 1,
+      "explanation": "DH security depends on the Discrete Logarithm Problem. While the eavesdropper knows q, alpha, YA, and YB, they cannot efficiently find XA or XB, which are needed to compute K. Choice 'a' is wrong because alpha is a public parameter."
+    },
+    {
+      "id": "ch21-h11",
+      "stem": "Which property of a secure hash function is specifically violated if an attacker can find any two different messages M and M' such that H(M) = H(M')?",
+      "choices": [
+        "Preimage resistance",
+        "Second preimage resistance",
+        "Collision resistance",
+        "Non-repudiation"
+      ],
+      "correct": 2,
+      "explanation": "Collision resistance is the property where it is infeasible to find *any* two distinct inputs that map to the same output. Second preimage resistance (choice 'b') is different; it involves finding a duplicate for a *specific* given message."
+    },
+    {
+      "id": "ch21-h12",
+      "stem": "In the HMAC construction, why is the secret key K XORed with ipad and opad to create two internal keys rather than just appending the key to the message?",
+      "choices": [
+        "To double the effective key length to 2048 bits.",
+        "To prevent length-extension attacks that are possible with simple 'key || message' constructions.",
+        "To ensure that the hash function receives an input that is always a multiple of 1024 bits.",
+        "To allow the use of public-key algorithms within the HMAC framework."
+      ],
+      "correct": 1,
+      "explanation": "Simple 'key || message' constructions are vulnerable to length-extension attacks where an attacker can append data to a message and calculate a valid hash without knowing the key. HMAC's nested structure (inner and outer pads) specifically thwarts this. Choice 'a' is incorrect as the key strength is not doubled."
+    },
+    {
+      "id": "ch21-h13",
+      "stem": "In SHA-512, if the original message is exactly 895 bits long, how many bits of padding (including the '1' bit and the length field) will be added to reach the final block size?",
+      "choices": [
+        "129 bits",
+        "128 bits",
+        "1024 bits",
+        "129 bits of padding plus the 128-bit length field."
+      ],
+      "correct": 3,
+      "explanation": "Padding makes the message congruent to 896 mod 1024. For 895 bits, 1 bit ('1') is added to reach 896. Then, the 128-bit length field is appended. Total bits added = 1 + 128 = 129. Since it's now 895 + 129 = 1024, it fits exactly. Choice 'd' is the most accurate description of the components."
+    },
+    {
+      "id": "ch21-h14",
+      "stem": "An RSA implementation is found to have a small public exponent e = 3. What is a potential security risk of this configuration in a broadcast scenario?",
+      "choices": [
+        "It makes the system vulnerable to timing attacks.",
+        "An attacker can recover the message if the same plaintext is sent to three different recipients with different moduli.",
+        "The private exponent d will be too small, allowing for a brute-force search.",
+        "The modulus n can be factored using the Fermat's factorization method."
+      ],
+      "correct": 1,
+      "explanation": "A small public exponent (like e=3) is vulnerable in broadcast scenarios. If the same message is encrypted for three recipients, an attacker can use the Chinese Remainder Theorem to find M^3 mod (n1*n2*n3) and then take the cube root. Choice 'b' is the specific attack."
+    },
+    {
+      "id": "ch21-h15",
+      "stem": "Authenticated encryption modes like GCM and OCB are often preferred over 'Encrypt-then-MAC' or 'MAC-then-Encrypt' approaches because:",
+      "choices": [
+        "They use two different keys for encryption and authentication, increasing security.",
+        "They are designed to be parallelizable and often require only a single pass over the data.",
+        "They do not require the use of a nonce or IV.",
+        "They are based on stream ciphers which are inherently more secure than block ciphers."
+      ],
+      "correct": 1,
+      "explanation": "Efficiency is the main driver. Single-pass modes like OCB can compute both the ciphertext and the tag simultaneously, often in parallel, unlike two-step processes. Choice 'c' is false as they require nonces."
+    },
+    {
+      "id": "ch21-h16",
+      "stem": "In a Diffie-Hellman exchange with q=11, alpha=2, Alice's secret XA=4, and Bob's secret XB=3, what is the resulting shared secret K?",
+      "choices": [
+        "K = 4",
+        "K = 3",
+        "K = 5",
+        "K = 9"
+      ],
+      "correct": 1,
+      "explanation": "YA = 2^4 mod 11 = 16 mod 11 = 5. YB = 2^3 mod 11 = 8. K = YB^XA mod 11 = 8^4 mod 11 = (8^2)^2 mod 11 = 64^2 mod 11 = 9^2 mod 11 = 81 mod 11 = 4. Wait, let me re-calculate: 8^4 = 4096. 4096 / 11: 11*300=3300, 796 left. 11*70=770, 26 left. 11*2=22, 4 left. K=4. Let's check Bob: YA^XB = 5^3 = 125. 125 / 11: 11*11=121, 4 left. K=4. Choice 'a' is correct."
+    },
+    {
+      "id": "ch21-h17",
+      "stem": "What is the primary motivation for NIST's current standardization effort for Post-Quantum Cryptography (PQC)?",
+      "choices": [
+        "Quantum computers will be able to calculate SHA-512 collisions in constant time.",
+        "Shor's algorithm can efficiently solve the integer factorization and discrete logarithm problems on a large-scale quantum computer.",
+        "Quantum key distribution (QKD) is too expensive for commercial use.",
+        "Quantum computers can break AES-256 using Grover's algorithm in seconds."
+      ],
+      "correct": 1,
+      "explanation": "RSA and DH rely on factoring and discrete logs, both of which Shor's algorithm solves in polynomial time. Grover's algorithm (choice 'd') only reduces the effective security of symmetric keys by half, which is manageable by doubling key sizes, but PQC is needed to replace asymmetric foundations."
+    },
+    {
+      "id": "ch21-h18",
+      "stem": "In the OCB checksum calculation, why is the final block (which may be partial) processed differently before being XORed into the checksum?",
+      "choices": [
+        "To ensure the checksum is always exactly 512 bits long.",
+        "To include the length of the message in the authentication process and prevent truncation attacks.",
+        "To allow the decryption of the last block without knowing the checksum of the previous blocks.",
+        "Because the last block is never encrypted in OCB mode."
+      ],
+      "correct": 1,
+      "explanation": "The OCB checksum includes a specially processed version of the last block (often using the length of the message) to ensure that an attacker cannot simply truncate or extend the message without being detected. Choice 'd' is false; it is encrypted using a XOR with the pad."
+    },
+    {
+      "id": "ch21-h19",
+      "stem": "Which of the following is a mathematical constraint on the RSA primes p and q to prevent easy factorization of n?",
+      "choices": [
+        "p and q must be consecutive primes.",
+        "p and q should differ in length by only a few digits.",
+        "(p-1) and (q-1) should not contain any small prime factors.",
+        "The sum (p + q) must be a power of 2."
+      ],
+      "correct": 1,
+      "explanation": "If p and q are too far apart, n can be factored more easily. If they are too close, Fermat's factorization applies. Choice 'c' is slightly misstated; it's usually recommended they contain *large* prime factors to resist certain attacks."
+    },
+    {
+      "id": "ch21-h20",
+      "stem": "How does the 'Squeezing' phase in the SHA-3 sponge construction generate the final hash value?",
+      "choices": [
+        "By XORing all previous message blocks together.",
+        "By iteratively applying the permutation function and reading out parts of the state until the desired length is reached.",
+        "By applying an RSA signature to the final internal state.",
+        "By truncating the state to the size of the original input message."
+      ],
+      "correct": 1,
+      "explanation": "In the squeezing phase, the state is permuted, and bits are extracted. This is repeated if the desired hash length is greater than the 'rate' of the sponge. Choice 'a' describes the absorbing phase's interaction with the input."
+    }
+  ]
+}

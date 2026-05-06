@@ -1,0 +1,247 @@
+{
+  "chapter": 18,
+  "title": "Security Auditing",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch18-h01",
+      "stem": "In the ITU-T X.816 security auditing model, which specific component is responsible for the transition from a 'detected security-related event' to a 'formatted record' within the audit trail?",
+      "choices": [
+        "Event Discriminator",
+        "Audit Recorder",
+        "Alarm Processor",
+        "Audit Analyzer"
+      ],
+      "correct": 1,
+      "explanation": "The Audit Recorder receives raw event information from the discriminator and transforms it into a standard, formatted record for the trail. The Event Discriminator only detects the event but doesn't format the final log entry."
+    },
+    {
+      "id": "ch18-h02",
+      "stem": "Which of the following scenarios best characterizes the 'Audit Analyzer' function in the distributed auditing architecture?",
+      "choices": [
+        "A system process that immediately disables a user account after three failed password attempts.",
+        "A script that periodically archives logs to a remote, write-once storage server.",
+        "An automated tool that scans multiple audit trails to identify complex attack patterns and define new auditable events.",
+        "A kernel module that intercepts system calls and generates raw event data for the local dispatcher."
+      ],
+      "correct": 2,
+      "explanation": "The Audit Analyzer's role is high-level analysis of the trail to find patterns and potentially update the system's auditing policy. Option A describes an Alarm Processor, and B describes an Audit Archiver."
+    },
+    {
+      "id": "ch18-h03",
+      "stem": "An organization requires an audit trail that can capture specific user commands and individual file access patterns to detect insider threats. Which level of auditing should be prioritized to provide this granularity?",
+      "choices": [
+        "System-level audit trail",
+        "Application-level audit trail",
+        "User-level audit trail",
+        "Physical-level audit trail"
+      ],
+      "correct": 2,
+      "explanation": "User-level audit trails track the activity of individual users, including commands, resource access, and interactions, making it the most direct way to monitor specific user behavior. System-level logs are too broad, focusing on OS-wide events like logins."
+    },
+    {
+      "id": "ch18-h04",
+      "stem": "When implementing application-level auditing for a proprietary database engine that lacks native logging, a developer chooses 'Dynamic Binary Rewriting' over 'Interposable Libraries'. What is the most likely technical reason for this choice?",
+      "choices": [
+        "The application is statically linked and does not make calls to shared libraries that can be easily intercepted.",
+        "Dynamic Binary Rewriting has a significantly lower performance overhead than library interposition.",
+        "Interposable libraries require access to the application's source code to recompile the linking table.",
+        "Dynamic Binary Rewriting is only capable of monitoring network-level transactions."
+      ],
+      "correct": 0,
+      "explanation": "Interposable libraries rely on the dynamic linker to intercept calls to shared libraries. If an application is statically linked, there are no external calls to intercept at the library level, necessitating binary rewriting of the executable in memory."
+    },
+    {
+      "id": "ch18-h05",
+      "stem": "In the context of the UNIX syslog protocol, what occurs when a message with the 'auth' facility and 'crit' severity is generated according to a standard configuration?",
+      "choices": [
+        "The message is treated as a routine informational update for authentication success.",
+        "The system identifies a critical authentication or authorization failure that requires attention.",
+        "The message is automatically encrypted and sent to the audit archiver for long-term storage.",
+        "The syslog daemon immediately halts the kernel to prevent further unauthorized access."
+      ],
+      "correct": 1,
+      "explanation": "The 'auth' facility relates to security/authorization, and 'crit' (critical) is a high severity level (level 2). While it doesn't halt the kernel (that would be 'emerg'), it signals a severe issue in the authentication subsystem."
+    },
+    {
+      "id": "ch18-h06",
+      "stem": "A security engineer is designing a 'Distributed Audit Trail' system. Which component must be placed on every local host to ensure that audit records are successfully transmitted to a centralized Audit Trail Collector?",
+      "choices": [
+        "Audit Dispatcher",
+        "Audit Provider",
+        "Audit Archiver",
+        "Audit Analyzer"
+      ],
+      "correct": 0,
+      "explanation": "The Audit Dispatcher resides on local systems and is responsible for sending local audit records to the centralized collector. The Analyzer and Archiver are typically centralized components."
+    },
+    {
+      "id": "ch18-h07",
+      "stem": "Which SIEM configuration is most appropriate for a high-security environment where network bandwidth is limited and local hosts must minimize the volume of raw data sent to the central server?",
+      "choices": [
+        "Agentless SIEM with periodic log pulling",
+        "Agentless SIEM with real-time log pushing",
+        "Agent-based SIEM with local filtering and normalization",
+        "Direct syslog forwarding without aggregation"
+      ],
+      "correct": 2,
+      "explanation": "Agent-based SIEMs use local software to filter, aggregate, and normalize data *before* transmission, significantly reducing the bandwidth required compared to sending raw logs. Agentless systems typically require the server to process the raw data."
+    },
+    {
+      "id": "ch18-h08",
+      "stem": "In Windows Security Auditing, what is the primary distinction between the 'System' log and the 'Security' log regarding audit data?",
+      "choices": [
+        "The System log tracks hardware errors, while the Security log is used by the Local Security Authority for policy-based auditing.",
+        "The System log is accessible by all users, while the Security log requires administrator privileges to view.",
+        "The Security log tracks application crashes, while the System log tracks logon attempts.",
+        "The System log is managed by the SIEM, while the Security log is managed by the local OS kernel."
+      ],
+      "correct": 0,
+      "explanation": "The System log contains events from Windows system components (like drivers or service failures). The Security log is specifically for auditing security-relevant events as defined by the system's audit policy (logon/logoff, object access, etc.)."
+    },
+    {
+      "id": "ch18-h09",
+      "stem": "An analyst is using 'Thresholding' as a correlation technique. They set a rule to alert if more than 10 'File Access Denied' events occur for a single user within 5 minutes. What is a significant risk of setting this threshold too high?",
+      "choices": [
+        "Increased number of false positives leading to 'alert fatigue'.",
+        "Failure to detect a slow, methodical attacker who stays just below the limit.",
+        "Excessive storage consumption on the SIEM server due to high event volume.",
+        "Increased performance latency for legitimate users accessing files."
+      ],
+      "correct": 1,
+      "explanation": "If the threshold is too high, an attacker can intentionally slow down their activity to remain undetected (evasion). Setting it too *low* would cause false positives."
+    },
+    {
+      "id": "ch18-h10",
+      "stem": "Why is 'Dynamic Binary Rewriting' considered a 'post-compilation' technique for security auditing?",
+      "choices": [
+        "It requires the developer to add audit hooks during the coding phase.",
+        "It modifies the executable code in memory at load time without requiring access to the original source code.",
+        "It only analyzes the program's output after it has finished executing.",
+        "It transforms the application's source code into a more secure version before compilation."
+      ],
+      "correct": 1,
+      "explanation": "Dynamic Binary Rewriting works on the compiled binary, often at load time, by inserting instrumentation code into the process address space. This bypasses the need for source code or recompilation."
+    },
+    {
+      "id": "ch18-h11",
+      "stem": "A security auditor discovers that an attacker who gained 'root' privileges was able to delete the last 24 hours of audit logs. Which control would have been most effective at preventing this specific loss of data integrity?",
+      "choices": [
+        "Stronger AES-256 encryption of the log files.",
+        "Storing the logs on a dedicated, write-once media like a DVD-R or a physically protected printer.",
+        "Increasing the frequency of the 'Audit Analyzer' scans.",
+        "Implementing a more complex Windows Group Policy for the Security Log."
+      ],
+      "correct": 1,
+      "explanation": "Encryption protects confidentiality but does not prevent a privileged user (root) from deleting the file. Write-once media (WORM) physically prevents modification or deletion of recorded data, even by an administrator."
+    },
+    {
+      "id": "ch18-h12",
+      "stem": "Which of the following functions is a specific responsibility of the 'Audit Provider' in the security auditing architecture?",
+      "choices": [
+        "Generating the raw event signals from the kernel.",
+        "Presenting a formatted interface for administrators to view and query the audit trail.",
+        "Identifying the facility and severity levels for syslog messages.",
+        "Storing the historical archives in a compressed format."
+      ],
+      "correct": 1,
+      "explanation": "The Audit Provider (along with the Audit Trail Examiner) represents the application or interface used by humans to interact with and analyze the collected audit data."
+    },
+    {
+      "id": "ch18-h13",
+      "stem": "In a SIEM environment, what is the primary purpose of 'Data Normalization'?",
+      "choices": [
+        "To ensure that all log entries are encrypted with the same key.",
+        "To convert disparate log formats from different vendors into a common, searchable schema.",
+        "To delete all logs that do not meet a specific security severity threshold.",
+        "To compress logs to save space on the centralized storage server."
+      ],
+      "correct": 1,
+      "explanation": "SIEMs collect logs from many different sources (Windows, Linux, Firewalls). Normalization maps these different formats into a single, uniform representation so they can be correlated and searched effectively."
+    },
+    {
+      "id": "ch18-h14",
+      "stem": "Which type of audit trail is most likely to record details about an SQL 'SELECT' statement executed against a sensitive HR database?",
+      "choices": [
+        "System-level audit trail",
+        "Application-level audit trail",
+        "User-level audit trail",
+        "Network-level audit trail"
+      ],
+      "correct": 1,
+      "explanation": "Application-level logs record high-level, software-specific actions like database queries or e-mail transactions. System-level logs would likely only see the process start/stop, not the specific SQL content."
+    },
+    {
+      "id": "ch18-h15",
+      "stem": "A security analyst is performing 'Windowing' analysis on a set of audit logs. What is the defining characteristic of this technique?",
+      "choices": [
+        "Filtering events based on the geographical location of the source IP.",
+        "Focusing on a set of events that occur within a specific time interval to find relationships.",
+        "Comparing current system activity against a long-term 'normal' baseline.",
+        "Scanning for specific keywords like 'password' or 'fail' in log entries."
+      ],
+      "correct": 1,
+      "explanation": "Windowing is the technique of selecting and analyzing events that occur within a defined period of time, which is crucial for temporal correlation of events during an attack."
+    },
+    {
+      "id": "ch18-h16",
+      "stem": "What is the primary trade-off involved in increasing the 'Depth' of data collection for a security audit trail?",
+      "choices": [
+        "Improved forensic detail versus significantly increased system performance overhead.",
+        "Stronger data integrity versus reduced log confidentiality.",
+        "Better real-time alerting versus lower data archival costs.",
+        "Simplified data normalization versus increased complexity in the event discriminator."
+      ],
+      "correct": 0,
+      "explanation": "Increasing the depth (detail) of logging provides better security insight but consumes more system resources (CPU, I/O, storage), which can degrade the performance of the monitored system."
+    },
+    {
+      "id": "ch18-h17",
+      "stem": "In the ITU-T X.816 model, how does the 'Alarm Processor' interact with the 'Audit Trail'?",
+      "choices": [
+        "It reads the audit trail to find patterns of past attacks.",
+        "It generates new entries in the audit trail to record that an alarm was triggered and what actions were taken.",
+        "It prevents the Audit Recorder from writing to the trail during a critical attack.",
+        "It acts as the primary storage for the audit trail records."
+      ],
+      "correct": 1,
+      "explanation": "When an alarm is triggered, the Alarm Processor takes action and *records* that action in the audit trail to maintain a complete history of the system's response to the event."
+    },
+    {
+      "id": "ch18-h18",
+      "stem": "Which of the following is a potential disadvantage of using 'Interposable Libraries' for auditing purposes?",
+      "choices": [
+        "It requires a complete kernel recompilation to function.",
+        "It cannot capture internal function calls within the application that do not use the shared library interface.",
+        "It is only available for Windows-based systems using .dll files.",
+        "It permanently modifies the executable file on the disk."
+      ],
+      "correct": 1,
+      "explanation": "Library interposition only catches calls to *external* shared libraries. Any logic or function calls contained entirely within the application's own binary are invisible to this technique."
+    },
+    {
+      "id": "ch18-h19",
+      "stem": "A company implements a SIEM that uses 'Asset Correlation'. How does this specifically improve the security analysis process?",
+      "choices": [
+        "It automatically calculates the replacement cost of hardware after an attack.",
+        "It links log events to the specific importance and vulnerability status of the host involved.",
+        "It ensures that only physical assets (like servers) are logged, ignoring virtual ones.",
+        "It uses GPS data to track the physical location of mobile assets."
+      ],
+      "correct": 1,
+      "explanation": "Asset correlation combines event data with knowledge about the host (e.g., 'this is a critical web server with a known unpatched vulnerability'), allowing the SIEM to prioritize alerts based on actual risk."
+    },
+    {
+      "id": "ch18-h20",
+      "stem": "In the context of the Common Criteria 'Audit' class, which functional requirement deals with the system's ability to take a predefined action, such as shutting down, if the audit trail storage is full?",
+      "choices": [
+        "Audit data generation (FAU_GEN)",
+        "Audit event selection (FAU_SEL)",
+        "Audit automatic response (FAU_ARP)",
+        "Audit analysis (FAU_SAA)"
+      ],
+      "correct": 2,
+      "explanation": "FAU_ARP (Audit automatic response) defines the requirements for the system to automatically react to potential security violations or system states (like log exhaustion) as defined by the audit analysis."
+    }
+  ]
+}

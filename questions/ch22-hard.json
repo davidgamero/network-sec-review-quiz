@@ -1,0 +1,247 @@
+{
+  "chapter": 22,
+  "title": "Internet Security Protocols and Standards",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch22-h01",
+      "stem": "In S/MIME, what is the critical functional difference between 'Signed Data' and 'Clear-Signed Data' regarding recipient compatibility?",
+      "choices": [
+        "Signed Data uses RSA for encryption while Clear-Signed Data uses DSA, limiting compatibility with older MUAs.",
+        "Signed Data encodes both the message and the signature in base64, while Clear-Signed Data only encodes the signature.",
+        "Clear-Signed Data requires the recipient to have the sender's public key in a DNS record, whereas Signed Data includes the certificate.",
+        "Signed Data allows the message to be read by any MIME-capable MUA, while Clear-Signed Data requires full S/MIME support."
+      ],
+      "correct": 1,
+      "explanation": "In 'Signed Data', the entire content plus the signature is base64 encoded, meaning only S/MIME-aware clients can extract the message. In 'Clear-Signed Data', only the signature is encoded, allowing non-S/MIME clients to read the plaintext message while ignoring the signature attachment."
+    },
+    {
+      "id": "ch22-h02",
+      "stem": "A sender wants to ensure both confidentiality and sender authentication using S/MIME. According to the standard functional flow, what is the correct sequence of operations?",
+      "choices": [
+        "The message is hashed, the hash is encrypted with the sender's private key, then the message and signature are encrypted with a session key.",
+        "The message is encrypted with the recipient's public key, then the ciphertext is hashed and signed with the sender's private key.",
+        "The message is hashed and signed with the sender's private key, then the message and signature are encrypted with the recipient's public key.",
+        "A session key encrypts the message, then the session key is encrypted with the sender's private key to provide authentication."
+      ],
+      "correct": 0,
+      "explanation": "Standard S/MIME flow (Signed and Enveloped Data) typically signs the plaintext message first (hashing and encrypting the hash with the private key) and then encrypts the resulting entity with a one-time session key (Enveloped Data) to ensure that the signature itself is confidential."
+    },
+    {
+      "id": "ch22-h03",
+      "stem": "How does DomainKeys Identified Mail (DKIM) provide protection against message origin spoofing that S/MIME does not typically address at the protocol level?",
+      "choices": [
+        "DKIM encrypts the 'From' header using the sender's private key to prevent modification by intermediate MTAs.",
+        "DKIM requires the MUA to authenticate directly with the destination MDA using a challenge-response mechanism.",
+        "DKIM signs selected RFC 5322 headers, such as 'From' and 'Subject', in addition to the message body.",
+        "DKIM uses a sliding window mechanism in the DNS to prevent replay attacks of validly signed messages."
+      ],
+      "correct": 2,
+      "explanation": "S/MIME primarily secures the message content (the body). DKIM signs the message content AND specific RFC 5322 headers, allowing the receiver to verify that the origin information (the headers) has not been spoofed or altered by the signing domain."
+    },
+    {
+      "id": "ch22-h04",
+      "stem": "In the TLS architecture, which specific protocol is responsible for transitioning the connection from the 'pending' security state to the 'current' security state?",
+      "choices": [
+        "TLS Handshake Protocol",
+        "TLS Record Protocol",
+        "Alert Protocol",
+        "Change Cipher Spec Protocol"
+      ],
+      "correct": 3,
+      "explanation": "The Change Cipher Spec Protocol is a single-byte message that signals the peer to copy the pending state (negotiated during the handshake) into the current state, activating the new cipher suite for all subsequent records."
+    },
+    {
+      "id": "ch22-h05",
+      "stem": "During Phase 2 of the TLS Handshake, under what condition would a server send a 'ServerKeyExchange' message?",
+      "choices": [
+        "When the server does not have a valid X.509 certificate and must provide a raw public key instead.",
+        "When the negotiated key exchange method (e.g., Diffie-Hellman) requires the server to send additional cryptographic data not found in its certificate.",
+        "When the client has requested a session resumption and the server needs to provide a new random nonce.",
+        "When the server's certificate is signed by an intermediate CA that the client does not trust."
+      ],
+      "correct": 1,
+      "explanation": "The ServerKeyExchange message is sent only if the certificate information is insufficient for the client to exchange a pre-master secret, such as in Ephemeral Diffie-Hellman (DHE) where the server must provide its DH public parameters."
+    },
+    {
+      "id": "ch22-h06",
+      "stem": "Which TLS Higher-Layer Protocol message is used to verify that the handshake was successful and that neither party's messages were altered by an attacker?",
+      "choices": [
+        "Finished message in the Handshake Protocol",
+        "ServerDone message in the Handshake Protocol",
+        "Change Cipher Spec message in its own protocol",
+        "HelloRequest message in the Handshake Protocol"
+      ],
+      "correct": 0,
+      "explanation": "The 'Finished' message is the first message protected by the newly negotiated algorithms and contains a hash of all previous handshake messages, allowing both parties to verify the integrity of the entire negotiation."
+    },
+    {
+      "id": "ch22-h07",
+      "stem": "The Heartbleed attack exploited a specific programming error in the OpenSSL implementation of the Heartbeat Protocol. What was the exact nature of this error?",
+      "choices": [
+        "A stack overflow caused by a recursive function call in the Handshake Protocol.",
+        "A failure to verify the Message Authentication Code (MAC) on encrypted heartbeat records.",
+        "A buffer over-read caused by trusting the user-supplied payload length field without checking the actual message size.",
+        "An integer underflow when calculating the padding length for the TLS Record header."
+      ],
+      "correct": 2,
+      "explanation": "Heartbleed was a buffer over-read where the server would copy up to 64KB of data from its memory based on a 'payload length' field in a heartbeat request, even if the actual payload provided by the attacker was much smaller."
+    },
+    {
+      "id": "ch22-h08",
+      "stem": "When establishing an HTTPS connection, which event must occur before the client can send the first encrypted HTTP GET request?",
+      "choices": [
+        "The TCP three-way handshake must reach the 'ESTABLISHED' state.",
+        "The client must receive a 'ChangeCipherSpec' message from the server.",
+        "The TLS Handshake Protocol must reach the completion of Phase 4.",
+        "The server must validate the client's X.509 certificate using a CRL or OCSP."
+      ],
+      "correct": 2,
+      "explanation": "HTTPS runs HTTP over TLS. No application data (HTTP requests) can be sent until the TLS handshake is fully completed (Phase 4), which ensures that both parties have established and verified the secure channel."
+    },
+    {
+      "id": "ch22-h09",
+      "stem": "In IPsec, how does a receiving host distinguish between multiple active Security Associations (SAs) that terminate at the same IP address?",
+      "choices": [
+        "By checking the Sequence Number in the AH or ESP header.",
+        "By using the Security Parameter Index (SPI) provided in the AH or ESP header.",
+        "By matching the Source IP address and Port number to the SA Database.",
+        "By decrypting the packet header to find the encapsulated Tunnel ID."
+      ],
+      "correct": 1,
+      "explanation": "An SA is uniquely identified by the triple: Security Parameter Index (SPI), IP Destination Address, and Protocol Identifier (AH or ESP). The SPI is specifically designed to allow the receiver to select the correct SA for processing."
+    },
+    {
+      "id": "ch22-h10",
+      "stem": "What is the primary security trade-off when choosing IPsec Transport Mode over Tunnel Mode for host-to-host communication?",
+      "choices": [
+        "Transport Mode provides better performance but leaves the original IP header exposed to traffic analysis.",
+        "Tunnel Mode is more secure but cannot be used with NAT (Network Address Translation).",
+        "Transport Mode encrypts the entire IP packet, whereas Tunnel Mode only encrypts the payload.",
+        "Tunnel Mode is required for IPv6, while Transport Mode is the only option for IPv4."
+      ],
+      "correct": 0,
+      "explanation": "Transport Mode is more efficient because it adds less overhead (no new IP header), but it only protects the payload (e.g., TCP/UDP). The original IP header remains visible, which can reveal communication patterns to an eavesdropper."
+    },
+    {
+      "id": "ch22-h11",
+      "stem": "Which field in the IPsec ESP packet structure is specifically designed to thwart replay attacks using a sliding window mechanism?",
+      "choices": [
+        "Security Parameter Index",
+        "Integrity Check Value (ICV)",
+        "Sequence Number",
+        "Padding"
+      ],
+      "correct": 2,
+      "explanation": "The Sequence Number field is a monotonically increasing counter. The receiver uses this number along with a sliding window to reject any packets that have already been processed or fall outside the valid window."
+    },
+    {
+      "id": "ch22-h12",
+      "stem": "In a site-to-site VPN connecting two branch offices over the Internet, why is ESP in Tunnel Mode almost always preferred over ESP in Transport Mode?",
+      "choices": [
+        "Transport Mode does not support the encryption of TCP port numbers.",
+        "Tunnel Mode allows the internal (private) IP addresses of the branch offices to be hidden from the public Internet.",
+        "ESP Transport Mode cannot provide data integrity, only confidentiality.",
+        "Tunnel Mode is the only mode that supports the use of the IKEv2 key management protocol."
+      ],
+      "correct": 1,
+      "explanation": "In Tunnel Mode, the original IP packet (including the internal source/destination IPs) is encrypted and encapsulated. This prevents attackers on the public Internet from seeing the private addressing scheme of the corporate network."
+    },
+    {
+      "id": "ch22-h13",
+      "stem": "What happens if a TLS entity receives an Alert Protocol message with a severity level of 'fatal(2)'?",
+      "choices": [
+        "The current connection is closed, but the session ID remains valid for future connections.",
+        "The entity logs the error and continues the handshake from the last successful message.",
+        "The connection is immediately terminated, and the associated session ID is invalidated.",
+        "The entity attempts to downgrade to a lower version of SSL to resolve the error."
+      ],
+      "correct": 2,
+      "explanation": "A fatal alert results in the immediate termination of the connection and the invalidation of the session, meaning the session cannot be resumed and a full handshake is required for any new connection."
+    },
+    {
+      "id": "ch22-h14",
+      "stem": "Which component of the Internet Mail Architecture is typically responsible for verifying a DKIM signature and retrieving the public key from the DNS?",
+      "choices": [
+        "Message User Agent (MUA)",
+        "Mail Submission Agent (MSA)",
+        "Mail Delivery Agent (MDA)",
+        "Message Transfer Agent (MTA)"
+      ],
+      "correct": 2,
+      "explanation": "While MTAs relay the message, the Mail Delivery Agent (MDA) at the receiving end is the component that typically performs the DKIM verification before delivering the message to the user's message store."
+    },
+    {
+      "id": "ch22-h15",
+      "stem": "In S/MIME, what is the purpose of 'Radix-64' (base64) encoding during the message preparation process?",
+      "choices": [
+        "To provide a first layer of lightweight encryption for the message body.",
+        "To ensure that binary cryptographic data (signatures/ciphertext) is compatible with ASCII-based email systems.",
+        "To compress the message size to meet RFC 5322 size limitations.",
+        "To authenticate the message digest before it is signed with RSA."
+      ],
+      "correct": 1,
+      "explanation": "Email systems are traditionally designed for 7-bit ASCII text. Radix-64 maps binary data into printable ASCII characters to prevent email software from misinterpreting binary control characters."
+    },
+    {
+      "id": "ch22-h16",
+      "stem": "A security administrator notices that IPsec Authentication Header (AH) is deprecated in IPsecv3. What is the primary reason for this change?",
+      "choices": [
+        "AH is vulnerable to man-in-the-middle attacks that ESP is not.",
+        "ESP (Encapsulating Security Payload) now provides an authentication service that overlaps with AH.",
+        "AH does not support IPv6, making it obsolete for modern networks.",
+        "The AH header is too large and causes significant fragmentation issues."
+      ],
+      "correct": 1,
+      "explanation": "ESP was originally for confidentiality only, but later versions added optional authentication. Since ESP can provide both services and is more flexible, AH became redundant and is now deprecated."
+    },
+    {
+      "id": "ch22-h17",
+      "stem": "During a TLS handshake, the 'Random' structure in the ClientHello includes a 32-bit timestamp. What is the specific purpose of this timestamp?",
+      "choices": [
+        "To synchronize the clocks of the client and server for certificate validation.",
+        "To prevent replay attacks by ensuring the randomness is fresh and unique to the session.",
+        "To determine the expiration time of the pre-master secret.",
+        "To provide a seed for the pseudorandom function (PRF) used in key derivation."
+      ],
+      "correct": 1,
+      "explanation": "The random structure (timestamp + random bytes) is used during key exchange to ensure that even if the random number generator is compromised, the inclusion of a unique timestamp makes the value difficult to predict or replay."
+    },
+    {
+      "id": "ch22-h18",
+      "stem": "In the context of HTTPS, why is the 'close_notify' alert critical for preventing truncation attacks?",
+      "choices": [
+        "It forces the TCP stack to flush all remaining buffers before closing.",
+        "It signals that the session has ended normally, preventing an attacker from prematurely closing the TCP connection to cut off data.",
+        "It encrypts the TCP FIN packet to ensure the attacker cannot spoof a connection close.",
+        "It allows the server to verify the client's MAC on the final HTTP response."
+      ],
+      "correct": 1,
+      "explanation": "A truncation attack involves an attacker sending a TCP FIN to close a connection before the entire message is sent. The 'close_notify' alert ensures that both parties know the data stream was completed legitimately at the TLS layer."
+    },
+    {
+      "id": "ch22-h19",
+      "stem": "Which IPsec parameter, stored in the Security Association Database (SADB), determines when a Security Association must be replaced with a new SPI?",
+      "choices": [
+        "Sequence Number Counter",
+        "Antireplay Window",
+        "Lifetime of the Security Association",
+        "Path MTU"
+      ],
+      "correct": 2,
+      "explanation": "The SA Lifetime (either time-based or byte-count based) dictates when an SA expires. Once reached, a new SA must be negotiated via IKE to continue secure communication."
+    },
+    {
+      "id": "ch22-h20",
+      "stem": "In the S/MIME 'Enveloped Data' process, how is the session key (content-encryption key) securely delivered to the recipient?",
+      "choices": [
+        "It is encrypted with the sender's private key to ensure authenticity.",
+        "It is derived from a Diffie-Hellman exchange during the SMTP handshake.",
+        "It is encrypted with the recipient's public key and included in the S/MIME message.",
+        "It is sent in the clear but protected by the underlying TLS tunnel."
+      ],
+      "correct": 2,
+      "explanation": "S/MIME uses a hybrid cryptographic approach: a random session key encrypts the message (symmetric), and that session key is then encrypted with the recipient's public key (asymmetric) for secure delivery."
+    }
+  ]
+}

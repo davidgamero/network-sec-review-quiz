@@ -1,0 +1,247 @@
+{
+  "chapter": 16,
+  "title": "Physical and Infrastructure Security",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch16-h01",
+      "stem": "Which specific technical threat is characterized by a high-intensity emission from commercial radio stations or microwave relay antennas that induces logical errors in sensitive electronic equipment without necessarily using power lines as a conduit?",
+      "choices": [
+        "Conducted Electrical Noise",
+        "Radiated Electromagnetic Interference",
+        "Galvanic Electroplating",
+        "High-Voltage Surge"
+      ],
+      "correct": 1,
+      "explanation": "Radiated EMI is transmitted through space from sources like radio stations or microwave antennas. Conducted noise (choice a) specifically travels through power lines, while galvanic effects (choice c) relate to humidity and corrosion."
+    },
+    {
+      "id": "ch16-h02",
+      "stem": "According to the NIST SP 800-116 Protected Area Model, which authentication mechanism is recommended for providing the third factor in an 'Exclusion Area' when access is already controlled by PKI-CAK at the perimeter and BIO at the limited area entry?",
+      "choices": [
+        "Symmetric Card Authentication Key (SYM-CAK)",
+        "Card Authentication Certificate (PKI-CAK)",
+        "On-Card Biometric Comparison (OCC-AUTH)",
+        "Single-factor PIN entry"
+      ],
+      "correct": 2,
+      "explanation": "OCC-AUTH is a strong mechanism for high-assurance areas. SYM-CAK (choice a) is deprecated. PKI-CAK (choice b) is already used at the perimeter in this scenario and counts as a redundant factor."
+    },
+    {
+      "id": "ch16-h03",
+      "stem": "A facility manager is choosing between a 'Hot Site' and a 'Cold Site' for disaster recovery. Which factor is the most significant technical distinction regarding 'Recovery from Physical Damage' as defined by Stallings?",
+      "choices": [
+        "The requirement for disaster recovery specialists to remove residue",
+        "The ability to take over operations nearly instantaneously with synchronized data",
+        "The presence of HVAC systems but absence of computer hardware",
+        "The use of batch encrypted backups over the Internet"
+      ],
+      "correct": 1,
+      "explanation": "The defining technical characteristic of a hot site is its readiness to take over operations immediately with a near-real-time copy of data. Choice a applies to both types of sites after a breach, and choice c describes a warm or cold site."
+    },
+    {
+      "id": "ch16-h04",
+      "stem": "During a fire, which temperature threshold marks the beginning of potential permanent damage to computer equipment (processors and memory), as opposed to just magnetic media?",
+      "choices": [
+        "38°C (100°F)",
+        "66°C (150°F)",
+        "79°C (175°F)",
+        "125°C (257°F)"
+      ],
+      "correct": 2,
+      "explanation": "Computer equipment damage begins at 79°C (175°F). Flexible disks and tapes (choice a) are more sensitive and fail at 38°C, while thermoplastic insulation (choice d) fails at 125°C."
+    },
+    {
+      "id": "ch16-h05",
+      "stem": "An organization experiences 'thermal shock' in its data center. Which scenario most likely caused this specific physical security failure?",
+      "choices": [
+        "The ambient temperature rose above 27°C, causing processors to throttle",
+        "Equipment was powered on immediately after being in a sub-freezing environment",
+        "A fire suppression system used cold CO2, causing rapid cooling of hot racks",
+        "Relative humidity dropped below 40%, leading to electrostatic discharge"
+      ],
+      "correct": 1,
+      "explanation": "Thermal shock occurs when a system is turned on while extremely cold, leading to cracked circuit boards. Choice a describes overheating, and choice d describes static risks."
+    },
+    {
+      "id": "ch16-h06",
+      "stem": "In the FIPS 201-3 PIV System Model, which subsystem is specifically responsible for determining if a PIV cardholder is granted entry to a restricted building area based on the validated credentials?",
+      "choices": [
+        "PIV Front End",
+        "Issuance and Management Subsystem",
+        "Relying Subsystem",
+        "Identity Management System (IDMS)"
+      ],
+      "correct": 2,
+      "explanation": "The Relying Subsystem makes the access control decision. The IDMS (choice d) is a central repository for identities, and the Front End (choice a) is the interface the user interacts with."
+    },
+    {
+      "id": "ch16-h07",
+      "stem": "A data center maintains a relative humidity of 75%. What is the most likely long-term technical consequence of this specific environment on the server hardware?",
+      "choices": [
+        "Increased risk of static electricity discharge during maintenance",
+        "Structural changes in plastic components leading to misalignment",
+        "Short circuits due to condensation and galvanic electroplating",
+        "Thermal shock during system boot-up"
+      ],
+      "correct": 2,
+      "explanation": "High humidity (above 60%) leads to corrosion, condensation-induced shorts, and galvanic effects. Static electricity (choice a) is a risk when humidity is too low (below 40%)."
+    },
+    {
+      "id": "ch16-h08",
+      "stem": "Which hurricane category on the Saffir/Simpson Scale is the first to be classified as 'Extensive' potential damage, characterized by storm surges of 9 to 12 feet?",
+      "choices": [
+        "Category 2",
+        "Category 3",
+        "Category 4",
+        "Category 5"
+      ],
+      "correct": 1,
+      "explanation": "Category 3 is 'Extensive' with 9–12 ft surges. Category 2 (choice a) is 'Moderate' (6–8 ft), and Category 4 (choice c) is 'Extreme' (13–18 ft)."
+    },
+    {
+      "id": "ch16-h09",
+      "stem": "According to Stallings, why is smoke considered a particularly insidious threat to magnetic and optical storage media, even in rooms not reached by flames?",
+      "choices": [
+        "It acts as a chemical catalyst that melts thermoplastic insulation",
+        "It is highly abrasive and collects on the heads of unsealed drives",
+        "It increases the air's conductivity, leading to widespread static discharge",
+        "It blocks the ventilation holes, causing rapid thermal shock"
+      ],
+      "correct": 1,
+      "explanation": "Smoke is an abrasive that damages the sensitive heads of drives and the surfaces of media. It does not primarily melt insulation (choice a) or cause static discharge (choice c)."
+    },
+    {
+      "id": "ch16-h10",
+      "stem": "An attacker uses a 'sensing portal' to detect when a piece of hardware is being moved out of a secure area. This physical security measure is an example of which type of human access control?",
+      "choices": [
+        "Resource Isolation",
+        "Resource Securing",
+        "Movable Resource Tracking",
+        "Power Switch Control"
+      ],
+      "correct": 2,
+      "explanation": "Equipping resources with tracking devices and using sensing portals is 'Movable Resource Tracking.' Resource Isolation (choice a) involves locks and barriers."
+    },
+    {
+      "id": "ch16-h11",
+      "stem": "A facility is hit by a tornado. According to the Fujita Scale, if 'well-constructed houses are leveled' and 'cars are thrown', what is the intensity category?",
+      "choices": [
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "correct": 2,
+      "explanation": "F4 is 'Devastating' damage where well-constructed houses are leveled. F3 (choice b) involves walls being torn off but not necessarily leveling the entire house, while F5 (choice d) involves frame houses being lifted and carried away."
+    },
+    {
+      "id": "ch16-h12",
+      "stem": "A security audit identifies that a data center's HVAC ducts could facilitate the spread of fire between the server room and the office area. Which mitigation strategy from Stallings directly addresses this structural threat?",
+      "choices": [
+        "Relocating water supply lines to avoid the ducts",
+        "Installing smoke detectors under raised floors",
+        "Designing ducts with fire-resistant dampers and specific guidelines",
+        "Storing important records in fireproof vaults"
+      ],
+      "correct": 2,
+      "explanation": "Duct design is a specific fire mitigation measure. While smoke detectors (choice b) help detection, they don't prevent the physical spread through ducts like proper design does."
+    },
+    {
+      "id": "ch16-h13",
+      "stem": "In the context of Personal Identity Verification (PIV), a 'High Confidence' level for biometric verification is achieved through which specific procedural requirement?",
+      "choices": [
+        "Scanning at least two different biometric types (e.g., iris and fingerprint)",
+        "Comparison of captured data against a template stored in a central IDMS",
+        "Completion at a control point attended by an official observer",
+        "Use of a 6-digit PIN in conjunction with the biometric scan"
+      ],
+      "correct": 2,
+      "explanation": "FIPS 201-3 states high confidence requires a biometric comparison at a control point attended by an official observer, or on-card matching. Central IDMS check (choice b) is for enrollment/management."
+    },
+    {
+      "id": "ch16-h14",
+      "stem": "Which electrical power anomaly is most likely to interfere with signals inside electronic devices and cause logical errors without necessarily causing hardware failure?",
+      "choices": [
+        "Undervoltage Blackout",
+        "Overvoltage Surge",
+        "Electrical Noise",
+        "Brownout"
+      ],
+      "correct": 2,
+      "explanation": "Electrical noise consists of spurious signals that bypass filters and cause logical errors. Surges (choice b) typically cause physical destruction, and undervoltages (choice a/d) cause shutdowns."
+    },
+    {
+      "id": "ch16-h15",
+      "stem": "Under the NIST SP 800-116 framework, what is the primary distinction between a 'Limited Area' and an 'Exclusion Area'?",
+      "choices": [
+        "Limited areas allow visitors with escorts, while exclusion areas allow no visitors",
+        "Exclusion areas contain the security interest directly, and uncontrolled movement permits direct access",
+        "Limited areas require three-factor authentication, while exclusion areas require four",
+        "Limited areas are buffer zones for exclusion areas, but do not require any authentication"
+      ],
+      "correct": 1,
+      "explanation": "An exclusion area contains the security interest itself; a limited area is in close proximity where movement might permit access, but isn't as direct. Buffer zones (choice d) are 'Controlled' areas."
+    },
+    {
+      "id": "ch16-h16",
+      "stem": "A company uses 'integrated management' to correlate a logical login event with a physical badge-out event. If a user account logs in from a remote VPN while the badge system shows the user just exited the building, this is used to detect:",
+      "choices": [
+        "Insider Sabotage",
+        "Social Engineering",
+        "Account Hijacking",
+        "Denial of Service"
+      ],
+      "correct": 2,
+      "explanation": "The specific example given in the text for this correlation is the detection of account hijacking. While it could be an insider, the mismatch of physical and logical location is the classic indicator for a hijacked account."
+    },
+    {
+      "id": "ch16-h17",
+      "stem": "Which specific recovery challenge is noted by Stallings as requiring the meticulous removal of 'residue' such as hazardous materials before reconstituting equipment?",
+      "choices": [
+        "Recovery from a regionwide blackout",
+        "Recovery from physical damage (smoke/fire/water)",
+        "Recovery from a logical SQL injection attack",
+        "Recovery from an electromagnetic interference event"
+      ],
+      "correct": 1,
+      "explanation": "Residue removal is a specific challenge for fire, smoke, and water damage. Blackouts (choice a) and EMI (choice d) do not typically leave physical residue behind."
+    },
+    {
+      "id": "ch16-h18",
+      "stem": "An organization is concerned about electromagnetic interference (EMI) from a nearby high-intensity radio antenna. Which combination of controls is the standard technical mitigation?",
+      "choices": [
+        "Uninterruptible Power Supply (UPS) and Surge Protectors",
+        "Filters and Shielding",
+        "Biometric scanners and PINs",
+        "Redundant HVAC and Water Sensors"
+      ],
+      "correct": 1,
+      "explanation": "Filters and shielding are the primary technical mitigations for EMI. UPS (choice a) is for power anomalies, and water sensors (choice d) are for environmental threats."
+    },
+    {
+      "id": "ch16-h19",
+      "stem": "A data center located on a low-elevation site is prone to 'Flood' threats. Beyond structural damage, what is the primary reason Stallings cites for the difficulty in cleaning up after such an event?",
+      "choices": [
+        "The high salt content in coastal water causing rapid corrosion",
+        "The suspended material and muddy residue left behind",
+        "The increased risk of rodent infestation following the water",
+        "The destruction of the electrical grounding system"
+      ],
+      "correct": 1,
+      "explanation": "Floodwater is destructive and difficult to clean because of the suspended material and residue. While corrosion (choice a) is a factor, the residue is the primary cleanup obstacle mentioned."
+    },
+    {
+      "id": "ch16-h20",
+      "stem": "According to the FIPS 201-3 PIV model, what is the role of the IDMS (Identity Management System) within the issuance subsystem?",
+      "choices": [
+        "To provide real-time remote viewing of access points",
+        "To act as the central repository for the cardholder's digital identities",
+        "To perform the public-key signature check on the PIV card at the door",
+        "To house the biometric sensors used for 'High Confidence' checks"
+      ],
+      "correct": 1,
+      "explanation": "The IDMS is the central repository for digital identities. The Relying Subsystem (choice c) performs the door checks, and surveillance (choice a) is a separate function."
+    }
+  ]
+}

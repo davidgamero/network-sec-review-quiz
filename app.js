@@ -2,6 +2,7 @@
   "use strict";
 
   const STORAGE_KEY = "csec-quiz-v1";
+  const DIFFICULTY_KEY = "csec-difficulty";
   const DATA = window.QUESTIONS;
   if (!DATA) {
     document.getElementById("app").innerHTML =
@@ -9,10 +10,36 @@
     return;
   }
 
+  for (const c of DATA.chapters) {
+    if (!c.hardQuestions) c.hardQuestions = [];
+  }
+
   const chaptersById = new Map(DATA.chapters.map((c) => [c.chapter, c]));
   const questionsById = new Map();
-  for (const c of DATA.chapters) for (const q of c.questions) questionsById.set(q.id, q);
-  document.getElementById("q-count").textContent = questionsById.size;
+  for (const c of DATA.chapters) {
+    for (const q of c.questions) questionsById.set(q.id, q);
+    for (const q of c.hardQuestions) questionsById.set(q.id, q);
+  }
+  const totalQs =
+    DATA.chapters.reduce((n, c) => n + c.questions.length + c.hardQuestions.length, 0);
+  document.getElementById("q-count").textContent = totalQs;
+
+  function getDifficulty() {
+    const v = localStorage.getItem(DIFFICULTY_KEY);
+    return v === "hard" || v === "both" ? v : "normal";
+  }
+  function setDifficulty(v) {
+    localStorage.setItem(DIFFICULTY_KEY, v);
+  }
+  function chapterPool(ch, difficulty) {
+    const d = difficulty || getDifficulty();
+    if (d === "hard") return ch.hardQuestions.slice();
+    if (d === "both") return ch.questions.concat(ch.hardQuestions);
+    return ch.questions.slice();
+  }
+  function chapterHasHard(ch) {
+    return ch.hardQuestions && ch.hardQuestions.length > 0;
+  }
 
   function loadState() {
     try {
@@ -42,35 +69,26 @@
     if (!arr || arr.length === 0) return null;
     return arr.reduce((a, b) => a + b, 0) / arr.length;
   }
-  function chapterScore(ch) {
+  function poolStats(pool) {
+    if (pool.length === 0) return { score: 0, attempted: 0, total: 0 };
     let total = 0;
     let attempted = 0;
-    for (const q of ch.questions) {
+    for (const q of pool) {
       const sc = questionScore(q.id);
-      if (sc !== null) attempted++;
-      total += sc === null ? 0 : sc;
-    }
-    return {
-      score: total / ch.questions.length,
-      attempted,
-      total: ch.questions.length,
-    };
-  }
-  function overallScore() {
-    let total = 0;
-    let attempted = 0;
-    let totalQs = 0;
-    for (const ch of DATA.chapters) {
-      for (const q of ch.questions) {
-        totalQs++;
-        const sc = questionScore(q.id);
-        if (sc !== null) {
-          attempted++;
-          total += sc;
-        }
+      if (sc !== null) {
+        attempted++;
+        total += sc;
       }
     }
-    return { score: total / totalQs, attempted, total: totalQs };
+    return { score: total / pool.length, attempted, total: pool.length };
+  }
+  function chapterScore(ch, difficulty) {
+    return poolStats(chapterPool(ch, difficulty));
+  }
+  function overallScore(difficulty) {
+    let pool = [];
+    for (const ch of DATA.chapters) pool = pool.concat(chapterPool(ch, difficulty));
+    return poolStats(pool);
   }
 
   function pct(x) {
@@ -111,6 +129,7 @@
   window.addEventListener("hashchange", route);
 
   function renderHome() {
+    const difficulty = getDifficulty();
     const overall = overallScore();
     const finalStats = finalScore();
     const filterPref = localStorage.getItem("csec-filter-final");
@@ -118,13 +137,29 @@
     const visible = DATA.chapters.filter(
       (ch) => !finalOnly || (ch.chapter >= 12 && ch.chapter <= 24)
     );
+    const totalNormal = DATA.chapters.reduce((n, c) => n + c.questions.length, 0);
+    const totalHard = DATA.chapters.reduce((n, c) => n + c.hardQuestions.length, 0);
+    const diffLabels = {
+      normal: `Normal (${totalNormal})`,
+      hard: `Hard (${totalHard})`,
+      both: `Both (${totalNormal + totalHard})`,
+    };
+    const diffOptions = ["normal", "hard", "both"]
+      .map(
+        (d) =>
+          `<button class="diff-btn ${d === difficulty ? "active" : ""}" data-diff="${d}">${diffLabels[d]}</button>`
+      )
+      .join("");
     const rows = visible
       .map((ch) => {
         const s = chapterScore(ch);
         const barWidth = pct(s.score);
+        const hardBadge = chapterHasHard(ch)
+          ? `<span class="badge">+${ch.hardQuestions.length} hard</span>`
+          : "";
         return `<a class="chapter-card" href="#/chapter/${ch.chapter}">
           <div class="ch-title">
-            <div class="ch-num">Chapter ${ch.chapter}</div>
+            <div class="ch-num">Chapter ${ch.chapter} ${hardBadge}</div>
             <div class="ch-name">${escapeHtml(ch.title)}</div>
           </div>
           <div class="ch-stats">
@@ -141,6 +176,10 @@
         <div class="stat"><div class="stat-label">Overall</div><div class="stat-val">${pct(overall.score)}</div></div>
         <div class="stat"><div class="stat-label">Attempted</div><div class="stat-val">${overall.attempted}/${overall.total}</div></div>
         <div class="stat"><div class="stat-label">Chapters</div><div class="stat-val">${DATA.chapters.length}</div></div>
+      </div>
+      <div class="diff-row">
+        <span class="diff-label">Difficulty:</span>
+        <div class="diff-group">${diffOptions}</div>
       </div>
       <a class="chapter-card final-card" href="#/final">
         <div class="ch-title">
@@ -164,43 +203,40 @@
       localStorage.setItem("csec-filter-final", e.target.checked ? "1" : "0");
       renderHome();
     };
+    app.querySelectorAll(".diff-btn").forEach((btn) => {
+      btn.onclick = () => {
+        setDifficulty(btn.dataset.diff);
+        renderHome();
+      };
+    });
   }
 
-  function finalQuestions() {
+  function finalQuestions(difficulty) {
     const out = [];
     for (const ch of DATA.chapters) {
       if (ch.chapter >= 12 && ch.chapter <= 24) {
-        for (const q of ch.questions) out.push({ ch, q });
+        for (const q of chapterPool(ch, difficulty)) out.push(q);
       }
     }
     return out;
   }
-  function finalScore() {
-    const all = finalQuestions();
-    let total = 0;
-    let attempted = 0;
-    for (const { q } of all) {
-      const sc = questionScore(q.id);
-      if (sc !== null) {
-        attempted++;
-        total += sc;
-      }
-    }
-    return { score: total / all.length, attempted, total: all.length };
+  function finalScore(difficulty) {
+    return poolStats(finalQuestions(difficulty));
   }
 
   function renderFinal(mode) {
-    const all = finalQuestions();
-    const stats = finalScore();
+    const difficulty = getDifficulty();
+    const all = finalQuestions(difficulty);
+    const stats = poolStats(all);
     if (mode === "all" || mode === "wrong" || mode === "sample50") {
-      let pool = all.map((x) => x.q);
+      let pool = all.slice();
       if (mode === "wrong") {
         pool = pool.filter((q) => {
           const sc = questionScore(q.id);
           return sc !== null && sc < 1;
         });
       } else if (mode === "sample50") {
-        pool = shuffle(pool).slice(0, 50);
+        pool = shuffle(pool).slice(0, Math.min(50, pool.length));
       }
       if (pool.length === 0) {
         app.innerHTML = `<a href="#/final" class="back">&larr; Back</a><p>No questions to practice.</p>`;
@@ -208,7 +244,7 @@
       }
       const synthetic = {
         chapter: "Final",
-        title: "Final Exam (Ch 12-24)",
+        title: `Final Exam (Ch 12-24, ${difficulty})`,
         questions: pool,
         _isFinal: true,
       };
@@ -222,14 +258,14 @@
       renderQuizCard();
       return;
     }
-    const wrongCount = all.filter(({ q }) => {
+    const wrongCount = all.filter((q) => {
       const sc = questionScore(q.id);
       return sc !== null && sc < 1;
     }).length;
     app.innerHTML = `
       <a href="#/" class="back">&larr; All chapters</a>
       <h1>Final Exam Prep</h1>
-      <p class="muted">Mixed questions from Chapters 12 through 24 (${all.length} total). Stats are shared with the per-chapter views.</p>
+      <p class="muted">Mixed questions from Chapters 12 through 24 (${all.length} total, difficulty: <strong>${difficulty}</strong>). Stats are shared with the per-chapter views.</p>
       <div class="summary-row">
         <div class="stat"><div class="stat-label">Score</div><div class="stat-val">${pct(stats.score)}</div></div>
         <div class="stat"><div class="stat-label">Attempted</div><div class="stat-val">${stats.attempted}/${stats.total}</div></div>
@@ -237,9 +273,10 @@
       </div>
       <div>
         <button class="btn" data-action="all">Full exam (${all.length})</button>
-        <button class="btn secondary" data-action="sample50">Random 50</button>
+        <button class="btn secondary" data-action="sample50">Random ${Math.min(50, all.length)}</button>
         <button class="btn secondary" data-action="wrong" ${wrongCount === 0 ? "disabled" : ""}>Practice wrong only (${wrongCount})</button>
       </div>
+      <p class="muted" style="margin-top:14px;">Change difficulty (normal/hard/both) on the home screen.</p>
     `;
     app.querySelector('[data-action="all"]').onclick = () => {
       location.hash = "#/final/all";
@@ -252,15 +289,17 @@
   }
 
   function renderChapter(ch) {
-    const s = chapterScore(ch);
+    const difficulty = getDifficulty();
+    const pool = chapterPool(ch, difficulty);
+    const s = poolStats(pool);
     const state = loadState();
     state.lastChapter = ch.chapter;
     saveState(state);
-    const wrongCount = ch.questions.filter((q) => {
+    const wrongCount = pool.filter((q) => {
       const sc = questionScore(q.id);
       return sc !== null && sc < 1;
     }).length;
-    const items = ch.questions
+    const items = pool
       .map((q) => {
         const arr = (state.attempts[q.id] || []);
         const dots = [0, 1]
@@ -270,8 +309,9 @@
             return `<span class="dot ${v ? "good" : "bad"}"></span>`;
           })
           .join("");
+        const tag = q.difficulty === "hard" ? '<span class="badge hard">hard</span>' : "";
         return `<li>
-          <span class="qid">${q.id}</span>
+          <span class="qid">${q.id} ${tag}</span>
           <span class="qstem">${escapeHtml(q.stem)}</span>
           <span class="qstats">${dots}</span>
         </li>`;
@@ -280,13 +320,14 @@
     app.innerHTML = `
       <a href="#/" class="back">&larr; All chapters</a>
       <h1>Chapter ${ch.chapter}: ${escapeHtml(ch.title)}</h1>
+      <p class="muted">Difficulty: <strong>${difficulty}</strong> &middot; ${pool.length} questions</p>
       <div class="summary-row">
         <div class="stat"><div class="stat-label">Score</div><div class="stat-val">${pct(s.score)}</div></div>
         <div class="stat"><div class="stat-label">Attempted</div><div class="stat-val">${s.attempted}/${s.total}</div></div>
         <div class="stat"><div class="stat-label">Need work</div><div class="stat-val">${wrongCount}</div></div>
       </div>
       <div>
-        <button class="btn" data-action="quiz-all">Start quiz (${ch.questions.length})</button>
+        <button class="btn" data-action="quiz-all" ${pool.length === 0 ? "disabled" : ""}>Start quiz (${pool.length})</button>
         <button class="btn secondary" data-action="quiz-wrong" ${wrongCount === 0 ? "disabled" : ""}>Practice wrong only (${wrongCount})</button>
         <button class="btn secondary" data-action="reset-chapter">Reset chapter stats</button>
       </div>
@@ -304,6 +345,7 @@
       if (!confirm(`Reset stats for Chapter ${ch.chapter}?`)) return;
       const st = loadState();
       for (const q of ch.questions) delete st.attempts[q.id];
+      for (const q of ch.hardQuestions) delete st.attempts[q.id];
       saveState(st);
       route();
     };
@@ -312,7 +354,7 @@
   let quizSession = null;
 
   function renderQuiz(ch, mode) {
-    let pool = ch.questions.slice();
+    let pool = chapterPool(ch).slice();
     if (mode === "wrong") {
       pool = pool.filter((q) => {
         const sc = questionScore(q.id);

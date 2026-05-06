@@ -1,0 +1,247 @@
+{
+  "chapter": 19,
+  "title": "Legal and Ethical Aspects",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch19-h01",
+      "stem": "An attacker uses a botnet to saturate the bandwidth of a target server, rendering it unavailable to legitimate users. According to the U.S. Department of Justice categorization, which role is the computer playing in this crime, and which security attribute is primarily attacked?",
+      "choices": [
+        "Computer as a storage device; Data Integrity",
+        "Computer as a target; System Availability",
+        "Computer as a communications tool; Data Confidentiality",
+        "Computer as a target; System Integrity"
+      ],
+      "correct": 1,
+      "explanation": "The DOJ categorizes attacks aimed at interfering with the availability of a computer or server as 'Computers as targets'. This specifically maps to an attack on the availability attribute of the system."
+    },
+    {
+      "id": "ch19-h02",
+      "stem": "Under the international Convention on Cybercrime, which article specifically addresses the production, sale, or distribution of a computer program designed primarily for the purpose of committing illegal access or data interference?",
+      "choices": [
+        "Article 3 (Illegal interception)",
+        "Article 4 (Data interference)",
+        "Article 5 (System interference)",
+        "Article 6 (Misuse of devices)"
+      ],
+      "correct": 3,
+      "explanation": "Article 6 (Misuse of devices) covers the production, distribution, or making available of devices or computer programs designed primarily for committing cybercrimes like illegal access or system interference. Article 5 focuses on the actual hindering of system function."
+    },
+    {
+      "id": "ch19-h03",
+      "stem": "A security researcher discovers a new cryptographic vulnerability in a commercial software package. They bypass the software's encryption to verify the flaw. Which provision of the Digital Millennium Copyright Act (DMCA) is most likely to protect the researcher from legal liability, assuming the test was conducted with the owner's authorization?",
+      "choices": [
+        "Fair Use",
+        "Reverse Engineering for Interoperability",
+        "Security Testing",
+        "Encryption Research"
+      ],
+      "correct": 2,
+      "explanation": "The DMCA specifically exempts 'Security Testing', which is defined as accessing a computer or network for good faith testing or investigating a security flaw with the authorization of the owner. Encryption Research is for advancing encryption technology in general, whereas this scenario is about a specific flaw in a software package."
+    },
+    {
+      "id": "ch19-h04",
+      "stem": "In the Digital Rights Management (DRM) component model, which entity is responsible for handling financial transactions, issuing digital licenses to consumers, and distributing royalty fees to rights holders?",
+      "choices": [
+        "Content Provider",
+        "Distributor",
+        "Clearinghouse",
+        "Consumer"
+      ],
+      "correct": 2,
+      "explanation": "The Clearinghouse handles financial transactions, issues licenses, and manages the payment of royalty and distribution fees. The Distributor provides the sales channel but does not necessarily handle the licensing or royalty distribution."
+    },
+    {
+      "id": "ch19-h05",
+      "stem": "The GDPR principle of 'Purpose Limitation' dictates that personal data collected for a specific purpose should not be used for a new purpose that is 'incompatible'. However, which of the following is specifically permitted as a compatible 'further processing' activity under GDPR?",
+      "choices": [
+        "Targeted marketing for related products",
+        "Archiving in the public interest or scientific research",
+        "Credit score evaluation by a third-party partner",
+        "Employee performance monitoring for salary adjustments"
+      ],
+      "correct": 1,
+      "explanation": "GDPR Article 5 states that further processing for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes shall not be considered incompatible with the initial purposes."
+    },
+    {
+      "id": "ch19-h06",
+      "stem": "The Common Criteria Privacy Class defines 'Unlinkability' as a requirement to ensure that:",
+      "choices": [
+        "A user can use a resource without disclosing their real identity.",
+        "A third party cannot observe that a specific resource is being used at all.",
+        "An attacker cannot determine if two or more separate operations were performed by the same user.",
+        "An alias is used that allows the system to remain accountable for the user's actions."
+      ],
+      "correct": 2,
+      "explanation": "Unlinkability ensures that a user may make multiple uses of resources or services without others being able to link those uses together. Pseudonymity (choice d) involves using an alias for accountability."
+    },
+    {
+      "id": "ch19-h07",
+      "stem": "According to 'The Rules' (Moral Responsibility for Computing Artifacts), if a software system causes foreseeable harm, how is moral responsibility distributed among the development team?",
+      "choices": [
+        "Responsibility is divided; as more people join the project, individual responsibility decreases.",
+        "Only the lead architect and project manager are morally responsible.",
+        "Responsibility is not zero-sum; each individual's responsibility is not reduced by the involvement of others.",
+        "Moral responsibility is only applicable if the harm was intentionally programmed."
+      ],
+      "correct": 2,
+      "explanation": "The Rules state that shared responsibility is not a zero-sum game. The responsibility of an individual is not reduced simply because more people are involved in the process."
+    },
+    {
+      "id": "ch19-h08",
+      "stem": "A company accidentally exposes a database containing customer usernames and their geolocated IP addresses. Under the broad definitions of the GDPR, does this constitute a breach of 'personal data'?",
+      "choices": [
+        "No, because usernames and IP addresses are technical identifiers, not personal names.",
+        "No, provided the physical address of the customer is not included.",
+        "Yes, because personal data includes any information relating to an identifiable person, including device identifiers and location data.",
+        "Yes, but only if the usernames match the customers' legal names."
+      ],
+      "correct": 2,
+      "explanation": "The GDPR adopts a broad definition of personal data as 'any information relating to an identified or identifiable person', which explicitly encompasses IP addresses, usernames, and location data."
+    },
+    {
+      "id": "ch19-h09",
+      "stem": "Which U.S. privacy law specifically restricts online organizations from collecting data from individuals under the age of 13 without parental consent?",
+      "choices": [
+        "HIPAA",
+        "Privacy Act of 1974",
+        "COPPA",
+        "ECPA"
+      ],
+      "correct": 2,
+      "explanation": "The Children’s Online Privacy Protection Act (COPPA) places restrictions on the collection of data from children under the age of 13. HIPAA (choice a) relates to medical records."
+    },
+    {
+      "id": "ch19-h10",
+      "stem": "In the context of Intellectual Property, what is the primary distinction between a Patent and a Copyright as applied to computer software?",
+      "choices": [
+        "Copyright protects the source code (expression), while a Patent can protect a unique algorithm or process (invention).",
+        "Copyright lasts for 20 years, while a Patent lasts for the life of the author plus 70 years.",
+        "Copyright requires a formal government filing to be valid, whereas a Patent is granted automatically upon creation.",
+        "Copyright protects the 'source of goods', while a Patent protects the 'tangible expression'."
+      ],
+      "correct": 0,
+      "explanation": "Copyright law protects the tangible expression of an idea (like the specific lines of code), while a Patent grants a property right to an inventor for a new and useful process or machine (like a specific algorithm like RSA)."
+    },
+    {
+      "id": "ch19-h11",
+      "stem": "A system administrator implements a feature where users can post to a forum using a handle that hides their real identity from other users. However, the administrator maintains a log that can map these handles back to real names for policy enforcement. According to Common Criteria, this is an example of:",
+      "choices": [
+        "Anonymity",
+        "Pseudonymity",
+        "Unlinkability",
+        "Unobservability"
+      ],
+      "correct": 1,
+      "explanation": "Pseudonymity ensures a user can use a resource without disclosing their identity to others, but the system remains able to determine the user's identity from the alias for accountability."
+    },
+    {
+      "id": "ch19-h12",
+      "stem": "Under the DMCA, which of the following actions is generally PERMITTED even if it involves bypassing a technological protection measure?",
+      "choices": [
+        "Bypassing DRM to make a backup copy of a DVD for personal use.",
+        "Reverse engineering a program solely to achieve interoperability with another program.",
+        "Distributing a tool that decrypts e-books for the purpose of academic discussion.",
+        "Removing a digital watermark to use a copyrighted image in a corporate presentation."
+      ],
+      "correct": 1,
+      "explanation": "The DMCA provides a specific exemption for reverse engineering if the purpose is to achieve interoperability. Making backup copies of DVDs (choice a) is often contested and generally not a broad DMCA exemption if it involves breaking CSS."
+    },
+    {
+      "id": "ch19-h13",
+      "stem": "The 'vicious cycle of cybercrime' described by Stallings & Brown suggests that low reporting rates by victims contribute to the cycle. What is a primary reason cited for this reluctance to report?",
+      "choices": [
+        "A legal requirement to pay a 'reporting fee' to law enforcement.",
+        "Fear of corporate reputation damage and potential civil liability.",
+        "The assumption that all cybercrime is already monitored by the NSA.",
+        "A lack of technical terminology to describe the crime to officers."
+      ],
+      "correct": 1,
+      "explanation": "The text notes that reporting rates tend to be low because of a lack of confidence in law enforcement, concern about corporate reputation, and concern about civil liability."
+    },
+    {
+      "id": "ch19-h14",
+      "stem": "Which ethical code explicitly mentions the obligation to 'avoid harm' and 'be honest and trustworthy' as General Moral Imperatives, while also addressing 'Articulating, encouraging acceptance of, and evaluating fulfillment of social responsibilities'?",
+      "choices": [
+        "IEEE Code of Ethics",
+        "AITP Standard of Conduct",
+        "ACM Code of Ethics and Professional Conduct",
+        "The Rules of Responsible Computing"
+      ],
+      "correct": 2,
+      "explanation": "The ACM Code of Ethics includes specific sections on General Moral Imperatives like 'Avoid harm' and 'Be honest and trustworthy'. The AITP focuses more on management, and IEEE is for engineers."
+    },
+    {
+      "id": "ch19-h15",
+      "stem": "An organization processes data by ensuring that the personal data is 'adequate, relevant, and limited to what is necessary in relation to the purposes for which they are processed'. Which GDPR principle is being followed?",
+      "choices": [
+        "Lawfulness, fairness, and transparency",
+        "Data minimization",
+        "Storage limitation",
+        "Accuracy"
+      ],
+      "correct": 1,
+      "explanation": "This is the definition of the Data Minimization principle. Storage limitation (choice c) refers to how long data is kept."
+    },
+    {
+      "id": "ch19-h16",
+      "stem": "In the Ethical Hierarchy for IT professionals, what occupies the base level of the pyramid, serving as the foundation for professional and IT-specific ethics?",
+      "choices": [
+        "Professional obligations to the client",
+        "Specialized IT knowledge and power",
+        "Basic human values (integrity, fairness, justice)",
+        "Adherence to the DMCA and GDPR"
+      ],
+      "correct": 2,
+      "explanation": "The ethical hierarchy starts with common human values at the base, followed by professional ethics, and finally specialized IT professional ethics at the peak."
+    },
+    {
+      "id": "ch19-h17",
+      "stem": "Which of the following best describes the 'Right to be Forgotten' under the GDPR?",
+      "choices": [
+        "The right to have one's data encrypted so it cannot be read by the controller.",
+        "The right to have one's personal data erased without undue delay under certain conditions.",
+        "The right to prevent a controller from sharing data with third-party marketers.",
+        "The right to remain anonymous while using social media platforms."
+      ],
+      "correct": 1,
+      "explanation": "GDPR Article 17 provides for the 'right to erasure' (right to be forgotten), allowing individuals to request the deletion of their personal data."
+    },
+    {
+      "id": "ch19-h18",
+      "stem": "A trademark provides protection against 'infringement'. In the context of trademarks, what constitutes infringement?",
+      "choices": [
+        "Making the same goods as a competitor but using a different brand name.",
+        "Using a confusingly similar mark that may mislead consumers as to the source of the goods.",
+        "Unauthorized reproduction of a software manual.",
+        "Using a patented algorithm without paying a royalty fee."
+      ],
+      "correct": 1,
+      "explanation": "Trademark rights prevent others from using a confusingly similar mark to distinguish the source of goods. Choice c is a copyright infringement; choice d is a patent infringement."
+    },
+    {
+      "id": "ch19-h19",
+      "stem": "According to the text, what is the primary purpose of the 'Common Criteria Privacy Class' functional requirements?",
+      "choices": [
+        "To protect the privacy of personal information stored in databases.",
+        "To provide a user protection against discovery and misuse of identity by other users.",
+        "To ensure compliance with the U.S. Privacy Act of 1974.",
+        "To prevent the collection of PII by government agencies."
+      ],
+      "correct": 1,
+      "explanation": "The text specifies that the Common Criteria is primarily concerned with the privacy of an individual with respect to their use of computer resources (identity discovery by other users), rather than general personal data protection."
+    },
+    {
+      "id": "ch19-h20",
+      "stem": "Under the U.S. Privacy Act of 1974, which of the following is an individual permitted to do regarding records held by federal agencies?",
+      "choices": [
+        "Forbid any collection of data by any federal agency.",
+        "Obtain access to records pertaining to them and correct inaccuracies.",
+        "Sue for criminal damages if a private company misuses their data.",
+        "Require the agency to delete all records after 5 years, regardless of purpose."
+      ],
+      "correct": 1,
+      "explanation": "The Privacy Act permits individuals to obtain access to records pertaining to them and to correct/amend those records. It applies to federal agencies, not private companies (choice c)."
+    }
+  ]
+}

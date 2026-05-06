@@ -69,26 +69,51 @@ def normalize(q, ch):
 
 def main():
     here = os.path.dirname(os.path.abspath(__file__))
-    files = sorted(glob.glob(os.path.join(here, "questions", "ch*.json")))
-    chapters = []
+    qdir = os.path.join(here, "questions")
+    normal_files = sorted(
+        f
+        for f in glob.glob(os.path.join(qdir, "ch*.json"))
+        if not f.endswith("-hard.json")
+    )
+    hard_files = sorted(glob.glob(os.path.join(qdir, "ch*-hard.json")))
+
+    by_chapter = {}
     all_ids = []
-    for f in files:
+    for f in normal_files:
         d = json.load(open(f))
         ch = d["chapter"]
         title = d.get("title") or CHAPTER_TITLES.get(ch, "")
-        questions = [normalize(q, ch) for q in d["questions"]]
-        for q in questions:
-            all_ids.append(q["id"])
-        chapters.append({"chapter": ch, "title": title, "questions": questions})
-    chapters.sort(key=lambda c: c["chapter"])
+        normal_qs = [
+            dict(normalize(q, ch), difficulty="normal") for q in d["questions"]
+        ]
+        all_ids.extend(q["id"] for q in normal_qs)
+        by_chapter[ch] = {
+            "chapter": ch,
+            "title": title,
+            "questions": normal_qs,
+            "hardQuestions": [],
+        }
+    for f in hard_files:
+        d = json.load(open(f))
+        ch = d["chapter"]
+        if ch not in by_chapter:
+            print(f"Hard file for ch{ch} has no normal counterpart", file=sys.stderr)
+            sys.exit(1)
+        hard_qs = [dict(normalize(q, ch), difficulty="hard") for q in d["questions"]]
+        all_ids.extend(q["id"] for q in hard_qs)
+        by_chapter[ch]["hardQuestions"] = hard_qs
+
+    chapters = sorted(by_chapter.values(), key=lambda c: c["chapter"])
 
     dupes = {i for i in all_ids if all_ids.count(i) > 1}
     if dupes:
         print("Duplicate IDs:", dupes, file=sys.stderr)
         sys.exit(1)
 
+    n_normal = sum(len(c["questions"]) for c in chapters)
+    n_hard = sum(len(c["hardQuestions"]) for c in chapters)
     payload = {
-        "version": 1,
+        "version": 2,
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
         "chapters": chapters,
     }
@@ -100,7 +125,9 @@ def main():
         fp.write("window.QUESTIONS = ")
         json.dump(payload, fp)
         fp.write(";\n")
-    print(f"Built {len(chapters)} chapters, {len(all_ids)} questions")
+    print(
+        f"Built {len(chapters)} chapters, {n_normal} normal + {n_hard} hard questions"
+    )
     print(f"  -> {out_json}")
     print(f"  -> {out_js}")
 

@@ -1,0 +1,247 @@
+{
+  "chapter": 14,
+  "title": "IT Security Management and Risk Assessment",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch14-h01",
+      "stem": "An organization implementing a Information Security Management System (ISMS) wants to align with the ISO 27000 family. Which specific standard should they consult for the actual requirements and 'Plan' phase specifications to achieve formal certification?",
+      "choices": [
+        "ISO/IEC 27000",
+        "ISO/IEC 27001",
+        "ISO/IEC 27002",
+        "ISO/IEC 27005"
+      ],
+      "correct": 1,
+      "explanation": "ISO/IEC 27001 is the only standard in the family against which an organization can be certified, as it defines the requirements for an ISMS. ISO 27002 provides the code of practice for controls, while ISO 27005 focuses specifically on risk management."
+    },
+    {
+      "id": "ch14-h02",
+      "stem": "Under the ISO 13335 (and ISO 27005) framework, a 'Combined Approach' to risk assessment is initiated. What is the precise sequence of actions that defines this specific strategy?",
+      "choices": [
+        "Baseline controls for all systems, followed by detailed analysis for high-risk assets and informal analysis for others.",
+        "Informal analysis to identify critical assets, then detailed analysis for all assets deemed 'critical'.",
+        "Detailed analysis for a pilot department, then baseline controls extrapolated to the rest of the organization.",
+        "Detailed analysis for all assets, then reducing to baseline controls as systems mature."
+      ],
+      "correct": 0,
+      "explanation": "The combined approach optimizes resources by applying baseline (standard) controls to all systems, while reserving expensive detailed analysis for high-risk systems and informal (pragmatic) analysis for those in between."
+    },
+    {
+      "id": "ch14-h03",
+      "stem": "In the context of IT security management, how is the 'Risk Appetite' of an organization typically distinguished from its 'Risk Profile'?",
+      "choices": [
+        "Appetite is the current level of risk, while Profile is the target level.",
+        "Appetite is a qualitative measure, while Profile is a strictly quantitative calculation.",
+        "Appetite is the amount of risk an organization is willing to pursue or retain, while Profile is the actual risk exposure at a given time.",
+        "Appetite is defined by IT staff, while Profile is defined by senior management."
+      ],
+      "correct": 2,
+      "explanation": "Risk Appetite is a forward-looking policy decision on the level of risk tolerance, whereas Risk Profile (or assessment results) describes the current reality of threats and vulnerabilities facing the organization."
+    },
+    {
+      "id": "ch14-h04",
+      "stem": "A security manager is calculating risk for a server using the formula: Risk = (Likelihood of Threat) × (Consequence of Breach). If the manager implements a high-availability failover cluster, which variable in the risk equation is primarily affected?",
+      "choices": [
+        "Threat Source Motivation",
+        "Likelihood",
+        "Vulnerability",
+        "Consequence"
+      ],
+      "correct": 3,
+      "explanation": "High-availability clusters do not necessarily prevent an attack (Likelihood) or fix the initial software flaw (Vulnerability), but they drastically reduce the Consequence (impact) by ensuring the service remains available despite the failure or breach of a single node."
+    },
+    {
+      "id": "ch14-h05",
+      "stem": "During the 'System Characterization' step of a Detailed Risk Analysis, which of the following activities is most critical to establishing the scope of the assessment?",
+      "choices": [
+        "Performing a port scan on all external-facing IP addresses.",
+        "Identifying the organizational boundaries, legal obligations, and system interfaces.",
+        "Ranking assets based on their replacement cost in the current market.",
+        "Assigning specific technical controls from NIST SP 800-53."
+      ],
+      "correct": 1,
+      "explanation": "System Characterization defines the environment and boundaries of the risk assessment. Port scanning is a technical vulnerability task, and control assignment happens during the treatment phase, not characterization."
+    },
+    {
+      "id": "ch14-h06",
+      "stem": "An organization identifies a high risk of data leakage due to an outdated legacy application that cannot be patched. They decide to migrate all users to a new cloud-based SaaS platform and decommission the legacy app. Which risk treatment option have they exercised?",
+      "choices": [
+        "Risk Reduction",
+        "Risk Transfer",
+        "Risk Avoidance",
+        "Risk Acceptance"
+      ],
+      "correct": 2,
+      "explanation": "By decommissioning the system that creates the risk, the organization is engaging in Risk Avoidance. Note that moving to a SaaS also involves elements of Risk Transfer (to the provider), but 'Avoidance' is the primary action taken regarding the specific legacy application risk."
+    },
+    {
+      "id": "ch14-h07",
+      "stem": "Which of the following best describes the 'Informal Approach' to risk assessment and its inherent risk to the organization?",
+      "choices": [
+        "It uses automated tools to baseline security, risking the omission of custom vulnerabilities.",
+        "It relies on the subjective judgment of experts, risking inconsistency and personal bias in findings.",
+        "It involves exhaustive documentation, risking 'analysis paralysis' and high costs.",
+        "It ignores human threats, risking failure to account for social engineering."
+      ],
+      "correct": 1,
+      "explanation": "The informal approach is pragmatic and fast because it leverages expertise rather than rigid methodology, but its weakness is that results are highly dependent on the individual analyst's experience and prejudices."
+    },
+    {
+      "id": "ch14-h08",
+      "stem": "In a qualitative risk matrix where Likelihood and Consequence are both rated 1-5, a 'Moderate' threat has a Likelihood of 3 and a Consequence of 4. If a countermeasure reduces the Likelihood to 1 but increases the Consequence to 5 (due to added complexity/dependency), how has the risk score changed?",
+      "choices": [
+        "The risk score increased from 7 to 15.",
+        "The risk score decreased from 12 to 5.",
+        "The risk score remained stable at 7.",
+        "The risk score decreased from 7 to 6."
+      ],
+      "correct": 1,
+      "explanation": "Risk is calculated as Likelihood × Consequence. Original: 3 × 4 = 12. New: 1 × 5 = 5. (Note: Risk scores in matrices are multiplicative, not additive)."
+    },
+    {
+      "id": "ch14-h09",
+      "stem": "When conducting asset identification, Stallings notes that assets are not just hardware and software. Which of the following is considered an 'Intangible Asset' whose loss might lead to 'Doomsday' consequences in a risk analysis?",
+      "choices": [
+        "Proprietary source code for a flagship product.",
+        "A database containing 10 million customer credit card numbers.",
+        "Corporate reputation and the trust of the investor community.",
+        "The automated climate control system in the data center."
+      ],
+      "correct": 2,
+      "explanation": "Reputation and trust are intangible assets. While source code and databases are critical, they are usually categorized as data assets. The loss of investor trust can lead to total organizational collapse (Doomsday)."
+    },
+    {
+      "id": "ch14-h10",
+      "stem": "The Plan-Do-Check-Act (PDCA) cycle is central to ISO 27001. In which phase does an organization perform internal audits and management reviews to identify 'non-conformities'?",
+      "choices": [
+        "Plan",
+        "Do",
+        "Check",
+        "Act"
+      ],
+      "correct": 2,
+      "explanation": "The 'Check' phase involves monitoring and reviewing the ISMS against the policy and objectives. This is where audits occur to verify that the controls (implemented in 'Do') are actually working."
+    },
+    {
+      "id": "ch14-h11",
+      "stem": "Which of the following is a specific reason why the 'Baseline Approach' is often unsuitable for high-value or unique IT systems?",
+      "choices": [
+        "It is too expensive to implement for large-scale infrastructures.",
+        "It fails to address specific vulnerabilities that arise from the unique configuration or purpose of the system.",
+        "It requires a high level of security expertise that most organizations lack.",
+        "It focuses exclusively on technical controls while ignoring physical security."
+      ],
+      "correct": 1,
+      "explanation": "The baseline approach uses 'one size fits all' best practices. While efficient for common systems, it cannot account for the unique threat landscape or specific design flaws of a specialized, high-value asset."
+    },
+    {
+      "id": "ch14-h12",
+      "stem": "In risk management, what is the primary distinction between 'Risk Transfer' and 'Risk Reduction'?",
+      "choices": [
+        "Transfer eliminates the vulnerability, while Reduction only lowers the impact.",
+        "Transfer shares the financial consequence with a third party, while Reduction implements controls to lower likelihood or impact.",
+        "Transfer is an administrative control, while Reduction is strictly a technical control.",
+        "Transfer is used for High risks, while Reduction is used for Low risks."
+      ],
+      "correct": 1,
+      "explanation": "Risk Transfer (e.g., insurance) does not change the physical risk; it changes who bears the burden of the loss. Risk Reduction involves active measures (controls) to change the risk level itself."
+    },
+    {
+      "id": "ch14-h13",
+      "stem": "An analyst identifies a vulnerability in a web server that allows SQL injection. The probability of an attacker exploiting this in the next year is 20%. The estimated cost of a successful breach is $500,000. What is the Annual Loss Expectancy (ALE) for this risk?",
+      "choices": [
+        "$20,000",
+        "$100,000",
+        "$250,000",
+        "$500,000"
+      ],
+      "correct": 1,
+      "explanation": "ALE = SLE (Single Loss Expectancy) × ARO (Annual Rate of Occurrence). Here, 0.20 × $500,000 = $100,000."
+    },
+    {
+      "id": "ch14-h14",
+      "stem": "If an organization decides to 'Accept' a risk, what is the prerequisite according to most security management standards?",
+      "choices": [
+        "The risk must be 'Low' or 'Insignificant' in the risk matrix.",
+        "The decision must be documented in the risk register and approved by the appropriate level of management.",
+        "The organization must first attempt at least one round of risk reduction.",
+        "The cost of the control must be exactly equal to the potential loss."
+      ],
+      "correct": 1,
+      "explanation": "Risk acceptance is a valid management strategy, but it must be an informed and formal decision. It is not limited to 'Low' risks (though common there), but it always requires documentation and management accountability."
+    },
+    {
+      "id": "ch14-h15",
+      "stem": "Which of the following scenarios best illustrates the concept of 'Vulnerability' as distinct from 'Threat'?",
+      "choices": [
+        "An earthquake occurs in a region where the data center is located.",
+        "An angry former employee attempts to brute-force a password.",
+        "A firewall rule that accidentally allows all traffic on port 22.",
+        "A phishing email is sent to the CEO's personal account."
+      ],
+      "correct": 2,
+      "explanation": "A vulnerability is a weakness in the system (the bad firewall rule). Earthquakes, former employees, and phishing emails are 'threats' or 'threat sources' that might exploit a vulnerability."
+    },
+    {
+      "id": "ch14-h16",
+      "stem": "During the Risk Analysis phase, 'Consequence' is often evaluated across multiple dimensions. Which of the following is a 'Consequence' related to the integrity of information?",
+      "choices": [
+        "The system is unavailable for 48 hours during peak business times.",
+        "Sensitive customer data is published on a public forum.",
+        "A malicious actor modifies financial records to hide embezzlement.",
+        "An administrator loses the encryption keys to the backup tapes."
+      ],
+      "correct": 2,
+      "explanation": "Integrity refers to the protection against unauthorized modification of data. Modifying financial records is a direct breach of integrity. System unavailability is an availability issue, and data publication is a confidentiality issue."
+    },
+    {
+      "id": "ch14-h17",
+      "stem": "The ISO 27002 standard is best described as:",
+      "choices": [
+        "A guide for conducting quantitative risk assessments using Monte Carlo simulations.",
+        "A set of mandatory requirements for legal compliance in the European Union.",
+        "A comprehensive catalog of security controls and best practices to help organizations implement ISO 27001.",
+        "A technical specification for configuring network firewalls and IDS."
+      ],
+      "correct": 2,
+      "explanation": "ISO 27002 provides the 'how-to' for the controls listed in Annex A of ISO 27001. It is a code of practice, not a set of mandatory legal requirements or a simulation guide."
+    },
+    {
+      "id": "ch14-h18",
+      "stem": "When prioritizing risks in a Risk Register, why might a 'Medium' risk be addressed before a 'High' risk?",
+      "choices": [
+        "The 'Medium' risk has a higher Likelihood but a lower Consequence.",
+        "The 'Medium' risk can be mitigated with a very low-cost, high-impact control ('low-hanging fruit').",
+        "The 'High' risk is associated with an asset that is scheduled for decommissioning in two years.",
+        "The 'Medium' risk was identified by senior management personally."
+      ],
+      "correct": 1,
+      "explanation": "While risk level is the primary driver for priority, security management also considers the cost-benefit ratio. 'Low-hanging fruit' (cheap, effective controls) are often implemented immediately regardless of risk level."
+    },
+    {
+      "id": "ch14-h19",
+      "stem": "Which document is the primary output of the Risk Treatment phase and serves as the ongoing 'roadmap' for security improvements?",
+      "choices": [
+        "The System Characterization Report",
+        "The Security Risk Treatment Plan",
+        "The Statement of Applicability (SoA)",
+        "The Incident Response Procedure"
+      ],
+      "correct": 1,
+      "explanation": "The Risk Treatment Plan (RTP) documents the selected treatment options, the resources required, and the timeline for implementation. The SoA is a related document in ISO 27001 that lists which controls are applied, but the RTP is the actual roadmap."
+    },
+    {
+      "id": "ch14-h20",
+      "stem": "In the 'Act' phase of the PDCA model, if a 'Check' phase audit found that employees are not following the new password policy, what is the most appropriate action?",
+      "choices": [
+        "Restart the 'Plan' phase to create a more lenient password policy.",
+        "Implement a technical enforcement control (like a GPO) to force compliance.",
+        "Immediately terminate the employees who failed the audit.",
+        "Conduct a new Detailed Risk Analysis to see if the threat has changed."
+      ],
+      "correct": 1,
+      "explanation": "The 'Act' phase is for corrective and preventive actions. If a policy isn't being followed (non-conformity), the organization should take steps to ensure it is followed in the future, such as implementing technical enforcements."
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "chapter": 17,
+  "title": "Human Resources Security",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch17-h01",
+      "stem": "An organization implementing a NIST SP 800-50 compliant program wants to measure the effectiveness of its security curriculum. According to the NIST learning continuum, which metric is most appropriate for assessing the 'Training' level?",
+      "choices": [
+        "The ability of an employee to identify security terms in a multiple-choice format.",
+        "The successful application of specific skills to solve a practical security problem.",
+        "The depth of a student's insight as demonstrated in a multidisciplinary essay.",
+        "The frequency with which employees report seeing security posters or newsletters."
+      ],
+      "correct": 1,
+      "explanation": "According to Table 17.1, the 'Training' level focuses on 'Skill' and uses 'Problem solving' as a test measure to verify that the employee can apply what they learned. Choice (a) describes the 'Awareness' level (Recognition), and Choice (c) describes 'Education' (Understanding/Insight)."
+    },
+    {
+      "id": "ch17-h02",
+      "stem": "In the context of the NIST learning continuum, how does the 'Cybersecurity Basics and Literacy' level differ from the 'Security Awareness' level?",
+      "choices": [
+        "Awareness is mandatory for all employees, whereas Literacy is only for IT professionals.",
+        "Awareness focuses on behavior and recognition, while Literacy provides a universal baseline of technical terms for all IT users.",
+        "Literacy uses media like posters and videos, whereas Awareness requires practical hands-on workshops.",
+        "Awareness has a long-term impact timeframe, while Literacy is intended for immediate, short-term impact."
+      ],
+      "correct": 1,
+      "explanation": "Security awareness is intended for the entire workforce and focuses on recognition and behavior. Literacy (Level 2) targets all users of IT systems and provides a baseline of key security terms and concepts to prepare them for more specialized training. Awareness actually has a 'Short term' impact timeframe compared to the intermediate impact of training/literacy."
+    },
+    {
+      "id": "ch17-h03",
+      "stem": "A large corporation is revising its termination policy. To prevent the creation of 'backdoor' accounts by departing IT staff, which specific control is most effective when used alongside immediate access revocation?",
+      "choices": [
+        "Conducting an exit interview to discuss the employee's reasons for leaving.",
+        "Requiring the return of physical assets like building IDs and laptops.",
+        "Performing a technical audit to ensure no rogue administrative accounts were created.",
+        "Notifying the security guards to deny the ex-employee entry to the building."
+      ],
+      "correct": 2,
+      "explanation": "While all options are parts of a termination procedure, the text specifically notes that for IT personnel, the organization must ensure no 'rogue admin accounts' were created. This is a technical control necessary to prevent persistent unauthorized access that access revocation alone might miss."
+    },
+    {
+      "id": "ch17-h04",
+      "stem": "An employee is discovered using the company's high-speed network to host a personal blog that criticizes a competitor. Which section of a standard Acceptable Use Policy (AUP) would this behavior most likely violate, assuming the blog does not reveal proprietary data?",
+      "choices": [
+        "Security and Proprietary Information",
+        "General Use and Ownership",
+        "Unacceptable Use—Blogging and Social Media",
+        "Unacceptable Use—Email and Communication Activities"
+      ],
+      "correct": 2,
+      "explanation": "Standard AUP templates (like the SANS template mentioned in the text) have a specific section for 'Blogging and Social Media' which prohibits blogging that may harm or tarnish the image or reputation of the company or is otherwise detrimental to its interests."
+    },
+    {
+      "id": "ch17-h05",
+      "stem": "During a security audit, it is found that a system administrator also has the authority to review and delete audit logs. This configuration directly violates which personnel security principle?",
+      "choices": [
+        "Least Privilege",
+        "Separation of Duties",
+        "Dual Operator Policy",
+        "Mandatory Vacations"
+      ],
+      "correct": 1,
+      "explanation": "Separation of duties ensures that individuals involved in checking for inappropriate use (auditing) are not the same individuals capable of performing that use (administration). If an admin can delete logs, they can hide their own malicious activities, which is the exact scenario separation of duties is designed to prevent."
+    },
+    {
+      "id": "ch17-h06",
+      "stem": "A CSIRT receives a report from a user about a computer behaving strangely. The triage function determines the report describes a known phishing campaign and assigns it a high priority. What is the triage function's primary role in this scenario?",
+      "choices": [
+        "To perform a deep forensic analysis of the user's hard drive for artifacts.",
+        "To serve as a single point of contact and prioritize the report for response.",
+        "To rebuild the affected system and patch the vulnerabilities.",
+        "To feed the incident data back into the risk management process."
+      ],
+      "correct": 1,
+      "explanation": "The triage function's primary goal is to be the single point of contact, receive information, sort it, and prioritize it so that it can be handled appropriately. Deep analysis and system rebuilding are 'Response' activities, not triage."
+    },
+    {
+      "id": "ch17-h07",
+      "stem": "According to the incident handling life cycle, what is the critical 'feedback' mechanism that ensures an organization's security posture improves over time?",
+      "choices": [
+        "The use of automated IDS tools to block future attacks.",
+        "The triage process's ability to categorize incidents accurately.",
+        "The documentation and post-incident analysis fed into the risk management process.",
+        "The signing of an AUP by every employee upon hiring."
+      ],
+      "correct": 2,
+      "explanation": "The text emphasizes that post-incident analysis identifies vulnerabilities and this information is fed back into the risk management process to strengthen controls. This is the primary way the organization learns from incidents to prevent recurrence."
+    },
+    {
+      "id": "ch17-h08",
+      "stem": "An organization is concerned about potential 'insider' fraud in its financial department. Which combination of controls would provide both a preventative and a detective measure against this threat?",
+      "choices": [
+        "Least Privilege and Nondisclosure Agreements",
+        "Separation of Duties and Mandatory Vacations",
+        "Background Checks and Security Awareness Training",
+        "AUP Signing and Dual Operator Policy"
+      ],
+      "correct": 1,
+      "explanation": "Separation of duties is a preventative control (making it harder for one person to commit fraud). Mandatory vacations are a detective control (exposing fraud because the perpetrator isn't there to cover their tracks). Background checks and AUPs are important but don't specifically target the detection of active fraud in this way."
+    },
+    {
+      "id": "ch17-h09",
+      "stem": "In the NIST learning continuum, 'Security Education' is characterized by which of the following teaching methods and objectives?",
+      "choices": [
+        "Media-based teaching aimed at simple recognition of security issues.",
+        "Practical instruction aimed at developing technical skills for a specific role.",
+        "Theoretical instruction, such as seminars and background reading, aimed at providing deep insight.",
+        "Automated newsletters and posters aimed at keeping security 'top of mind'."
+      ],
+      "correct": 2,
+      "explanation": "Table 17.1 (Comparative Framework) explicitly links 'Education' with 'Theoretical instruction' (Discussion, Reading) and the objective of 'Understanding' or 'Insight'. Media-based methods are for Awareness, and practical instruction is for Training."
+    },
+    {
+      "id": "ch17-h10",
+      "stem": "An HR manager is screening candidates for a database administrator position with access to sensitive customer data. Why might the manager perform a credit record check as part of a HARD-difficulty background screening?",
+      "choices": [
+        "To ensure the candidate has enough money to buy their own equipment.",
+        "To identify large personal debt that could serve as a motivation for fraudulent activity.",
+        "To verify that the candidate's educational history is accurate.",
+        "To comply with the principle of least privilege."
+      ],
+      "correct": 1,
+      "explanation": "The text notes that for sensitive positions, checking credit records can reveal financial strain, which may make an employee more likely to act improperly (e.g., through bribery or embezzlement). It is a risk-based screening tool."
+    },
+    {
+      "id": "ch17-h11",
+      "stem": "Which of the following describes an 'Artifact' in the context of CSIRT operations?",
+      "choices": [
+        "A policy document that has been violated during an attack.",
+        "Any file or object, such as a malware sample or exploit script, involved in an attack.",
+        "A historical record of a security incident stored in a database.",
+        "A hardware device that has been physically damaged during a breach."
+      ],
+      "correct": 1,
+      "explanation": "According to the glossary and Table 17.2, an artifact is any file or object found on a system that might be involved in probing or attacking systems, such as viruses, worms, or toolkits."
+    },
+    {
+      "id": "ch17-h12",
+      "stem": "When considering the 'Information Flow for Incident Handling,' what is typically passed FROM the Incident Handling service TO the Risk Analysis function?",
+      "choices": [
+        "New attack profiles to consider for future research.",
+        "Warnings of current attack scenarios in progress.",
+        "Statistics or scenarios of actual losses incurred during incidents.",
+        "Instructions on how to recognize specific malware signatures."
+      ],
+      "correct": 2,
+      "explanation": "Table 17.3 shows that Information Flow from Incident Handling to Risk Analysis consists of 'Statistics or scenarios of loss'. This data helps Risk Analysis update the organization's risk profile based on real-world impact."
+    },
+    {
+      "id": "ch17-h13",
+      "stem": "A security awareness program designer wants to use 'in-house' materials. Which of the following is an example of an in-house communication method specifically listed in the text for reinforcing security policy?",
+      "choices": [
+        "E-mail advisories from an industry-hosted news group.",
+        "A security handbook specifically geared toward awareness for all employees.",
+        "Daily news updates from an external IT security website.",
+        "Conferences and seminars held by professional organizations."
+      ],
+      "correct": 1,
+      "explanation": "The text lists 'Security handbook' as an in-house material. The other options (industry groups, news websites, professional conferences) are categorized as 'externally obtained information and materials'."
+    },
+    {
+      "id": "ch17-h14",
+      "stem": "An organization experiences a massive DDoS attack. The CSIRT must decide whether to disconnect the company from the Internet. According to the text, why is a predefined incident response policy critical in this situation?",
+      "choices": [
+        "To automate the disconnection process using an Intrusion Prevention System.",
+        "To provide the CSIRT with the legal authority to sue the attackers.",
+        "To specify the management personnel responsible for making critical trade-off decisions under pressure.",
+        "To eliminate the need for any manual intervention during the attack."
+      ],
+      "correct": 2,
+      "explanation": "The text highlights that during a serious incident, personnel may not have the info to make critical decisions (like trading off connectivity for security). A good policy specifies who has the responsibility to make these decisions and how to contact them quickly."
+    },
+    {
+      "id": "ch17-h15",
+      "stem": "Which personnel security control is specifically aimed at preventing a single employee from possessing 'unique' knowledge or skills that could jeopardize the organization if they leave unexpectedly?",
+      "choices": [
+        "Separation of Duties",
+        "Limited Reliance on Key Employees",
+        "Dual Operator Policy",
+        "Mandatory Vacations"
+      ],
+      "correct": 1,
+      "explanation": "The principle of 'Limited reliance on key employees' suggests that redundancy should be built into the employee structure so that no single individual has unique, indispensable knowledge. This mitigates the risk of unexpected departure or illness."
+    },
+    {
+      "id": "ch17-h16",
+      "stem": "An Acceptable Use Policy (AUP) is often required to be signed by employees as a condition of employment. What is the primary legal benefit to the organization for this requirement?",
+      "choices": [
+        "It guarantees that the employee will never commit a security error.",
+        "It provides evidence that the employee was informed of their responsibilities, mitigating the company's liability.",
+        "It allows the company to monitor the employee's personal home network.",
+        "It replaces the need for background checks and screening."
+      ],
+      "correct": 1,
+      "explanation": "Signing the AUP ensures the employee is legally and contractually bound to follow guidelines. If a breach occurs due to employee negligence, a clear and signed policy can help mitigate the organization's liability by showing they took 'due care'."
+    },
+    {
+      "id": "ch17-h17",
+      "stem": "According to the NIST learning continuum, which of the following is a primary purpose of 'Role-Based Training' for a system developer?",
+      "choices": [
+        "Teaching the developer how to recognize phishing e-mails.",
+        "Informing the developer of the company's password length requirements.",
+        "Teaching the developer how attackers exploit software and how to build in security checkpoints.",
+        "Providing the developer with a broad multidisciplinary study of security principles."
+      ],
+      "correct": 2,
+      "explanation": "Role-based training for developers focuses on technical skills like building security into the development life cycle and understanding how software is exploited. General awareness (phishing) and education (multidisciplinary study) have different scopes."
+    },
+    {
+      "id": "ch17-h18",
+      "stem": "A CSIRT is analyzing logs and discovers a precursor to an attack. Which automated tool is specifically designed to analyze logs using pattern recognition to identify such security incidents?",
+      "choices": [
+        "System integrity verifier",
+        "Log analysis tools",
+        "Host-based IDS",
+        "Network-based IDS"
+      ],
+      "correct": 1,
+      "explanation": "While IDS also analyzes activity, the text specifically defines 'Log analysis tools' as those that 'Analyze the information collected in audit logs using some form of pattern recognition'."
+    },
+    {
+      "id": "ch17-h19",
+      "stem": "In the 'During Employment' phase, the 'Dual Operator' policy is most closely related to which other security concept?",
+      "choices": [
+        "Least Privilege",
+        "Two-person control",
+        "Security Awareness",
+        "Background Screening"
+      ],
+      "correct": 1,
+      "explanation": "The text states: 'A similar policy is two-person control, which requires that two employees approve each other’s work.' Both fall under the broader umbrella of ensuring no single individual can perform critical tasks in isolation."
+    },
+    {
+      "id": "ch17-h20",
+      "stem": "Which of the following is a 'Response' activity within the CSIRT framework, as opposed to a 'Triage' or 'Detection' activity?",
+      "choices": [
+        "Scanning system files for unauthorized changes.",
+        "Requesting additional information to categorize an incoming report.",
+        "Patching or repairing systems affected by an incident.",
+        "Prioritizing incoming reports based on their severity."
+      ],
+      "correct": 2,
+      "explanation": "Patching and repairing systems are listed under 'Response' activities. Scanning is 'Detection', and requesting info or prioritizing reports are 'Triage' functions."
+    }
+  ]
+}

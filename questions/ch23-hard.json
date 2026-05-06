@@ -1,0 +1,247 @@
+{
+  "chapter": 23,
+  "title": "Internet Authentication Applications",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch23-h01",
+      "stem": "In Kerberos v4, the Authentication Server (AS) response to a client contains a ticket-granting ticket (TGT) and a session key ($K_{c,tgs}$). Which statement accurately describes the encryption used for these two components?",
+      "choices": [
+        "The TGT is encrypted with the user's password-derived key, and the session key is encrypted with the TGS's secret key.",
+        "Both the TGT and the session key are encrypted with a single key derived from the user's password.",
+        "The TGT is encrypted with the TGS's secret key, while the session key is encrypted with the user's password-derived key.",
+        "The TGT is encrypted with the AS's private key, and the session key is encrypted with the client's public key."
+      ],
+      "correct": 2,
+      "explanation": "The TGT must be opaque to the client and is encrypted with the secret key shared between the AS and TGS. The session key must be accessible to the client, so it is encrypted with the user's password-derived key. The TGT is not encrypted with the user's key because that would allow the client to tamper with its internal fields."
+    },
+    {
+      "id": "ch23-h02",
+      "stem": "A Kerberos v5 environment is configured to allow 'authentication forwarding.' When a client grants a print server the right to access a file server on its behalf, which mechanism is technically employed?",
+      "choices": [
+        "The client sends its cleartext password to the print server, which then performs a fresh AS logon.",
+        "The client obtains a 'forwardable' TGT from the AS and sends it to the print server, which then requests a service ticket for the file server.",
+        "The AS issues a cross-realm ticket that identifies the print server as an authorized proxy for the user.",
+        "The TGS issues a session key to the print server that is identical to the one held by the client, bypassing the need for a new ticket."
+      ],
+      "correct": 1,
+      "explanation": "Authentication forwarding in Kerberos v5 allows a client to request a forwardable TGT. This ticket is sent to the intermediate server (print server), which can then use it to request service tickets for other servers (file server) as if it were the client. Simply sharing session keys would not provide the necessary ticket-based proof for the second server."
+    },
+    {
+      "id": "ch23-h03",
+      "stem": "In the Kerberos protocol, what is the precise functional difference between a 'ticket' and an 'authenticator' regarding replay protection?",
+      "choices": [
+        "Tickets are used only once, while authenticators are reusable for the duration of a session.",
+        "Tickets are reusable for a specified lifetime, while authenticators are intended for a single use and have a very short validity window.",
+        "Authenticators protect against server impersonation, while tickets protect against client impersonation.",
+        "Tickets contain the user's network address to prevent replay, while authenticators rely solely on a sequence number."
+      ],
+      "correct": 1,
+      "explanation": "Tickets are reusable so that users don't have to re-authenticate for every transaction. Authenticators, which include a timestamp, are created for each request to prove current possession of the session key, mitigating the risk of an attacker replaying a captured ticket later. Both contain address information, but only the authenticator's short life and single-use intent effectively block replays."
+    },
+    {
+      "id": "ch23-h04",
+      "stem": "An organization transitions from Kerberos v4 to v5 to support more flexible cryptographic standards. Which change in the message format enables this 'crypto-agility'?",
+      "choices": [
+        "The removal of the timestamp field to allow for slower, more complex asymmetric algorithms.",
+        "The inclusion of explicit encryption algorithm identifiers for all encrypted fields.",
+        "The shift from a 56-bit DES-only structure to a mandatory 2048-bit RSA structure.",
+        "The replacement of the Ticket-Granting Server with a Certificate Authority."
+      ],
+      "correct": 1,
+      "explanation": "Kerberos v4 was hard-coded to use DES. Version 5 introduced algorithm identifiers (tags) that specify which encryption algorithm is being used, allowing the protocol to support AES, Camellia, and other algorithms without changing the underlying protocol logic."
+    },
+    {
+      "id": "ch23-h05",
+      "stem": "In Kerberos interrealm authentication, User A in Realm 1 needs to access Server B in Realm 2. Which sequence best describes the ticket acquisition process?",
+      "choices": [
+        "User A requests a service ticket for Server B directly from the AS of Realm 2.",
+        "User A uses their Realm 1 TGT to request a remote TGT for Realm 2's TGS from Realm 1's TGS.",
+        "Realm 1's AS communicates with Realm 2's AS over a secure channel to generate a cross-realm session key for the user.",
+        "User A obtains a local service ticket from Realm 1's TGS, which is then 'cross-certified' by the RA of Realm 2."
+      ],
+      "correct": 1,
+      "explanation": "Interrealm authentication requires a chain of trust. The client first obtains a TGT for the remote TGS from its local TGS. The local TGS can issue this because it shares a secret key with the remote TGS. The client then presents this remote TGT to the Realm 2 TGS to get the final service ticket."
+    },
+    {
+      "id": "ch23-h06",
+      "stem": "X.509 Version 3 introduced 'Extensions.' If a certificate is intended to be used by a Certificate Authority (CA) to sign other certificates, which extension and value MUST be present and verified?",
+      "choices": [
+        "Key Usage: Digital Signature",
+        "Subject Alternative Name: DNS Name",
+        "Basic Constraints: cA=TRUE",
+        "Extended Key Usage: Server Authentication"
+      ],
+      "correct": 2,
+      "explanation": "The 'Basic Constraints' extension contains a boolean 'cA' flag. If this is not set to TRUE, the certificate is considered an 'end-entity' certificate and relying parties should not accept it as a valid signer of other certificates. 'Key Usage: Digital Signature' is often present but is not specific to CAs."
+    },
+    {
+      "id": "ch23-h07",
+      "stem": "When a Certificate Authority (CA) is part of a Public Key Infrastructure (PKI), what is the specific role of the Registration Authority (RA)?",
+      "choices": [
+        "It performs the cryptographic signing of the certificates to ensure non-repudiation.",
+        "It hosts the public repository where certificates and CRLs are published for retrieval.",
+        "It verifies the identity of the applicant and ensures the validity of the certificate request before the CA signs it.",
+        "It acts as a responder for OCSP queries to provide real-time revocation status."
+      ],
+      "correct": 2,
+      "explanation": "The RA handles the administrative and 'out-of-band' verification of an entity's identity (e.g., checking passports or corporate credentials). It does not sign the certificates itself; it offloads the identity verification burden from the CA, which remains the sole signer."
+    },
+    {
+      "id": "ch23-h08",
+      "stem": "A security auditor notices that a company's X.509 certificates are still using SHA-1 for digital signatures. Why is this considered a high-risk finding even if the RSA key size is 4096 bits?",
+      "choices": [
+        "SHA-1 is incompatible with RSA keys larger than 1024 bits.",
+        "Collision attacks on SHA-1 allow an attacker to create a second, malicious certificate with the same hash as a legitimate one.",
+        "SHA-1 signatures cannot be included in the X.509 Version 3 extension field.",
+        "SHA-1 does not support the encryption of the Subject Public Key Info field."
+      ],
+      "correct": 1,
+      "explanation": "Digital signatures in X.509 are created by hashing the certificate content and then signing the hash. If the hash algorithm (SHA-1) is vulnerable to collisions, an attacker can generate two different certificates (one legitimate, one malicious) that produce the same hash. The CA's signature on the legitimate hash would then appear valid for the malicious certificate as well."
+    },
+    {
+      "id": "ch23-h09",
+      "stem": "In the PKIX management framework, what is the distinction between 'Key Pair Recovery' and 'Key Pair Update'?",
+      "choices": [
+        "Recovery happens when a certificate expires; Update happens when a key is lost.",
+        "Recovery allows a CA to restore a lost private key from a backup; Update issues a new key pair when the old one reaches the end of its life.",
+        "Recovery is for public keys only; Update is for private keys only.",
+        "Recovery is an automated process, while Update requires a manual Registration Authority verification."
+      ],
+      "correct": 1,
+      "explanation": "Key Pair Recovery is a service where the PKI provider (often using an escrow system) helps a user regain access to an existing private key they have lost. Key Pair Update is the routine process of replacing a valid, known key pair with a new one because the old one's lifecycle is ending or to maintain security policy."
+    },
+    {
+      "id": "ch23-h10",
+      "stem": "A client application receives an X.509 certificate that it needs to validate. If the application uses the Online Certificate Status Protocol (OCSP) instead of a Certificate Revocation List (CRL), what advantage does it gain?",
+      "choices": [
+        "It no longer needs to verify the CA's signature on the certificate.",
+        "It receives a real-time 'good/revoked/unknown' status for a specific certificate without downloading a large file of all revoked certificates.",
+        "OCSP provides the full certificate chain, eliminating the need for a local trust store.",
+        "OCSP uses asymmetric encryption to protect the certificate's public key from eavesdropping."
+      ],
+      "correct": 1,
+      "explanation": "CRLs can become very large and are often only updated periodically. OCSP is a request/response protocol that allows a client to check the status of a single, specific certificate in real-time, which is much more efficient than fetching and parsing a massive list of all serial numbers revoked by that CA."
+    },
+    {
+      "id": "ch23-h11",
+      "stem": "Consider a Kerberos v4 scenario where an attacker captures a Ticket-Granting Ticket (TGT) and the corresponding session key ($K_{c,tgs}$) by compromising a user's workstation. Which factor most limits the attacker's ability to use these credentials from a different machine?",
+      "choices": [
+        "The TGT is encrypted with the user's password, which the attacker does not have.",
+        "The TGT contains the network address of the original client, and the TGS compares this against the source of the request.",
+        "The TGT has no timestamp, so the attacker must use it within seconds before it expires.",
+        "The TGS uses a challenge-response protocol that requires the client to solve a puzzle using the AS's public key."
+      ],
+      "correct": 1,
+      "explanation": "Kerberos tickets (including TGTs) include the network address of the client to whom they were issued. When the TGS receives a ticket, it compares the address inside the ticket with the network address of the sender. If they don't match, the request is rejected, forcing an attacker to also spoof the victim's IP address."
+    },
+    {
+      "id": "ch23-h12",
+      "stem": "In the context of X.509 certificates, what is a 'Proxy Certificate' (defined in RFC 3820) typically used for?",
+      "choices": [
+        "To allow a web proxy to intercept and decrypt SSL traffic for inspection.",
+        "To allow an end-entity to delegate its identity and subset of rights to a process or service (e.g., in grid computing).",
+        "To provide a temporary certificate for users who have forgotten their smart cards.",
+        "To allow a CA to delegate its signing authority to a subordinate RA."
+      ],
+      "correct": 1,
+      "explanation": "Proxy certificates allow a user to sign a temporary certificate with their own private key, delegating a restricted set of their permissions to a software agent or remote job. This is common in high-performance or grid computing where a long-running process needs to authenticate to other resources on the user's behalf without having the user's full, long-term private key."
+    },
+    {
+      "id": "ch23-h13",
+      "stem": "The PKIX model defines 'Cross-Certification.' Why might two CAs choose to issue cross-certificates to each other?",
+      "choices": [
+        "To merge their respective databases into a single, unified Kerberos realm.",
+        "To allow users trusted by one CA to be automatically trusted by entities that trust the other CA.",
+        "To synchronize their Certificate Revocation Lists to prevent 'split-brain' revocation status.",
+        "To enable the use of SHA-3 signatures on legacy X.509 Version 1 certificates."
+      ],
+      "correct": 1,
+      "explanation": "Cross-certification establishes a trust path between different PKI domains. By signing each other's public keys, CA 1 and CA 2 allow their respective 'islands of trust' to interoperate, enabling a user in CA 1's domain to be verified by a relying party in CA 2's domain."
+    },
+    {
+      "id": "ch23-h14",
+      "stem": "During a Kerberos logon, the client receives a message from the AS and immediately prompts the user for a password. What is the client's goal in doing this?",
+      "choices": [
+        "To transmit the password to the AS for verification against the master database.",
+        "To generate a cryptographic key used to decrypt the TGT and the session key sent by the AS.",
+        "To prove to the local operating system that the user is physically present at the console.",
+        "To hash the password and store it in the 'Authenticator' field for the subsequent TGS request."
+      ],
+      "correct": 1,
+      "explanation": "The AS sends back the TGT and session key encrypted with a key derived from the user's password. The client needs the password to derive that same key locally so it can decrypt the AS response. This avoids sending the password (or even its hash) over the network."
+    },
+    {
+      "id": "ch23-h15",
+      "stem": "An X.509 Attribute Certificate differs from a conventional public-key certificate primarily because:",
+      "choices": [
+        "It does not contain a public key and is used solely for authorization rather than identity binding.",
+        "It is signed by a Registration Authority instead of a Certificate Authority.",
+        "It uses symmetric encryption (AES) for the signature instead of asymmetric encryption.",
+        "It is valid only for a single transaction and expires in seconds."
+      ],
+      "correct": 0,
+      "explanation": "Attribute certificates are designed for 'Privilege Management.' They link a set of attributes (like 'Manager' or 'AllowedAccess=FileSvr1') to a user's identity but do not carry the user's public key. The user typically presents their conventional identity certificate for authentication and the attribute certificate for authorization."
+    },
+    {
+      "id": "ch23-h16",
+      "stem": "In Kerberos v5, what is the role of the 'subkey' field in the authenticator or the session request?",
+      "choices": [
+        "It provides a backup session key in case the primary one is compromised.",
+        "It allows the client and server to negotiate a specific, narrower session key for a particular sub-session or connection.",
+        "It is used to encrypt the 'Transited' field during interrealm authentication.",
+        "It identifies which version of the Kerberos protocol (v4 or v5) is being used."
+      ],
+      "correct": 1,
+      "explanation": "Kerberos v5 allows the client and server to establish a 'subkey' to be used for a specific session. This provides finer-grained control and ensures that if a sub-session key is leaked, it doesn't necessarily compromise the entire long-term service session key."
+    },
+    {
+      "id": "ch23-h17",
+      "stem": "When a client sends a service request to an application server in Kerberos, it includes a ticket and an authenticator. Why is the authenticator encrypted with the *service session key* ($K_{c,v}$) rather than the user's password?",
+      "choices": [
+        "Because the application server does not know the user's password, but it does know the session key from the ticket.",
+        "To prevent the TGS from eavesdropping on the communication between the client and the server.",
+        "Because the user's password-derived key is only valid for communication with the AS.",
+        "To ensure that the timestamp is visible to the network administrator for auditing purposes."
+      ],
+      "correct": 0,
+      "explanation": "The application server ($V$) recovers the session key ($K_{c,v}$) by decrypting the ticket using its own secret key. It then uses that session key to decrypt the authenticator. The application server never knows the user's password; only the AS and the user's client possess that information."
+    },
+    {
+      "id": "ch23-h18",
+      "stem": "In the PKIX model, what does the 'Certification' management function refer to?",
+      "choices": [
+        "The process of a user manually verifying the fingerprint of a CA's root certificate.",
+        "The act of a CA issuing a certificate for an end-entity's public key after a successful registration.",
+        "The audit process used to verify that a CA is following its Certificate Policy.",
+        "The encryption of a CRL to ensure its confidentiality during transit to the repository."
+      ],
+      "correct": 1,
+      "explanation": "Certification is the technical step in the PKI lifecycle where the CA takes the verified information from the Registration phase and cryptographically signs the public key and identity data to create the actual X.509 certificate."
+    },
+    {
+      "id": "ch23-h19",
+      "stem": "A Kerberos realm is defined as 'a set of managed nodes that share the same Kerberos database.' What is the primary security implication of this shared database?",
+      "choices": [
+        "Any user in the realm can read the passwords of any other user.",
+        "The Kerberos server (KDC) is a single point of failure and a high-value target because it contains all secret keys.",
+        "Encryption is unnecessary within a realm because all nodes are inherently trusted.",
+        "Tickets generated in one realm can be decrypted by any application server in any other realm."
+      ],
+      "correct": 1,
+      "explanation": "Since the KDC (AS and TGS) holds the secret keys for every user and every server in the realm, its compromise would mean the compromise of the entire realm's security. It is a 'trusted third party' and thus represents a central point of attack."
+    },
+    {
+      "id": "ch23-h20",
+      "stem": "If an X.509 certificate's 'Validity Period' has not yet expired, but the 'Next Update' field in the CA's most recent CRL has passed, what should a secure application do?",
+      "choices": [
+        "Accept the certificate as valid because it has not reached its expiration date.",
+        "Reject the certificate (or treat it with high suspicion) because the revocation information is stale and cannot be verified.",
+        "Automatically renew the certificate's validity period for another month.",
+        "Ignore the CRL and attempt to contact the Registration Authority for a manual override."
+      ],
+      "correct": 1,
+      "explanation": "A secure application must ensure it has up-to-date revocation information. If a CRL is past its 'Next Update' time, it is considered stale. The application cannot be certain that the certificate hasn't been revoked in the interval since the CRL was published, so it should treat the status as uncertain/invalid."
+    }
+  ]
+}

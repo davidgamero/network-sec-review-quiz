@@ -100,6 +100,43 @@ a:hover { color: var(--accent-hover); }
   user-select: none;
 }
 .filter-row input { accent-color: var(--accent); }
+.diff-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  flex-wrap: wrap;
+}
+.diff-label { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.diff-group { display: inline-flex; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.diff-btn {
+  background: var(--panel-2);
+  color: var(--text);
+  border: none;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-right: 1px solid var(--border);
+}
+.diff-btn:last-child { border-right: none; }
+.diff-btn:hover { background: #2a3540; }
+.diff-btn.active { background: var(--accent); color: #fff; }
+.badge {
+  display: inline-block;
+  background: var(--panel-2);
+  color: var(--muted);
+  font-size: 0.7rem;
+  padding: 1px 6px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-left: 4px;
+  font-weight: 400;
+}
+.badge.hard { background: #3a2a1d; color: var(--warn); border-color: #5a3a1d; }
 .chapter-card {
   background: var(--panel);
   border: 1px solid var(--border);

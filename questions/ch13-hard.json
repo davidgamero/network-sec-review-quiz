@@ -1,0 +1,247 @@
+{
+  "chapter": 13,
+  "title": "Cloud and IoT Security",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "id": "ch13-h01",
+      "stem": "An organization utilizes a cloud service where they manage the application software and some environment configurations, while the provider manages the underlying operating system, runtime libraries, and server hardware. According to the NIST Cloud Computing Reference Architecture, which actor is primarily responsible for the security of the runtime execution stack in this specific scenario?",
+      "choices": [
+        "Cloud Service Consumer (CSC)",
+        "Cloud Service Provider (CSP)",
+        "Cloud Broker",
+        "Cloud Auditor"
+      ],
+      "correct": 1,
+      "explanation": "This scenario describes a Platform as a Service (PaaS) model. In PaaS, the CSP is responsible for the platform itself, which includes the operating system and the runtime execution stack (libraries, middleware). The CSC is only responsible for the applications they deploy and possibly limited configuration settings."
+    },
+    {
+      "id": "ch13-h02",
+      "stem": "Under the NIST definition of 'Resource Pooling,' a consumer generally has no control or knowledge of the exact location of the resources provided. However, at which level of abstraction might a consumer still be able to specify location requirements?",
+      "choices": [
+        "Physical rack and server slot",
+        "Virtual machine instance ID",
+        "Country, state, or data center",
+        "No location specification is possible in a true cloud model"
+      ],
+      "correct": 2,
+      "explanation": "NIST specifies that while resource pooling involves a degree of location independence, consumers may be able to specify location at a higher level of abstraction such as country, state, or data center for compliance or latency reasons. Direct control over physical hardware (choice a) is contrary to the cloud model."
+    },
+    {
+      "id": "ch13-h03",
+      "stem": "A security architect is evaluating the 'Shared Technology Issues' threat identified by the Cloud Security Alliance. Which specific architectural component is the primary source of this risk in a multi-tenant IaaS environment?",
+      "choices": [
+        "The lack of strong encryption in the Cloud Carrier's network",
+        "Inadequate identity provisioning in the SaaS application layer",
+        "Vulnerabilities in the hypervisor or components like CPU caches not designed for strong isolation",
+        "The use of public blacklists to monitor network blocks"
+      ],
+      "correct": 2,
+      "explanation": "Shared technology issues arise because the underlying hardware (CPU caches, GPUs) and the virtualization layer (hypervisors) were often not originally designed to provide the total isolation required for multi-tenancy. This can allow one tenant to potentially bypass logical barriers and access another tenant's data."
+    },
+    {
+      "id": "ch13-h04",
+      "stem": "In the NIST Cloud Computing Reference Architecture, a 'Cloud Broker' provides 'Service Arbitrage.' How does this specifically differ from 'Service Aggregation'?",
+      "choices": [
+        "Arbitrage involves negotiating lower prices, while aggregation involves technical integration.",
+        "Arbitrage allows the broker to choose between multiple CSPs dynamically, while aggregation uses a fixed set of services.",
+        "Arbitrage is performed by the Cloud Carrier, while aggregation is performed by the CSP.",
+        "Arbitrage focuses on security audits, while aggregation focuses on performance reporting."
+      ],
+      "correct": 1,
+      "explanation": "Service Arbitrage is similar to aggregation, but the services being combined are not fixed. The broker has the flexibility to choose from multiple agencies or CSPs based on criteria like current credit scores or performance metrics at the time of the request."
+    },
+    {
+      "id": "ch13-h05",
+      "stem": "Which 'Essential Characteristic' of cloud computing is most directly responsible for enabling 'Cloud Bursting' in a hybrid cloud deployment?",
+      "choices": [
+        "Measured Service",
+        "Broad Network Access",
+        "Rapid Elasticity",
+        "On-demand Self-service"
+      ],
+      "correct": 2,
+      "explanation": "Cloud bursting is a configuration where a private cloud 'bursts' into a public cloud to handle peaks in IT demand. This is enabled by Rapid Elasticity, which allows the consumer to expand and reduce resources according to specific service requirements dynamically."
+    },
+    {
+      "id": "ch13-h06",
+      "stem": "A company moves its database to a cloud provider that uses a 'multi-instance' model instead of a 'multi-tenant' model. What is the primary security implication of this choice for the consumer?",
+      "choices": [
+        "The consumer loses the ability to define custom database roles and permissions.",
+        "The consumer gains complete control over the DBMS running on a dedicated VM instance.",
+        "The consumer must rely entirely on the CSP's internal tagging system to isolate their data.",
+        "The consumer no longer needs to worry about SQL injection vulnerabilities."
+      ],
+      "correct": 1,
+      "explanation": "In a multi-instance model, the CSP provides a unique DBMS running on a VM instance for each subscriber, granting them complete administrative control over role definition and user authorization. A multi-tenant model (choice c) relies on the CSP's tagging and shared instance for isolation."
+    },
+    {
+      "id": "ch13-h07",
+      "stem": "The Cloud Security Alliance defines SecaaS as providing security from the cloud to a customer's on-premise systems or to cloud-based infrastructure. Which SecaaS category is specifically responsible for 'Identity Provisioning' and 'Deprovisioning'?",
+      "choices": [
+        "Security Information and Event Management (SIEM)",
+        "Intrusion Management",
+        "Identity and Access Management (IAM)",
+        "Security Assessments"
+      ],
+      "correct": 2,
+      "explanation": "Identity and access management (IAM) includes the processes for providing access to identified users (provisioning) and denying access when they are no longer authorized (deprovisioning), as well as managing authentication and authorization."
+    },
+    {
+      "id": "ch13-h08",
+      "stem": "OpenStack's security module, Keystone, provides 'Token' services. What is the primary purpose of these tokens in the OpenStack environment?",
+      "choices": [
+        "To encrypt data at rest in the Swift object store",
+        "To provide a lookup and retrieval system for VM disk images",
+        "To facilitate access control by being assigned after authentication and used to query Keystone for permissions",
+        "To serve as a hardware security module (HSM) for key generation"
+      ],
+      "correct": 2,
+      "explanation": "In Keystone, after a user is authenticated, they are assigned a token. Other OpenStack services (like Nova) retain these tokens and use them to query Keystone to verify the user's roles and permissions during operations."
+    },
+    {
+      "id": "ch13-h09",
+      "stem": "In the context of the IoT World Forum Reference Model, which layer is responsible for converting network data flows into information suitable for storage and higher-level processing, often by reducing data volume through distillation?",
+      "choices": [
+        "Edge / Smart Objects",
+        "Fog / Edge Computing",
+        "Core Network",
+        "Cloud / Data Center"
+      ],
+      "correct": 1,
+      "explanation": "The Fog layer (Level 2/3) performs data processing close to the sensors. Its purpose is to convert massive volumes of raw sensor data into actionable information through operations like distillation, reduction, and assessment before sending it to the cloud."
+    },
+    {
+      "id": "ch13-h10",
+      "stem": "Which characteristic of 'Fog Computing' distinguishes it most significantly from 'Cloud Computing' regarding content consumption and generation?",
+      "choices": [
+        "Fog computing has high latency while Cloud computing has low latency.",
+        "Fog computing content is primarily generated by humans, whereas Cloud content is generated by sensors.",
+        "In Fog, content is generated and consumed at the edge, whereas Cloud content is generated at a central location and consumed at the end device.",
+        "Fog computing provides 99.99% availability while Cloud computing is highly volatile."
+      ],
+      "correct": 2,
+      "explanation": "According to the comparison of features, Fog computing involves content generation and consumption at the edge (on handheld devices or sensors), whereas Cloud computing typically involves content generation at a central location and consumption at the end device."
+    },
+    {
+      "id": "ch13-h11",
+      "stem": "According to Bruce Schneier, what is the 'patching vulnerability' crisis in the IoT primarily attributed to in the device manufacturing lifecycle?",
+      "choices": [
+        "Users refusing to install updates due to downtime concerns.",
+        "A lack of standardized wireless protocols like ZigBee or Bluetooth.",
+        "Manufacturers prioritizing low cost and speed-to-market over updateable firmware and security.",
+        "The transition from Information Technology (IT) to Operational Technology (OT)."
+      ],
+      "correct": 2,
+      "explanation": "The patching vulnerability arises because chip and device manufacturers have strong incentives to produce products as cheaply and quickly as possible, often using firmware that cannot be easily updated. This leaves embedded devices permanently exposed to vulnerabilities once they are deployed."
+    },
+    {
+      "id": "ch13-h12",
+      "stem": "MiniSec provides 'weak freshness' for sensor networks. How is this property defined in the context of the MiniSec module?",
+      "choices": [
+        "The receiver can verify the exact time a message was sent using a local clock.",
+        "The receiver can determine a partial ordering over received messages without a local reference time point.",
+        "The message is guaranteed to have been sent within the last 100 milliseconds.",
+        "The message is encrypted with a key that changes every 60 seconds."
+      ],
+      "correct": 1,
+      "explanation": "Weak freshness allows a receiver to determine a partial ordering of messages, ensuring that they were sent in a certain sequence, even if the receiver does not have a synchronized local clock to determine the exact time of transmission."
+    },
+    {
+      "id": "ch13-h13",
+      "stem": "MiniSec-B (the broadcast mode) employs a combination of which two mechanisms to defend against replay attacks within a specific time epoch?",
+      "choices": [
+        "Synchronized counters and RSA digital signatures",
+        "Timing-based approach and a Bloom-filter approach",
+        "Skipjack encryption and OCB tags",
+        "X.509 certificates and MAC address filtering"
+      ],
+      "correct": 1,
+      "explanation": "MiniSec-B uses a timing-based approach to divide time into epochs to prevent replays from older epochs, and it uses a Bloom-filter approach to prevent replay attacks from occurring inside the current epoch."
+    },
+    {
+      "id": "ch13-h14",
+      "stem": "A security framework for IoT developed by Cisco specifies that endpoints must be 'fingerprinted' without human interaction. Which of the following is NOT listed as a valid identifier for this automated authentication process?",
+      "choices": [
+        "X.509 certificates",
+        "RFID",
+        "MAC address",
+        "Username and Password"
+      ],
+      "correct": 3,
+      "explanation": "IoT endpoints must be identified using mechanisms that do not require human interaction. RFID, X.509 certificates, and MAC addresses are examples of such identifiers. Username and password (choice d) are considered 'human credentials' and are typical of enterprise IT, not automated IoT authentication."
+    },
+    {
+      "id": "ch13-h15",
+      "stem": "In the ITU-T Recommendation Y.2067 for IoT Gateways, which function is required to ensure that a gateway can handle firmware updates and self-repair?",
+      "choices": [
+        "Mutual authentication with applications",
+        "Support for identification of each access",
+        "Self-diagnosis and remote maintenance",
+        "Privacy protection for devices"
+      ],
+      "correct": 2,
+      "explanation": "ITU-T Recommendation Y.2067 specifically requires the gateway to support self-diagnosis, self-repair, and remote maintenance, as well as firmware and software updates to ensure the ongoing security and functionality of the IoT environment."
+    },
+    {
+      "id": "ch13-h16",
+      "stem": "A researcher is studying the MiniSec module and notes the use of the Skipjack algorithm. Why was Skipjack chosen despite 80-bit keys generally being considered inadequate by modern standards?",
+      "choices": [
+        "It is the only algorithm that supports Offset Codebook (OCB) mode.",
+        "It was developed by the NSA specifically for 5G cellular networks.",
+        "It is highly efficient in terms of code memory and data memory for constrained wireless sensor networks.",
+        "It provides 'Strong Freshness' which AES cannot provide."
+      ],
+      "correct": 2,
+      "explanation": "Skipjack is one of the simplest and fastest block ciphers, making it ideal for the extreme resource constraints (memory and power) of wireless sensor networks. Studies concluded it was the best choice for these specific limited applications despite the shorter key length."
+    },
+    {
+      "id": "ch13-h17",
+      "stem": "In the NIST Cloud Computing Reference Architecture, which actor is primarily responsible for ensuring that the CSP conforms to security standards through an independent assessment?",
+      "choices": [
+        "Cloud Broker",
+        "Cloud Auditor",
+        "Cloud Carrier",
+        "Cloud Service Consumer"
+      ],
+      "correct": 1,
+      "explanation": "The Cloud Auditor is an independent party that conducts assessments of cloud services, performance, and security implementation to assure that the CSP conforms to the required standards and SLAs."
+    },
+    {
+      "id": "ch13-h18",
+      "stem": "The Cisco IoT security framework includes 'Network Enforced Policy.' What is the primary scope of this component?",
+      "choices": [
+        "It defines the roles and responsibilities of the Cloud Service Provider.",
+        "It encompasses elements that route and transport endpoint traffic securely over the infrastructure.",
+        "It provides the visibility needed for central management of IoT devices.",
+        "It generates encryption keys for data at rest in the cloud."
+      ],
+      "correct": 1,
+      "explanation": "Network enforced policy encompasses the elements that ensure secure routing and transport of endpoint traffic (control, management, and data) across the network infrastructure."
+    },
+    {
+      "id": "ch13-h19",
+      "stem": "When evaluating 'Shared Technology Issues,' which countermeasure is specifically recommended to address vulnerabilities in the multi-tenant architecture's underlying physical components like GPU caches?",
+      "choices": [
+        "Stricter initial registration and validation processes",
+        "Using isolated VMs for individual clients",
+        "Encrypting and protecting the integrity of data in transit",
+        "Monitoring public blacklists"
+      ],
+      "correct": 1,
+      "explanation": "CSPs typically approach the risk of shared hardware components (like CPU/GPU caches) by using isolated VMs for individual clients to provide a logical barrier, though this is only one part of an overall security strategy."
+    },
+    {
+      "id": "ch13-h20",
+      "stem": "In the context of IoT evolution, which generation is characterized by single-purpose devices bought by consumers or IT/OT people, exclusively using wireless connectivity as part of larger systems?",
+      "choices": [
+        "Information Technology (IT)",
+        "Operational Technology (OT)",
+        "Personal Technology",
+        "Sensor/Actuator Technology"
+      ],
+      "correct": 3,
+      "explanation": "The fourth generation, Sensor/Actuator Technology, is identified as the IoT era. It involves single-purpose devices using wireless connectivity as part of larger systems, following the generations of IT, OT, and Personal Technology."
+    }
+  ]
+}
